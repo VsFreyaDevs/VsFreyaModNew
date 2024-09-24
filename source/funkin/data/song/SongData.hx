@@ -1,5 +1,6 @@
 package funkin.data.song;
 
+import flixel.util.FlxColor;
 import funkin.data.event.SongEventRegistry;
 import funkin.play.event.SongEvent;
 import funkin.data.event.SongEventSchema;
