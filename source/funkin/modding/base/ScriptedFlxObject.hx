@@ -1,8 +1,8 @@
 package funkin.modding.base;
 
 /**
- * A script that can be tied to an Object (empty base class).
- * Create a scripted class that extends Object to use this.
+ * A script that can be tied to an FlxObject.
+ * Create a scripted class that extends FlxObject to use this.
  */
 @:hscriptClass
-class ScriptedObject extends funkin.modding.base.Object implements HScriptedClass {}
+class ScriptedFlxObject extends flixel.FlxObject implements HScriptedClass {}
