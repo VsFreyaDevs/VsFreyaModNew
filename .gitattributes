@@ -1,0 +1,8 @@
+* text=auto eol=lf
+
+*.hxc linguist-language=Haxe
+*.hxp linguist-language=Haxe
+*.hxs linguist-language=Haxe
+*.hscript linguist-language=Haxe
+*.hx linguist-language=Haxe
+*.haxe linguist-language=Haxe
