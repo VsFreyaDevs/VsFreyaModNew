@@ -1,5 +1,8 @@
 name: Build Game for Windows
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
 jobs:
   Windows:
     runs-on: windows-latest
@@ -15,7 +18,7 @@ jobs:
         uses: krdlab/setup-haxe@master
         with:
           haxe-version: 4.3.4
-        
+
       - name: Install Libraries
         run: |
           haxelib install hmm --quiet

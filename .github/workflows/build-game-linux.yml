@@ -1,5 +1,8 @@
 name: Build Game for Linux
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
 jobs:
   Linux:
     runs-on: ubuntu-24.04
@@ -18,7 +21,7 @@ jobs:
 
       - name: Installing Dependencies
         run: sudo apt-get install libvlc-dev libvlccore-dev vlc-bin vlc
-        
+
       - name: Install Libraries
         run: |
           haxelib install hmm --quiet

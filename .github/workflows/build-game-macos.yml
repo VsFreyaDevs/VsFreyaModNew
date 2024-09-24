@@ -1,5 +1,8 @@
 name: Build Game for macOS
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
 jobs:
   macOS:
     runs-on: macos-${{matrix.version}}

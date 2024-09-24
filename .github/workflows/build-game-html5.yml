@@ -1,5 +1,8 @@
 name: Build Game for HTML5
-on: workflow_dispatch
+on:
+  push:
+    branches: [ main, develop ]
+  workflow_dispatch:
 jobs:
   HTML5:
     runs-on: ubuntu-24.04
