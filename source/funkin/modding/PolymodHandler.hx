@@ -227,7 +227,30 @@ class PolymodHandler
   {
     // Add default imports for common classes.
 
-    Polymod.addDefaultImport(Sys);
+    Polymod.addDefaultImport('funkin.util.ReflectUtil', 'Type');
+    Polymod.addDefaultImport('funkin.modding.module.Module');
+    Polymod.addDefaultImport('funkin.play.PlayState');
+    Polymod.addDefaultImport('funkin.play.event.SongEvent');
+    Polymod.addDefaultImport('Std');
+    Polymod.addDefaultImport('Math');
+    Polymod.addDefaultImport('flixel.FlxG');
+    Polymod.addDefaultImport('funkin.modding.module.ModuleHandler');
+    Polymod.addDefaultImport('funkin.Paths');
+    Polymod.addDefaultImport('funkin.Preferences');
+    Polymod.addDefaultImport('haxe.Json');
+    Polymod.addDefaultImport('lime.app.Application');
+    Polymod.addDefaultImport('flixel.FlxSprite');
+    Polymod.addDefaultImport('funkin.graphics.FunkinSprite');
+    Polymod.addDefaultImport('flixel.FlxBasic');
+    Polymod.addDefaultImport('flixel.tweens.FlxEase');
+    Polymod.addDefaultImport('flixel.tweens.FlxTween');
+    Polymod.addDefaultImport('flixel.system.FlxAssets');
+    Polymod.addDefaultImport('flixel.math.FlxMath');
+    Polymod.addDefaultImport('flixel.group.FlxGroup');
+    Polymod.addDefaultImport('flixel.group.FlxGroup.FlxTypedGroup');
+    Polymod.addDefaultImport('flixel.group.FlxSpriteGroup');
+    Polymod.addDefaultImport('flixel.text.FlxText');
+    Polymod.addDefaultImport('flixel.util.FlxTimer');
 
     // Add import aliases for certain classes.
     // NOTE: Scripted classes are automatically aliased to their parent class.
