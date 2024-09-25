@@ -805,6 +805,9 @@ class CharSelectSubState extends MusicBeatSubState
     if (cursorY < -1) cursorY = 1;
     if (cursorY > 1) cursorY = -1;
 
+    final validChar:Bool = availableChars.exists(getCurrentSelected())
+      && Save.instance.charactersSeen.contains(availableChars[getCurrentSelected()]);
+
     if (activeControls)
     {
       if (moved)
