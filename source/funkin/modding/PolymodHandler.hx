@@ -287,7 +287,7 @@ class PolymodHandler
     // `Unserializer`
     // Unserializerr.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages
     // Polymod.blacklistImport('Unserializer');
-    Polymod.addDefaultImport(Unserializer);
+    Polymod.addDefaultImport(haxe.Unserializer);
 
     // `lime.system.CFFI`
     // Can load and execute compiled binaries.
