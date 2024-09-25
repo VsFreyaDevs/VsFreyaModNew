@@ -117,6 +117,9 @@ class ScriptEventDispatcher
         case NOTE_GHOST_MISS:
           t.onNoteGhostMiss(cast event);
           return;
+        case SONG_BPM_CHANGE:
+          t.onBpmChange(cast event);
+          return;
         case SONG_START:
           t.onSongStart(event);
           return;

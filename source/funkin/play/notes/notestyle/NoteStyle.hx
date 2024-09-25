@@ -84,9 +84,12 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
 
     target.frames = atlas;
 
-    if (_data.assets?.note?.isPixel) target.antialiasing = false;
-    else
-      target.antialiasing = Preferences.antialiasing;
+    target.antialiasing = !(_data.assets?.note?.isPixel ?? false);
+    /*
+      if (_data.assets?.note?.isPixel) target.antialiasing = false;
+      else
+        target.antialiasing = Preferences.antialiasing;
+     */
 
     // Apply the animations.
     buildNoteAnimations(target);
@@ -243,9 +246,12 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     target.frames = atlas;
 
     target.scale.set(_data.assets.noteStrumline?.scale ?? 1.0);
-    if (_data.assets?.noteStrumline?.isPixel) target.antialiasing = false;
-    else
-      target.antialiasing = Preferences.antialiasing;
+    /*
+      if (_data.assets?.noteStrumline?.isPixel) target.antialiasing = false;
+      else
+        target.antialiasing = Preferences.antialiasing;
+     */
+    target.antialiasing = !(_data.assets.noteStrumline?.isPixel ?? false);
   }
 
   function getStrumlineAssetPath(raw:Bool = false):Null<String>

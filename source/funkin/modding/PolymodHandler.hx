@@ -19,6 +19,7 @@ import funkin.util.FileUtil;
 import funkin.util.macro.ClassMacro;
 import polymod.backends.PolymodAssets.PolymodAssetType;
 import polymod.format.ParseRules.TextFileFormat;
+import polymod.util.VersionUtil;
 import polymod.Polymod;
 
 /**
@@ -31,7 +32,7 @@ class PolymodHandler
    * Indicates which mods are compatible with this version of the game.
    * Minor updates rarely impact mods but major versions often do.
    */
-  static final API_VERSION:String = "0.5.0"; // Constants.VERSION;
+  public static final API_VERSION:String = "0.5.*"; // Constants.VERSION;
 
   /**
    * Where relative to the executable that mods are located.
@@ -53,6 +54,8 @@ class PolymodHandler
     #else
     null
     #end;
+
+  public static var outdatedMods(default, null):Array<ModMetadata> = [];
 
   public static var loadedModIds:Array<String> = [];
 
@@ -370,12 +373,21 @@ class PolymodHandler
     var modMetadata:Array<ModMetadata> = Polymod.scan(
       {
         modRoot: MOD_FOLDER,
-        apiVersionRule: API_VERSION,
+        apiVersionRule: VersionUtil.DEFAULT_VERSION_RULE,
         fileSystem: modFileSystem,
         errorCallback: PolymodErrorHandler.onPolymodError
       });
-    trace('Found ${modMetadata.length} mods when scanning.');
-    return modMetadata;
+    outdatedMods = [];
+    var validMods:Array<ModMetadata> = [];
+
+    for (data in modMetadata)
+    {
+      if (!VersionUtil.match(data.apiVersion, API_VERSION)) outdatedMods.push(data);
+      else
+        validMods.push(data);
+    }
+
+    return validMods;
   }
 
   /**
@@ -420,6 +432,14 @@ class PolymodHandler
     // Forcibly reload Polymod so it finds any new files.
     // TODO: Replace this with loadEnabledMods().
     funkin.modding.PolymodHandler.loadAllMods();
+
+    if (funkin.modding.PolymodHandler.outdatedMods.length > 0)
+    {
+      var description:String = 'Required Version: ${funkin.modding.PolymodHandler.API_VERSION}\n';
+      for (mod in funkin.modding.PolymodHandler.outdatedMods)
+        description += '\n${mod.title} (v${mod.apiVersion}, id: ${mod.id})';
+      funkin.modding.PolymodErrorHandler.showAlert('Outdated Mods', description);
+    }
 
     // Reload scripted classes so stages and modules will update.
     Polymod.registerAllScriptClasses();

@@ -173,6 +173,11 @@ class Bopper extends StageProp implements IPlayStateScriptedClass
     }
   }
 
+  /**
+   * Called when the BPM of the song changes.
+   */
+  public function onBpmChange(event:SongTimeScriptEvent) {}
+
   public function onBeatHit(event:SongTimeScriptEvent):Void {}
 
   /**

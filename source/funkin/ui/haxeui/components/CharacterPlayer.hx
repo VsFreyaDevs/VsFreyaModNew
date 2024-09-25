@@ -198,7 +198,17 @@ class CharacterPlayer extends Box
   }
 
   /**
-   * Called when an beat is hit in the song
+   * Called when the BPM changes in the song
+   * Used to play character animations.
+   * @param event The event.
+   */
+  public function onBpmChange(event:SongTimeScriptEvent):Void
+  {
+    if (character != null) character.onBpmChange(event);
+  }
+
+  /**
+   * Called when an beat is hit in the song.
    * Used to play character animations.
    * @param event The event.
    */
@@ -208,7 +218,7 @@ class CharacterPlayer extends Box
   }
 
   /**
-   * Called when a step is hit in the song
+   * Called when a step is hit in the song.
    * Used to play character animations.
    * @param event The event.
    */
@@ -223,7 +233,7 @@ class CharacterPlayer extends Box
   }
 
   /**
-   * Called when a note is hit in the song
+   * Called when a note is hit in the song.
    * Used to play character animations.
    * @param event The event.
    */
@@ -233,7 +243,7 @@ class CharacterPlayer extends Box
   }
 
   /**
-   * Called when a note is missed in the song
+   * Called when a note is missed in the song.
    * Used to play character animations.
    * @param event The event.
    */
@@ -243,7 +253,7 @@ class CharacterPlayer extends Box
   }
 
   /**
-   * Called when a key is pressed but no note is hit in the song
+   * Called when a key is pressed but no note is hit in the song.
    * Used to play character animations.
    * @param event The event.
    */

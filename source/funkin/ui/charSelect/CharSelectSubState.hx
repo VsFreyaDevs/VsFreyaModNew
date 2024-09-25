@@ -824,8 +824,7 @@ class CharSelectSubState extends MusicBeatSubState
           if (validChar)
           {
             cursorConfirmed.visible = true;
-            cursorConfirmed.x = cursor.x - 2;
-            cursorConfirmed.y = cursor.y - 4;
+
             cursorConfirmed.animation.play("idle", true);
 
             grpCursors.visible = false;
@@ -844,8 +843,6 @@ class CharSelectSubState extends MusicBeatSubState
           else
           {
             cursorDenied.visible = true;
-            cursorDenied.x = cursor.x - 2;
-            cursorDenied.y = cursor.y - 4;
 
             playerChill.playAnimation("cannot select Label", true);
 
@@ -906,6 +903,12 @@ class CharSelectSubState extends MusicBeatSubState
 
     cursorDarkBlue.x = MathUtil.coolLerp(cursorDarkBlue.x, cursorLocIntended.x, lerpAmnt * 0.2);
     cursorDarkBlue.y = MathUtil.coolLerp(cursorDarkBlue.y, cursorLocIntended.y, lerpAmnt * 0.2);
+
+    cursorConfirmed.x = cursor.x - 2;
+    cursorConfirmed.y = cursor.y - 4;
+
+    cursorDenied.x = cursor.x - 2;
+    cursorDenied.y = cursor.y - 4;
   }
 
   var bopTimer:Float = 0;

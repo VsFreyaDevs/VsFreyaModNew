@@ -153,6 +153,11 @@ interface IPlayStateScriptedClass extends INoteScriptedClass extends IBPMSyncedS
   public function onSongEvent(event:SongEventScriptEvent):Void;
 
   /**
+   * Called when the BPM changes.
+   */
+  public function onBpmChange(event:SongTimeScriptEvent):Void;
+
+  /**
    * Called when the countdown of the song starts.
    */
   public function onCountdownStart(event:CountdownScriptEvent):Void;

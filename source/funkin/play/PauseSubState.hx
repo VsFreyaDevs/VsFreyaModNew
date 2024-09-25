@@ -166,6 +166,11 @@ class PauseSubState extends MusicBeatSubState
   var metadataPractice:FlxText;
 
   /**
+   * A text object that displays the current botplay mode status.
+   */
+  var metadataBot:FlxText;
+
+  /**
    * A text object that displays the current death count.
    */
   var metadataDeaths:FlxText;
@@ -289,32 +294,25 @@ class PauseSubState extends MusicBeatSubState
 
     var metadataSong:FlxText = new FlxText(20, 15, FlxG.width - 40, 'Song Name');
     metadataSong.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
-    if (PlayState.instance?.currentChart != null)
-    {
-      metadataSong.text = '${PlayState.instance.currentChart.songName}';
-    }
+    if (PlayState.instance?.currentChart != null) metadataSong.text = '${PlayState.instance.currentChart.songName}';
     metadataSong.scrollFactor.set(0, 0);
     metadata.add(metadataSong);
 
     metadataArtist = new FlxText(20, metadataSong.y + 32, FlxG.width - 40, 'Artist: ${Constants.DEFAULT_ARTIST}');
     metadataArtist.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
-    if (PlayState.instance?.currentChart != null)
-    {
-      metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
-    }
+    if (PlayState.instance?.currentChart != null) metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
     metadataArtist.scrollFactor.set(0, 0);
     metadata.add(metadataArtist);
 
     var metadataDifficulty:FlxText = new FlxText(20, metadataArtist.y + 32, FlxG.width - 40, 'Difficulty: ');
     metadataDifficulty.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
-    if (PlayState.instance?.currentDifficulty != null)
-    {
-      metadataDifficulty.text += PlayState.instance.currentDifficulty.replace('-', ' ').toTitleCase();
-    }
+    if (PlayState.instance?.currentDifficulty != null) metadataDifficulty.text += PlayState.instance.currentDifficulty.replace('-', ' ').toTitleCase();
     metadataDifficulty.scrollFactor.set(0, 0);
     metadata.add(metadataDifficulty);
 
-    metadataDeaths = new FlxText(20, metadataDifficulty.y + 32, FlxG.width - 40, '${PlayState.instance?.deathCounter} Blue Balls');
+    var deathText = Preferences.naughtyness ? 'Blue Ball' : 'Death';
+    var possiblyS = PlayState.instance?.deathCounter == 1 ? '' : 's';
+    metadataDeaths = new FlxText(20, metadataDifficulty.y + 32, FlxG.width - 40, '${PlayState.instance?.deathCounter} $deathText$possiblyS');
     metadataDeaths.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
     metadataDeaths.scrollFactor.set(0, 0);
     metadata.add(metadataDeaths);
@@ -324,6 +322,15 @@ class PauseSubState extends MusicBeatSubState
     metadataPractice.visible = PlayState.instance?.isPracticeMode ?? false;
     metadataPractice.scrollFactor.set(0, 0);
     metadata.add(metadataPractice);
+
+    metadataBot = new FlxText(20, metadataPractice.y + 32, FlxG.width - 40, '');
+    if (metadataPractice.visible) metadataBot = new FlxText(20, metadataPractice.y + 32, FlxG.width - 40, 'BOTPLAY MODE');
+    else
+      metadataBot = new FlxText(20, metadataDeaths.y + 32, FlxG.width - 40, 'BOTPLAY MODE');
+    metadataBot.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
+    metadataBot.visible = PlayState.instance?.isBotPlayMode ?? false;
+    metadataBot.scrollFactor.set(0, 0);
+    metadata.add(metadataBot);
 
     updateMetadataText();
   }
@@ -337,14 +344,9 @@ class PauseSubState extends MusicBeatSubState
         startDelay: CHARTER_FADE_DELAY,
         ease: FlxEase.quartOut,
         onComplete: (_) -> {
-          if (PlayState.instance?.currentChart != null)
-          {
-            metadataArtist.text = 'Charter: ${PlayState.instance.currentChart.charter ?? 'Unknown'}';
-          }
+          if (PlayState.instance?.currentChart != null) metadataArtist.text = 'Charter: ${PlayState.instance.currentChart.charter ?? 'Unknown'}';
           else
-          {
             metadataArtist.text = 'Charter: ${Constants.DEFAULT_CHARTER}';
-          }
 
           FlxTween.tween(metadataArtist, {alpha: 1.0}, CHARTER_FADE_DURATION,
             {
@@ -364,14 +366,9 @@ class PauseSubState extends MusicBeatSubState
         startDelay: CHARTER_FADE_DELAY,
         ease: FlxEase.quartOut,
         onComplete: (_) -> {
-          if (PlayState.instance?.currentChart != null)
-          {
-            metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
-          }
+          if (PlayState.instance?.currentChart != null) metadataArtist.text = 'Artist: ${PlayState.instance.currentChart.songArtist}';
           else
-          {
             metadataArtist.text = 'Artist: ${Constants.DEFAULT_ARTIST}';
-          }
 
           FlxTween.tween(metadataArtist, {alpha: 1.0}, CHARTER_FADE_DURATION,
             {
