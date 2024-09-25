@@ -84,7 +84,7 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
 
     target.frames = atlas;
 
-    if (_data.assets.note.isPixel) target.antialiasing = false;
+    if (_data.assets?.note?.isPixel) target.antialiasing = false;
     else
       target.antialiasing = Preferences.antialiasing;
 
@@ -243,7 +243,7 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     target.frames = atlas;
 
     target.scale.set(_data.assets.noteStrumline?.scale ?? 1.0);
-    if (_data.assets.noteStrumline?.isPixel) target.antialiasing = false;
+    if (_data.assets?.noteStrumline?.isPixel) target.antialiasing = false;
     else
       target.antialiasing = Preferences.antialiasing;
   }
