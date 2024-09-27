@@ -779,8 +779,8 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_RIGHT: return [E]; // Switch tabs on the menu
           case Control.FREEPLAY_CHAR_SELECT: return [TAB];
           case Control.CUTSCENE_ADVANCE: return [Z, ENTER];
-          case Control.DEBUG_MENU: return [GRAVEACCENT];
-          case Control.DEBUG_CHART: return [];
+          case Control.DEBUG_MENU: return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
+          case Control.DEBUG_CHART: return [SEVEN]; // like the legacy engine
           case Control.DEBUG_STAGE: return [];
           case Control.VOLUME_UP: return [PLUS, NUMPADPLUS];
           case Control.VOLUME_DOWN: return [MINUS, NUMPADMINUS];
@@ -808,8 +808,8 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_RIGHT: return [E]; // Switch tabs on the menu
           case Control.FREEPLAY_CHAR_SELECT: return [TAB];
           case Control.CUTSCENE_ADVANCE: return [G, Z];
-          case Control.DEBUG_MENU: return [GRAVEACCENT];
-          case Control.DEBUG_CHART: return [];
+          case Control.DEBUG_MENU: return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
+          case Control.DEBUG_CHART: return [SEVEN]; // like the legacy engine
           case Control.DEBUG_STAGE: return [];
           case Control.VOLUME_UP: return [PLUS];
           case Control.VOLUME_DOWN: return [MINUS];
