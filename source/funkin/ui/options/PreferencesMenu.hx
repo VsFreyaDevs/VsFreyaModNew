@@ -142,6 +142,7 @@ class PreferencesMenu extends Page
     }, Preferences.flashingLights);
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
+      FlxSprite.defaultAntialiasing = Preferences.antialiasing;
     }, Preferences.antialiasing);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
@@ -157,7 +158,7 @@ class PreferencesMenu extends Page
     #else
     createPrefItemNumber('FPS Cap', 'The framerate that the game is running on', function(value:Float) {
       Preferences.framerate = Std.int(value);
-    }, null, Preferences.framerate, 60, 360, 1, 0);
+    }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 360, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
