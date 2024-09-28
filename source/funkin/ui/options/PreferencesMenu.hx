@@ -155,7 +155,7 @@ class PreferencesMenu extends Page
       Preferences.unlockedFramerate = value;
     }, Preferences.unlockedFramerate);
     #else
-    createPrefItemNumber('FPS Cap', 'The framerate that the game is running on', function(value:Float) {
+    createPrefItemNumber('FPS Cap', 'Set the current frame rate cap of the game', function(value:Float) {
       Preferences.framerate = Std.int(value);
     }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 360, 1, 0);
     #end
@@ -166,7 +166,7 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Debug Display', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
       Preferences.debugDisplay = value;
     }, Preferences.debugDisplay);
-    createPrefItemCheckbox('Auto Pause', 'Automatically pause the game when it loses focus', function(value:Bool):Void {
+    createPrefItemCheckbox('Auto Pause', 'Enable so it automatically pauses the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
     }, Preferences.autoPause);
 
