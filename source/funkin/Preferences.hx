@@ -173,7 +173,7 @@ class Preferences
 
   /**
    * If disabled, the camera bump won't synchronize to the beat.
-   * @default `false`
+   * @default `true`
    */
   public static var zoomCamera(get, set):Bool;
 
@@ -192,7 +192,7 @@ class Preferences
 
   /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.
-   * @default `false`
+   * @default `true`
    */
   public static var debugDisplay(get, set):Bool;
 

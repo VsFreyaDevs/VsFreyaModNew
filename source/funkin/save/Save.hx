@@ -100,7 +100,7 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
-          debugDisplay: false,
+          debugDisplay: true,
           autoPause: true,
           laneAlpha: 0,
           badsShitsCauseMiss: true,
@@ -1225,13 +1225,13 @@ typedef SaveDataOptions =
 
   /**
    * If disabled, the camera bump won't synchronize to the beat.
-   * @default `false`
+   * @default `true`
    */
   var zoomCamera:Bool;
 
   /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.
-   * @default `false`
+   * @default `true`
    */
   var debugDisplay:Bool;
 
