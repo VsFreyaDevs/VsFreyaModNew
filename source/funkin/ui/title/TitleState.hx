@@ -271,23 +271,17 @@ class TitleState extends MusicBeatState
     #end
 
     #if desktop
-    if (FlxG.keys.justPressed.ESCAPE)
-    {
-      Sys.exit(0);
-    }
+    if (FlxG.keys.justPressed.ESCAPE) Sys.exit(0);
     #end
 
-    if (Save.instance.charactersSeen.contains("pico"))
+    if (Save.instance.charactersSeen.contains("pico") && false) // this fix doesnt really matter cuz the save data just doesnt work lol
     {
       Save.instance.charactersSeen.remove("pico");
       Save.instance.oldChar = false;
     }
     Conductor.instance.update();
 
-    if (FlxG.keys.justPressed.I)
-    {
-      FlxTween.tween(outlineShaderShit, {funnyX: 50, funnyY: 50}, 0.6, {ease: FlxEase.quartOut});
-    }
+    if (FlxG.keys.justPressed.I) FlxTween.tween(outlineShaderShit, {funnyX: 50, funnyY: 50}, 0.6, {ease: FlxEase.quartOut});
     if (FlxG.keys.pressed.D) outlineShaderShit.funnyX += 1;
     // outlineShaderShit.xPos.value[0] += 1;
 

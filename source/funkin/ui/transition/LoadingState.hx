@@ -220,7 +220,7 @@ class LoadingState extends MusicBeatSubState
       params.targetVariation ?? Constants.DEFAULT_VARIATION);
 
     var daStage = funkin.data.stage.StageRegistry.instance.fetchEntry(daChart.stage);
-		stageDirectory = daStage?._data?.directory ?? "shared";
+    stageDirectory = daStage?._data?.directory ?? "shared";
     Paths.setCurrentLevel(stageDirectory);
 
     var playStateCtor:() -> PlayState = function() {
@@ -326,6 +326,11 @@ class LoadingState extends MusicBeatSubState
     FunkinSprite.cacheTexture(Paths.image('noteSplashes', 'shared'));
     FunkinSprite.cacheTexture(Paths.image('noteStrumline', 'shared'));
     FunkinSprite.cacheTexture(Paths.image('NOTE_hold_assets'));
+
+    FunkinSprite.cacheTexture(Paths.image('holdCoverRed', 'shared')); // you forgot hold covers
+    FunkinSprite.cacheTexture(Paths.image('holdCoverPurple', 'shared'));
+    FunkinSprite.cacheTexture(Paths.image('holdCoverGreen', 'shared'));
+    FunkinSprite.cacheTexture(Paths.image('holdCoverBlue', 'shared'));
 
     FunkinSprite.cacheTexture(Paths.image('ui/countdown/funkin/ready', 'shared'));
     FunkinSprite.cacheTexture(Paths.image('ui/countdown/funkin/set', 'shared'));
