@@ -11,6 +11,11 @@ import flixel.math.FlxMath;
 class NoteKind implements INoteScriptedClass
 {
   /**
+   * The name of the note kind
+   */
+  public var noteKind:String;
+
+  /**
    * Title used in chart editor
    */
   public var title:String;
