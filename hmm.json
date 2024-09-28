@@ -149,7 +149,7 @@
       "type": "git",
       "dir": null,
       "ref": "dev-funkin-arm64",
-      "url": "https://github.com/FunkinDroidTeam/lime"
+      "url": "https://github.com/VsPlanktonLegacyDevs/lime3"
     },
     {
       "name": "mconsole",
@@ -183,8 +183,8 @@
       "name": "openfl",
       "type": "git",
       "dir": null,
-      "ref": "8306425c497766739510ab29e876059c96f77bd2",
-      "url": "https://github.com/FunkinCrew/openfl"
+      "ref": "dev-funkin",
+      "url": "https://github.com/VsPlanktonLegacyDevs/openfl2"
     },
     {
       "name": "polymod",
