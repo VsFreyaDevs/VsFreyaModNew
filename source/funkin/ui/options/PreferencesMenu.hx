@@ -308,6 +308,7 @@ class PreferencesMenu extends Page
   {
     var item = new EnumPreferenceItem(0, (120 * items.length) + 30, prefName, values, defaultValue, onChange);
     items.addItem(prefName, item);
+
     preferenceItems.add(item.lefthandText);
     preferenceDesc.push(prefDesc);
   }
