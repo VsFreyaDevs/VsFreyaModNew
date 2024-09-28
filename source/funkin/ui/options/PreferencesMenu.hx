@@ -232,7 +232,7 @@ class PreferencesMenu extends Page
     items.createItem(0, (120 * items.length) + 30, header, AtlasFont.BOLD, () ->
       {
         // swag
-      });
+      }, true);
     preferenceItems.add(blank);
     preferenceDesc.push(" ");
   }
