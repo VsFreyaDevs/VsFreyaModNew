@@ -3,6 +3,8 @@ package funkin.util.assets;
 import haxe.io.Bytes;
 import openfl.media.Sound as OpenFLSound;
 import funkin.audio.FunkinSound;
+import flixel.sound.FlxSound;
+import lime.media.AudioSource;
 
 class SoundUtil
 {
