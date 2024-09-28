@@ -562,9 +562,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   var noteKindToPlace:Null<String> = null;
 
   /**
-   * The note params to use for notes being placed in the chart. Defaults to `[]`.
+   * The note params to use for notes being placed in the chart. Defaults to `{}`.
    */
-  var noteParamsToPlace:Array<NoteParamData> = [];
+  var noteParamsToPlace:DynamicAccess<Dynamic> = {};
 
   /**
    * The event type to use for events being placed in the chart. Defaults to `''`.
@@ -4764,8 +4764,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
                 else
                 {
                   // Create a note and place it in the chart.
-                  var newNoteData:SongNoteData = new SongNoteData(cursorSnappedMs, cursorColumn, 0, noteKindToPlace,
-                    ChartEditorState.cloneNoteParams(noteParamsToPlace));
+                  var newNoteData:SongNoteData = new SongNoteData(cursorSnappedMs, cursorColumn, 0, noteKindToPlace, Reflect.copy(noteParamsToPlace));
 
                   performCommand(new AddNotesCommand([newNoteData], FlxG.keys.pressed.CONTROL));
 
@@ -4925,7 +4924,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
             if (gridGhostNote == null) throw "ERROR: Tried to handle cursor, but gridGhostNote is null! Check ChartEditorState.buildGrid()";
 
             var noteData:SongNoteData = gridGhostNote.noteData != null ? gridGhostNote.noteData : new SongNoteData(cursorMs, cursorColumn, 0, noteKindToPlace,
-              ChartEditorState.cloneNoteParams(noteParamsToPlace));
+              Reflect.copy(noteParamsToPlace));
 
             if (cursorColumn != noteData.data || noteKindToPlace != noteData.kind || noteParamsToPlace != noteData.params)
             {
@@ -5203,9 +5202,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     if (notesAtPos.length == 0 && !removeNoteInstead)
     {
       trace('Placing note. ${column}');
-      var newNoteData:SongNoteData = new SongNoteData(playheadPosSnappedMs, column, 0, noteKindToPlace, ChartEditorState.cloneNoteParams(noteParamsToPlace));
-      performCommand(new AddNotesCommand([newNoteData], FlxG.keys.pressed.CONTROL));
-      currentLiveInputPlaceNoteData[column] = newNoteData;
+      var newNoteData:SongNoteData = new SongNoteData(playheadPosSnappedMs, column, 0, noteKindToPlace, Reflect.copy(noteParamsToPlace));
     }
     else if (removeNoteInstead)
     {
@@ -5213,9 +5210,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
       performCommand(new RemoveNotesCommand(notesAtPos));
     }
     else
-    {
       trace('Already a note there. ${column}');
-    }
   }
 
   function placeEventAtPlayhead(isOpponent:Bool):Void

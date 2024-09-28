@@ -75,6 +75,10 @@ class SetItemSelectionCommand implements ChartEditorCommand
       var noteSelected = this.notes[0];
 
       state.noteKindToPlace = noteSelected.kind;
+      var noteSchema = noteSelected.getSchema();
+      var defaultKey = noteSchema?.getFirstField()?.name;
+      var noteParams = noteSelected.paramsAsStruct(defaultKey);
+      state.noteParamsToPlace = noteParams;
 
       state.refreshToolbox(ChartEditorState.CHART_EDITOR_TOOLBOX_NOTE_DATA_LAYOUT);
     }
