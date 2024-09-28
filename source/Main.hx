@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
+import funkin.Preferences;
 import funkin.util.logging.CrashHandler;
 import funkin.ui.debug.MemoryCounter;
 import funkin.save.Save;
@@ -14,6 +15,14 @@ import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
 
+// Adds support for FeralGamemode on Linux
+#if (linux && !DISABLE_GAMEMODE)
+@:cppInclude('./external/gamemode_client.h')
+@:cppFileCode('
+	#define GAMEMODE_AUTO
+')
+#end
+
 /**
  * The main class which initializes HaxeFlixel and starts the game in its initial state.
  */
@@ -23,12 +32,13 @@ class Main extends Sprite
   var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
   var initialState:Class<FlxState> = funkin.InitState; // The FlxState the game starts with.
   var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
-  #if (web || CHEEMS || mobile)
-  var framerate:Int = 60; // How many frames per second the game should run at.
-  #else
-  // TODO: This should probably be in the options menu?
-  var framerate:Int = 144; // How many frames per second the game should run at.
-  #end
+  /*
+    #if (web || CHEEMS || mobile)
+    var framerate:Int = 60; // How many frames per second the game should run at.
+    #else
+    var framerate:Int = 144; // How many frames per second the game should run at.
+    #end
+   */
   var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
   var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
@@ -134,7 +144,7 @@ class Main extends Sprite
     if (framerate < 60) framerate = 60;
     #end
 
-    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, framerate, framerate, skipSplash, startFullscreen);
+    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, Preferences.framerate, Preferences.framerate, skipSplash, startFullscreen);
 
     openfl.Lib.current.stage.align = "tl";
     openfl.Lib.current.stage.scaleMode = openfl.display.StageScaleMode.NO_SCALE;
@@ -151,11 +161,13 @@ class Main extends Sprite
     game.debugger.interaction.addTool(new funkin.util.TrackerToolButtonUtil());
     #end
 
-    #if mobile
-    flixel.FlxG.game.addChild(fpsCounter);
-    #else
-    addChild(fpsCounter);
-    #end
+    /*
+      #if mobile
+      flixel.FlxG.game.addChild(fpsCounter);
+      #else
+      addChild(fpsCounter);
+      #end
+     */
 
     #if hxcpp_debug_server
     trace('hxcpp_debug_server is enabled! You can now connect to the game with a debugger.');

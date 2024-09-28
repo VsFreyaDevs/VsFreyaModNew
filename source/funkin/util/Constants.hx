@@ -478,8 +478,10 @@ class Constants
   public static final JUDGEMENT_KILLER_COMBO_BREAK:Bool = false;
   public static final JUDGEMENT_SICK_COMBO_BREAK:Bool = false;
   public static final JUDGEMENT_GOOD_COMBO_BREAK:Bool = false;
-  public static final JUDGEMENT_BAD_COMBO_BREAK:Bool = true;
-  public static final JUDGEMENT_SHIT_COMBO_BREAK:Bool = true;
+
+  // Of course, the 2 vars below aren't actually constants but like I had to do it for an option, come on...
+  public static var JUDGEMENT_BAD_COMBO_BREAK:Bool = true;
+  public static var JUDGEMENT_SHIT_COMBO_BREAK:Bool = true;
 
   // % Sick
   public static final RANK_PERFECT_PLAT_THRESHOLD:Float = 1.0; // % Sick

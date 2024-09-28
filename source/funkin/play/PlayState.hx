@@ -492,6 +492,11 @@ class PlayState extends MusicBeatSubState
   public var iconP2:HealthIcon;
 
   /**
+   * The background/underlay behind the player's strum lane.
+   */
+  public var laneUnderlay:FlxSprite;
+
+  /**
    * The sprite group containing active player's strumline notes.
    */
   public var playerStrumline:Strumline;
@@ -641,6 +646,9 @@ class PlayState extends MusicBeatSubState
     playbackRate = params.playbackRate ?? 1.0;
     overrideMusic = params.overrideMusic ?? false;
     previousCameraFollowPoint = params.cameraFollowPoint;
+
+    Constants.JUDGEMENT_BAD_COMBO_BREAK = Preferences.badsShitsCauseMiss;
+    Constants.JUDGEMENT_SHIT_COMBO_BREAK = Preferences.badsShitsCauseMiss;
 
     // Don't do anything else here! Wait until create() when we attach to the camera.
   }
@@ -1548,14 +1556,14 @@ class PlayState extends MusicBeatSubState
     healthBarBG = FunkinSprite.create(0, healthBarYPos, 'healthBar');
     healthBarBG.screenCenter(X);
     healthBarBG.scrollFactor.set(0, 0);
-    healthBarBG.zIndex = 800;
+    healthBarBG.zIndex = 799;
     add(healthBarBG);
 
     healthBar = new FlxBar(healthBarBG.x + 4, healthBarBG.y + 4, RIGHT_TO_LEFT, Std.int(healthBarBG.width - 8), Std.int(healthBarBG.height - 8), this,
       'healthLerp', 0, 2);
     healthBar.scrollFactor.set();
     healthBar.createFilledBar(Constants.COLOR_HEALTH_BAR_RED, Constants.COLOR_HEALTH_BAR_GREEN);
-    healthBar.zIndex = 801;
+    healthBar.zIndex = 800;
     add(healthBar);
 
     // The score text below the health bar.
@@ -1681,7 +1689,7 @@ class PlayState extends MusicBeatSubState
       iconP2 = new HealthIcon('dad', 1);
       iconP2.y = healthBar.y - (iconP2.height / 2);
       dad.initHealthIcon(true); // Apply the character ID here
-      iconP2.zIndex = 850;
+      iconP2.zIndex = 801;
       add(iconP2);
       iconP2.cameras = [camHUD];
     }
@@ -1701,7 +1709,7 @@ class PlayState extends MusicBeatSubState
       iconP1 = new HealthIcon('bf', 0);
       iconP1.y = healthBar.y - (iconP1.height / 2);
       boyfriend.initHealthIcon(false); // Apply the character ID here
-      iconP1.zIndex = 850;
+      iconP1.zIndex = 801;
       add(iconP1);
       iconP1.cameras = [camHUD];
     }
@@ -1758,9 +1766,16 @@ class PlayState extends MusicBeatSubState
 
     playerStrumline = new Strumline(noteStyle, !isBotPlayMode);
     playerStrumline.onNoteIncoming.add(onStrumlineNoteIncoming);
+
+    laneUnderlay = new FlxSprite();
+    // Pad the background 15 pixels on each side.
+    laneUnderlay.makeGraphic(Strumline.NOTE_SPACING * 4 + 30, 5000, FlxColor.BLACK);
+
     opponentStrumline = new Strumline(noteStyle, false);
     opponentStrumline.onNoteIncoming.add(onStrumlineNoteIncoming);
+
     add(playerStrumline);
+    add(laneUnderlay);
     add(opponentStrumline);
 
     // Position the player strumline on the right half of the screen
@@ -1784,6 +1799,20 @@ class PlayState extends MusicBeatSubState
       for (arrow in opponentStrumline.members)
         arrow.visible = false;
     }
+
+    // NOTE: Preferences.laneAlpha is a percentage stored as an int.
+    // i.e. `50%` is stored as `50`.
+    // Dividing it by 100 gives us the real Float value we need to create a transparent object.
+    var realBackgroundAlpha:Float = Preferences.laneAlpha * 1.0;
+    realBackgroundAlpha /= 100;
+    laneUnderlay.alpha = realBackgroundAlpha;
+    // Position the background slightly offset from the strumbar for a bit of padding.
+    if (Preferences.middlescroll) laneUnderlay.x = (FlxG.width / 2 - playerStrumline.width / 2) - 15;
+    else
+      laneUnderlay.x = (FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET) - 15;
+    laneUnderlay.y = 0;
+    laneUnderlay.zIndex = 600; // Renders beneath the health bar.
+    laneUnderlay.cameras = [camHUD];
 
     playerStrumline.fadeInArrows();
     opponentStrumline.fadeInArrows();

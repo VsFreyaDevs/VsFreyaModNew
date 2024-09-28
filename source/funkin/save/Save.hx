@@ -89,6 +89,7 @@ class Save
       options:
         {
           // Reasonable defaults.
+          framerate: 60,
           noteSplash: true,
           naughtyness: true,
           downscroll: false,
@@ -101,6 +102,8 @@ class Save
           zoomCamera: true,
           debugDisplay: false,
           autoPause: true,
+          laneAlpha: 0.6,
+          badsShitsCauseMiss: true,
           inputOffset: 0,
           audioVisualOffset: 0,
           unlockedFramerate: false,
@@ -1177,6 +1180,12 @@ typedef SaveDataOptions =
   var noteSplash:Bool;
 
   /**
+   * The cap of your framerate, self-explanatory.
+   * @default `60`
+   */
+  var framerate:Int;
+
+  /**
    * Whether some particularly fowl language is displayed.
    * @default `true`
    */
@@ -1233,6 +1242,14 @@ typedef SaveDataOptions =
   var autoPause:Bool;
 
   /**
+   * How transparent should the black underlay be under the lanes?
+   *
+   * 0 = fully transparent, 100 = opaque.
+   * @default `0`
+   */
+  var laneAlpha:Int;
+
+  /**
    * Offset the users inputs by this many ms.
    * @default `0`
    */
@@ -1249,6 +1266,12 @@ typedef SaveDataOptions =
    * @default `false
    */
   var unlockedFramerate:Bool;
+
+  /**
+   * If enabled, bads and shits will count as combo breaks.
+   * @default `true`
+   */
+  var badsShitsCauseMiss:Bool;
 
   var controls:
     {

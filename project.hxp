@@ -506,6 +506,8 @@ class Project extends HXProject {
 			setHaxedef("FLX_NO_DEBUG");
 		}
 
+		// setHaxedef("DISABLE_GAMEMODE");
+
 		// Disable the built in pause screen when unfocusing the game.
 		setHaxedef("FLX_NO_FOCUS_LOST_SCREEN");
 

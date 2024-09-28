@@ -65,6 +65,35 @@ class Preferences
   }
 
   /**
+   * The cap of your framerate, self-explanatory.
+   * @default `60`
+   */
+  public static var framerate(get, set):Int;
+
+  static function get_framerate():Int
+  {
+    #if (web || CHEEMS)
+    return 60;
+    #else
+    return Save?.instance?.options?.framerate ?? 60;
+    #end
+  }
+
+  static function set_framerate(value:Int):Int
+  {
+    #if (web || CHEEMS)
+    return 60;
+    #else
+    var save:Save = Save.instance;
+    save.options.framerate = value;
+    save.flush();
+    FlxG.updateFramerate = value;
+    FlxG.drawFramerate = value;
+    return value;
+    #end
+  }
+
+  /**
    * Whether some particularly fowl language is displayed.
    * @default `true`
    */
@@ -224,6 +253,46 @@ class Preferences
 
     var save:Save = Save.instance;
     save.options.unlockedFramerate = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * If enabled, bads and shits will count as combo breaks.
+   * @default `true`
+   */
+  public static var badsShitsCauseMiss(get, set):Bool;
+
+  static function get_badsShitsCauseMiss():Bool
+  {
+    return Save?.instance?.options?.badsShitsCauseMiss ?? true;
+  }
+
+  static function set_badsShitsCauseMiss(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.badsShitsCauseMiss = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * How transparent should the black underlay be under the lanes?
+   *
+   * 0 = fully transparent, 100 = opaque.
+   * @default `0`
+   */
+  public static var laneAlpha(get, set):Int;
+
+  static function get_laneAlpha():Int
+  {
+    return Save?.instance?.options?.laneAlpha ?? 0;
+  }
+
+  static function set_gameplayBackgroundAlpha(value:Int):Int
+  {
+    var save:Save = Save.instance;
+    save.options.gameplayBackgroundAlpha = value;
     save.flush();
     return value;
   }

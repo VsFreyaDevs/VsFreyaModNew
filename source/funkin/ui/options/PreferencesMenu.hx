@@ -59,7 +59,7 @@ class PreferencesMenu extends Page
     descTextBG.scrollFactor.set();
     descTextBG.antialiasing = false;
     descTextBG.active = false;
-    descText = new FlxText(0, 0, 0, "idk bud", 26);
+    descText = new FlxText(0, 0, 0, "what the fuck", 26);
     descText.scrollFactor.set();
     descText.font = Paths.font("vcr.ttf");
     descText.alignment = CENTER;
@@ -77,9 +77,9 @@ class PreferencesMenu extends Page
     if (items != null) camFollow.y = items.selectedItem.y;
 
     menuCamera.follow(camFollow, null, 0.06);
-    var margin = 160;
-    menuCamera.deadzone.set(0, margin, menuCamera.width, 40);
-    menuCamera.minScrollY = 0;
+    var margin = 100;
+    menuCamera.deadzone.set(0, margin, menuCamera.width, menuCamera.height - margin * 2);
+    // menuCamera.minScrollY = 0;
 
     var prevIndex = 0;
     var prevItem = items.selectedItem;
@@ -121,9 +121,7 @@ class PreferencesMenu extends Page
    */
   function createPrefItems():Void
   {
-    createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
-      Preferences.naughtyness = value;
-    }, Preferences.naughtyness);
+    createPrefHeader('Gameplay');
     createPrefItemCheckbox('Downscroll', 'Enable to make notes move downwards', function(value:Bool):Void {
       Preferences.downscroll = value;
     }, Preferences.downscroll);
@@ -131,10 +129,11 @@ class PreferencesMenu extends Page
       Preferences.middlescroll = value;
     }, Preferences.middlescroll);
     #if FEATURE_GHOST_TAPPING
-    createPrefItemCheckbox('Ghost Tapping', 'Disable to get miss penalties on key presses.', function(value:Bool):Void {
+    createPrefItemCheckbox('Ghost Tapping', 'Disable to get miss penalties on key presses', function(value:Bool):Void {
       Preferences.ghostTapping = value;
     }, Preferences.ghostTapping);
     #end
+    createPrefHeader('Visuals and Graphics');
     createPrefItemCheckbox('Note Splashes', 'Disable to remove splash animations when hitting notes', function(value:Bool):Void {
       Preferences.noteSplash = value;
     }, Preferences.noteSplash);
@@ -147,18 +146,29 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
     }, Preferences.zoomCamera);
+    createPrefItemCheckbox('Bad/Shits as Combo Breaks',
+      'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
+        Preferences.badsShitsCauseMiss = value;
+    }, Preferences.badsShitsCauseMiss);
+    #if web
+    createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
+      Preferences.unlockedFramerate = value;
+    }, Preferences.unlockedFramerate);
+    #else
+    createPrefItemNumber('FPS Cap', 'The framerate that the game is running on', function(value:Float) {
+      Preferences.framerate = Std.int(value);
+    }, null, Preferences.framerate, 60, 360, 1, 0);
+    #end
+    createPrefHeader('Miscellaneous');
+    createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
+      Preferences.naughtyness = value;
+    }, Preferences.naughtyness);
     createPrefItemCheckbox('Debug Display', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
       Preferences.debugDisplay = value;
     }, Preferences.debugDisplay);
     createPrefItemCheckbox('Auto Pause', 'Automatically pause the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
     }, Preferences.autoPause);
-
-    #if web
-    createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
-      Preferences.unlockedFramerate = value;
-    }, Preferences.unlockedFramerate);
-    #end
 
     #if mobile
     createPrefItemCheckbox('Allow Screen Timeout', 'Toggle screen timeout', function(value:Bool):Void {
@@ -219,6 +229,18 @@ class PreferencesMenu extends Page
   // Should be moved into a separate PreferenceItems class but you can't access PreferencesMenu.items and PreferencesMenu.preferenceItems from outside.
 
   /**
+   * Creates a non-interacted pref item, pretty good for when you wanna do some categorizing here.
+   */
+  function createPrefHeader(header:String, overrideDesc:String = ''):Void
+  {
+    var descString = overrideDesc == '' ? 'headerObject' : overrideDesc;
+    var blank:FlxSprite = new FlxSprite(-100000000, (items.length - 1 + 1)).makeGraphic(10, 10, 0x00000000);
+    items.createItem(0, (120 * items.length) + 30, header, AtlasFont.BOLD, function() {
+    }, descString);
+    preferenceItems.add(blank);
+  }
+
+  /**
    * Creates a pref item that works with booleans
    * @param onChange Gets called every time the player changes the value; use this to apply the value
    * @param defaultValue The value that is loaded in when the pref item is created (usually your Preferences.settingVariable)
@@ -231,7 +253,7 @@ class PreferencesMenu extends Page
       var value = !checkbox.currentValue;
       onChange(value);
       checkbox.currentValue = value;
-    });
+    }, true);
 
     preferenceItems.add(checkbox);
     preferenceDesc.push(prefDesc);
