@@ -199,14 +199,9 @@ class PreferencesMenu extends Page
         thyOffset += thyTextWidth - 75;
       }
 
-      if (items.selectedItem == daItem)
-      {
-        thyOffset += 150;
-      }
+      if (items.selectedItem == daItem) thyOffset += 150;
       else
-      {
         thyOffset += 120;
-      }
 
       daItem.x = thyOffset;
     });
@@ -231,13 +226,15 @@ class PreferencesMenu extends Page
   /**
    * Creates a non-interacted pref item, pretty good for when you wanna do some categorizing here.
    */
-  function createPrefHeader(header:String, overrideDesc:String = ''):Void
+  function createPrefHeader(header:String):Void
   {
-    var descString = overrideDesc == '' ? 'headerObject' : overrideDesc;
     var blank:FlxSprite = new FlxSprite(-100000000, (items.length - 1 + 1)).makeGraphic(10, 10, 0x00000000);
-    items.createItem(0, (120 * items.length) + 30, header, AtlasFont.BOLD, function() {
-    }, descString);
+    items.createItem(0, (120 * items.length) + 30, header, AtlasFont.BOLD, () ->
+      {
+        // swag
+      });
     preferenceItems.add(blank);
+    preferenceDesc.push(" ");
   }
 
   /**
@@ -274,7 +271,9 @@ class PreferencesMenu extends Page
   {
     var item = new NumberPreferenceItem(0, (120 * items.length) + 30, prefName, defaultValue, min, max, step, precision, onChange, valueFormatter);
     items.addItem(prefName, item);
+
     preferenceItems.add(item.lefthandText);
+    preferenceDesc.push(prefDesc);
   }
 
   /**
@@ -294,7 +293,9 @@ class PreferencesMenu extends Page
     };
     var item = new NumberPreferenceItem(0, (120 * items.length) + 30, prefName, defaultValue, min, max, 10, 0, newCallback, formatter);
     items.addItem(prefName, item);
+
     preferenceItems.add(item.lefthandText);
+    preferenceDesc.push(prefDesc);
   }
 
   /**
@@ -308,5 +309,6 @@ class PreferencesMenu extends Page
     var item = new EnumPreferenceItem(0, (120 * items.length) + 30, prefName, values, defaultValue, onChange);
     items.addItem(prefName, item);
     preferenceItems.add(item.lefthandText);
+    preferenceDesc.push(prefDesc);
   }
 }
