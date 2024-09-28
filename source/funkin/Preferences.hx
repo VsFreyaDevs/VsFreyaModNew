@@ -324,6 +324,7 @@ class Preferences
   {
     // Apply the autoPause setting (enables automatic pausing on focus lost).
     FlxG.autoPause = Preferences.autoPause;
+    FlxSprite.defaultAntialiasing = Preferences.antialiasing;
     // Apply the debugDisplay setting (enables the FPS and RAM display).
     toggleDebugDisplay(Preferences.debugDisplay);
     #if web

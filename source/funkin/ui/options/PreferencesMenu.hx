@@ -142,7 +142,6 @@ class PreferencesMenu extends Page
     }, Preferences.flashingLights);
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
-      FlxSprite.defaultAntialiasing = Preferences.antialiasing;
     }, Preferences.antialiasing);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
