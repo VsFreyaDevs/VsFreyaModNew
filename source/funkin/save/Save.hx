@@ -102,7 +102,7 @@ class Save
           zoomCamera: true,
           debugDisplay: false,
           autoPause: true,
-          gameplayBackgroundAlpha: 0,
+          laneAlpha: 0,
           badsShitsCauseMiss: true,
           inputOffset: 0,
           audioVisualOffset: 0,
