@@ -85,8 +85,10 @@ class StrumlineNote extends FlxSprite
     noteStyle.applyStrumlineFrames(this);
     noteStyle.applyStrumlineAnimations(this, this.direction);
 
-    var scale = noteStyle.getStrumlineScale();
-    this.scale.set(scale, scale);
+    // the scale is wrong in the jsons but idk i just dont feel like calcing rn
+    // var scale = noteStyle.getStrumlineScale();
+    // this.scale.set(scale, scale);
+    this.setGraphicSize(Std.int(Strumline.STRUMLINE_SIZE * noteStyle.getStrumlineScale()));
     this.updateHitbox();
     noteStyle.applyStrumlineOffsets(this);
 

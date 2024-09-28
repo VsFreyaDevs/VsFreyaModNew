@@ -87,8 +87,8 @@ class SustainTrail extends FlxSprite
   public var bottomClip:Float = 0.9;
 
   public var isPixel:Bool;
-  public var noteStyleOffsets:Array<Float>;
 
+  // public var noteStyleOffsets:Array<Float>;
   var graphicWidth:Float = 0;
   var graphicHeight:Float = 0;
 
@@ -108,7 +108,7 @@ class SustainTrail extends FlxSprite
     this.noteDirection = noteDirection;
 
     setupHoldNoteGraphic(noteStyle);
-    noteStyleOffsets = noteStyle.getHoldNoteOffsets();
+    // noteStyleOffsets = noteStyle.getHoldNoteOffsets();
 
     indices = new DrawData<Int>(12, true, TRIANGLE_VERTEX_INDICES);
 
@@ -139,6 +139,7 @@ class SustainTrail extends FlxSprite
 
     zoom = 1.0;
     zoom *= noteStyle.fetchHoldNoteScale();
+    zoom *= 0.7;
 
     // CALCULATE SIZE
     graphicWidth = graphic.width / 8 * zoom; // amount of notes * 2
@@ -203,7 +204,7 @@ class SustainTrail extends FlxSprite
   {
     width = graphicWidth;
     height = graphicHeight;
-    offset.set(noteStyleOffsets[0], noteStyleOffsets[1]);
+    offset.set(0, 0);
     origin.set(width * 0.5, height * 0.5);
   }
 

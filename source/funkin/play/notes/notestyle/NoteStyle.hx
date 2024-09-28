@@ -95,8 +95,9 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     buildNoteAnimations(target);
 
     // Set the scale.
-    var scale = getNoteScale();
-    target.scale.set(scale, scale);
+    // var scale = getNoteScale();
+    // target.scale.set(scale, scale);
+    target.setGraphicSize(Strumline.STRUMLINE_SIZE * getNoteScale());
     target.updateHitbox();
   }
 
@@ -227,12 +228,15 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     return data?.scale ?? 1.0;
   }
 
-  public function getHoldNoteOffsets():Array<Float>
-  {
-    var data = _data?.assets?.holdNote;
-    if (data == null && fallback != null) return fallback.getHoldNoteOffsets();
-    return data?.offsets ?? [0.0, 0.0];
-  }
+  /*
+    public function getHoldNoteOffsets():Array<Float>
+    {
+      var data = _data?.assets?.holdNote;
+      if (data == null && fallback != null) return fallback.getHoldNoteOffsets();
+      return data?.offsets ?? [0.0, 0.0];
+    }
+   */
+  //
 
   public function applyStrumlineFrames(target:StrumlineNote):Void
   {
@@ -316,16 +320,20 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     return thx.Arrays.filterNull(result);
   }
 
-  public function getStrumlineOffsets():Array<Float>
-  {
-    var data = _data?.assets?.noteStrumline;
-    if (data == null && fallback != null) return fallback.getStrumlineOffsets();
-    return data?.offsets ?? [0.0, 0.0];
-  }
+  /*
+    public function getStrumlineOffsets():Array<Float>
+    {
+      var data = _data?.assets?.noteStrumline;
+      if (data == null && fallback != null) return fallback.getStrumlineOffsets();
+      return data?.offsets ?? [0.0, 0.0];
+    }
+   */
+  //
 
   public function applyStrumlineOffsets(target:StrumlineNote):Void
   {
-    var offsets = getStrumlineOffsets();
+    var offsets = _data?.assets?.noteStrumline?.offsets ?? [0.0, 0.0];
+    // var offsets = getStrumlineOffsets();
     target.x += offsets[0];
     target.y += offsets[1];
   }
