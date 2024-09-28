@@ -289,10 +289,10 @@ class Preferences
     return Save?.instance?.options?.laneAlpha ?? 0;
   }
 
-  static function set_gameplayBackgroundAlpha(value:Int):Int
+  static function set_laneAlpha(value:Int):Int
   {
     var save:Save = Save.instance;
-    save.options.gameplayBackgroundAlpha = value;
+    save.options.laneAlpha = value;
     save.flush();
     return value;
   }
