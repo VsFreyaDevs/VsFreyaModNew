@@ -102,9 +102,8 @@ class ABotVis extends FlxTypedSpriteGroup<FlxSprite>
       var animFrame:Int = Math.round(levels[i].value * 5);
 
       #if desktop
-      // Web version scales with the Flixel volume level.
-      // This line brings platform parity but looks worse.
-      // animFrame = Math.round(animFrame * FlxG.sound.volume);
+      // doesnt look the same as web, but for now yea it'll do
+      animFrame = Math.round(animFrame * (Math.round(FlxG.sound.logToLinear(FlxG.sound.volume) * 10) / 10));
       #end
 
       animFrame = Math.floor(Math.min(5, animFrame));
