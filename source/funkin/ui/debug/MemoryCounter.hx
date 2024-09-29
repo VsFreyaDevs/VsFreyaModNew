@@ -40,7 +40,9 @@ class MemoryCounter extends TextField
 
     if (mem > memPeak) memPeak = mem;
 
-    text = 'RAM: ${mem}mb / ${memPeak}mb';
-    text += "FNF" + funkin.util.Constants.VERSION;
+    if (memPeak != mem) text = 'RAM: ${mem}mb / ${memPeak}mb';
+    else
+      text = 'RAM: ${mem}mb';
+    text += "\nFNF" + funkin.util.Constants.VERSION + " [Custom Build]";
   }
 }
