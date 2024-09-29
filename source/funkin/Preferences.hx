@@ -94,7 +94,7 @@ class Preferences
   }
 
   /**
-   * Whether some particularly fowl language is displayed.
+   * Whether some particularly foul language is displayed.
    * @default `true`
    */
   public static var naughtyness(get, set):Bool;
@@ -384,7 +384,7 @@ class Preferences
 
   #if mobile
   /**
-   * If enabled, device will be able to sleep on its own.
+   * If disabled, the device won't sleep automatically by the screen timeout set by the user, despite not being interacted by them.
    * @default `false`
    */
   public static var screenTimeout(get, set):Bool;
@@ -405,7 +405,7 @@ class Preferences
   }
 
   /**
-   * If enabled, vibration will be enabled.
+   * If enabled, the device will vibrate in some situations.
    * @default `true`
    */
   public static var vibration(get, set):Bool;

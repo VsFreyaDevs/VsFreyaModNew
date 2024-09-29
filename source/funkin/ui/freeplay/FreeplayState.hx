@@ -501,10 +501,10 @@ class FreeplayState extends MusicBeatSubState
     }
 
     var fnfFreeplay:FlxText = new FlxText(8, 8, 0, 'FREEPLAY', 48);
-    fnfFreeplay.font = 'VCR OSD Mono';
+    fnfFreeplay.font = Paths.font("vcr.ttf");
     fnfFreeplay.visible = false;
 
-    ostName.font = 'VCR OSD Mono';
+    ostName.font = Paths.font("vcr.ttf");
     ostName.alignment = RIGHT;
     ostName.visible = false;
 

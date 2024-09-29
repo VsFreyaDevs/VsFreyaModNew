@@ -176,18 +176,18 @@ class StoryMenuState extends MusicBeatState
     updateProps();
 
     tracklistText = new FlxText(FlxG.width * 0.05, levelBackground.x + levelBackground.height + 100, 0, "Tracks", 32);
-    tracklistText.setFormat('VCR OSD Mono', 32);
+    tracklistText.setFormat(Paths.font("vcr.ttf"), 32);
     tracklistText.alignment = CENTER;
     tracklistText.color = 0xFFE55777;
     add(tracklistText);
 
     scoreText = new FlxText(10, 10, 0, 'HIGH SCORE: 42069420');
-    scoreText.setFormat('VCR OSD Mono', 32);
+    scoreText.setFormat(Paths.font("vcr.ttf"), 32);
     scoreText.zIndex = 1000;
     add(scoreText);
 
     levelTitleText = new FlxText(FlxG.width * 0.7, 10, 0, 'LEVEL 1');
-    levelTitleText.setFormat('VCR OSD Mono', 32, FlxColor.WHITE, RIGHT);
+    levelTitleText.setFormat(Paths.font("vcr.ttf"), 32, FlxColor.WHITE, RIGHT);
     levelTitleText.alpha = 0.7;
     levelTitleText.zIndex = 1000;
     add(levelTitleText);
