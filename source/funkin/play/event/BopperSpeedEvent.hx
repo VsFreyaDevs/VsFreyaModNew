@@ -8,7 +8,6 @@ import funkin.data.song.SongData.SongEventData;
 import funkin.play.event.SongEvent;
 import funkin.data.event.SongEventSchema;
 import funkin.data.event.SongEventSchema.SongEventFieldType;
-
 import funkin.play.stage.Bopper;
 import flixel.FlxSprite;
 import flixel.util.FlxTimer;
@@ -20,7 +19,7 @@ class BopperSpeedEvent extends SongEvent
     super("BopperSpeed");
   }
 
-  static final DEFAULT_DANCE_EVERY:Int = 1;
+  static final DEFAULT_DANCE_EVERY:Int = 0.0;
 
   public override function handleEvent(data:SongEventData):Void
   {
@@ -32,7 +31,7 @@ class BopperSpeedEvent extends SongEvent
 
     var bopperProp:FlxSprite = null;
 
-    switch(bopperName)
+    switch (bopperName)
     {
       case 'boyfriend' | 'bf' | 'player':
         bopperProp = PlayState.instance.currentStage.getBoyfriend();
@@ -44,7 +43,8 @@ class BopperSpeedEvent extends SongEvent
         bopperProp = PlayState.instance.currentStage.getNamedProp(bopperName);
     }
 
-    if(bopperProp != null) {
+    if (bopperProp != null)
+    {
       if ((Std.isOfType(bopperProp, Bopper)) || (Std.isOfType(bopperProp, BaseCharacter)))
       {
         var bopper = cast(bopperProp, Bopper);
@@ -71,10 +71,10 @@ class BopperSpeedEvent extends SongEvent
       {
         name: 'danceEvery',
         title: 'Dance Every Value',
-        defaultValue: 1,
-        step: 1,
-        min: 1,
-        type: SongEventFieldType.INTEGER,
+        defaultValue: 1.0,
+        step: 0.25,
+        min: 0.0,
+        type: SongEventFieldType.FLOAT,
       }
     ]);
   }
