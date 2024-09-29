@@ -101,6 +101,7 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
+          classicHolds: false,
           debugDisplay: true,
           autoPause: true,
           laneAlpha: 0,
@@ -1327,6 +1328,12 @@ typedef SaveDataOptions =
    * @default `true`
    */
   var zoomCamera:Bool;
+
+  /**
+   * If enabled, the character corresponding to the player or CPU will play their sing animations on loop, reminiscent of legacy FNF and most other FNF engines.
+   * @default `false`
+   */
+  var classicHolds:Bool;
 
   /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.

@@ -140,6 +140,10 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects', function(value:Bool):Void {
       Preferences.flashingLights = value;
     }, Preferences.flashingLights);
+    createPrefItemCheckbox('Classic Hold Style',
+      'Enable so whenever a player/CPU hits a note,\nthe character\'s sing animations will loop (Like in legacy FNF)', function(value:Bool):Void {
+        Preferences.classicHolds = value;
+    }, Preferences.classicHolds);
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
     }, Preferences.antialiasing);
@@ -157,7 +161,7 @@ class PreferencesMenu extends Page
     #else
     createPrefItemNumber('FPS Cap', 'Set the current frame rate cap of the game', function(value:Float) {
       Preferences.framerate = Std.int(value);
-    }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 360, 1, 0);
+    }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 480, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
@@ -234,7 +238,7 @@ class PreferencesMenu extends Page
         // swag
       }, true);
     preferenceItems.add(blank);
-    preferenceDesc.push(" ");
+    preferenceDesc.push("CATEGORY HEADER!!!!");
   }
 
   /**

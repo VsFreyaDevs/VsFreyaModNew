@@ -153,6 +153,25 @@ class Preferences
   #end
 
   /**
+   * If enabled, the character corresponding to the player or CPU will play their sing animations on loop, reminiscent of legacy FNF and most other FNF engines.
+   * @default `false`
+   */
+  public static var classicHolds(get, set):Bool;
+
+  static function get_classicHolds():Bool
+  {
+    return Save?.instance?.options?.classicHolds ?? false;
+  }
+
+  static function set_classicHolds(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.classicHolds = value;
+    save.flush();
+    return value;
+  }
+
+  /**
    * If disabled, flashing lights in the main menu and other areas will be less intense.
    * @default `true`
    */
