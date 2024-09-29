@@ -250,11 +250,11 @@ class Project extends HXProject {
 	}
 
 	/**
-	 * Do something before building, display some ASCII or something IDK
+	 * Do something before building, display some ASCII or something IDK.
 	 */
 	function flair() {
 		// TODO: Implement this.
-		info("Friday Night Funkin'");
+		info("Friday Night Funkin' [CHARLES' FORK]");
 		info("Initializing build...");
 
 		info("Target Version: " + VERSION);
@@ -731,81 +731,25 @@ class Project extends HXProject {
 	// Easy functions to make the code more readable.
 	//
 
-	public function isWeb():Bool {
-		return this.platformType == PlatformType.WEB;
-	}
-
-	public function isMobile():Bool {
-		return this.platformType == PlatformType.MOBILE;
-	}
-
-	public function isDesktop():Bool {
-		return this.platformType == PlatformType.DESKTOP;
-	}
-
-	public function isConsole():Bool {
-		return this.platformType == PlatformType.CONSOLE;
-	}
-
-	public function is32Bit():Bool {
-		return this.architectures.contains(Architecture.X86);
-	}
-
-	public function is64Bit():Bool {
-		return this.architectures.contains(Architecture.X64);
-	}
-
-	public function isWindows():Bool {
-		return this.target == Platform.WINDOWS;
-	}
-
-	public function isMac():Bool {
-		return this.target == Platform.MAC;
-	}
-
-	public function isLinux():Bool {
-		return this.target == Platform.LINUX;
-	}
-
-	public function isAndroid():Bool {
-		return this.target == Platform.ANDROID;
-	}
-
-	public function isIOS():Bool {
-		return this.target == Platform.IOS;
-	}
-
-  public function isHashLink():Bool {
-    return this.targetFlags.exists("hl");
-  }
-
-  public function isNeko():Bool {
-    return this.targetFlags.exists("neko");
-  }
-
-  public function isJava():Bool {
-    return this.targetFlags.exists("java");
-  }
-
-  public function isNodeJS():Bool {
-    return this.targetFlags.exists("nodejs");
-  }
-
-  public function isCSharp():Bool {
-    return this.targetFlags.exists("cs");
-  }
-
-  public function isDisplay():Bool {
-    return this.command == "display";
-  }
-
-	public function isDebug():Bool {
-		return this.debug;
-	}
-
-	public function isRelease():Bool {
-		return !isDebug();
-	}
+	public function isWeb():Bool {return this.platformType == PlatformType.WEB;}
+	public function isMobile():Bool {return this.platformType == PlatformType.MOBILE;}
+	public function isDesktop():Bool {return this.platformType == PlatformType.DESKTOP;}
+	public function isConsole():Bool {return this.platformType == PlatformType.CONSOLE;}
+	public function is32Bit():Bool {return this.architectures.contains(Architecture.X86);}
+	public function is64Bit():Bool {return this.architectures.contains(Architecture.X64);}
+	public function isWindows():Bool {return this.target == Platform.WINDOWS;}
+	public function isMac():Bool {return this.target == Platform.MAC;}
+	public function isLinux():Bool {return this.target == Platform.LINUX;}
+	public function isAndroid():Bool {return this.target == Platform.ANDROID;}
+	public function isIOS():Bool {return this.target == Platform.IOS;}
+  public function isHashLink():Bool {return this.targetFlags.exists("hl");}
+  public function isNeko():Bool {return this.targetFlags.exists("neko");}
+  public function isJava():Bool {return this.targetFlags.exists("java");}
+  public function isNodeJS():Bool {return this.targetFlags.exists("nodejs");}
+  public function isCSharp():Bool {return this.targetFlags.exists("cs");}
+  public function isDisplay():Bool {return this.command == "display";}
+	public function isDebug():Bool {return this.debug;}
+	public function isRelease():Bool {return !isDebug();}
 
   public function getHaxedef(name:String):Null<Dynamic> {
     return this.haxedefs.get(name);
