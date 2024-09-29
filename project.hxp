@@ -246,6 +246,7 @@ class Project extends HXProject {
     configureHaxelibs();
     configureAssets();
     configureIcons();
+		configureAL();
 	}
 
 	/**
@@ -704,7 +705,6 @@ class Project extends HXProject {
 		addAsset("art/readme.txt", "do NOT readme.txt", "art", shouldEmbedArt);
 		addAsset("LICENSE.md", "LICENSE.md", "art", shouldEmbedArt);
 		addAsset("CHANGELOG.md", "CHANGELOG.md", "art", shouldEmbedArt);
-		if (!isMobile()) addAsset("alsoft.ini", "alsoft.ini", null, false);
 	}
 
   /**
@@ -716,6 +716,15 @@ class Project extends HXProject {
 		addIcon("art/icon64.png", 64);
 		addIcon("art/iconOG.png");
   }
+
+	/**
+	 * For desktop platforms, copy the OpenALSoft config file into the build to improve audio quality.
+	 */
+	function configureAL() {
+		if (isDesktop()) {
+			addAsset("alsoft.txt", 'plugins/alsoft.${isWindows() ? "ini" : "conf"}', "default", false);
+		}
+	}
 
 	//
 	// HELPER FUNCTIONS
