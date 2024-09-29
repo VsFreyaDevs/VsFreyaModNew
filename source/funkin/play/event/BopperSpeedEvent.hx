@@ -19,7 +19,7 @@ class BopperSpeedEvent extends SongEvent
     super("BopperSpeed");
   }
 
-  static final DEFAULT_DANCE_EVERY:Int = 0.0;
+  static final DEFAULT_DANCE_EVERY:Int = 1.0;
 
   public override function handleEvent(data:SongEventData):Void
   {
