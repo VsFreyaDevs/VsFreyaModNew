@@ -153,6 +153,25 @@ class Preferences
   #end
 
   /**
+   * If enabled, there will be a text display showing your combo breaks.
+   * @default `false`
+   */
+  public static var comboBreakText(get, set):Bool;
+
+  static function get_comboBreakText():Bool
+  {
+    return Save?.instance?.options?.comboBreakText ?? false;
+  }
+
+  static function set_comboBreakText(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.comboBreakText = value;
+    save.flush();
+    return value;
+  }
+
+  /**
    * If enabled, the character corresponding to the player or CPU will play their sing animations on loop, reminiscent of legacy FNF and most other FNF engines.
    * @default `false`
    */

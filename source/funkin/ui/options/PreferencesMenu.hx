@@ -133,6 +133,10 @@ class PreferencesMenu extends Page
       Preferences.ghostTapping = value;
     }, Preferences.ghostTapping);
     #end
+    createPrefItemCheckbox('Bad/Shits as Combo Breaks',
+      'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
+        Preferences.badsShitsCauseMiss = value;
+    }, Preferences.badsShitsCauseMiss);
     createPrefHeader('Visuals and Graphics');
     createPrefItemCheckbox('Note Splashes', 'Disable to remove splash animations when hitting notes', function(value:Bool):Void {
       Preferences.noteSplash = value;
@@ -147,13 +151,12 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
     }, Preferences.antialiasing);
+    createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
+      Preferences.comboBreakText = value;
+    }, Preferences.comboBreakText);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
     }, Preferences.zoomCamera);
-    createPrefItemCheckbox('Bad/Shits as Combo Breaks',
-      'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
-        Preferences.badsShitsCauseMiss = value;
-    }, Preferences.badsShitsCauseMiss);
     #if web
     createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
       Preferences.unlockedFramerate = value;
@@ -173,7 +176,6 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Auto Pause', 'Enable so it automatically pauses the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
     }, Preferences.autoPause);
-
     #if mobile
     createPrefItemCheckbox('Allow Screen Timeout', 'Toggle screen timeout', function(value:Bool):Void {
       Preferences.screenTimeout = value;

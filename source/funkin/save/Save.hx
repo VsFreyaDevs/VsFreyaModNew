@@ -101,6 +101,7 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
+          comboBreakText: false,
           classicHolds: false,
           debugDisplay: true,
           autoPause: true,
@@ -1378,6 +1379,12 @@ typedef SaveDataOptions =
    * @default `true`
    */
   var badsShitsCauseMiss:Bool;
+
+  /**
+   * If enabled, there will be a text display showing your combo breaks.
+   * @default `false`
+   */
+  var comboBreakText:Bool;
 
   var controls:
     {

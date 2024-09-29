@@ -471,6 +471,11 @@ class PlayState extends MusicBeatSubState
   var scoreText:FlxText;
 
   /**
+   * The FlxText which displays the amount of combo breaks the player has.
+   */
+  var comboBreakText:FlxText;
+
+  /**
    * The bar which displays the player's health.
    * Dynamically updated based on the value of `healthLerp` (which is based on `health`).
    */
@@ -884,6 +889,7 @@ class PlayState extends MusicBeatSubState
     var list = FlxG.sound.list;
     updateHealthBar();
     updateScoreText();
+    updateComboBreakText();
 
     // Handle restarting the song when needed (player death or pressing Retry)
     if (needsReset)
@@ -1568,16 +1574,23 @@ class PlayState extends MusicBeatSubState
     add(healthBar);
 
     // The score text below the health bar.
-    scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 190, healthBarBG.y + 30, 0, '', 20);
+    scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
     scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     scoreText.scrollFactor.set();
     scoreText.zIndex = 802;
     add(scoreText);
 
+    comboBreakText = new FlxText(healthBarBG.x + 30, healthBarBG.y + 30, 0, '', 20);
+    comboBreakText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    comboBreakText.scrollFactor.set();
+    comboBreakText.zIndex = 802;
+    if (Preferences.comboBreakText) add(comboBreakText);
+
     // Move the health bar to the HUD camera.
     healthBar.cameras = [camHUD];
     healthBarBG.cameras = [camHUD];
     scoreText.cameras = [camHUD];
+    comboBreakText.cameras = [camHUD];
   }
 
   /**
@@ -2097,16 +2110,25 @@ class PlayState extends MusicBeatSubState
   function updateScoreText():Void
   {
     // TODO: Add functionality for modules to update the score text.
-    if (isBotPlayMode)
-    {
-      scoreText.text = 'Bot Play Enabled';
-    }
+    if (isBotPlayMode) scoreText.text = 'BOTPLAY Enabled';
     else
     {
       // TODO: Add an option for this maybe?
       var commaSeparated:Bool = true;
       scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
     }
+  }
+
+  /**
+   * Updates the position and contents of the combo break display.
+   */
+  function updateComboBreakText():Void
+  {
+    // TODO: Add functionality for modules to update the combo break text.
+    if (isBotPlayMode) comboBreakText.text = '';
+    else if (Preferences.badsShitsCauseMiss) comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.bad + Highscore.tallies.shit + Highscore.tallies.missed;
+    else
+      comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.missed;
   }
 
   /**
