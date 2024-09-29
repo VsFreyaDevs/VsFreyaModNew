@@ -18,27 +18,19 @@
     },
     {
       "header": "Direction and Art Lead",
-      "body": [
-        { "line": "PhantomArcade" }
-      ]
+      "body": [{ "line": "PhantomArcade" }]
     },
     {
       "header": "Music Lead",
-      "body": [
-        { "line": "Isaac “Kawai Sprite” Garcia" }
-      ]
+      "body": [{ "line": "Isaac “Kawai Sprite” Garcia" }]
     },
     {
       "header": "Co-Direction and Programming Lead",
-      "body": [
-        { "line": "ninjamuffin99" }
-      ]
+      "body": [{ "line": "ninjamuffin99" }]
     },
     {
       "header": "Producer",
-      "body": [
-        { "line": "Kawa Teaño" }
-      ]
+      "body": [{ "line": "Kawa Teaño" }]
     },
     {
       "header": "Artists",
@@ -50,43 +42,32 @@
     },
     {
       "header": "Pixel Art",
-      "body": [
-        { "line": "moawling" }
-      ]
+      "body": [{ "line": "moawling" }]
     },
     {
       "header": "Cutscene Storyboards & SFX",
-      "body": [
-        { "line": "PhantomArcade"}
-      ]
+      "body": [{ "line": "PhantomArcade" }]
     },
     {
       "header": "Additional Background Design",
-      "body": [
-        { "line": "Red Minus"}
-      ]
+      "body": [{ "line": "Red Minus" }]
     },
     {
       "header": "Cutscene Animation",
       "body": [
-        { "line": "Figburn"},
-        { "line": "Sade"},
-        { "line": "Topium"},
-        { "line": "BlairTheUnseriousGuy"}
+        { "line": "Figburn" },
+        { "line": "Sade" },
+        { "line": "Topium" },
+        { "line": "BlairTheUnseriousGuy" }
       ]
     },
     {
       "header": "Cutscene Cleanup",
-      "body": [
-        { "line": "PennilessRagamuffin"},
-        { "line": "beck"}
-      ]
+      "body": [{ "line": "PennilessRagamuffin" }, { "line": "beck" }]
     },
     {
       "header": "Cutscene Background Art",
-      "body": [
-        { "line": "beck"}
-      ]
+      "body": [{ "line": "beck" }]
     },
     {
       "header": "Additional Art",
@@ -101,25 +82,22 @@
     },
     {
       "header": "Music Production",
-      "body": [
-        { "line": "Saruky" },
-        { "line": "crisp" }
-      ]
+      "body": [{ "line": "Saruky" }, { "line": "crisp" }]
     },
     {
       "header": "Featured Guest Musicians (thus far)",
       "body": [
         { "line": "BassetFilms" },
         { "line": "Kohta Takahashi" },
-        { "line": "Lotus Juice"},
-        { "line": "METAROOM"},
-        { "line": "nuphory"},
+        { "line": "Lotus Juice" },
+        { "line": "METAROOM" },
+        { "line": "nuphory" },
         { "line": "Saster" },
         { "line": "SixImpala" },
-        { "line": "TeraVex"},
-        { "line": "ThatAndyGuy"},
-        { "line": "tsuyunoshi"},
-        { "line": "xploshi"}
+        { "line": "TeraVex" },
+        { "line": "ThatAndyGuy" },
+        { "line": "tsuyunoshi" },
+        { "line": "xploshi" }
       ]
     },
     {
@@ -146,9 +124,7 @@
     },
     {
       "header": "Devops and Additional Internal Tooling",
-      "body": [
-        { "line": "ember ana" }
-      ]
+      "body": [{ "line": "ember ana" }]
     },
     {
       "header": "Gameplay Design",
@@ -163,9 +139,7 @@
     },
     {
       "header": "Kickstarter Backer Portal Programming",
-      "body": [
-        { "line": "Shingai Shamu" }
-      ]
+      "body": [{ "line": "Shingai Shamu" }]
     },
     {
       "header": "Android Porting",
@@ -179,16 +153,11 @@
     },
     {
       "header": "iOS & HTML5-Mobile Porting",
-      "body": [
-        { "line": "Lily" },
-        { "line": "Karim Akra" }
-      ]
+      "body": [{ "line": "Lily" }, { "line": "Karim Akra" }]
     },
     {
       "header": "iOS & HTML5-Mobile Beta-testing",
-      "body": [
-        { "line": "shyllis" }
-      ]
+      "body": [{ "line": "shyllis" }]
     },
     {
       "header": "Merchandise Partners and Designers",
@@ -202,23 +171,18 @@
         { "line": "Min Ho Kim" },
         { "line": "PKettles" },
         { "line": "Jeff Bandelin" },
-        { "line": "PhantomArcade"},
+        { "line": "PhantomArcade" },
         { "line": "evilsk8r" },
         { "line": "beck" }
       ]
     },
     {
       "header": "Production and Business Development Partner - Windflower Games",
-      "body": [
-        { "line": "Sunni Pavlovic" },
-        { "line": "Kristen Lynch" }
-      ]
+      "body": [{ "line": "Sunni Pavlovic" }, { "line": "Kristen Lynch" }]
     },
     {
       "header": "Additional Administrative Assistance",
-      "body": [
-        { "line": "moawling" }
-      ]
+      "body": [{ "line": "moawling" }]
     },
     {
       "header": "Quality Assurance - Indium Play",
@@ -248,16 +212,13 @@
     },
     {
       "header": "CA Legal: DLA Piper",
-      "body": [
-        { "line": "Ryan Black" },
-        { "line": "Brian Wong" }
-      ]
+      "body": [{ "line": "Ryan Black" }, { "line": "Brian Wong" }]
     },
     {
       "header": "Special Thanks",
       "body": [
         { "line": "Tom Fulp" },
-        { "line": "Jeff Bandelin"},
+        { "line": "Jeff Bandelin" },
         { "line": "The entire Molinari Oswald Crew" },
         { "line": "The entire Odin Law function" },
         { "line": "SrPelo" }
@@ -284,15 +245,12 @@
         { "line": "Etika" },
         { "line": "Foamymuffin (insert travis scott lyrics here)" },
         { "line": "SiIvaGunner" },
-        { "line": "Freddie Dredd"}
+        { "line": "Freddie Dredd" }
       ]
     },
     {
       "header": "Kawa would like to specially thank",
-      "body": [
-        { "line": "Alexei Pepers" },
-        { "line": "Xalavier Nelson Jr." }
-      ]
+      "body": [{ "line": "Alexei Pepers" }, { "line": "Xalavier Nelson Jr." }]
     },
     {
       "header": "Eric would like to specially thank",
@@ -304,11 +262,11 @@
     },
     {
       "header": "Hazel (Ravy) would like to specially thank",
-      "body": [
-        { "line": "d1ggo" }
-
-      ]
+      "body": [{ "line": "d1ggo" }]
+    },
+    {
+      "header": "Charles would like to specially thank",
+      "body": [{ "line": "JustKolosaki" }, { "line": "anysad" }]
     }
-
   ]
 }
