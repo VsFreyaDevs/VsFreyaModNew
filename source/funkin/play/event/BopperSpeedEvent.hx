@@ -27,7 +27,7 @@ class BopperSpeedEvent extends SongEvent
 
     var bopperName:String = data.getString('bopper');
 
-    var speed:Int = data.getInt('danceEvery') ?? DEFAULT_DANCE_EVERY;
+    var speed:Float = data.getFloat('danceEvery') ?? DEFAULT_DANCE_EVERY;
 
     var bopperProp:FlxSprite = null;
 
@@ -70,7 +70,7 @@ class BopperSpeedEvent extends SongEvent
       },
       {
         name: 'danceEvery',
-        title: 'Dance Every Value',
+        title: 'Dance Speed Value',
         defaultValue: 1.0,
         step: 0.25,
         min: 0.0,
