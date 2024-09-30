@@ -46,7 +46,7 @@ class WindowUtil
     #elseif mac
     Sys.command('open', [targetPath]);
     #elseif linux
-    Sys.command('open', [targetPath]);
+    Sys.command('xdg-open $pathFolder &');
     #end
     #else
     throw 'Cannot open URLs on this platform.';
@@ -66,7 +66,17 @@ class WindowUtil
     Sys.command('open', ['-R', targetPath]);
     #elseif linux
     // TODO: unsure of the linux equivalent to opening a folder and then "selecting" a file.
-    Sys.command('open', [targetPath]);
+    // Sys.command('open', [targetPath]);
+
+    // TODO: Is this consistent across distros?
+    Sys.command('dbus-send', [
+      '--session',
+      '--print-reply',
+      '--dest=org.freedesktop.FileManager1',
+      '--type=method_call /org/freedesktop/FileManager1',
+      'org.freedesktop.FileManager1.ShowItems array:string:"file://$targetPath"',
+      'string:""'
+    ]);
     #end
     #else
     throw 'Cannot open URLs on this platform.';
@@ -123,5 +133,15 @@ class WindowUtil
   public static function setWindowTitle(value:String):Void
   {
     lime.app.Application.current.window.title = value;
+  }
+
+  /**
+   * Shows a message box if supported and logs message to the console
+   */
+  public static function showMessageBox(message:Null<String>, title:Null<String>):Void
+  {
+    trace('[$title] $message');
+
+    lime.app.Application.current.window.alert(message, title);
   }
 }
