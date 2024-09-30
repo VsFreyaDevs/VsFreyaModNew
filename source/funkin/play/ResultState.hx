@@ -412,8 +412,8 @@ class ResultState extends MusicBeatSubState
     // }
 
     new FlxTimer().start(rank.getMusicDelay(), _ -> {
-      var introMusic:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
-      if (Assets.exists(introMusic))
+      var introMusicAudio:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
+      if (Assets.exists(introMusicAudio))
       {
         // Play the intro music.
         introMusicAudio = FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
