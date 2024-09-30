@@ -31,7 +31,7 @@ class PolymodHandler
    * The API version for the current version of the game. Since 0.5.0, we've just made this the game version!
    * Minor updates rarely impact mods but major versions often do.
    */
-  // static final API_VERSION:String = Constants.VERSION;
+  static final API_VERSION:String = "0.5.*";
 
   /**
    * The Semantic Versioning rule
@@ -444,7 +444,7 @@ class PolymodHandler
 
     if (funkin.modding.PolymodHandler.outdatedMods.length > 0)
     {
-      var description:String = 'Required Version: ${funkin.modding.PolymodHandler.API_VERSION}\n';
+      var description:String = 'Mods here require v0.5.1 or earlier! (API: 0.5.0)\n';
       for (mod in funkin.modding.PolymodHandler.outdatedMods)
         description += '\n${mod.title} (v${mod.apiVersion}, id: ${mod.id})';
       funkin.modding.PolymodErrorHandler.showAlert('Outdated Mods', description);
