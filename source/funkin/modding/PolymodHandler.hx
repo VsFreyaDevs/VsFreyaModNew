@@ -391,7 +391,7 @@ class PolymodHandler
 
     for (data in modMetadata)
     {
-      if (!VersionUtil.match(data.apiVersion, API_VERSION)) outdatedMods.push(data);
+      if (!VersionUtil.match(data.apiVersion, API_VERSION_RULE)) outdatedMods.push(data);
       else
         validMods.push(data);
     }
