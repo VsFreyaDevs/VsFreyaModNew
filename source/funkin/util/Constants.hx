@@ -483,10 +483,6 @@ class Constants
   public static var JUDGEMENT_BAD_COMBO_BREAK:Bool = true;
   public static var JUDGEMENT_SHIT_COMBO_BREAK:Bool = true;
 
-  // % Sick
-  public static final RANK_PERFECT_PLAT_THRESHOLD:Float = 1.0; // % Sick
-  public static final RANK_PERFECT_GOLD_THRESHOLD:Float = 0.85; // % Sick
-
   // % Hit
   public static final RANK_PERFECT_THRESHOLD:Float = 1.00;
   public static final RANK_EXCELLENT_THRESHOLD:Float = 0.90;

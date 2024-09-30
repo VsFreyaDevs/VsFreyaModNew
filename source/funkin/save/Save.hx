@@ -18,7 +18,7 @@ import thx.semver.Version;
 @:nullSafety
 class Save
 {
-  public static final SAVE_DATA_VERSION:thx.semver.Version = "2.0.5";
+  public static final SAVE_DATA_VERSION:thx.semver.Version = "2.0.4";
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = "2.0.x";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
@@ -33,21 +33,19 @@ class Save
 
   static function get_instance():Save
   {
-    if (_instance == null)
-    {
-      _instance = new Save(FlxG.save.data);
-    }
+    if (_instance == null) return _instance = load();
+
     return _instance;
   }
 
   var data:RawSaveData;
 
-  public static function load():Void
+  public static function load():Save
   {
     trace("[SAVE] Loading save...");
 
     // Bind save data.
-    loadFromSlot(1);
+    return loadFromSlot(1);
   }
 
   /**
@@ -66,7 +64,9 @@ class Save
   public static function getDefault():RawSaveData
   {
     return {
-      version: Save.SAVE_DATA_VERSION,
+      // Version number is an abstract(Array) internally.
+      // This means it copies by reference, so merging save data overides the version number lol.
+      version: thx.Dynamics.clone(Save.SAVE_DATA_VERSION),
 
       volume: 1.0,
       mute: false,
@@ -958,10 +958,10 @@ class Save
   }
 
   /**
-   * If you set slot to `2`, it will load an independe
+   * If you set slot to `2`, it will load an independent save.
    * @param slot
    */
-  static function loadFromSlot(slot:Int):Void
+  static function loadFromSlot(slot:Int):Save
   {
     trace("[SAVE] Loading save from slot " + slot + "...");
 
@@ -978,13 +978,14 @@ class Save
       {
         trace('[SAVE] Found legacy save data, converting...');
         var gameSave = SaveDataMigrator.migrateFromLegacy(legacySaveData);
-        FlxG.save.mergeData(gameSave.data, true);
+        return gameSave;
       }
       else
       {
         trace('[SAVE] No legacy save data found.');
         var gameSave = new Save();
         FlxG.save.mergeData(gameSave.data, true);
+        return gameSave;
       }
     }
     else
@@ -992,6 +993,7 @@ class Save
       trace('[SAVE] Found existing save data.');
       var gameSave = SaveDataMigrator.migrate(FlxG.save.data);
       FlxG.save.mergeData(gameSave.data, true);
+      return gameSave;
     }
   }
 

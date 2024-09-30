@@ -348,33 +348,35 @@ class MainMenuState extends MusicBeatState
     // Ctrl+Alt+Shift+R = Score/Rank conflict test
     // Ctrl+Alt+Shift+N = Mark all characters as not seen
     // Ctrl+Alt+Shift+E = Dump save data
+    // Ctrl+Alt+Shift+L = Force crash and create a log dump
 
-    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.P)
-    {
-      FlxG.switchState(() -> new funkin.ui.charSelect.CharacterUnlockState('pico'));
-    }
+    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.P) FlxG.switchState(() ->
+      new funkin.ui.charSelect.CharacterUnlockState('pico'));
 
     if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.W)
     {
       FunkinSound.playOnce(Paths.sound('confirmMenu'));
-      // Give the user a score of 1 point on Weekend 1 story mode.
+      // Give the user a score of 0 points on Weekend 1 story mode (all difficulties).
       // This makes the level count as cleared and displays the songs in Freeplay.
-      funkin.save.Save.instance.setLevelScore('weekend1', 'easy',
-        {
-          score: 1,
-          tallies:
-            {
-              sick: 0,
-              good: 0,
-              bad: 0,
-              shit: 0,
-              missed: 0,
-              combo: 0,
-              maxCombo: 0,
-              totalNotesHit: 0,
-              totalNotes: 0,
-            }
-        });
+      for (diff in ['easy', 'normal', 'hard'])
+      {
+        funkin.save.Save.instance.setLevelScore('weekend1', diff,
+          {
+            score: 0,
+            tallies:
+              {
+                sick: 0,
+                good: 0,
+                bad: 0,
+                shit: 0,
+                missed: 0,
+                combo: 0,
+                maxCombo: 0,
+                totalNotesHit: 0,
+                totalNotes: 0,
+              }
+          });
+      }
     }
 
     if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.L)

@@ -416,7 +416,8 @@ class ResultState extends MusicBeatSubState
       if (Assets.exists(introMusic))
       {
         // Play the intro music.
-        FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
+        introMusicAudio = FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
+          introMusicAudio = null;
           FunkinSound.playMusic(getMusicPath(playerCharacter, rank),
             {
               startingVolume: 1.0,
@@ -475,6 +476,8 @@ class ResultState extends MusicBeatSubState
       {
         ease: FlxEase.quartOut,
         onUpdate: _ -> {
+          clearPercentLerp = Math.round(clearPercentLerp);
+          clearPercentCounter.curNumber = Math.round(clearPercentCounter.curNumber);
           // Only play the tick sound if the number increased.
           if (clearPercentLerp != clearPercentCounter.curNumber)
           {
@@ -727,9 +730,37 @@ class ResultState extends MusicBeatSubState
 
     if (controls.PAUSE #if mobile || TouchUtil.justPressed #end)
     {
-      if (FlxG.sound.music != null)
+      if (introMusicAudio != null)
       {
-        FlxTween.tween(FlxG.sound.music, {volume: 0}, 0.8);
+        @:nullSafety(Off)
+        introMusicAudio.onComplete = null;
+        FlxTween.tween(introMusicAudio, {volume: 0}, 0.8,
+          {
+            onComplete: _ -> {
+              if (introMusicAudio != null)
+              {
+                introMusicAudio.stop();
+                introMusicAudio.destroy();
+                introMusicAudio = null;
+              }
+            }
+          });
+        FlxTween.tween(introMusicAudio, {pitch: 3}, 0.1,
+          {
+            onComplete: _ -> {
+              FlxTween.tween(introMusicAudio, {pitch: 0.5}, 0.4);
+            }
+          });
+      }
+      else if (FlxG.sound.music != null)
+      {
+        FlxTween.tween(FlxG.sound.music, {volume: 0}, 0.8,
+          {
+            onComplete: _ -> {
+              FlxG.sound.music.stop();
+              FlxG.sound.music.destroy();
+            }
+          });
         FlxTween.tween(FlxG.sound.music, {pitch: 3}, 0.1,
           {
             onComplete: _ -> {

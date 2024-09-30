@@ -145,18 +145,11 @@ class AnimateAtlasCharacter extends BaseCharacter
   {
     super.onAnimationFinished(prefix);
 
-    if (getAnimationData() != null && getAnimationData().looped)
-    {
-      playAnimation(prefix, true, false);
-    }
+    if (getAnimationData() != null && getAnimationData().looped) playAnimation(currentAnimName, true, false);
     else
     {
       // Make the game hold on the last frame.
       this.mainSprite.cleanupAnimation(prefix);
-      // currentAnimName = null;
-
-      // Fallback to idle!
-      // playAnimation('idle', true, false);
     }
   }
 

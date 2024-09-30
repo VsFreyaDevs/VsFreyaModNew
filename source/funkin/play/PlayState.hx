@@ -664,11 +664,7 @@ class PlayState extends MusicBeatSubState
    */
   public override function create():Void
   {
-    if (instance != null)
-    {
-      // TODO: Do something in this case? IDK.
-      trace('WARNING: PlayState instance already exists. This should not happen.');
-    }
+    if (instance != null) trace('WARNING: PlayState instance already exists. This should not happen.'); // TODO: Do something in this case? IDK.
     instance = this;
 
     if (!assertChartExists()) return;
@@ -684,10 +680,7 @@ class PlayState extends MusicBeatSubState
       this.cameraFollowPoint = cameraFollowPoint;
     }
     else
-    {
-      // Camera follow point is an invisible point in space.
-      cameraFollowPoint = new FlxObject(0, 0);
-    }
+      cameraFollowPoint = new FlxObject(0, 0); // Camera follow point is an invisible point in space.
 
     #if mobile
     // Force allowScreenTimeout to be disabled
@@ -715,10 +708,7 @@ class PlayState extends MusicBeatSubState
     // Prepare the Conductor.
     Conductor.instance.forceBPM(null);
 
-    if (currentChart.offsets != null)
-    {
-      Conductor.instance.instrumentalOffset = currentChart.offsets.getInstrumentalOffset(currentInstrumental);
-    }
+    if (currentChart.offsets != null) Conductor.instance.instrumentalOffset = currentChart.offsets.getInstrumentalOffset(currentInstrumental);
 
     Conductor.instance.mapTimeChanges(currentChart.timeChanges);
     Conductor.instance.update((Conductor.instance.beatLengthMs * -5) + startTimestamp);
@@ -732,14 +722,12 @@ class PlayState extends MusicBeatSubState
       initCharacters();
     }
     else
-    {
       initMinimalMode();
-    }
     initStrumlines();
     initPopups();
 
     #if mobile
-    // Initialize the hitbox for mobile controls
+    // Initialize the hitbox for mobile controls.
     addHitbox(false);
     #end
 
@@ -817,19 +805,6 @@ class PlayState extends MusicBeatSubState
 
   public override function draw():Void
   {
-    // if (FlxG.renderBlit)
-    // {
-    //  camGame.fill(BACKGROUND_COLOR);
-    // }
-    // else if (FlxG.renderTile)
-    // {
-    //  FlxG.log.warn("PlayState background not displayed properly on tile renderer!");
-    // }
-    // else
-    // {
-    //  FlxG.log.warn("PlayState background not displayed properly, unknown renderer!");
-    // }
-
     super.draw();
   }
 
@@ -843,33 +818,21 @@ class PlayState extends MusicBeatSubState
 
       // Choose an error message.
       var message:String = 'There was a critical error. Click OK to return to the main menu.';
-      if (currentSong == null)
-      {
-        message = 'There was a critical error loading this song\'s chart. Click OK to return to the main menu.';
-      }
-      else if (currentDifficulty == null)
-      {
-        message = 'There was a critical error selecting a difficulty for this song. Click OK to return to the main menu.';
-      }
+      if (currentSong == null) message = 'There was a critical error loading this song\'s chart. Click OK to return to the main menu.';
+      else if (currentDifficulty == null) message = 'There was a critical error selecting a difficulty for this song. Click OK to return to the main menu.';
       else if (currentChart == null)
-      {
         message = 'There was a critical error retrieving data for this song on "$currentDifficulty" difficulty with variation "$currentVariation". Click OK to return to the main menu.';
-      }
       else if (currentChart.notes == null)
-      {
         message = 'There was a critical error retrieving note data for this song on "$currentDifficulty" difficulty with variation "$currentVariation". Click OK to return to the main menu.';
-      }
 
       // Display a popup. This blocks the application until the user clicks OK.
       lime.app.Application.current.window.alert(message, 'Error loading PlayState');
 
       // Force the user back to the main menu.
-      if (isSubState)
-      {
-        this.close();
-      }
+      if (isSubState) this.close();
       else
       {
+        this.remove(currentStage);
         FlxG.switchState(() -> new MainMenuState());
       }
       return false;
@@ -1020,6 +983,7 @@ class PlayState extends MusicBeatSubState
         // It's a reference to Gitaroo Man, which doesn't let you pause the game.
         if (!isSubState && event.gitaroo)
         {
+          this.remove(currentStage);
           FlxG.switchState(() -> new GitarooPause(
             {
               targetSong: currentSong,
@@ -1416,6 +1380,7 @@ class PlayState extends MusicBeatSubState
   {
     funkin.modding.PolymodHandler.forceReloadAssets();
     lastParams.targetSong = SongRegistry.instance.fetchEntry(currentSong.id);
+    this.remove(currentStage);
     LoadingState.loadPlayState(lastParams);
   }
 
@@ -2693,6 +2658,7 @@ class PlayState extends MusicBeatSubState
       }
       else
       {
+        this.remove(currentStage);
         FlxG.switchState(() -> new ChartEditorState(
           {
             targetSongId: currentSong.id,
@@ -3053,6 +3019,7 @@ class PlayState extends MusicBeatSubState
             {
               targetVariation = targetSong.getFirstValidVariation(PlayStatePlaylist.campaignDifficulty) ?? Constants.DEFAULT_VARIATION;
             }
+            this.remove(currentStage);
             LoadingState.loadPlayState(
               {
                 targetSong: targetSong,
@@ -3070,6 +3037,7 @@ class PlayState extends MusicBeatSubState
           {
             targetVariation = targetSong.getFirstValidVariation(PlayStatePlaylist.campaignDifficulty) ?? Constants.DEFAULT_VARIATION;
           }
+          this.remove(currentStage);
           LoadingState.loadPlayState(
             {
               targetSong: targetSong,

@@ -162,7 +162,7 @@ class PreferencesMenu extends Page
       Preferences.unlockedFramerate = value;
     }, Preferences.unlockedFramerate);
     #else
-    createPrefItemNumber('FPS Cap', 'Set the current frame rate cap of the game', function(value:Float) {
+    createPrefItemNumber('FPS Cap', 'Set the maximum framerate that the game targets', function(value:Float) {
       Preferences.framerate = Std.int(value);
     }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 480, 1, 0);
     #end

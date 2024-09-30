@@ -25,7 +25,7 @@ class Project extends HXProject {
 	 * REMEMBER TO CHANGE THIS WHEN THE GAME UPDATES!
 	 * You only have to change it here, the rest of the game will query this value.
 	 */
-	static final VERSION:String = "0.5.0";
+	static final VERSION:String = "0.5.1";
 
 	/**
 	 * The game's name. Used as the default window title.
@@ -149,6 +149,13 @@ class Project extends HXProject {
 	 * By default, enabled on debug builds or playtester builds and disabled on release builds.
 	 */
 	static final FEATURE_DEBUG_FUNCTIONS:FeatureFlag = "FEATURE_DEBUG_FUNCTIONS";
+
+	/**
+	 * `-DFEATURE_LOG_TRACE`
+	 * If this flag is enabled, the game will print debug traces to the console.
+	 * Disable to improve performance a bunch.
+	 */
+	static final FEATURE_LOG_TRACE:FeatureFlag = "FEATURE_LOG_TRACE";
 
 	/**
 	 * `-DFEATURE_DISCORD_RPC`
@@ -462,6 +469,8 @@ class Project extends HXProject {
 
 		// Should default to true on workspace builds and false on release builds.
 		REDIRECT_ASSETS_FOLDER.apply(this, isDebug() && isDesktop());
+
+		FEATURE_LOG_TRACE.apply(this, true); // isDebug());
 
 		// Should be true on release, non-tester builds.
 		// We don't want testers to accidentally leak songs to their Discord friends!
@@ -906,6 +915,8 @@ class Project extends HXProject {
 		var commitHash:String = process.stdout.readLine();
 		var commitHashSplice:String = commitHash.substr(0, 7);
 
+		process.close();
+
 		return commitHashSplice;
 	}
 
@@ -919,6 +930,8 @@ class Project extends HXProject {
 		}
 
 		var branchName:String = branchProcess.stdout.readLine();
+
+		branchProcess.close();
 
 		return branchName;
 	}
@@ -934,6 +947,7 @@ class Project extends HXProject {
 		var output:String = '';
 		try {
 			output = branchProcess.stdout.readLine();
+			branchProcess.close();
 		} catch (e) {
 			if (e.message == 'Eof') {
 				// Do nothing.
@@ -943,6 +957,8 @@ class Project extends HXProject {
 				throw e;
 			}
 		}
+
+		branchProcess.close();
 
 		return output.length > 0;
 	}
