@@ -8,6 +8,11 @@ import openfl.utils.Future;
  */
 class Assets
 {
+  public static function getText(path:String):String
+  {
+    return openfl.utils.Assets.getText(path);
+  }
+
   /**
    * Get the file system path for an asset
    * @param path The asset path to load from, relative to the assets folder
