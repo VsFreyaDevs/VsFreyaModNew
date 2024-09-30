@@ -211,6 +211,7 @@ class GameOverSubState extends MusicBeatSubState
   }
 
   var hasStartedAnimation:Bool = false;
+  var canInput:Bool = false;
 
   override function update(elapsed:Float):Void
   {
@@ -246,7 +247,9 @@ class GameOverSubState extends MusicBeatSubState
     //
 
     // Restart the level when pressing the assigned key.
-    if ((controls.ACCEPT #if mobile || (TouchUtil.justPressed && !TouchUtil.overlaps(backButton)) #end) && blueballed && !mustNotExit)
+    if ((controls.ACCEPT #if mobile || (TouchUtil.justPressed && !TouchUtil.overlaps(backButton) && canInput) #end)
+      && blueballed
+      && !mustNotExit)
     {
       blueballed = false;
       confirmDeath();
@@ -290,6 +293,7 @@ class GameOverSubState extends MusicBeatSubState
               boyfriend.playAnimation('deathLoop' + animationSuffix);
             }
         }
+        canInput = true;
       }
     }
 

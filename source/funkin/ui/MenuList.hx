@@ -134,36 +134,42 @@ class MenuTypedList<T:MenuListItem> extends FlxTypedGroup<T>
     // This is one fuckhead of a fucking if statement i fucking hate it fuck you,
     // TODO: Clean this? Does it need to be cleaned? isMainMenuState could be moved to new() instead perhaps.
 
-    // conditions for touch input, might need refining? Don't forget after proposal.
     final isMainMenuState:Bool = Std.isOfType(FlxG.state, funkin.ui.mainmenu.MainMenuState);
+    // Overlap checks for touch
     final isPixelOverlap:Bool = FlxG.pixelPerfectOverlap(touchBuddy, members[selectedIndex], 0)
       && TouchUtil.justReleased
       && !SwipeUtil.swipeAny;
     final isRegularOverlap:Bool = TouchUtil.overlaps(members[selectedIndex]) && TouchUtil.justReleased && !SwipeUtil.swipeAny;
+    // making sure currentPage is valid and it doesnt fuck up somehow.
     final pageCheck:Bool = currentPage != null || currentPage != Preferences;
-    final isInputOverlap:Bool = ((isMainMenuState && isPixelOverlap) || (isRegularOverlap && !isMainMenuState && pageCheck));
 
-    // This really sucks for memory :(
+    // The main touch input overlap check
+    final isInputOverlap:Bool = (isMainMenuState && isPixelOverlap) || (!isMainMenuState && isRegularOverlap && pageCheck);
+    // refactor da loop
     if (TouchUtil.pressed)
     {
+      //
+      var selectedItem = members[selectedIndex];
       for (i in 0...members.length)
       {
         final item = members[i];
-        if (((TouchUtil.overlaps(item) && !isMainMenuState)
-          || (FlxG.pixelPerfectOverlap(touchBuddy, members[selectedIndex], 0) && isMainMenuState))
-          && TouchUtil.justReleased
-          && !SwipeUtil.swipeAny)
+        // Streamline the checks just alil "memory friendly"
+        final itemOverlaps = TouchUtil.overlaps(item) && !isMainMenuState;
+        final itemPixelOverlap = FlxG.pixelPerfectOverlap(touchBuddy, selectedItem, 0) && isMainMenuState;
+        if ((itemOverlaps || itemPixelOverlap) && TouchUtil.justReleased && !SwipeUtil.swipeAny)
         {
           newIndex = i;
           break;
         }
       }
     }
-    #end
 
     /** The reason why we're using pixelOverlap for MainMenuState is due to the offsets,
      * overlaps checks for the sprite's hitbox, not the graphic itself.
      * pixelOverlap however, does that. */
+
+    // Future zack here I have quite literally ZERO ideas other than making invisible objects on each menu item but the issue here is I do not know HOW to do that, its hard traversing this.
+    #end
 
     // Todo: bypass popup blocker on firefox
     if (controls.ACCEPT #if mobile || isInputOverlap #end) accept();

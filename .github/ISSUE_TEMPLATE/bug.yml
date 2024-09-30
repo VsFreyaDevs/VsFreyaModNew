@@ -19,6 +19,8 @@ body:
         - Itch.io (Downloadable Build) - Windows
         - Itch.io (Downloadable Build) - MacOS
         - Itch.io (Downloadable Build) - Linux
+        - GitHub Actions - Windows
+        - GitHub Actions - Android
     validations:
       required: true
 

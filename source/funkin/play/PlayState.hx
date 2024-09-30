@@ -967,6 +967,10 @@ class PlayState extends MusicBeatSubState
     // Attempt to pause the game.
     if ((controls.PAUSE || androidPause || pauseButtonCheck) && isInCountdown && mayPauseGame && !justUnpaused)
     {
+      #if mobile
+      pauseButton.alpha = 0;
+      #end
+
       var event = new PauseScriptEvent(FlxG.random.bool(1 / 1000));
 
       dispatchEvent(event);
@@ -1015,6 +1019,10 @@ class PlayState extends MusicBeatSubState
         #end
       }
     }
+
+    #if mobile
+    if (justUnpaused) pauseButton.alpha = 0.65;
+    #end
 
     // Cap health.
     if (health > Constants.HEALTH_MAX) health = Constants.HEALTH_MAX;
@@ -2313,7 +2321,7 @@ class PlayState extends MusicBeatSubState
         {
           // Judge the miss.
           // NOTE: This is what handles the scoring.
-          trace('Missed note! ${note.noteData}');
+          // trace('Missed note! ${note.noteData}');
           onNoteMiss(note, event.playSound, event.healthChange);
         }
 
@@ -2813,6 +2821,9 @@ class PlayState extends MusicBeatSubState
       else if ((controls.PAUSE || androidPause || pauseButtonCheck) && !justUnpaused)
       {
         currentConversation.pauseMusic();
+        #if mobile
+        pauseButton.alpha = 0;
+        #end
 
         var pauseSubState:FlxSubState = new PauseSubState({mode: Conversation});
 
@@ -2829,6 +2840,9 @@ class PlayState extends MusicBeatSubState
       if ((controls.PAUSE || androidPause || pauseButtonCheck) && !justUnpaused)
       {
         VideoCutscene.pauseVideo();
+        #if mobile
+        pauseButton.alpha = 0;
+        #end
 
         var pauseSubState:FlxSubState = new PauseSubState({mode: Cutscene});
 

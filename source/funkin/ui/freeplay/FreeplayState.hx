@@ -180,6 +180,9 @@ class FreeplayState extends MusicBeatSubState
   var curPlaying:Bool = false;
 
   var dj:FreeplayDJ = null;
+  #if mobile
+  var djHitbox:FlxSprite;
+  #end
 
   var ostName:FlxText;
   var albumRoll:AlbumRoll;
@@ -408,6 +411,13 @@ class FreeplayState extends MusicBeatSubState
           wait: 0.1
         });
     }
+
+    #if mobile
+    djHitbox = new FlxSprite(58, 358).makeGraphic(400, 400, FlxColor.TRANSPARENT);
+    djHitbox.cameras = dj.cameras;
+    djHitbox.active = false;
+    add(djHitbox);
+    #end
 
     bgDad.shader = angleMaskShader;
     bgDad.visible = false;
@@ -1429,10 +1439,8 @@ class FreeplayState extends MusicBeatSubState
     // }
     // #end // ^<-- FEATURE_DEBUG_FUNCTIONS
 
-    if (controls.FREEPLAY_CHAR_SELECT #if mobile || TouchUtil.overlapsComplex(dj) && TouchUtil.justPressed #end && !busy)
-    {
-      tryOpenCharSelect();
-    }
+    if ((controls.FREEPLAY_CHAR_SELECT #if mobile || (TouchUtil.overlaps(djHitbox) && TouchUtil.justReleased && !SwipeUtil.swipeAny) #end)
+      && !busy) tryOpenCharSelect();
 
     if (controls.FREEPLAY_FAVORITE && !busy)
     {
