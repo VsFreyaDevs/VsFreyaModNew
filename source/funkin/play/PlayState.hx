@@ -2446,9 +2446,9 @@ class PlayState extends MusicBeatSubState
       if (targetNote == null) continue;
 
       // Judge and hit the note.
-      trace('Hit note! ${targetNote.noteData}');
+      // trace('Hit note! ${targetNote.noteData}');
       goodNoteHit(targetNote, input);
-      trace('Score: ${songScore}');
+      // trace('Score: ${songScore}');
 
       notesInDirection.remove(targetNote);
 
