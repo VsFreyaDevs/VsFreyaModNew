@@ -23,8 +23,6 @@ class GitCommit
     var commitHash:String = process.stdout.readLine();
     var commitHashSplice:String = commitHash.substr(0, 7);
 
-    process.close();
-
     trace('Git Commit ID: ${commitHashSplice}');
 
     // Generates a string expression
@@ -54,7 +52,6 @@ class GitCommit
     }
 
     var branchName:String = branchProcess.stdout.readLine();
-    branchProcess.close();
     trace('Git Branch Name: ${branchName}');
 
     // Generates a string expression
