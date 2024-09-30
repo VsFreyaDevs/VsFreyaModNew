@@ -77,6 +77,8 @@ class ResultState extends MusicBeatSubState
 
   var playerCharacterId:Null<String>;
 
+  var introMusicAudio:Null<FunkinSound>;
+
   var rankBg:FunkinSprite;
   final cameraBG:FunkinCamera;
   final cameraScroll:FunkinCamera;
@@ -412,8 +414,8 @@ class ResultState extends MusicBeatSubState
     // }
 
     new FlxTimer().start(rank.getMusicDelay(), _ -> {
-      var introMusicAudio:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
-      if (Assets.exists(introMusicAudio))
+      var introMusic:String = Paths.music(getMusicPath(playerCharacter, rank) + '/' + getMusicPath(playerCharacter, rank) + '-intro');
+      if (Assets.exists(introMusic))
       {
         // Play the intro music.
         introMusicAudio = FunkinSound.load(introMusic, 1.0, false, true, true, () -> {
