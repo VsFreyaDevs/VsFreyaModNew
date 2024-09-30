@@ -1,6 +1,78 @@
 {
   "entries": [
     {
+      "header": "FreyaFennec_Funkers",
+      "body": [
+        { "line": "A mod created by" },
+        { "line": "charlesisfeline" },
+        { "line": "FreyaFennec_Foxes" },
+        { "line": "TheAnimateMan" }
+      ]
+    },
+    {
+      "header": "Directors",
+      "body": [
+        { "line": "charlesisfeline" },
+        { "line": "FreyaFennec_Foxes" },
+        { "line": "TheAnimateMan" }
+      ]
+    },
+    {
+      "header": "Artists",
+      "body": [
+        { "line": "charlesisfeline" },
+        { "line": "TheAnimateMan" },
+        { "line": "Sp1" },
+        { "line": "KaciPuppi" }
+      ]
+    },
+    {
+      "header": "Musicians",
+      "body": [
+        { "line": "charlesisfeline" },
+        { "line": "TheAnimateMan" },
+        { "line": "Isaiah Mods" },
+        { "line": "Vencerist" }
+      ]
+    },
+    {
+      "header": "Charting",
+      "body": [{ "line": "charlesisfeline" }, { "line": "Vencerist" }]
+    },
+    {
+      "header": "Pixel Art",
+      "body": [{ "line": "charlesisfeline" }, { "line": "TheAnimateMan" }]
+    },
+    {
+      "header": "Concept Art",
+      "body": [
+        { "line": "charlesisfeline" },
+        { "line": "TheAnimateMan" },
+        { "line": "FreyaFennec_Foxes" },
+        { "line": "Ren/Kasper" },
+        { "line": "Isaiah Mods" },
+        { "line": "DerpMage" }
+      ]
+    },
+    {
+      "header": "Special Thanks",
+      "body": [
+        { "line": "MarioYoshi7" },
+        { "line": "Rozebud" },
+        { "line": "PurSnake" },
+        { "line": "lemz1" },
+        { "line": "anysad" },
+        { "line": "bennyk" },
+        { "line": "richTrash21" },
+        { "line": "Redar13" },
+        { "line": "And the Freya/Flispy Discord servers" }
+      ]
+    },
+    {
+      "header": "Programming",
+      "body": [{ "line": "charlesisfeline" }, { "line": "Moxie-Coder" }]
+    },
+    {
       "header": "Friday Night Funkin'",
       "body": [
         { "line": "A video game created by" },

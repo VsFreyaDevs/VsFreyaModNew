@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0",
+  "name": "Shadow Milky",
+  "assetPath": "characters/Monster_Assets",
+  "healthIcon": {
+    "id": "shadowmilky"
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "monster idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Monster left note",
+      "offsets": [-30, 20]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "monster down",
+      "offsets": [-50, -80]
+    },
+    {
+      "name": "singUP",
+      "prefix": "monster up note",
+      "offsets": [-20, 94]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Monster Right note",
+      "offsets": [-51, 30]
+    }
+  ]
+}

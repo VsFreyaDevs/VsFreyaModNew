@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="Milky_Assets.png">
+	<!-- i had to edit this myself help me :sob: -->
+	<!-- by CharlesCatYT-->
+	<SubTexture name="milky idle dance0000" x="598" y="2312" width="605" height="540" frameX="-17" frameY="-83" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0001" x="598" y="2312" width="605" height="540" frameX="-17" frameY="-83" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0002" x="2518" y="1138" width="616" height="557" frameX="-7" frameY="-66" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0003" x="2518" y="1138" width="616" height="557" frameX="-7" frameY="-66" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0004" x="2518" y="0" width="621" height="570" frameX="-7" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0006" x="2518" y="0" width="621" height="570" frameX="-7" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0006" x="1262" y="581" width="626" height="580" frameX="-5" frameY="-41" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0007" x="1262" y="581" width="626" height="580" frameX="-5" frameY="-41" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0008" x="627" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance0009" x="627" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance00010" x="627" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance00011" x="627" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky idle dance00012" x="627" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0000" x="3735" y="0" width="521" height="538" frameX="-10" frameY="-77" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0001" x="3735" y="0" width="521" height="538" frameX="-10" frameY="-77" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0002" x="1808" y="2312" width="541" height="534" frameX="-4" frameY="-81" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0003" x="1808" y="2312" width="541" height="534" frameX="-4" frameY="-81" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0004" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0005" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0007" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0008" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0009" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0010" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0011" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing left0012" x="0" y="2885" width="536" height="528" frameX="-7" frameY="-84" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0000" x="0" y="3895" width="525" height="416" frameX="-71" frameY="-217" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0001" x="0" y="3895" width="525" height="416" frameX="-71" frameY="-217" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0002" x="3735" y="972" width="515" height="426" frameX="-76" frameY="-204" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0003" x="3735" y="972" width="515" height="426" frameX="-76" frameY="-204" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0004" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0005" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0006" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0007" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0008" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0009" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0010" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0011" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing down0012" x="3735" y="538" width="509" height="434" frameX="-79" frameY="-196" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0000" x="3139" y="1797" width="521" height="614" frameX="-76" frameY="-10" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0001" x="3139" y="1797" width="521" height="614" frameX="-76" frameY="-10" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0002" x="3139" y="1183" width="545" height="614" frameX="-62" frameY="-9" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0003" x="3139" y="1183" width="545" height="614" frameX="-62" frameY="-9" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0004" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0005" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0006" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0007" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0008" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0009" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0010" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0011" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing up0012" x="3139" y="574" width="552" height="609" frameX="-56" frameY="-13" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0000" x="2518" y="570" width="611" height="568" frameX="-36" frameY="-37" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0001" x="2518" y="570" width="611" height="568" frameX="-36" frameY="-37" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0002" x="0" y="2312" width="598" height="573" frameX="-41" frameY="-32" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0003" x="0" y="2312" width="598" height="573" frameX="-41" frameY="-32" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0004" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0005" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0006" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0007" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0008" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0009" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0010" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0011" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky sing right0012" x="3139" y="0" width="596" height="574" frameX="-45" frameY="-30" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10000" x="3139" y="2411" width="573" height="446" frameX="9" frameY="-176" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10001" x="3139" y="2411" width="573" height="446" frameX="9" frameY="-176" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10002" x="4256" y="482" width="562" height="471" frameX="2" frameY="-151" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10003" x="4256" y="482" width="562" height="471" frameX="2" frameY="-151" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10004" x="4256" y="953" width="558" height="467" frameX="2" frameY="-155" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10005" x="4256" y="2352" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10006" x="4256" y="2352" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10007" x="4256" y="2352" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 10008" x="4256" y="2352" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20000" x="4256" y="3284" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20001" x="4256" y="3284" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20002" x="4256" y="2818" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20003" x="4256" y="2818" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20004" x="4256" y="1420" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20005" x="4256" y="1420" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20006" x="4256" y="1886" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20007" x="4256" y="1886" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 20008" x="4256" y="1886" width="558" height="466" frameX="2" frameY="-156" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30000" x="2349" y="2312" width="589" height="486" frameX="-1" frameY="-142" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30001" x="2349" y="2312" width="589" height="486" frameX="-1" frameY="-142" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30002" x="4256" y="0" width="562" height="482" frameX="2" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30003" x="4256" y="0" width="562" height="482" frameX="2" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30004" x="2830" y="3413" width="565" height="482" frameX="5" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30005" x="2830" y="3413" width="565" height="482" frameX="5" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30006" x="2242" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30007" x="2242" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30008" x="2264" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30009" x="2264" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30010" x="1698" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30011" x="1698" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30012" x="2808" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30013" x="2808" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30014" x="1676" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30015" x="1676" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30016" x="566" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30017" x="566" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 30018" x="1110" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40000" x="536" y="2885" width="574" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40001" x="536" y="2885" width="574" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40002" x="3395" y="3413" width="565" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40003" x="3395" y="3413" width="565" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40004" x="1132" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40005" x="1132" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40006" x="0" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40007" x="0" y="3413" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40008" x="1110" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky start cut 40009" x="1110" y="2885" width="566" height="482" frameX="6" frameY="-146" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10000" x="1203" y="2312" width="605" height="540" frameX="-17" frameY="-83" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10001" x="1203" y="2312" width="605" height="540" frameX="-17" frameY="-83" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10002" x="2518" y="1695" width="616" height="557" frameX="-7" frameY="-66" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10003" x="2518" y="1695" width="616" height="557" frameX="-7" frameY="-66" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10004" x="1887" y="1742" width="621" height="570" frameX="-7" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10005" x="1887" y="1742" width="621" height="570" frameX="-7" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10006" x="0" y="1162" width="626" height="580" frameX="-5" frameY="-41" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 10008" x="0" y="581" width="627" height="581" frameX="-5" frameY="-40" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20000" x="1262" y="0" width="627" height="581" frameX="-6" frameY="-41" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20001" x="1262" y="0" width="627" height="581" frameX="-6" frameY="-41" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20002" x="629" y="0" width="633" height="576" frameX="-5" frameY="-47" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20003" x="629" y="0" width="633" height="576" frameX="-5" frameY="-47" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20004" x="1255" y="1162" width="630" height="570" frameX="-8" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20005" x="1255" y="1162" width="630" height="570" frameX="-8" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20006" x="626" y="1162" width="629" height="573" frameX="-9" frameY="-55" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20007" x="626" y="1162" width="629" height="573" frameX="-9" frameY="-55" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20008" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 20009" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30000" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30001" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30002" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30003" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30004" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30005" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30006" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30007" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30008" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30010" x="0" y="0" width="629" height="581" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 30011" x="1889" y="570" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40000" x="1889" y="0" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40001" x="1889" y="0" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40002" x="1889" y="1140" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40003" x="1889" y="1140" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40004" x="0" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40005" x="0" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40006" x="629" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40007" x="629" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40008" x="1258" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40009" x="1258" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40010" x="1258" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+	<SubTexture name="milky angy cut 40011" x="1258" y="1742" width="629" height="570" frameX="-9" frameY="-52" frameWidth="640" frameHeight="640" />
+</TextureAtlas>

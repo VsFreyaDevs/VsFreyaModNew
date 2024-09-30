@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "MILKY THE MILK BLOB",
+  "titleAsset": "storymenu/titles/milky",
+  "props": [],
+  "background": "#413CAE",
+  "songs": ["lactose", "crystal", "intolerant", "shadows"]
+}

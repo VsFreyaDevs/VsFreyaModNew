@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="KillerAnimateSprite.png">
+	<!-- Created with Adobe Animate version 24.0.3.19 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="ka idle instance 10000" x="0" y="0" width="603" height="472" pivotX="-2.25" pivotY="-34.2" frameX="-2" frameY="-44" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10001" x="0" y="0" width="603" height="472" frameX="-2" frameY="-44" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10002" x="603" y="0" width="604" height="467" frameX="0" frameY="-48" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10003" x="603" y="0" width="604" height="467" frameX="0" frameY="-48" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10004" x="1207" y="0" width="605" height="493" frameX="-4" frameY="-23" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10005" x="1207" y="0" width="605" height="493" frameX="-4" frameY="-23" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10006" x="1812" y="0" width="601" height="511" frameX="-7" frameY="-5" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10007" x="1812" y="0" width="601" height="511" frameX="-7" frameY="-5" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10008" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10009" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10010" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10011" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10012" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka idle instance 10013" x="2413" y="0" width="599" height="516" frameX="-8" frameY="0" frameWidth="609" frameHeight="516"/>
+	<SubTexture name="ka sing down instance 10000" x="3012" y="0" width="667" height="496" pivotX="149.1" pivotY="-106.6" frameX="-39" frameY="0" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10001" x="3012" y="0" width="667" height="496" frameX="-39" frameY="0" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10002" x="0" y="516" width="694" height="437" frameX="-12" frameY="-39" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10003" x="0" y="516" width="694" height="437" frameX="-12" frameY="-39" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10004" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10005" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10006" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10007" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10008" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10009" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10010" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10011" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10012" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing down instance 10013" x="694" y="516" width="708" height="444" frameX="0" frameY="-34" frameWidth="708" frameHeight="496"/>
+	<SubTexture name="ka sing left instance 10000" x="1402" y="516" width="790" height="461" pivotX="159.05" pivotY="-107.35" frameX="0" frameY="-2" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10001" x="1402" y="516" width="790" height="461" frameX="0" frameY="-2" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10002" x="2192" y="516" width="773" height="453" frameX="-33" frameY="-1" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10003" x="2192" y="516" width="773" height="453" frameX="-33" frameY="-1" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10004" x="2965" y="516" width="769" height="454" frameX="-40" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10005" x="2965" y="516" width="769" height="454" frameX="-40" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10006" x="0" y="977" width="772" height="454" frameX="-37" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10007" x="0" y="977" width="772" height="454" frameX="-37" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10008" x="772" y="977" width="778" height="454" frameX="-31" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10009" x="772" y="977" width="778" height="454" frameX="-31" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10010" x="1550" y="977" width="771" height="454" frameX="-38" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10011" x="1550" y="977" width="771" height="454" frameX="-38" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10012" x="2965" y="516" width="769" height="454" frameX="-40" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing left instance 10013" x="2965" y="516" width="769" height="454" frameX="-40" frameY="0" frameWidth="809" frameHeight="463"/>
+	<SubTexture name="ka sing right instance 10000" x="2321" y="977" width="703" height="568" pivotX="7.55" pivotY="16.35" frameX="0" frameY="-7" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10001" x="2321" y="977" width="703" height="568" frameX="0" frameY="-7" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10002" x="3024" y="977" width="690" height="574" frameX="-25" frameY="-1" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10003" x="3024" y="977" width="690" height="574" frameX="-25" frameY="-1" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10004" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10005" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10006" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10007" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10008" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10009" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10010" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10011" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10012" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing right instance 10013" x="0" y="1551" width="687" height="575" frameX="-29" frameY="0" frameWidth="716" frameHeight="575"/>
+	<SubTexture name="ka sing up instance 10000" x="687" y="1551" width="517" height="569" pivotX="-30.95" pivotY="15.85" frameX="-13" frameY="0" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10001" x="687" y="1551" width="517" height="569" frameX="-13" frameY="0" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10002" x="1204" y="1551" width="528" height="545" frameX="-2" frameY="-23" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10003" x="1204" y="1551" width="528" height="545" frameX="-2" frameY="-23" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10004" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10005" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10006" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10007" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10008" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10009" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10010" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10011" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10012" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+	<SubTexture name="ka sing up instance 10013" x="1732" y="1551" width="530" height="541" frameX="0" frameY="-27" frameWidth="530" frameHeight="569"/>
+</TextureAtlas>

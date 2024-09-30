@@ -1,0 +1,51 @@
+{
+  "version": "2.2.3",
+  "songName": "Samsung",
+  "artist": "Samsung",
+  "charter": "Who?",
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {    },
+    "vocals": {    }
+  },
+  "playData": {
+    "songVariations": [    ],
+    "difficulties": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "characters": {
+      "player": "bf-christmas",
+      "girlfriend": "gf-christmas",
+      "opponent": "rocky",
+      "instrumental": "",
+      "altInstrumentals": [      ]
+    },
+    "stage": "tankmanBattlefield",
+    "noteStyle": "funkin",
+    "ratings": {
+      "easy": 0
+    },
+    "previewStart": 0,
+    "previewEnd": 0
+  },
+  "generatedBy": "Friday Night Funkin': Vs. Freya Crew - v0.4.1",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 183,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "version": "1.0.0",
+  "name": "FREYAFENNEC_FOXES",
+  "titleAsset": "storymenu/titles/freya",
+  "props": [],
+  "background": "#413CAE",
+  "songs": ["freyin", "falling-leaves", "uzil"]
+}
