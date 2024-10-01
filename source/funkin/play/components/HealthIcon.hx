@@ -4,6 +4,7 @@ import funkin.play.character.CharacterData;
 import flixel.FlxSprite;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
+import flixel.util.FlxColor;
 import funkin.play.character.CharacterData.CharacterDataParser;
 import openfl.utils.Assets;
 import funkin.graphics.FunkinSprite;
