@@ -38,9 +38,7 @@ class CameraFlashEvent extends SongEvent
       }, true);
     }
     else
-    {
       camera.flash(FlxColor.fromString(color), durSeconds, null, true);
-    }
   }
 
   public override function getTitle():String

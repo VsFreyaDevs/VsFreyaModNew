@@ -421,7 +421,7 @@ class CharSelectSubState extends MusicBeatSubState
       remove(blackScreen);
       if (!Save.instance.oldChar)
       {
-        camera.flash();
+        if (Preferences.flashingLights) camera.flash();
 
         introSound.volume = 1;
         introSound.play(true);
@@ -564,7 +564,7 @@ class CharSelectSubState extends MusicBeatSubState
         syncLock = null;
 
         var char = availableChars.get(index);
-        camera.flash(0xFFFFFFFF, 0.1);
+        if (Preferences.flashingLights) camera.flash(0xFFFFFFFF, 0.1);
         playerChill.playAnimation("unlock");
         playerChill.visible = true;
 

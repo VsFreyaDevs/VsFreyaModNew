@@ -258,8 +258,11 @@ class StoryMenuState extends MusicBeatState
   function buildDifficultySprite(?diff:String):Void
   {
     if (diff == null) diff = currentDifficultyId;
+
     remove(difficultySprite);
+
     difficultySprite = difficultySprites.get(diff);
+
     if (difficultySprite == null)
     {
       difficultySprite = new FlxSprite(leftDifficultyArrow.x + leftDifficultyArrow.width + 10, leftDifficultyArrow.y);
@@ -271,9 +274,7 @@ class StoryMenuState extends MusicBeatState
         if (Preferences.flashingLights) difficultySprite.animation.play('idle');
       }
       else
-      {
         difficultySprite.loadGraphic(Paths.image('storymenu/difficulties/${diff}'));
-      }
 
       difficultySprites.set(diff, difficultySprite);
 

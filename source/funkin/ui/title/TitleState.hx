@@ -398,7 +398,7 @@ class TitleState extends MusicBeatState
 
     FlxG.sound.music.fadeIn(4.0, 0.0, 1.0);
 
-    FlxG.camera.flash(FlxColor.WHITE, 1);
+    if (Preferences.flashingLights) FlxG.camera.flash(FlxColor.WHITE, 1);
     FunkinSound.playOnce(Paths.sound('confirmMenu'), 0.7);
   }
 

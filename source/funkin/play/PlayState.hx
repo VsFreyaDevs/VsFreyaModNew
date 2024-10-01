@@ -3016,20 +3016,12 @@ class PlayState extends MusicBeatSubState
           }
         }
 
-        if (isSubState)
-        {
-          this.close();
-        }
+        if (isSubState) this.close();
         else
         {
-          if (rightGoddamnNow)
-          {
-            moveToResultsScreen(isNewHighscore);
-          }
+          if (rightGoddamnNow) moveToResultsScreen(isNewHighscore);
           else
-          {
             zoomIntoResultsScreen(isNewHighscore);
-          }
         }
       }
       else
