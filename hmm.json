@@ -70,14 +70,14 @@
       "name": "haxeui-core",
       "type": "git",
       "dir": null,
-      "ref": "22f7c5a8ffca90d4677cffd6e570f53761709fbc",
+      "ref": null,
       "url": "https://github.com/haxeui/haxeui-core"
     },
     {
       "name": "haxeui-flixel",
       "type": "git",
       "dir": null,
-      "ref": "3ecdd9ff311a0a4da0e5fc41e33f500a60f12d5e",
+      "ref": null,
       "url": "https://github.com/haxeui/haxeui-flixel"
     },
     {
@@ -90,7 +90,7 @@
     {
       "name": "hxvlc",
       "type": "haxelib",
-      "version": "1.8.5"
+      "version": "1.9.0"
     },
     {
       "name": "extension-androidtools",

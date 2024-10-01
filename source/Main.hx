@@ -80,21 +80,16 @@ class Main extends Sprite
     funkin.util.logging.AnsiTrace.traceBF();
 
     #if mobile
-    funkin.mobile.util.StorageUtil.copyNecessaryFiles(['mp4' => 'assets/videos']);
+    // funkin.mobile.util.StorageUtil.copyNecessaryFiles(['mp4' => 'assets/videos']);
     #end
 
     // Load mods to override assets.
     // TODO: Replace with loadEnabledMods() once the user can configure the mod list.
     funkin.modding.PolymodHandler.loadAllMods();
 
-    if (stage != null)
-    {
-      init();
-    }
+    if (stage != null) init();
     else
-    {
       addEventListener(Event.ADDED_TO_STAGE, init);
-    }
   }
 
   function init(?event:Event):Void
@@ -105,10 +100,7 @@ class Main extends Sprite
     funkin.Preferences.lockedFramerateFunction = untyped js.Syntax.code("window.requestAnimationFrame");
     #end
 
-    if (hasEventListener(Event.ADDED_TO_STAGE))
-    {
-      removeEventListener(Event.ADDED_TO_STAGE, init);
-    }
+    if (hasEventListener(Event.ADDED_TO_STAGE)) removeEventListener(Event.ADDED_TO_STAGE, init);
 
     setupGame();
   }

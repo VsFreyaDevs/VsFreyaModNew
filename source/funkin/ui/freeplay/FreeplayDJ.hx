@@ -312,6 +312,9 @@ class FreeplayDJ extends FlxAtlasSprite
     {
       // tv is OFF, but getting turned on
       FunkinSound.playOnce(Paths.sound('tv_on'), 1.0, function() {
+        // Fade out music to 40% volume over 1 second.
+        // This helps make the TV a bit more audible.
+        FlxG.sound.music?.fadeOut(1.0, FlxG.sound.music.volume * 0.4);
         loadCartoon();
       });
     }
@@ -329,13 +332,11 @@ class FreeplayDJ extends FlxAtlasSprite
 
   function loadCartoon()
   {
+    playingCartoon = true;
+
     cartoonSnd = FunkinSound.load(Paths.sound(getRandomFlashToon()), 1.0, false, true, true, function() {
       playFlashAnimation(playableCharData.getAnimationPrefix('cartoon'), true, false, false, 60);
     });
-
-    // Fade out music to 40% volume over 1 second.
-    // This helps make the TV a bit more audible.
-    FlxG.sound.music.fadeOut(1.0, 0.1);
 
     // Play the cartoon at a random time between the start and 5 seconds from the end.
     cartoonSnd.time = FlxG.random.float(0, Math.max(cartoonSnd.length - (5 * Constants.MS_PER_SEC), 0.0));

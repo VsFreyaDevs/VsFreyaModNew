@@ -93,7 +93,7 @@ class VideoCutscene
     #if html5
     playVideoHTML5(rawFilePath);
     #elseif hxvlc
-    playVideoNative(rawFilePath);
+    playVideoNative(filePath);
     #else
     throw "No video support for this platform!";
     #end

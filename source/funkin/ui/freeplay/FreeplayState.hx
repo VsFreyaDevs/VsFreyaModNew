@@ -255,17 +255,15 @@ class FreeplayState extends MusicBeatSubState
 
     fromResultsParams = params?.fromResults;
 
-    if (fromResultsParams?.playRankAnim == true)
-    {
-      prepForNewRank = true;
-    }
+    // bf songs have no suffix, but we need to initalize the difficulty
+    // in case we begin playing as pico
+    if (currentCharacterId != 'bf') currentSuffixedDifficulty = Constants.DEFAULT_DIFFICULTY + '-$currentCharacterId';
+
+    if (fromResultsParams?.playRankAnim == true) prepForNewRank = true;
 
     super(FlxColor.TRANSPARENT);
 
-    if (stickers?.members != null)
-    {
-      stickerSubState = stickers;
-    }
+    if (stickers?.members != null) stickerSubState = stickers;
 
     switch (currentCharacterId)
     {
@@ -787,7 +785,7 @@ class FreeplayState extends MusicBeatSubState
     {
       tempSongs = tempSongs.filter(song -> {
         if (song == null) return true; // Random
-        return song.songDifficulties.contains(currentDifficulty);
+        return (song.suffixedSongDifficulties.contains(currentSuffixedDifficulty) || song.songCharacter == currentCharacterId);
       });
     }
 
@@ -2104,6 +2102,9 @@ class FreeplayState extends MusicBeatSubState
 
   public function playCurSongPreview(?daSongCapsule:SongMenuItem):Void
   {
+    var volume:Float = 0.4;
+    if (dj.playingCartoon) volume *= 0.4; // 40%
+
     if (daSongCapsule == null) daSongCapsule = grpCapsules.members[curSelected];
 
     if (curSelected == 0)
@@ -2114,7 +2115,7 @@ class FreeplayState extends MusicBeatSubState
           overrideExisting: true,
           restartTrack: false
         });
-      FlxG.sound.music.fadeIn(2, 0, 0.8);
+      FlxG.sound.music.fadeIn(2, 0, volume);
     }
     else
     {
@@ -2159,7 +2160,7 @@ class FreeplayState extends MusicBeatSubState
               end: 0.2
             },
           onLoad: function() {
-            FlxG.sound.music.fadeIn(2, 0, 0.4);
+            FlxG.sound.music.fadeIn(2, 0, volume);
           }
         });
 
