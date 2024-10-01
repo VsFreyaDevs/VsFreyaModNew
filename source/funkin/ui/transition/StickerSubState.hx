@@ -71,19 +71,13 @@ class StickerSubState extends MusicBeatSubState
     for (i in soundSelections)
     {
       while (soundSelections.contains(i))
-      {
         soundSelections.remove(i);
-      }
       soundSelections.push(i);
     }
 
-    trace(soundSelections);
-
     soundSelection = FlxG.random.getObject(soundSelections);
 
-    var filterFunc = function(a:String) {
-      return a.startsWith('assets/shared/sounds/stickersounds/' + soundSelection + '/');
-    };
+    var filterFunc = (a:String) -> return a.startsWith('assets/shared/sounds/stickersounds/' + soundSelection + '/');
     var assetsInList3 = openfl.utils.Assets.list();
     sounds = assetsInList3.filter(filterFunc);
     for (i in 0...sounds.length)
@@ -91,8 +85,6 @@ class StickerSubState extends MusicBeatSubState
       sounds[i] = sounds[i].replace('assets/shared/sounds/', '');
       sounds[i] = sounds[i].substring(0, sounds[i].lastIndexOf('.'));
     }
-
-    trace(sounds);
 
     grpStickers = new FlxTypedGroup<StickerSprite>();
     add(grpStickers);
@@ -104,9 +96,7 @@ class StickerSubState extends MusicBeatSubState
     if (oldStickers != null)
     {
       for (sticker in oldStickers)
-      {
         grpStickers.add(sticker);
-      }
 
       degenStickers();
     }
@@ -151,10 +141,7 @@ class StickerSubState extends MusicBeatSubState
 
   function regenStickers():Void
   {
-    if (grpStickers.members.length > 0)
-    {
-      grpStickers.clear();
-    }
+    if (grpStickers.members.length > 0) grpStickers.clear();
 
     var stickerInfo:StickerInfo = new StickerInfo('stickers-set-1');
     var stickers:Map<String, Array<String>> = new Map<String, Array<String>>();
@@ -190,33 +177,6 @@ class StickerSubState extends MusicBeatSubState
     }
 
     FlxG.random.shuffle(grpStickers.members);
-
-    // var stickerCount:Int = 0;
-
-    // for (w in 0...6)
-    // {
-    //   var xPos:Float = FlxG.width * (w / 6);
-    //   for (h in 0...6)
-    //   {
-    //     var yPos:Float = FlxG.height * (h / 6);
-    //     var sticker = grpStickers.members[stickerCount];
-    //     xPos -= sticker.width / 2;
-    //     yPos -= sticker.height * 0.9;
-    //     sticker.x = xPos;
-    //     sticker.y = yPos;
-
-    //     stickerCount++;
-    //   }
-    // }
-
-    // for (ind => sticker in grpStickers.members)
-    // {
-    //   sticker.x = (ind % 8) * sticker.width;
-    //   var yShit:Int = Math.floor(ind / 8);
-    //   sticker.y += yShit * sticker.height;
-    //   // scales it juuuust a smidge
-    //   sticker.y += 20 * yShit;
-    // }
 
     // another damn for loop... apologies!!!
     for (ind => sticker in grpStickers.members)
@@ -275,9 +235,7 @@ class StickerSubState extends MusicBeatSubState
       });
     }
 
-    grpStickers.sort((ord, a, b) -> {
-      return FlxSort.byValues(ord, a.timing, b.timing);
-    });
+    grpStickers.sort((ord, a, b) -> return FlxSort.byValues(ord, a.timing, b.timing));
 
     // centers the very last sticker
     var lastOne:StickerSprite = grpStickers.members[grpStickers.members.length - 1];
@@ -290,10 +248,7 @@ class StickerSubState extends MusicBeatSubState
   {
     super.update(elapsed);
 
-    // if (FlxG.keys.justPressed.ANY)
-    // {
-    //   regenStickers();
-    // }
+    if (FlxG.keys.justPressed.L) regenStickers(); // lol
   }
 
   var switchingState:Bool = false;
@@ -366,14 +321,10 @@ class StickerInfo
   }
 
   public function getStickers(stickerName:String):Array<String>
-  {
     return this.stickers[stickerName];
-  }
 
   public function getPack(packName:String):Array<String>
-  {
     return this.stickerPacks[packName];
-  }
 }
 
 // somethin damn cute just for the json to cast to!

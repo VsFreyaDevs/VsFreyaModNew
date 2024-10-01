@@ -274,13 +274,10 @@ class FreeplayDJ extends FlxAtlasSprite
     {
       // Animation should loop.
     }
-    else if (name == playableCharData.getAnimationPrefix('charSelect'))
-    {
-      onCharSelectComplete();
-    }
+    else if (name == playableCharData.getAnimationPrefix('charSelect')) onCharSelectComplete();
     else
     {
-      trace('Finished ${name}');
+      // trace('Finished ${name}');
     }
   }
 

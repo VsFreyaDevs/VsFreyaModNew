@@ -141,12 +141,10 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
 
   var tickTiledSprite:FlxTiledSprite;
 
-  var freeplayPreviewVolume(get, null):Float;
+  var freeplayPreviewVolume(get, never):Float;
 
   function get_freeplayPreviewVolume():Float
-  {
     return freeplayMusicVolume.value * 2 / 100;
-  }
 
   var tickLabels:Array<Label> = [];
 
@@ -171,30 +169,14 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
     this.x = 150;
     this.y = 250;
 
-    freeplayMusicVolume.onChange = (_) -> {
-      setTrackVolume(freeplayPreviewVolume);
-    };
-    freeplayMusicMute.onClick = (_) -> {
-      toggleMuteTrack();
-    };
-    freeplayButtonZoomIn.onClick = (_) -> {
-      zoomWaveformIn();
-    };
-    freeplayButtonZoomOut.onClick = (_) -> {
-      zoomWaveformOut();
-    };
-    freeplayButtonPause.onClick = (_) -> {
-      pauseAudioPreview();
-    };
-    freeplayButtonPlay.onClick = (_) -> {
-      playAudioPreview();
-    };
-    freeplayButtonStop.onClick = (_) -> {
-      stopAudioPreview();
-    };
-    testPreview.onClick = (_) -> {
-      performPreview();
-    };
+    freeplayMusicVolume.onChange = (_) -> setTrackVolume(freeplayPreviewVolume);
+    freeplayMusicMute.onClick = (_) -> toggleMuteTrack();
+    freeplayButtonZoomIn.onClick = (_) -> zoomWaveformIn();
+    freeplayButtonZoomOut.onClick = (_) -> zoomWaveformOut();
+    freeplayButtonPause.onClick = (_) -> pauseAudioPreview();
+    freeplayButtonPlay.onClick = (_) -> playAudioPreview();
+    freeplayButtonStop.onClick = (_) -> stopAudioPreview();
+    testPreview.onClick = (_) -> performPreview();
     freeplayPreviewStart.onChange = (event:UIEvent) -> {
       if (event.value == chartEditorState.currentSongFreeplayPreviewStart) return;
       if (waveformDragStartPos != null) return; // The values are changing because we are dragging the preview.
@@ -244,13 +226,9 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
     refresh();
     refreshTicks();
 
-    waveformMusic.registerEvent(MouseEvent.MOUSE_DOWN, (_) -> {
-      onStartDragWaveform();
-    });
+    waveformMusic.registerEvent(MouseEvent.MOUSE_DOWN, (_) -> onStartDragWaveform());
 
-    freeplayTicksContainer.registerEvent(MouseEvent.MOUSE_DOWN, (_) -> {
-      onStartDragPlayhead();
-    });
+    freeplayTicksContainer.registerEvent(MouseEvent.MOUSE_DOWN, (_) -> onStartDragPlayhead());
   }
 
   function initializeTicks():Void
@@ -341,10 +319,7 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
     var integerSeconds = Math.floor(seconds);
     var decimalSeconds = Math.floor((seconds - integerSeconds) * 10);
 
-    if (integerSeconds < 60)
-    {
-      return '${integerSeconds}.${decimalSeconds}';
-    }
+    if (integerSeconds < 60) return '${integerSeconds}.${decimalSeconds}';
     else
     {
       var integerMinutes = Math.floor(integerSeconds / 60);
@@ -472,22 +447,13 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
   public function addOffsetsToAudioPreview():Void
   {
     var trackInst = audioPreviewTracks.members[0];
-    if (trackInst != null)
-    {
-      trackInst.time -= chartEditorState.currentInstrumentalOffset;
-    }
+    if (trackInst != null) trackInst.time -= chartEditorState.currentInstrumentalOffset;
 
     var trackPlayer = audioPreviewTracks.members[1];
-    if (trackPlayer != null)
-    {
-      trackPlayer.time -= chartEditorState.currentVocalOffsetPlayer;
-    }
+    if (trackPlayer != null) trackPlayer.time -= chartEditorState.currentVocalOffsetPlayer;
 
     var trackOpponent = audioPreviewTracks.members[2];
-    if (trackOpponent != null)
-    {
-      trackOpponent.time -= chartEditorState.currentVocalOffsetOpponent;
-    }
+    if (trackOpponent != null) trackOpponent.time -= chartEditorState.currentVocalOffsetOpponent;
   }
 
   public function pauseAudioPreview():Void
@@ -600,20 +566,17 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
   {
     super.update(elapsed);
 
-    if (isPerformingPreview && !audioPreviewTracks.playing)
-    {
-      stopPerformingPreview();
-    }
+    if (isPerformingPreview && !audioPreviewTracks.playing) stopPerformingPreview();
 
     if (isPerformingPreview && audioPreviewTracks.playing)
     {
       var startFadeOutTime = chartEditorState.currentSongFreeplayPreviewEnd - (FreeplayState.FADE_OUT_DURATION * Constants.MS_PER_SEC);
-      trace('startFadeOutTime: ${audioPreviewTracks.time} >= ${startFadeOutTime}');
+      // trace('startFadeOutTime: ${audioPreviewTracks.time} >= ${startFadeOutTime}');
       if (!isFadingOutPreview && audioPreviewTracks.time >= startFadeOutTime)
       {
         isFadingOutPreview = true;
         audioPreviewTracks.fadeOut(FreeplayState.FADE_OUT_DURATION, FreeplayState.FADE_OUT_END_VOLUME * freeplayPreviewVolume, (_) -> {
-          trace('Stop performing preview! ${audioPreviewTracks.time}');
+          // trace('Stop performing preview! ${audioPreviewTracks.time}');
           stopPerformingPreview();
         });
       }
@@ -630,14 +593,8 @@ class ChartEditorFreeplayToolbox extends ChartEditorBaseToolbox
       // BEHAVIOR C.
       // Copy Audacity!
       // If the playhead is out of view, jump forward or backward by one screen width until it's in view.
-      if (playheadAbsolutePos < waveformScrollview.hscrollPos)
-      {
-        waveformScrollview.hscrollPos -= waveformScrollview.width;
-      }
-      if (playheadAbsolutePos > waveformScrollview.hscrollPos + waveformScrollview.width)
-      {
-        waveformScrollview.hscrollPos += waveformScrollview.width;
-      }
+      if (playheadAbsolutePos < waveformScrollview.hscrollPos) waveformScrollview.hscrollPos -= waveformScrollview.width;
+      if (playheadAbsolutePos > waveformScrollview.hscrollPos + waveformScrollview.width) waveformScrollview.hscrollPos += waveformScrollview.width;
     }
     freeplayLabelTime.text = formatTime(audioPreviewTracks.time / Constants.MS_PER_SEC);
     if (waveformDragStartPos != null && (waveformDragPreviewStartPos > 0 && waveformDragPreviewEndPos > 0))
