@@ -84,7 +84,7 @@ class CrashHandler
     }
 
     // Exit the game. Since it threw an error, we use a non-zero exit code.
-    System.exit(1);
+    lime.system.System.exit(1);
   }
 
   static function displayError(error:UncaughtErrorEvent):Void
@@ -94,7 +94,7 @@ class CrashHandler
 
   static function displayErrorMessage(message:String):Void
   {
-    lime.app.Application.current.window.alert(message, "Fatal Uncaught Exception");
+    lime.app.Application.current.window.alert(message, "Fatal Uncaught Exception!");
   }
 
   #if sys
@@ -113,7 +113,7 @@ class CrashHandler
   static function buildCrashReport(message:String):String
   {
     var fullContents:String = '=====================\n';
-    fullContents += ' Funkin Crash Report\n';
+    fullContents += ' FNF Vs. Freya Crash Report\n';
     fullContents += '=====================\n';
 
     fullContents += '\n';
@@ -142,7 +142,7 @@ class CrashHandler
 
     var currentState = FlxG.state != null ? Type.getClassName(Type.getClass(FlxG.state)) : 'No state loaded';
 
-    fullContents += 'Flixel Current State: ${currentState}\n';
+    fullContents += 'Current State (Flixel): ${currentState}\n';
 
     fullContents += '\n';
 
@@ -150,7 +150,7 @@ class CrashHandler
 
     fullContents += '\n';
 
-    fullContents += 'Haxelibs: \n';
+    fullContents += 'Haxe libraries: \n';
 
     for (lib in Constants.LIBRARY_VERSIONS)
     {

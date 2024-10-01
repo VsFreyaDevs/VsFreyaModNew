@@ -273,7 +273,7 @@ class TitleState extends MusicBeatState
     #end
 
     #if desktop
-    if (FlxG.keys.justPressed.ESCAPE) Sys.exit(0);
+    if (FlxG.keys.justPressed.ESCAPE) lime.system.System.exit(0);
     #end
 
     if (Save.instance.charactersSeen.contains("pico") && false) // this fix doesnt really matter cuz the save data just doesnt work lol
