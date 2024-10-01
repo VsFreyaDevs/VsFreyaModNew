@@ -12,7 +12,7 @@ class Prebuild
   static function main():Void
   {
     saveBuildTime();
-    trace('Building...');
+    trace('[ Building Funkin\'... ]');
   }
 
   static function saveBuildTime():Void

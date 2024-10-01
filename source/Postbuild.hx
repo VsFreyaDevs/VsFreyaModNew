@@ -29,7 +29,7 @@ class Postbuild
 
       var buildTime:Float = roundToTwoDecimals(end - start);
 
-      trace('Build took: ${buildTime} seconds');
+      trace('[ Build took: ${buildTime} seconds! ]');
     }
   }
 
