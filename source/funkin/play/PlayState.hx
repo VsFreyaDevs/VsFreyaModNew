@@ -1711,6 +1711,9 @@ class PlayState extends MusicBeatSubState
       iconP1.cameras = [camHUD];
     }
 
+    // CREATE HEALTH BAR WITH CHARACTERS COLORS
+    if (Preferences.coloredHealthBar) healthBar.createFilledBar(iconP2.getDominantColor(), iconP1.getDominantColor());
+
     //
     // ADD CHARACTERS TO SCENE
     //

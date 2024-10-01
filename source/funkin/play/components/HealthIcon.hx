@@ -226,6 +226,41 @@ class HealthIcon extends FunkinSprite
   }
 
   /**
+   * Get dominant color on icon.
+   * Used for Health Bar colors.
+  **/
+  inline public function getDominantColor():Int
+  {
+    var countByColor:Map<Int, Int> = [];
+    for (col in 0...frameWidth)
+    {
+      for (row in 0...frameHeight)
+      {
+        var colorOfThisPixel:Int = pixels.getPixel32(col, row);
+        if (colorOfThisPixel != 0)
+        {
+          if (countByColor.exists(colorOfThisPixel)) countByColor.set(colorOfThisPixel, (countByColor.get(colorOfThisPixel) ?? 0) + 1);
+          else if (countByColor.get(colorOfThisPixel) != 13520687 - (2 * 13520687)) countByColor.set(colorOfThisPixel, 1);
+        }
+      }
+    }
+    var maxCount = 0; // store max color count
+    var maxKey:Int = 0; // after the loop this will store the max color
+    countByColor[FlxColor.BLACK] = 0;
+    for (key in countByColor.keys())
+    {
+      var count:Int = countByColor.get(key) ?? 0;
+      if (count >= maxCount)
+      {
+        maxCount = count;
+        maxKey = key;
+      }
+    }
+    countByColor = [];
+    return maxKey;
+  }
+
+  /**
    * Does the calculation to lerp the icon size. Usually called every frame, but can be forced to the target size.
    * Mainly forced when changing to old icon to not have a weird lerp related to changing from pixel icon to non-pixel old icon
    * @param force Force the icon immedialtely to be the target size. Defaults to false.

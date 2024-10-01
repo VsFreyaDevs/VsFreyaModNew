@@ -16,12 +16,29 @@ class LegacySongData
 {
   public var player1:String; // Boyfriend
   public var player2:String; // Opponent
+  @:optional
+  public var gfVersion:String; // For Girlfriend (Psych Engine, i think)
+  @:optional
+  public var player3:String; // Deprecated in Psych, idk
 
   @:jcustomparse(funkin.data.DataParse.eitherLegacyScrollSpeeds)
   public var speed:Either<Float, LegacyScrollSpeeds>;
   @:optional
   public var stageDefault:Null<String>;
   public var bpm:Float;
+
+  // FOR CHARTS MADE IN SOME ENGINES LIKE PSYCH:
+  // (won't be actually parsed since these are here solely to get Psych charts working)
+  @:optional
+  public var stage:String;
+  @:optional
+  public var arrowSkin:String;
+  @:optional
+  public var splashSkin:String;
+  @:optional
+  public var validScore:Bool;
+  @:optional
+  public var needsVoices:Bool;
 
   @:jcustomparse(funkin.data.DataParse.eitherLegacyNoteData)
   public var notes:Either<Array<LegacyNoteSection>, LegacyNoteData>;
@@ -95,6 +112,9 @@ typedef LegacyNoteSection =
   // BPM changes
   public var ?changeBPM:Bool;
   public var ?bpm:Float;
+  public var ?gfSection:Bool;
+  public var ?altAnim:Bool;
+  public var ?sectionBeats:Bool;
 }
 
 /**

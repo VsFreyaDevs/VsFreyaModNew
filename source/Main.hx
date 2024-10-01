@@ -67,6 +67,14 @@ class Main extends Sprite
   {
     super();
 
+    #if windows
+    @:functionCode("
+			#include <windows.h>
+      #include <winuser.h>
+			setProcessDPIAware() // Allows for more crispy visuals.
+		")
+    #end
+
     // Initialize custom logging.
     haxe.Log.trace = funkin.util.logging.AnsiTrace.trace;
     funkin.util.logging.AnsiTrace.traceBF();
