@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="DaveGames.png">
+	<!-- Created with Adobe Animate version 22.0.2.168 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="dave games idle dance0000" x="0" y="0" width="546" height="470" frameX="0" frameY="-28" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0001" x="0" y="0" width="546" height="470" frameX="0" frameY="-28" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0002" x="546" y="0" width="510" height="482" frameX="-18" frameY="-16" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0003" x="546" y="0" width="510" height="482" frameX="-18" frameY="-16" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0004" x="1056" y="0" width="500" height="492" frameX="-23" frameY="-6" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0005" x="1056" y="0" width="500" height="492" frameX="-23" frameY="-6" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0006" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0007" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0008" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0009" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0010" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games idle dance0011" x="1556" y="0" width="490" height="498" frameX="-28" frameY="0" frameWidth="546" frameHeight="498"/>
+	<SubTexture name="dave games sing down0000" x="2046" y="0" width="524" height="476" frameX="0" frameY="-22" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0001" x="2046" y="0" width="524" height="476" frameX="0" frameY="-22" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0002" x="2570" y="0" width="510" height="485" frameX="-7" frameY="-13" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0003" x="2570" y="0" width="510" height="485" frameX="-7" frameY="-13" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0004" x="3080" y="0" width="493" height="493" frameX="-16" frameY="-6" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0005" x="3080" y="0" width="493" height="493" frameX="-16" frameY="-6" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0006" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0007" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0008" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0009" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0010" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing down0011" x="3573" y="0" width="485" height="498" frameX="-20" frameY="0" frameWidth="524" frameHeight="499"/>
+	<SubTexture name="dave games sing left0000" x="0" y="498" width="526" height="498"/>
+	<SubTexture name="dave games sing left0001" x="0" y="498" width="526" height="498"/>
+	<SubTexture name="dave games sing left0002" x="526" y="498" width="505" height="498" frameX="-21" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0003" x="526" y="498" width="505" height="498" frameX="-21" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0004" x="1031" y="498" width="495" height="498" frameX="-31" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0005" x="1031" y="498" width="495" height="498" frameX="-31" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0006" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0007" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0008" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0009" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0010" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing left0011" x="1526" y="498" width="487" height="498" frameX="-39" frameY="0" frameWidth="526" frameHeight="498"/>
+	<SubTexture name="dave games sing right0000" x="2013" y="498" width="513" height="498"/>
+	<SubTexture name="dave games sing right0001" x="2013" y="498" width="513" height="498"/>
+	<SubTexture name="dave games sing right0002" x="2526" y="498" width="499" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0003" x="2526" y="498" width="499" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0004" x="3025" y="498" width="491" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0005" x="3025" y="498" width="491" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0006" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0007" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0008" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0009" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0010" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing right0011" x="3516" y="498" width="487" height="498" frameX="0" frameY="0" frameWidth="513" frameHeight="498"/>
+	<SubTexture name="dave games sing up0000" x="0" y="996" width="462" height="516" frameX="-14" frameY="0" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0001" x="0" y="996" width="462" height="516" frameX="-14" frameY="0" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0002" x="462" y="996" width="474" height="512" frameX="-8" frameY="-4" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0003" x="462" y="996" width="474" height="512" frameX="-8" frameY="-4" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0004" x="936" y="996" width="482" height="507" frameX="-4" frameY="-9" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0005" x="936" y="996" width="482" height="507" frameX="-4" frameY="-9" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0006" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0007" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0008" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0009" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0010" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+	<SubTexture name="dave games sing up0011" x="1418" y="996" width="490" height="498" frameX="0" frameY="-18" frameWidth="490" frameHeight="516"/>
+</TextureAtlas>

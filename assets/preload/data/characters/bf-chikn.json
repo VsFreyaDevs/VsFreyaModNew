@@ -1,0 +1,38 @@
+{
+  "version": "1.0.0",
+  "name": "Boyfriend (Chikn Nuggit)",
+  "assetPath": "characters/ducklookingassbf",
+  "singTime": 8.0,
+  "flipX": true,
+  "renderType": "sparrow",
+  "healthIcon": {
+    "id": "bf"
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "chikn bf idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "chikn bf left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "chikn bf down",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "chikn bf right",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "chikn bf up",
+      "offsets": [0, 0]
+    }
+  ]
+}

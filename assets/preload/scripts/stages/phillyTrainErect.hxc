@@ -60,6 +60,7 @@ class PhillyTrainErectStage extends Stage
       trace('Pausing countdown to play in game cutscene');
 
       hasPlayedInGameCutscene = true;
+      PlayState.instance.isInCutscene = true;
 
       event.cancel(); // CANCEL THE COUNTDOWN!
 
@@ -224,6 +225,7 @@ class PhillyTrainErectStage extends Stage
 		new FlxTimer(cutsceneTimerManager).start(13, _ -> {
 
 			if(explode == false || playerShoots == true){
+				PlayState.instance.isInCutscene = false;
 				PlayState.instance.startCountdown();
 			}
 
@@ -255,7 +257,7 @@ class PhillyTrainErectStage extends Stage
 			}
 
 			hasPlayedCutscene = true;
-			cutsceneMusic.stop();		
+			cutsceneMusic.stop();
 
 		});
 	}
@@ -269,6 +271,7 @@ class PhillyTrainErectStage extends Stage
 
 		new FlxTimer().start(0.5, _ -> {
 			PlayState.instance.justUnpaused = true;
+			PlayState.instance.isInCutscene = false;
 			PlayState.instance.camCutscene.fade(0xFF000000, 0.5, true, null, true);
 
 			cutsceneTimerManager.clear();

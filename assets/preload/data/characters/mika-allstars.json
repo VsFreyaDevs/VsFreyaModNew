@@ -1,0 +1,36 @@
+{
+  "version": "1.0.0",
+  "name": "Mika (All-Stars)",
+  "assetPath": "characters/Mika_AllStars",
+  "singTime": 8.0,
+  "healthIcon": {
+    "id": "freya"
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "mika idle dance",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "mika sing left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "mika sing down",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "mika sing up",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "mika sing right",
+      "offsets": [0, 0]
+    }
+  ]
+}

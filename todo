@@ -1,0 +1,8 @@
+# FIX KNOWN BUGS
+- [x] Characters in the Character select menu keep cloning themselves
+- [x] A-bot Visualizer doesn't react to volume
+- [ ] The HaxeUI part of the Character Offset Editor isn't showing up
+- [ ] Backspace crashes in the input offset menu
+- [ ] DJ Boyfriend/Pico flickering, for some reason
+- [x] You can die during the cutscenes in Week 3's Pico mixes
+- [ ] Scripts are able to modify Variables in the `funkin/utils/Constant.hx` file (I guess it's because of how HScript does variable shit, maybe this should be fixed in a fork instead???)

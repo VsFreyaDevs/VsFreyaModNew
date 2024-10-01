@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "name": "Animate CC",
+  "assetPath": "characters/Animate_CC_Newer",
+  "singTime": 8.0,
+  "healthIcon": {
+    "id": "kanimate",
+    "flipX": false
+  },
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Idle instance 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "left instance 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "downn instance 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "rightn instance 1",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "upn instance 1",
+      "offsets": [0, 0]
+    }
+  ]
+}

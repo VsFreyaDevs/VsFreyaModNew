@@ -132,7 +132,7 @@ class CharacterSwitchEvent extends SongEvent
           'Freya (Angy)' => 'freya-angy',
           // 'Freya (Playable)' => 'freya-playable',
           // 'Mika' => 'mika',
-          // 'Mika (All-Stars)' => 'mika-allstars',
+          'Mika (All-Stars)' => 'mika-allstars',
           'Milky' => 'milky',
           // 'Milky (Angy)' => 'milky-angy',
           // 'Milky (Pissed)' => 'milky-pissed',
@@ -149,13 +149,15 @@ class CharacterSwitchEvent extends SongEvent
           // 'Isaiah (GoAnimate)' => 'isaiah-grounded',
           // 'TheAnimateMan (GoAnimate)' => 'kanimate-grounded',
           'Rocky' => 'rocky',
+          'Animate CC' => 'animate-cc',
           // 'Wega' => 'wega',
-          // 'Chikn Nuggit' => 'chikn',
-          // 'Bredstix' => 'bf-chikn',
+          'Bredstix' => 'bf-chikn',
+          'Chikn Nuggit' => 'chikn',
           // 'GF_kit' => 'gf-kit',
           // 'Pico_kit' => 'pico-kit', // idk if we should go with a different species for pico uhhhh
           // 'Baby Freya' => 'freya-baby',
           // 'Inverted Edd' => 'edd-inverted',
+          'dave png lol dont ask about this pls' => 'dave-png',
         ]
       }
     ]);

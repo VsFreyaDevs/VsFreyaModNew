@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<TextureAtlas imagePath="ducklookingassbf.png">
+<SubTexture name="chikn bf idle0000" x="2186" y="2540" width="1081" height="1229" frameX="-67" frameY="-96" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf idle0001" x="0" y="2540" width="1065" height="1244" frameX="-76" frameY="-84" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf idle0002" x="2998" y="1258" width="1056" height="1257" frameX="-82" frameY="-72" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf idle0003" x="0" y="1279" width="1051" height="1261" frameX="-86" frameY="-69" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf idle0004" x="1051" y="1279" width="1049" height="1260" frameX="-88" frameY="-70" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf idle0005" x="1949" y="0" width="1049" height="1263" frameX="-87" frameY="-67" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf down0000" x="0" y="3784" width="1108" height="1050" frameX="-50" frameY="-269" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf down0001" x="4094" y="1225" width="1089" height="1065" frameX="-54" frameY="-255" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf right0000" x="0" y="0" width="881" height="1279" frameX="-425" frameY="-67" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf right0001" x="2100" y="1279" width="884" height="1257" frameX="-405" frameY="-78" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf left0000" x="4094" y="0" width="1099" height="1225" frameX="-46" frameY="-107" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf left0001" x="1065" y="2540" width="1121" height="1244" frameX="-55" frameY="-90" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf up0000" x="881" y="0" width="1068" height="1267" frameX="-73" frameY="-63" frameWidth="1380" frameHeight="1380" />
+<SubTexture name="chikn bf up0001" x="2998" y="0" width="1096" height="1258" frameX="-52" frameY="-71" frameWidth="1380" frameHeight="1380" />
+</TextureAtlas>

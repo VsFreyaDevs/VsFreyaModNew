@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "name": "Chikn Nuggit",
+  "assetPath": "characters/chiknNuggit",
+  "singTime": 8.0,
+  "renderType": "sparrow",
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Chikn Idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Chikn Left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Chikn Down",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Chikn Right",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Chikn Up",
+      "offsets": [0, 0]
+    }
+  ]
+}
