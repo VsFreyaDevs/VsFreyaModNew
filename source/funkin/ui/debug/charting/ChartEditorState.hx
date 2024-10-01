@@ -3668,7 +3668,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         // If a new event is needed, call buildEventSprite.
         var eventSprite:ChartEditorEventSprite = renderedEvents.recycle(() -> new ChartEditorEventSprite(this), false, true);
         eventSprite.parentState = this;
-        trace('Creating new Event... (${renderedEvents.members.length})');
+        // trace('Creating new Event... (${renderedEvents.members.length})');
 
         // The event sprite handles animation playback and positioning.
         eventSprite.eventData = eventData;
