@@ -294,7 +294,7 @@ class PolymodHandler
     // `cpp.Lib`
     // Lib.load() can load malicious DLLs
     // Polymod.blacklistImport('cpp.Lib');
-    Polymod.addDefaultImport(cpp.Lib);
+    #if cpp Polymod.addDefaultImport(cpp.Lib); #end
 
     // `Unserializer`
     // Unserializerr.DEFAULT_RESOLVER.resolveClass() can access blacklisted packages

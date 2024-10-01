@@ -46,7 +46,7 @@ class WindowUtil
     #elseif mac
     Sys.command('open', [targetPath]);
     #elseif linux
-    Sys.command('xdg-open $pathFolder &');
+    Sys.command('xdg-open $targetPath &');
     #end
     #else
     throw 'Cannot open URLs on this platform.';
