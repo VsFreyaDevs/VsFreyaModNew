@@ -34,9 +34,9 @@
     "stage": "mainStage",
     "noteStyle": "funkin",
     "ratings": {
-      "easy": 6,
-      "hard": 0,
-      "normal": 0
+      "easy": 3,
+      "hard": 11,
+      "normal": 7
     },
     "previewStart": 0,
     "previewEnd": 0
