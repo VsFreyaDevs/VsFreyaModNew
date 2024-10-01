@@ -1,14 +1,14 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Cubical",
   "artist": "CharlesCatYT",
-  "charter": "CharlesCatYT",
   "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {    },
-    "vocals": {    }
+    "vocals": {    },
+    "altVocals": {    }
   },
   "playData": {
     "songVariations": [    ],
@@ -22,19 +22,25 @@
       "girlfriend": "gf",
       "opponent": "kanimate",
       "instrumental": "",
-      "altInstrumentals": [      ]
+      "altInstrumentals": [      ],
+      "opponentVocals": [
+        "kanimate"
+      ],
+      "playerVocals": [
+        "bf-kit"
+      ]
     },
     "stage": "mainStage",
     "noteStyle": "funkin",
     "ratings": {
       "easy": 3,
-      "normal": 4,
-      "hard": 5
+      "hard": 5,
+      "normal": 4
     },
     "previewStart": 22300,
     "previewEnd": 45200
   },
-  "generatedBy": "Friday Night Funkin': Vs. Freya Crew - v0.4.1",
+  "generatedBy": "Friday Night Funkin' - v0.5.1",
   "timeFormat": "ms",
   "timeChanges": [
     {

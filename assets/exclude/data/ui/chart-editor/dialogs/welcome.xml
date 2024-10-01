@@ -10,6 +10,7 @@
 		</card>
 		<vbox width="25%" height="100%">
 			<card id="splashSectionCenter" width="100%" height="50%" text="Create New">
+				<link id="splashCreateFromSongBasicOnly" width="100%" text="Normal Only" disabled="true" />
 				<link id="splashCreateFromSongBasicOnly" width="100%" text="Easy/Normal/Hard Only" />
 				<link id="splashCreateFromSongErectOnly" width="100%" text="Erect/Nightmare Only" />
 				<link id="splashCreateFromSongBasicErect" width="100%" text="Easy/Normal/Hard/Erect/Nightmare" />
@@ -18,6 +19,8 @@
 				<link id="splashImportChartLegacy" width="100%" text="FNF Legacy" />
 				<link id="splashImportChartOsuMania" width="100%" text="Osu!Mania" disabled="true" />
 				<link id="splashImportChartStepMania" width="100%" text="StepMania" disabled="true" />
+				<link id="splashImportChartPsych" width="100%" text="Psych Engine" disabled="true" />
+				<link id="splashImportChartCodename" width="100%" text="Codename Engine" disabled="true" />
 			</card>
 		</vbox>
 		<card id="splashSectionRight" width="25%" height="100%" text="Create From Song">
