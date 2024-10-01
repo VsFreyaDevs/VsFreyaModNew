@@ -147,12 +147,13 @@ class Main extends Sprite
     FlxG.signals.gameResized.add(resizeGame);
 
     // Use device's refresh rate.
-    framerate = Lib.application.window.displayMode.refreshRate;
+    var coolRate = Preferences.framerate;
+    coolRate = Lib.application.window.displayMode.refreshRate;
 
-    if (framerate < 60) framerate = 60;
+    if (coolRate < 60) coolRate = 60;
     #end
 
-    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, Preferences.framerate, Preferences.framerate, skipSplash, startFullscreen);
+    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, coolRate, coolRate, skipSplash, startFullscreen);
 
     openfl.Lib.current.stage.align = "tl";
     openfl.Lib.current.stage.scaleMode = openfl.display.StageScaleMode.NO_SCALE;
