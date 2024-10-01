@@ -19,7 +19,7 @@ class MathUtil
    *
    * @return The interpolated value.
    */
-  @:deprecated('Use smoothLerp instead')
+  // @:deprecated('Use smoothLerp instead')
   public static function coolLerp(base:Float, target:Float, ratio:Float):Float
   {
     return base + cameraLerp(ratio) * (target - base);
@@ -31,7 +31,7 @@ class MathUtil
    *
    * @return The interpolated value.
    */
-  @:deprecated('Use smoothLerp instead')
+  // @:deprecated('Use smoothLerp instead')
   public static function cameraLerp(lerp:Float):Float
   {
     return lerp * (FlxG.elapsed / (1 / 60));

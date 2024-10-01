@@ -68,10 +68,10 @@ class PreferencesMenu extends Page
     descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
     descTextBG.updateHitbox();
 
+    createPrefItems();
+
     add(descTextBG);
     add(descText);
-
-    createPrefItems();
 
     camFollow = new FlxObject(FlxG.width / 2, 0, 140, 70);
     if (items != null) camFollow.y = items.selectedItem.y;
@@ -151,6 +151,9 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
     }, Preferences.antialiasing);
+    createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use character-based colors', function(value:Bool):Void {
+      Preferences.coloredHealthBar = value;
+    }, Preferences.coloredHealthBar);
     createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
       Preferences.comboBreakText = value;
     }, Preferences.comboBreakText);

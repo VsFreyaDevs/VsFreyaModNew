@@ -59,7 +59,7 @@ class DebugMenuSubState extends MusicBeatSubState
     #end
     // createItem("Input Offset Testing", openInputOffsetTesting);
     createItem("CHARACTER SELECT", openCharSelect, true);
-    createItem("ANIMATION EDITOR", openAnimationEditor);
+    createItem("CHAR OFFSET EDITOR", openAnimationEditor);
     #if FEATURE_STAGE_EDITOR
     createItem("STAGE EDITOR", openStageEditor);
     #end

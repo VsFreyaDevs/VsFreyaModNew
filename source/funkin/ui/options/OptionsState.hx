@@ -32,6 +32,12 @@ class OptionsState extends MusicBeatState
   {
     persistentUpdate = true;
 
+    FunkinSound.playMusic('optionsSong',
+      {
+        overrideExisting: true,
+        restartTrack: false
+      });
+
     var menuBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
     var hsv = new HSVShader();
     hsv.hue = -0.6;
@@ -162,7 +168,8 @@ class Page extends FlxGroup
   function updateEnabled(elapsed:Float)
   {
     // This fucking auto-formatter sucks and i REFUSE to make this more than 1 variable
-    if (canExit && (controls.BACK #if mobile || (backButton != null && TouchUtil.overlapsComplex(backButton) && TouchUtil.justPressed) #end))
+    if (canExit
+      && (controls.BACK #if mobile || (backButton != null && TouchUtil.overlapsComplex(backButton) && TouchUtil.justPressed) #end))
     {
       exit();
       FunkinSound.playOnce(Paths.sound('cancelMenu'));

@@ -9,7 +9,7 @@ class CreditsDataMacro
 {
   public static macro function loadCreditsData():haxe.macro.Expr.ExprOf<CreditsData>
   {
-    #if !display
+    #if (!display && !debug)
     trace('Hardcoding credits data...');
     var json = CreditsDataMacro.fetchJSON();
 

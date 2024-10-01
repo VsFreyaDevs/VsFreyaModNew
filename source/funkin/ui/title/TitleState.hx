@@ -67,6 +67,7 @@ class TitleState extends MusicBeatState
 
     curWacky = FlxG.random.getObject(getIntroTextShit());
     FlxG.sound.cache(Paths.music('freakyMenu/freakyMenu'));
+    FlxG.sound.cache(Paths.music('optionsSong/optionsSong'));
     FlxG.sound.cache(Paths.music('girlfriendsRingtone/girlfriendsRingtone'));
 
     // DEBUG BULLSHIT
@@ -187,11 +188,11 @@ class TitleState extends MusicBeatState
 
     ngSpr = new FlxSprite(0, FlxG.height * 0.52);
 
-    if (FlxG.random.bool(1))
+    if (FlxG.random.bool(7))
     {
       ngSpr.loadGraphic(Paths.image('newgrounds_logo_classic'));
     }
-    else if (FlxG.random.bool(30))
+    else if (FlxG.random.bool(50))
     {
       ngSpr.loadGraphic(Paths.image('newgrounds_logo_animated'), true, 600);
       ngSpr.animation.add('idle', [0, 1], 4);

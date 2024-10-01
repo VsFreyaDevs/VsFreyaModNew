@@ -233,6 +233,7 @@ class MenuTypedList<T:MenuListItem> extends FlxTypedGroup<T>
     var selected = members[selectedIndex];
     onAcceptPress.dispatch(selected);
 
+    if (selected.callback == null) return;
     if (selected.fireInstantly) selected.callback();
     else
     {

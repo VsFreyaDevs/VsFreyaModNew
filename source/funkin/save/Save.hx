@@ -103,6 +103,7 @@ class Save
           zoomCamera: true,
           comboBreakText: false,
           classicHolds: false,
+          coloredHealthBar: false,
           debugDisplay: true,
           autoPause: true,
           laneAlpha: 0,
@@ -1337,6 +1338,12 @@ typedef SaveDataOptions =
    * @default `false`
    */
   var classicHolds:Bool;
+
+  /**
+   * If enabled, the health bar colors will be based off the characters' icons. Otherwise, go with the default red & green colors.
+   * @default `false`
+   */
+  var coloredHealthBar:Bool;
 
   /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.

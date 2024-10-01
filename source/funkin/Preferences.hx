@@ -229,6 +229,25 @@ class Preferences
   }
 
   /**
+   * If enabled, the health bar colors will be based off the characters' icons. Otherwise, go with the default red & green colors.
+   * @default `false`
+   */
+  public static var coloredHealthBar(get, set):Bool;
+
+  static function get_coloredHealthBar():Bool
+  {
+    return Save?.instance?.options?.coloredHealthBar ?? false;
+  }
+
+  static function set_coloredHealthBar(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.coloredHealthBar = value;
+    save.flush();
+    return value;
+  }
+
+  /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.
    * @default `true`
    */

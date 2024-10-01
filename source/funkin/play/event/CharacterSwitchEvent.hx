@@ -132,6 +132,7 @@ class CharacterSwitchEvent extends SongEvent
           'Freya (Angy)' => 'freya-angy',
           // 'Freya (Playable)' => 'freya-playable',
           // 'Mika' => 'mika',
+          // 'Mika (All-Stars)' => 'mika-allstars',
           'Milky' => 'milky',
           // 'Milky (Angy)' => 'milky-angy',
           // 'Milky (Pissed)' => 'milky-pissed',
