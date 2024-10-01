@@ -906,7 +906,7 @@ class StageEditorState extends UIState
 
   public function updateWindowTitle()
   {
-    var defaultTitle = "Friday Night Funkin\' Stage Editor";
+    var defaultTitle = openfl.Lib.application.meta["name"] + "Stage Editor";
 
     if (currentFile == "") defaultTitle += " - New File"
     else
@@ -919,7 +919,7 @@ class StageEditorState extends UIState
 
   function resetWindowTitle():Void
   {
-    WindowUtil.setWindowTitle('Friday Night Funkin\'');
+    WindowUtil.setWindowTitle(openfl.Lib.application.meta["name"]);
   }
 
   function updateBGColors()

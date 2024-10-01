@@ -19,7 +19,7 @@ class Constants
    * The title of the game, for debug printing purposes.
    * Change this if you're making an engine.
    */
-  public static final TITLE:String = "Friday Night Funkin'";
+  public static final TITLE:String = "Friday Night Funkin': Vs. Freya Crew";
 
   /**
    * The current version number of the game.
@@ -187,6 +187,11 @@ class Constants
   public static final DEFAULT_DIFFICULTY_LIST:Array<String> = ['easy', 'normal', 'hard'];
 
   /**
+   * Default list of difficulties for Erect mode.
+   */
+  public static final DEFAULT_DIFFICULTY_LIST_ERECT:Array<String> = ['erect', 'nightmare'];
+
+  /**
    * List of all difficulties used by the base game.
    * Includes Erect and Nightmare.
    */
@@ -218,7 +223,7 @@ class Constants
   public static final DEFAULT_VARIATION:String = 'default';
 
   /**
-   * Standardized variations for charts
+   * Standardized variations for charts.
    */
   public static final DEFAULT_VARIATION_LIST:Array<String> = ['default', 'erect', 'pico'];
 

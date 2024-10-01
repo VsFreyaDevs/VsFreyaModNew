@@ -30,8 +30,8 @@ class Project extends HXProject {
 	/**
 	 * The game's name. Used as the default window title.
 	 */
-	static final TITLE:String = "Friday Night Funkin'";
-  static final TITLEIOS:String = "FridayNightFunkin";
+	static final TITLE:String = "Friday Night Funkin': Vs. Freya Crew";
+  static final TITLEIOS:String = "FunkinVsFreya";
 
 	/**
 	 * The name of the generated executable file.
@@ -261,13 +261,13 @@ class Project extends HXProject {
 	 */
 	function flair() {
 		// TODO: Implement this.
-		info("Friday Night Funkin' [CHARLES' FORK]");
+		info("Friday Night Funkin': Vs. Freya Crew");
 		info("Initializing build...");
 
 		info("Target Version: " + VERSION);
-		info("Git Branch:     " + getGitBranch());
-		info("Git Commit:     " + getGitCommit());
-		info("Git Modified?   " + getGitModified());
+		info("Current Git Branch:     " + getGitBranch());
+		info("Current Git Commit:     " + getGitCommit());
+		info("Any File Modified to Git?   " + getGitModified());
     info("Display?        " + isDisplay());
 	}
 

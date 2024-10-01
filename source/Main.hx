@@ -145,7 +145,7 @@ class Main extends Sprite
     if (coolRate < 60) coolRate = 60;
     #end
 
-    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, coolRate, coolRate, skipSplash, startFullscreen);
+    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, Preferences.framerate, Preferences.framerate, skipSplash, startFullscreen);
 
     openfl.Lib.current.stage.align = "tl";
     openfl.Lib.current.stage.scaleMode = openfl.display.StageScaleMode.NO_SCALE;
