@@ -110,27 +110,16 @@ class Main extends Sprite
   var overlay:Sprite;
 
   /**
-   * A frame counter displayed at the top left.
+   * A frame & RAM counter displayed at the top left.
    */
-  public static var fpsCounter:FPS;
-
-  /**
-   * A RAM counter displayed at the top left.
-   */
-  public static var memoryCounter:MemoryCounter;
+  public static var fpsCounter:MemoryCounter;
 
   function setupGame():Void
   {
     initHaxeUI();
 
     // addChild gets called by the user settings code.
-    fpsCounter = new FPS(10, 3, 0xFFFFFF);
-
-    #if !html5
-    // addChild gets called by the user settings code.
-    // TODO: disabled on HTML5 (todo: find another method that works?)
-    memoryCounter = new MemoryCounter(10, 13, 0xFFFFFF);
-    #end
+    fpsCounter = new MemoryCounter(10, 3, 0xFFFFFF);
 
     // George recommends binding the save before FlxGame is created.
     Save.load();
@@ -198,12 +187,5 @@ class Main extends Sprite
     final scale:Float = Math.min(flixel.FlxG.stage.stageWidth / flixel.FlxG.width, flixel.FlxG.stage.stageHeight / flixel.FlxG.height);
 
     if (fpsCounter != null) fpsCounter.scaleX = fpsCounter.scaleY = (scale > 1 ? scale : 1);
-
-    if (memoryCounter != null)
-    {
-      memoryCounter.scaleX = memoryCounter.scaleY = (scale > 1 ? scale : 1);
-
-      memoryCounter.y = 13 * (scale > 1 ? scale : 1);
-    }
   }
 }

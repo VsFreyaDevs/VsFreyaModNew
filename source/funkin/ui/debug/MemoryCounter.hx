@@ -1,16 +1,31 @@
 package funkin.ui.debug;
 
-import funkin.util.MemoryUtil;
+import flixel.FlxG;
+import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.system.System;
-import openfl.text.TextField;
 
+/**
+  Based off on the `openfl.display.FPS` class.
+
+  Part of this is taken from Psych/Nightmare Vision, lol.
+**/
 class MemoryCounter extends TextField
 {
-  var memPeak:Float = 0;
+  /**
+    The current frame rate, expressed using frames-per-second.
+  **/
+  public var currentFPS(default, null):Int;
 
-  static final BYTES_PER_MEG:Float = 1024 * 1024;
-  static final ROUND_TO:Float = 1 / 100;
+  /**
+    The current usage of RAM/memory. (WARNING: this is NOT your total program memory usage, rather it shows the garbage collector memory)
+  **/
+  #if html5 public var memoryMegas(get, never):Float; #end
+
+  @:noCompletion private var times:Array<Float>;
+
+  public static var showFPS:Bool = false;
+  #if html5 public static var showRAM:Bool = true; #end
 
   public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
   {
@@ -18,31 +33,50 @@ class MemoryCounter extends TextField
 
     this.x = x;
     this.y = y;
-    this.width = 500;
-    this.selectable = false;
-    this.mouseEnabled = false;
-    defaultTextFormat = new TextFormat("_sans", 12, color);
-    text = "RAM: ";
 
-    #if flash
-    addEventListener(Event.ENTER_FRAME, function(e) {
-      var time = Lib.getTimer();
-      __enterFrame(time - currentTime);
-    });
-    #end
+    currentFPS = 0;
+    selectable = mouseEnabled = false;
+    defaultTextFormat = new TextFormat(_sans, 12, color);
+    autoSize = LEFT;
+    multiline = true;
+    text = "";
+
+    times = [];
   }
 
-  // Event Handlers
-  @:noCompletion
-  #if !flash override #end function __enterFrame(deltaTime:Float):Void
+  var deltaTimeout:Float = 0.0;
+
+  private override function __enterFrame(deltaTime:Float):Void
   {
-    var mem:Float = Math.fround(MemoryUtil.getMemoryUsed() / BYTES_PER_MEG / ROUND_TO) * ROUND_TO;
+    if (!visible) return;
 
-    if (mem > memPeak) memPeak = mem;
+    // prevents the overlay from updating every frame, why would you need to anyways @crowplexus
+    if (deltaTimeout < 1000)
+    {
+      deltaTimeout += deltaTime;
+      return;
+    }
 
-    if (memPeak != mem) text = 'RAM: ${mem}mb / ${memPeak}mb';
-    else
-      text = 'RAM: ${mem}mb';
-    text += "\nFNF" + funkin.util.Constants.VERSION + " [Custom Build]";
+    final now:Float = haxe.Timer.stamp() * 1000;
+    times.push(now);
+    while (times[0] < now - 1000)
+      times.shift();
+
+    currentFPS = times.length < FlxG.updateFramerate ? times.length : FlxG.updateFramerate;
+    updateText();
+    deltaTimeout = 0.0;
   }
+
+  public dynamic function updateText():Void // so people can override it in hscript
+  {
+    if (showFPS) text = 'FPS: $currentFPS ';
+    #if !html5 (showRAM) text += 'RAM: ${flixel.util.FlxStringUtil.formatBytes(memoryMegas)}'; #end
+    textColor = 0xFFFFFFFF;
+    if (currentFPS < FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
+  }
+
+  #if html5
+  inline function get_memoryMegas():Float
+    return cast(System.totalMemory, UInt);
+  #end
 }

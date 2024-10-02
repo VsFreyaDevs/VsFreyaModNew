@@ -403,40 +403,9 @@ class Preferences
 
   static function toggleDebugDisplay(show:Bool):Void
   {
-    if (show)
-    {
-      // Enable the debug display.
-      #if mobile
-      FlxG.game.addChild(Main.fpsCounter);
-      #else
-      FlxG.stage.addChild(Main.fpsCounter);
-      #end
-
-      #if !html5
-      #if mobile
-      FlxG.game.addChild(Main.memoryCounter);
-      #else
-      FlxG.stage.addChild(Main.memoryCounter);
-      #end
-      #end
-    }
+    if (show) #if mobile FlxG.game.addChild(Main.fpsCounter); #else FlxG.stage.addChild(Main.fpsCounter); #end // Enable the debug display.
     else
-    {
-      // Disable the debug display.
-      #if mobile
-      FlxG.game.removeChild(Main.fpsCounter);
-      #else
-      FlxG.stage.removeChild(Main.fpsCounter);
-      #end
-
-      #if !html5
-      #if mobile
-      FlxG.game.removeChild(Main.memoryCounter);
-      #else
-      FlxG.stage.removeChild(Main.memoryCounter);
-      #end
-      #end
-    }
+      #if mobile FlxG.game.removeChild(Main.fpsCounter); #else FlxG.stage.removeChild(Main.fpsCounter); #end // Disable the debug display.
   }
 
   #if mobile
