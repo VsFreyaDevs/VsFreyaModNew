@@ -25,7 +25,7 @@ class MemoryCounter extends TextField
   @:noCompletion private var times:Array<Float>;
 
   public static var showFPS:Bool = false;
-  #if html5 public static var showRAM:Bool = true; #end
+  #if !html5 public static var showRAM:Bool = true; #end
 
   public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
   {
@@ -36,7 +36,7 @@ class MemoryCounter extends TextField
 
     currentFPS = 0;
     selectable = mouseEnabled = false;
-    defaultTextFormat = new TextFormat(_sans, 12, color);
+    defaultTextFormat = new TextFormat("_sans", 12, color);
     autoSize = LEFT;
     multiline = true;
     text = "";
@@ -75,7 +75,7 @@ class MemoryCounter extends TextField
     if (currentFPS < FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
   }
 
-  #if html5
+  #if !html5
   inline function get_memoryMegas():Float
     return cast(System.totalMemory, UInt);
   #end
