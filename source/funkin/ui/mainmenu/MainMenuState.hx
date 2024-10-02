@@ -29,7 +29,7 @@ import funkin.ui.Prompt;
 import funkin.util.WindowUtil;
 import funkin.mobile.util.TouchUtil;
 #if FEATURE_DISCORD_RPC
-import Discord.DiscordClient;
+import funkin.api.discord.DiscordClient;
 #end
 #if newgrounds
 import funkin.ui.NgPrompt;
@@ -57,8 +57,7 @@ class MainMenuState extends MusicBeatState
   override function create():Void
   {
     #if FEATURE_DISCORD_RPC
-    // Updating Discord Rich Presence
-    DiscordClient.changePresence("In the Menus", null);
+    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
     #end
 
     FlxG.cameras.reset(new FunkinCamera('mainMenu'));
@@ -334,6 +333,8 @@ class MainMenuState extends MusicBeatState
   override function update(elapsed:Float):Void
   {
     super.update(elapsed);
+
+    Conductor.instance.update();
 
     // Open the debug menu, defaults to ` / ~
     // This includes stuff like the Chart Editor, so it should be present on all builds.

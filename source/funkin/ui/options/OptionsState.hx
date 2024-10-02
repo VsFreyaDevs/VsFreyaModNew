@@ -1,5 +1,6 @@
 package funkin.ui.options;
 
+import funkin.ui.transition.LoadingState;
 import funkin.ui.debug.latency.LatencyState;
 import flixel.FlxSprite;
 import flixel.FlxSubState;
@@ -210,20 +211,25 @@ class OptionsMenu extends Page
     super();
 
     add(items = new TextMenuList());
-    createItem("PREFERENCES", function() switchPage(Preferences));
+    createItem("PREFERENCES", () -> switchPage(Preferences));
     #if mobile
     if (FlxG.gamepads.numActiveGamepads > 0)
     {
-      createItem("CONTROLS", function() switchPage(Controls));
-      createItem("INPUT OFFSETS", function() {
+      createItem("CONTROLS", () -> switchPage(Controls));
+      createItem("INPUT OFFSETS", () -> {
         FlxG.state.openSubState(new LatencyState());
       });
     }
     #else
-    createItem("CONTROLS", function() switchPage(Controls));
-    createItem("INPUT OFFSETS", function() {
-      FlxG.state.openSubState(new LatencyState());
-    });
+    createItem("CONTROLS", () -> switchPage(Controls));
+    createItem("INPUT OFFSETS", () ->
+      {
+        #if web
+        LoadingState.transitionToState(() -> new LatencyState());
+        #else
+        FlxG.state.openSubState(new LatencyState());
+        #end
+      });
     #end
 
     #if newgrounds

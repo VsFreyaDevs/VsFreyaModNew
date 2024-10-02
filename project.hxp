@@ -190,7 +190,7 @@ class Project extends HXProject {
 	/**
 	 * `-DFEATURE_VIDEO_PLAYBACK`
 	 * If this flag is enabled, the game will enable support for video playback.
-	 * This requires the hxCodec library on desktop platforms.
+	 * This requires the hxvlc library on desktop platforms.
 	 */
 	static final FEATURE_VIDEO_PLAYBACK:FeatureFlag = "FEATURE_VIDEO_PLAYBACK";
 
@@ -473,10 +473,10 @@ class Project extends HXProject {
 
 		FEATURE_LOG_TRACE.apply(this, true); // isDebug());
 
-		// Should be true on release, non-tester builds.
+		// Should be true on desktop, release, non-tester builds.
 		// We don't want testers to accidentally leak songs to their Discord friends!
     // TODO: Re-enable this.
-		FEATURE_DISCORD_RPC.apply(this, false && !FEATURE_DEBUG_FUNCTIONS.isEnabled(this));
+		FEATURE_DISCORD_RPC.apply(this, isDesktop() && !FEATURE_DEBUG_FUNCTIONS.isEnabled(this));
 
 		// Should be true only on web builds.
 		// Audio context issues only exist there.
@@ -494,6 +494,9 @@ class Project extends HXProject {
 		// Should be true except on web and mobile builds.
 		// Chart editor doesn't work there.
 		FEATURE_CHART_EDITOR.apply(this, !(isWeb() || isMobile()));
+
+		// Should be true except on web builds, because screenshots just doesn't work there.
+		FEATURE_SCREENSHOTS.apply(this, !isWeb());
 	}
 
   /**
@@ -644,7 +647,7 @@ class Project extends HXProject {
        addHaxelib('extension-androidtools'); // Android Functions
 
 		if (FEATURE_DISCORD_RPC.isEnabled(this)) {
-			addHaxelib('discord_rpc'); // Discord API
+			addHaxelib('hxdiscord_rpc'); // Discord API
 		}
 
 		if (FEATURE_NEWGROUNDS.isEnabled(this)) {

@@ -58,7 +58,9 @@ class Controls extends FlxActionSet
   var _back = new FunkinAction(Action.BACK);
   var _pause = new FunkinAction(Action.PAUSE);
   var _reset = new FunkinAction(Action.RESET);
+  #if FEATURE_SCREENSHOTS
   var _window_screenshot = new FunkinAction(Action.WINDOW_SCREENSHOT);
+  #end
   var _window_fullscreen = new FunkinAction(Action.WINDOW_FULLSCREEN);
   var _freeplay_favorite = new FunkinAction(Action.FREEPLAY_FAVORITE);
   var _freeplay_left = new FunkinAction(Action.FREEPLAY_LEFT);
@@ -66,8 +68,12 @@ class Controls extends FlxActionSet
   var _freeplay_char_select = new FunkinAction(Action.FREEPLAY_CHAR_SELECT);
   var _cutscene_advance = new FunkinAction(Action.CUTSCENE_ADVANCE);
   var _debug_menu = new FunkinAction(Action.DEBUG_MENU);
+  if FEATURE_CHART_EDITOR
   var _debug_chart = new FunkinAction(Action.DEBUG_CHART);
+  #end
+  #if FEATURE_STAGE_EDITOR
   var _debug_stage = new FunkinAction(Action.DEBUG_STAGE);
+  #end
   var _volume_up = new FunkinAction(Action.VOLUME_UP);
   var _volume_down = new FunkinAction(Action.VOLUME_DOWN);
   var _volume_mute = new FunkinAction(Action.VOLUME_MUTE);
@@ -244,8 +250,12 @@ class Controls extends FlxActionSet
 
   public var WINDOW_SCREENSHOT(get, never):Bool;
 
+  #if FEATURE_SCREENSHOTS
+  public var WINDOW_SCREENSHOT(get, never):Bool;
+
   inline function get_WINDOW_SCREENSHOT()
     return _window_screenshot.check();
+  #end
 
   public var FREEPLAY_FAVORITE(get, never):Bool;
 
@@ -277,15 +287,19 @@ class Controls extends FlxActionSet
   inline function get_DEBUG_MENU()
     return _debug_menu.check();
 
+   #if FEATURE_CHART_EDITOR
   public var DEBUG_CHART(get, never):Bool;
 
   inline function get_DEBUG_CHART()
     return _debug_chart.check();
+  #end
 
+  #if FEATURE_STAGE_EDITOR
   public var DEBUG_STAGE(get, never):Bool;
 
   inline function get_DEBUG_STAGE()
     return _debug_stage.check();
+  #end
 
   public var VOLUME_UP(get, never):Bool;
 
@@ -318,7 +332,7 @@ class Controls extends FlxActionSet
     add(_back);
     add(_pause);
     add(_reset);
-    add(_window_screenshot);
+    #if FEATURE_SCREENSHOTS add(_window_screenshot); #end
     add(_window_fullscreen);
     add(_freeplay_favorite);
     add(_freeplay_left);
@@ -326,7 +340,8 @@ class Controls extends FlxActionSet
     add(_freeplay_char_select);
     add(_cutscene_advance);
     add(_debug_menu);
-    add(_debug_chart);
+    #if FEATURE_CHART_EDITOR add(_debug_chart); #end
+    #if FEATURE_STAGE_EDITOR add(_debug_stage); #end
     add(_debug_stage);
     add(_volume_up);
     add(_volume_down);
@@ -443,7 +458,7 @@ class Controls extends FlxActionSet
       case BACK: _back;
       case PAUSE: _pause;
       case RESET: _reset;
-      case WINDOW_SCREENSHOT: _window_screenshot;
+     #if FEATURE_SCREENSHOTS case WINDOW_SCREENSHOT: _window_screenshot; #end
       case WINDOW_FULLSCREEN: _window_fullscreen;
       case FREEPLAY_FAVORITE: _freeplay_favorite;
       case FREEPLAY_LEFT: _freeplay_left;
@@ -451,8 +466,8 @@ class Controls extends FlxActionSet
       case FREEPLAY_CHAR_SELECT: _freeplay_char_select;
       case CUTSCENE_ADVANCE: _cutscene_advance;
       case DEBUG_MENU: _debug_menu;
-      case DEBUG_CHART: _debug_chart;
-      case DEBUG_STAGE: _debug_stage;
+      #if FEATURE_CHART_EDITOR case DEBUG_CHART: _debug_chart; #end
+      #if FEATURE_STAGE_EDITOR case DEBUG_STAGE: _debug_stage; #end
       case VOLUME_UP: _volume_up;
       case VOLUME_DOWN: _volume_down;
       case VOLUME_MUTE: _volume_mute;
@@ -515,8 +530,10 @@ class Controls extends FlxActionSet
         func(_pause, JUST_PRESSED);
       case RESET:
         func(_reset, JUST_PRESSED);
+      #if FEATURE_SCREENSHOTS
       case WINDOW_SCREENSHOT:
         func(_window_screenshot, JUST_PRESSED);
+      #end
       case WINDOW_FULLSCREEN:
         func(_window_fullscreen, JUST_PRESSED);
       case FREEPLAY_FAVORITE:
@@ -531,10 +548,14 @@ class Controls extends FlxActionSet
         func(_cutscene_advance, JUST_PRESSED);
       case DEBUG_MENU:
         func(_debug_menu, JUST_PRESSED);
+      #if FEATURE_CHART_EDITOR
       case DEBUG_CHART:
         func(_debug_chart, JUST_PRESSED);
+      #end
+      #if FEATURE_STAGE_EDITOR
       case DEBUG_STAGE:
         func(_debug_stage, JUST_PRESSED);
+      #end
       case VOLUME_UP:
         func(_volume_up, JUST_PRESSED);
       case VOLUME_DOWN:
@@ -738,7 +759,9 @@ class Controls extends FlxActionSet
     bindKeys(Control.BACK, getDefaultKeybinds(scheme, Control.BACK));
     bindKeys(Control.PAUSE, getDefaultKeybinds(scheme, Control.PAUSE));
     bindKeys(Control.RESET, getDefaultKeybinds(scheme, Control.RESET));
+    #if FEATURE_SCREENSHOTS
     bindKeys(Control.WINDOW_SCREENSHOT, getDefaultKeybinds(scheme, Control.WINDOW_SCREENSHOT));
+    #end
     bindKeys(Control.WINDOW_FULLSCREEN, getDefaultKeybinds(scheme, Control.WINDOW_FULLSCREEN));
     bindKeys(Control.FREEPLAY_FAVORITE, getDefaultKeybinds(scheme, Control.FREEPLAY_FAVORITE));
     bindKeys(Control.FREEPLAY_LEFT, getDefaultKeybinds(scheme, Control.FREEPLAY_LEFT));
@@ -746,8 +769,12 @@ class Controls extends FlxActionSet
     bindKeys(Control.FREEPLAY_CHAR_SELECT, getDefaultKeybinds(scheme, Control.FREEPLAY_CHAR_SELECT));
     bindKeys(Control.CUTSCENE_ADVANCE, getDefaultKeybinds(scheme, Control.CUTSCENE_ADVANCE));
     bindKeys(Control.DEBUG_MENU, getDefaultKeybinds(scheme, Control.DEBUG_MENU));
+    #if FEATURE_CHART_EDITOR
     bindKeys(Control.DEBUG_CHART, getDefaultKeybinds(scheme, Control.DEBUG_CHART));
+    #end
+    #if FEATURE_STAGE_EDITOR
     bindKeys(Control.DEBUG_STAGE, getDefaultKeybinds(scheme, Control.DEBUG_STAGE));
+    #end
     bindKeys(Control.VOLUME_UP, getDefaultKeybinds(scheme, Control.VOLUME_UP));
     bindKeys(Control.VOLUME_DOWN, getDefaultKeybinds(scheme, Control.VOLUME_DOWN));
     bindKeys(Control.VOLUME_MUTE, getDefaultKeybinds(scheme, Control.VOLUME_MUTE));
@@ -773,15 +800,16 @@ class Controls extends FlxActionSet
           case Control.PAUSE: return [P, ENTER, ESCAPE];
           case Control.RESET: return [R];
           case Control.WINDOW_FULLSCREEN: return [F11]; // We use F for other things LOL.
-          case Control.WINDOW_SCREENSHOT: return [F3];
+          #if FEATURE_SCREENSHOTS case Control.WINDOW_SCREENSHOT: return [F3]; #end
           case Control.FREEPLAY_FAVORITE: return [F]; // Favorite a song on the menu
           case Control.FREEPLAY_LEFT: return [Q]; // Switch tabs on the menu
           case Control.FREEPLAY_RIGHT: return [E]; // Switch tabs on the menu
           case Control.FREEPLAY_CHAR_SELECT: return [TAB];
           case Control.CUTSCENE_ADVANCE: return [Z, ENTER];
-          case Control.DEBUG_MENU: return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
-          case Control.DEBUG_CHART: return [SEVEN]; // like the legacy engine
-          case Control.DEBUG_STAGE: return [];
+          case Control.DEBUG_MENU:
+            return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
+          #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return [SEVEN]; #end // like the legacy engine
+          #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS, NUMPADPLUS];
           case Control.VOLUME_DOWN: return [MINUS, NUMPADMINUS];
           case Control.VOLUME_MUTE: return [ZERO, NUMPADZERO];
@@ -801,16 +829,17 @@ class Controls extends FlxActionSet
           case Control.BACK: return [H, X];
           case Control.PAUSE: return [ONE];
           case Control.RESET: return [R];
-          case Control.WINDOW_SCREENSHOT: return [F3];
+          #if FEATURE_SCREENSHOTS case Control.WINDOW_SCREENSHOT: return [F3]; #end
           case Control.WINDOW_FULLSCREEN: return [F11];
           case Control.FREEPLAY_FAVORITE: return [F]; // Favorite a song on the menu
           case Control.FREEPLAY_LEFT: return [Q]; // Switch tabs on the menu
           case Control.FREEPLAY_RIGHT: return [E]; // Switch tabs on the menu
           case Control.FREEPLAY_CHAR_SELECT: return [TAB];
           case Control.CUTSCENE_ADVANCE: return [G, Z];
-          case Control.DEBUG_MENU: return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
-          case Control.DEBUG_CHART: return [SEVEN]; // like the legacy engine
-          case Control.DEBUG_STAGE: return [];
+          case Control.DEBUG_MENU:
+            return [THREE]; // "GRAVEACCENT" you know putting a hashtag for controls makes it near impossible to access your shit, right?
+          #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return [SEVEN]; #end // like the legacy engine
+          #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [PLUS];
           case Control.VOLUME_DOWN: return [MINUS];
           case Control.VOLUME_MUTE: return [ZERO];
@@ -830,7 +859,7 @@ class Controls extends FlxActionSet
           case Control.BACK: return [ESCAPE];
           case Control.PAUSE: return [ONE];
           case Control.RESET: return [R];
-          case Control.WINDOW_SCREENSHOT: return [];
+          #if FEATURE_SCREENSHOTS case Control.WINDOW_SCREENSHOT: return []; #end
           case Control.WINDOW_FULLSCREEN: return [];
           case Control.FREEPLAY_FAVORITE: return [];
           case Control.FREEPLAY_LEFT: return [];
@@ -838,8 +867,8 @@ class Controls extends FlxActionSet
           case Control.FREEPLAY_CHAR_SELECT: return [];
           case Control.CUTSCENE_ADVANCE: return [ENTER];
           case Control.DEBUG_MENU: return [];
-          case Control.DEBUG_CHART: return [];
-          case Control.DEBUG_STAGE: return [];
+          #if FEATURE_CHART_EDITOR case Control.DEBUG_CHART: return []; #end
+          #if FEATURE_STAGE_EDITOR case Control.DEBUG_STAGE: return []; #end
           case Control.VOLUME_UP: return [NUMPADPLUS];
           case Control.VOLUME_DOWN: return [NUMPADMINUS];
           case Control.VOLUME_MUTE: return [NUMPADZERO];
@@ -964,8 +993,9 @@ class Controls extends FlxActionSet
         return [FlxGamepadInputID.BACK]; // Back (i.e. Select)
       case Control.WINDOW_FULLSCREEN:
         [];
-      case Control.WINDOW_SCREENSHOT:
+      #if FEATURE_SCREENSHOT case Control.WINDOW_SCREENSHOT:
         [];
+      #end
       case Control.CUTSCENE_ADVANCE:
         return [A];
       case Control.FREEPLAY_FAVORITE:
@@ -982,10 +1012,14 @@ class Controls extends FlxActionSet
         [];
       case Control.DEBUG_MENU:
         [];
+      #if FEATURE_CHART_EDITOR
       case Control.DEBUG_CHART:
         [];
+      #end
+      #if FEATURE_STAGE_EDITOR
       case Control.DEBUG_STAGE:
         [];
+      #end
       default:
         // Fallthrough.
     }
@@ -1391,7 +1425,7 @@ enum Control
   FREEPLAY_RIGHT;
   FREEPLAY_CHAR_SELECT;
   // WINDOW
-  WINDOW_SCREENSHOT;
+  #if FEATURE_SCREENSHOTS WINDOW_SCREENSHOT; #end
   WINDOW_FULLSCREEN;
   // VOLUME
   VOLUME_UP;
@@ -1399,8 +1433,8 @@ enum Control
   VOLUME_MUTE;
   // DEBUG
   DEBUG_MENU;
-  DEBUG_CHART;
-  DEBUG_STAGE;
+  #if FEATURE_CHART_EDITOR DEBUG_CHART; #end
+  #if FEATURE_STAGE_EDITOR DEBUG_STAGE; #end
 }
 
 enum abstract Action(String) to String from String
@@ -1437,7 +1471,9 @@ enum abstract Action(String) to String from String
   var RESET = "reset";
   // WINDOW
   var WINDOW_FULLSCREEN = "window_fullscreen";
+  #if FEATURE_SCREENSHOTS
   var WINDOW_SCREENSHOT = "window_screenshot";
+  #end
   // CUTSCENE
   var CUTSCENE_ADVANCE = "cutscene_advance";
   // FREEPLAY
@@ -1452,7 +1488,12 @@ enum abstract Action(String) to String from String
   // DEBUG
   var DEBUG_MENU = "debug_menu";
   var DEBUG_CHART = "debug_chart";
+  #if FEATURE_CHART_EDITOR
+  var DEBUG_CHART = "debug_chart";
+  #end
+  #if FEATURE_STAGE_EDITOR
   var DEBUG_STAGE = "debug_stage";
+  #end
 }
 
 enum Device

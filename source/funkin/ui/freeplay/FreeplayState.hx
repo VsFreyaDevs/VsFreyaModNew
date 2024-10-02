@@ -347,8 +347,7 @@ class FreeplayState extends MusicBeatSubState
     }
 
     #if FEATURE_DISCORD_RPC
-    // Updating Discord Rich Presence
-    DiscordClient.changePresence('In the Menus', null);
+    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
     #end
 
     var isDebug:Bool = false;

@@ -5507,11 +5507,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.V)
     {
       // CTRL + SHIFT + V = Paste Unsnapped.
-      var targetMs:Float = if (FlxG.keys.pressed.SHIFT)
-      {
-        scrollPositionInMs + playheadPositionInMs;
-      }
-      else
+      var targetMs:Float = if (FlxG.keys.pressed.SHIFT) scrollPositionInMs + playheadPositionInMs; else
       {
         var targetMs:Float = scrollPositionInMs + playheadPositionInMs;
         var targetStep:Float = Conductor.instance.getTimeInSteps(targetMs);
@@ -5533,18 +5529,10 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     if (delete)
     {
       // Delete selected items.
-      if (currentNoteSelection.length > 0 && currentEventSelection.length > 0)
-      {
-        performCommand(new RemoveItemsCommand(currentNoteSelection, currentEventSelection));
-      }
-      else if (currentNoteSelection.length > 0)
-      {
-        performCommand(new RemoveNotesCommand(currentNoteSelection));
-      }
-      else if (currentEventSelection.length > 0)
-      {
-        performCommand(new RemoveEventsCommand(currentEventSelection));
-      }
+      if (currentNoteSelection.length > 0 && currentEventSelection.length > 0) performCommand(new RemoveItemsCommand(currentNoteSelection,
+        currentEventSelection));
+      else if (currentNoteSelection.length > 0) performCommand(new RemoveNotesCommand(currentNoteSelection));
+      else if (currentEventSelection.length > 0) performCommand(new RemoveEventsCommand(currentEventSelection));
     }
 
     // CTRL + F = Flip Notes
@@ -5608,19 +5596,13 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   {
     if (currentLiveInputStyle == None)
     {
-      if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.LEFT)
-      {
-        incrementDifficulty(-1);
-      }
-      if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.RIGHT)
-      {
-        incrementDifficulty(1);
-      }
+      if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.LEFT) incrementDifficulty(-1);
+      if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.RIGHT) incrementDifficulty(1);
       // Would bind Ctrl+A and Ctrl+D here, but they are already bound to Select All and Select None.
     }
     else
     {
-      trace('Ignoring keybinds for View menu items because we are in live input mode (${currentLiveInputStyle}).');
+      // trace('Ignoring keybinds for View menu items because we are in live input mode (${currentLiveInputStyle}).');
     }
   }
 

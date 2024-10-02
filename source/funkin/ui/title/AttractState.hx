@@ -73,7 +73,7 @@ class AttractState extends MusicBeatState
   function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
-    vid = new FlxVideoSprite(0, 0);
+    var vid:FunkinVideoSprite;
 
     if (vid != null)
     {
@@ -82,8 +82,7 @@ class AttractState extends MusicBeatState
 
       add(vid);
 
-      if (vid.load(filePath))
-        vid.play();
+      if (vid.load(filePath)) vid.play();
     }
     else
     {
