@@ -39,7 +39,7 @@
       "name": "flxanimate",
       "type": "git",
       "dir": null,
-      "ref": "dev",
+      "ref": "0654797e5eb7cd7de0c1b2dbaa1efe5a1e1d9412",
       "url": "https://github.com/Dot-Stuff/flxanimate"
     },
     {
@@ -84,7 +84,7 @@
       "name": "hscript",
       "type": "git",
       "dir": null,
-      "ref": null,
+      "ref": "12785398e2f07082f05034cb580682e5671442a2",
       "url": "https://github.com/VsPlanktonLegacyDevs/hscript2"
     },
     {
@@ -190,7 +190,7 @@
       "name": "polymod",
       "type": "git",
       "dir": null,
-      "ref": null,
+      "ref": "0fbdf27fe124549730accd540cec8a183f8652c0",
       "url": "https://github.com/larsiusprime/polymod"
     },
     {
