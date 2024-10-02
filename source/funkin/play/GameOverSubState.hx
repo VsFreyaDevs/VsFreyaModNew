@@ -226,10 +226,8 @@ class GameOverSubState extends MusicBeatSubState
       }
       else
       {
-        if (boyfriend.hasAnimation('fakeoutDeath') && FlxG.random.bool((1 / 4096) * 100))
-        {
-          boyfriend.playAnimation('fakeoutDeath', true, false);
-        }
+        if (boyfriend.hasAnimation('fakeoutDeath')
+          && FlxG.random.bool((1 / 2591) * 102)) boyfriend.playAnimation('fakeoutDeath', true, false);
         else
         {
           boyfriend.playAnimation('firstDeath', true, false); // ignoreOther is set to FALSE since you WANT to be able to mash and confirm game over!
