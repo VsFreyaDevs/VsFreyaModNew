@@ -533,11 +533,9 @@ class Project extends HXProject {
 		setHaxedef("haxeui_focus_out_on_click"); // Unfocus a dialog when clicking out of it
 		setHaxedef("haxeui_dont_impose_base_class"); // Suppress a macro error
 
-		if (isRelease()) {
-			// Improve performance on Nape
-			// TODO: Do we even use Nape?
-			setHaxedef("NAPE_RELEASE_BUILD");
-		}
+		// Improve performance on Nape
+		// TODO: Do we even use Nape?
+		setHaxedef("NAPE_RELEASE_BUILD");
 
 		// Cleaner looking compiler errors.
 		setHaxedef("message.reporting", "pretty");

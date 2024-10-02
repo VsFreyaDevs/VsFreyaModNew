@@ -70,7 +70,7 @@ class MemoryCounter extends TextField
   public dynamic function updateText():Void // so people can override it in hscript
   {
     if (showFPS) text = 'FPS: $currentFPS ';
-    #if !html5 (showRAM) text += 'RAM: ${flixel.util.FlxStringUtil.formatBytes(memoryMegas)}'; #end
+    #if !html5 if (showRAM) text += 'RAM: ${flixel.util.FlxStringUtil.formatBytes(memoryMegas)}'; #end
     textColor = 0xFFFFFFFF;
     if (currentFPS < FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
   }

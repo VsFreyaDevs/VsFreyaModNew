@@ -1177,7 +1177,7 @@ class PlayState extends MusicBeatSubState
 
       if (songEventsToActivate.length > 0)
       {
-        trace('Found ${songEventsToActivate.length} event(s) to activate.');
+        #if debug trace('Found ${songEventsToActivate.length} event(s) to activate.'); #end
         for (event in songEventsToActivate)
         {
           // If an event is trying to play, but it's over 1 second old, skip it.
