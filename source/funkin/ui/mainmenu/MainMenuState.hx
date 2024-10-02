@@ -192,7 +192,9 @@ class MainMenuState extends MusicBeatState
     FunkinSound.playMusic('freakyMenu',
       {
         overrideExisting: true,
-        restartTrack: false
+        restartTrack: false,
+        // Continue playing this music between states, until a different music track gets played.
+        persist: true
       });
   }
 

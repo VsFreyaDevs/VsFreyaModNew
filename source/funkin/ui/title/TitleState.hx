@@ -237,6 +237,7 @@ class TitleState extends MusicBeatState
         startingVolume: 0.0,
         overrideExisting: true,
         restartTrack: false,
+        // Continue playing this music between states, until a different music track gets played.
         persist: true
       });
     var shouldFadeIn:Bool = (FlxG.sound.music != null);

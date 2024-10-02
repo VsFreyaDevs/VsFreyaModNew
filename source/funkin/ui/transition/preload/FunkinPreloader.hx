@@ -136,7 +136,8 @@ class FunkinPreloader extends FlxBasePreloader
     // We can't even call trace() yet, until Flixel loads.
     trace('Initializing custom preloader...');
 
-    funkin.util.CLIUtil.resetWorkingDir();
+    // no longer needed due to this bug being patched interally in lime 8.1.0!!
+    // funkin.util.CLIUtil.resetWorkingDir();
 
     this.siteLockTitleText = Constants.SITE_LOCK_TITLE;
     this.siteLockBodyText = Constants.SITE_LOCK_DESC;

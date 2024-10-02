@@ -1298,7 +1298,7 @@ class FreeplayState extends MusicBeatSubState
     fadeShader.fade(1.0, 0.0, 0.8, {ease: FlxEase.quadIn});
     FlxG.sound.music.fadeOut(0.9, 0);
     new FlxTimer().start(0.9, _ -> {
-      FlxG.switchState(new funkin.ui.charSelect.CharSelectSubState());
+      FlxG.switchState(() -> new funkin.ui.charSelect.CharSelectSubState());
     });
     for (grpSpr in exitMoversCharSel.keys())
     {
@@ -1737,7 +1737,9 @@ class FreeplayState extends MusicBeatSubState
         FunkinSound.playMusic('freakyMenu',
           {
             overrideExisting: true,
-            restartTrack: false
+            restartTrack: false,
+            // Continue playing this music between states, until a different music track gets played.
+            persist: true
           });
         FlxG.sound.music.fadeIn(4.0, 0.0, 1.0);
         close();
