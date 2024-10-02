@@ -20,7 +20,7 @@ class MemoryCounter extends TextField
   /**
     The current usage of RAM/memory. (WARNING: this is NOT your total program memory usage, rather it shows the garbage collector memory)
   **/
-  #if html5 public var memoryMegas(get, never):Float; #end
+  #if !html5 public var memoryMegas(get, never):Float; #end
 
   @:noCompletion private var times:Array<Float>;
 
