@@ -208,6 +208,12 @@ class Project extends HXProject {
   static final FEATURE_OPEN_URL:FeatureFlag = "FEATURE_OPEN_URL";
 
 	/**
+	 * `-DFEATURE_SCREENSHOTS`
+   * If this flag is enabled, the game will support the screenshots feature.
+   */
+  static final FEATURE_SCREENSHOTS:FeatureFlag = "FEATURE_SCREENSHOTS";
+
+	/**
    * `-DFEATURE_CHART_EDITOR`
 	 * If this flag is enabled, the Chart Editor will be accessible from the debug menu.
 	 */
