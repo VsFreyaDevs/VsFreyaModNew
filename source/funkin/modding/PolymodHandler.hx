@@ -264,6 +264,9 @@ class PolymodHandler
     Polymod.addDefaultImport(flixel.text.FlxText);
     Polymod.addDefaultImport(flixel.util.FlxTimer);
 
+    Polymod.addDefaultImport(Type.resolveClass('flixel.util.FlxColor_HSC'), "flixel.util.FlxColor");
+    Polymod.addDefaultImport(Type.resolveClass('flixel.util.FlxColor_HSC'), "FlxColor");
+
     // Add import aliases for certain classes.
     // NOTE: Scripted classes are automatically aliased to their parent class.
     Polymod.addImportAlias('flixel.math.FlxPoint', flixel.math.FlxPoint.FlxBasePoint);

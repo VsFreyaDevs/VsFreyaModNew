@@ -37,6 +37,11 @@ class SustainTrail extends FlxSprite
   public var cover:NoteHoldCover = null;
 
   /**
+   * Set this flag to disable playing animations on hit/miss.
+   */
+  public var noAnimation:Bool = false;
+
+  /**
    * Set to `true` if the user hit the note and is currently holding the sustain.
    * Should display associated effects.
    */

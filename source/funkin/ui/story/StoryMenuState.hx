@@ -115,10 +115,7 @@ class StoryMenuState extends MusicBeatState
   {
     super();
 
-    if (stickers?.members != null)
-    {
-      stickerSubState = stickers;
-    }
+    if (stickers?.members != null) stickerSubState = stickers;
   }
 
   override function create():Void
@@ -404,7 +401,7 @@ class StoryMenuState extends MusicBeatState
       && !selectedLevel)
     {
       exitingMenu = true;
-      FlxG.switchState(() -> new MainMenuState());
+      openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new MainMenuState()));
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
     }
   }

@@ -25,6 +25,7 @@ import funkin.ui.freeplay.FreeplayState;
 import funkin.ui.MenuList;
 import funkin.ui.title.TitleState;
 import funkin.ui.story.StoryMenuState;
+import funkin.ui.transition.StickerSubState;
 import funkin.ui.Prompt;
 import funkin.util.WindowUtil;
 import funkin.mobile.util.TouchUtil;
@@ -46,12 +47,17 @@ class MainMenuState extends MusicBeatState
 
   var overrideMusic:Bool = false;
 
+  var stickerSubState:StickerSubState;
+
   static var rememberedSelectedIndex:Int = 0;
 
-  public function new(?_overrideMusic:Bool = false)
+  public function new(?_overrideMusic:Bool = false, ?stickers:StickerSubState = null)
   {
     super();
+
     overrideMusic = _overrideMusic;
+
+    if (stickers?.members != null) stickerSubState = stickers;
   }
 
   override function create():Void
@@ -70,6 +76,12 @@ class MainMenuState extends MusicBeatState
     // We want the state to always be able to begin with being able to accept inputs and show the anims of the menu items.
     persistentUpdate = true;
     persistentDraw = true;
+
+    if (stickerSubState != null)
+    {
+      openSubState(stickerSubState);
+      stickerSubState.degenStickers();
+    }
 
     bg = new FlxSprite(Paths.image('menuBG'));
     bg.scrollFactor.x = 0;
@@ -280,7 +292,7 @@ class MainMenuState extends MusicBeatState
     var onPromptClose = checkLoginStatus;
     if (onClose != null)
     {
-      onPromptClose = function() {
+      onPromptClose = () -> {
         checkLoginStatus();
         onClose();
       }
@@ -302,7 +314,7 @@ class MainMenuState extends MusicBeatState
     menuItems.enabled = false;
     persistentUpdate = false;
 
-    prompt.closeCallback = function() {
+    prompt.closeCallback = () -> {
       menuItems.enabled = true;
       if (onClose != null) onClose();
     }
@@ -316,18 +328,13 @@ class MainMenuState extends MusicBeatState
     rememberedSelectedIndex = menuItems.selectedIndex;
 
     var duration = 0.4;
-    menuItems.forEach(function(item) {
-      if (menuItems.selectedIndex != item.ID)
-      {
-        FlxTween.tween(item, {alpha: 0}, duration, {ease: FlxEase.quadOut});
-      }
+    menuItems.forEach((item) -> {
+      if (menuItems.selectedIndex != item.ID) FlxTween.tween(item, {alpha: 0}, duration, {ease: FlxEase.quadOut});
       else
-      {
         item.visible = false;
-      }
     });
 
-    new FlxTimer().start(duration, function(_) FlxG.switchState(state));
+    new FlxTimer().start(duration, (_) -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> state)));
   }
 
   override function update(elapsed:Float):Void

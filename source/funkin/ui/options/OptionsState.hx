@@ -10,6 +10,7 @@ import flixel.util.FlxSignal;
 import funkin.audio.FunkinSound;
 import funkin.ui.mainmenu.MainMenuState;
 import funkin.ui.MusicBeatState;
+import funkin.ui.transition.StickerSubState;
 import funkin.graphics.shaders.HSVShader;
 import funkin.util.WindowUtil;
 import funkin.audio.FunkinSound;
@@ -29,6 +30,15 @@ class OptionsState extends MusicBeatState
   inline function get_currentPage():Page
     return pages[currentName];
 
+  var stickerSubState:StickerSubState;
+
+  public function new(?stickers:StickerSubState = null)
+  {
+    super();
+
+    if (stickers?.members != null) stickerSubState = stickers;
+  }
+
   override function create():Void
   {
     persistentUpdate = true;
@@ -40,6 +50,15 @@ class OptionsState extends MusicBeatState
         // Continue playing this music between states, until a different music track gets played.
         persist: true
       });
+
+    if (stickerSubState != null)
+    {
+      this.persistentUpdate = true;
+      this.persistentDraw = true;
+
+      openSubState(stickerSubState);
+      stickerSubState.degenStickers();
+    }
 
     var menuBG = new FlxSprite().loadGraphic(Paths.image('menuBG'));
     var hsv = new HSVShader();
@@ -124,7 +143,7 @@ class OptionsState extends MusicBeatState
   {
     currentPage.enabled = false;
     // TODO: Animate this transition?
-    FlxG.switchState(() -> new MainMenuState());
+    openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new MainMenuState()));
   }
 }
 

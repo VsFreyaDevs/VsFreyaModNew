@@ -2334,16 +2334,13 @@ class PlayState extends MusicBeatSubState
     // Process hold notes on the opponent's side.
     for (holdNote in opponentStrumline.holdNotes.members)
     {
-      if (holdNote == null || !holdNote.alive) continue;
+      if (holdNote == null || !holdNote.alive || holdNote.noAnimation) continue;
 
       // While the hold note is being hit, and there is length on the hold note...
       if (holdNote.hitNote && !holdNote.missedNote && holdNote.sustainLength > 0)
       {
         // Make sure the opponent keeps singing while the note is held.
-        if (currentStage != null && currentStage.getDad() != null && currentStage.getDad().isSinging())
-        {
-          currentStage.getDad().holdTimer = 0;
-        }
+        if (currentStage != null && currentStage.getDad() != null && currentStage.getDad().isSinging()) currentStage.getDad().holdTimer = 0;
       }
 
       if (holdNote.missedNote && !holdNote.handledMiss)
