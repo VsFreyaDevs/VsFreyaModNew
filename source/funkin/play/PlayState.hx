@@ -986,7 +986,7 @@ class PlayState extends MusicBeatSubState
 
     var pauseButtonCheck:Bool = false;
     var androidPause:Bool = false;
-    // So the player wouldn't miss when pressing the pause utton
+    // So the player wouldn't miss when pressing the pause button.
     #if mobile
     pauseButtonCheck = TouchUtil.overlapsComplex(pauseButton) && TouchUtil.justPressed;
     #end
@@ -1002,7 +1002,8 @@ class PlayState extends MusicBeatSubState
       pauseButton.alpha = 0;
       #end
 
-      var event = new PauseScriptEvent(FlxG.random.bool(1 / 1000));
+      // The shift key part is for debug purposes, by the way.
+      var event = new PauseScriptEvent(FlxG.random.bool(0.3) || FlxG.keys.pressed.SHIFT);
 
       dispatchEvent(event);
 
@@ -1013,7 +1014,7 @@ class PlayState extends MusicBeatSubState
         // Enable drawing while the substate is open, allowing the game state to be shown behind the pause menu.
         persistentDraw = true;
 
-        // There is a 1/1000 change to use a special pause menu.
+        // There is a 0.3% chance to use a special pause menu.
         // This prevents the player from resuming, but that's the point.
         // It's a reference to Gitaroo Man, which doesn't let you pause the game.
         if (!isSubState && event.gitaroo)
