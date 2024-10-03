@@ -204,6 +204,11 @@ class PlayState extends MusicBeatSubState
   public var needsCharacterReset:Bool = false;
 
   /**
+   * Map of the boppers that will reset their bop speed once the restart occurs.
+   */
+  public var resetBoppers:Map<Bopper, Float> = new Map<Bopper, Float>();
+
+  /**
    * The current 'Blueball Counter' to display in the pause menu.
    * Resets when you beat a song or go back to the main menu.
    */
@@ -940,6 +945,9 @@ class PlayState extends MusicBeatSubState
       // Delete all notes and reset the arrays.
       regenNoteData();
 
+      if (resetBoppers.size() > 0) for (bopper => speed in resetBoppers)
+        bopper.danceEvery = speed;
+
       // Reset camera zooming
       cameraBopIntensity = Constants.DEFAULT_BOP_INTENSITY;
       hudCameraZoomIntensity = (cameraBopIntensity - 1.0) * 2.0;
@@ -1171,6 +1179,7 @@ class PlayState extends MusicBeatSubState
 
     if (!isMinimalMode)
     {
+      currentStage.getBoyfriend().canPlayOtherAnims = true;
       iconP1.updatePosition();
       iconP2.updatePosition();
     }
@@ -1646,7 +1655,7 @@ class PlayState extends MusicBeatSubState
   {
     // Create the green background.
     var menuBG = FunkinSprite.create('menuDesat');
-    menuBG.color = 0xFF4CAF50;
+    menuBG.color = FlxColor.fromHSB(FlxG.random.int(0, 359), FlxG.random.float(0, 0.8), FlxG.random.float(0.3, 1));
     menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
     menuBG.updateHitbox();
     menuBG.screenCenter();

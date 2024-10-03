@@ -442,6 +442,8 @@ class CharacterDataParser
   public static final DEFAULT_ISPIXEL:Bool = false;
   public static final DEFAULT_LOOP:Bool = false;
   public static final DEFAULT_NAME:String = 'Untitled Character';
+  public static final DEFAULT_LOOPHOLD:Bool = false;
+  public static final DEFAULT_LOOPHOLDFRAME:Int = 3;
   public static final DEFAULT_OFFSETS:Array<Float> = [0, 0];
   public static final DEFAULT_HEALTHICON_OFFSETS:Array<Int> = [0, 25];
   public static final DEFAULT_RENDERTYPE:CharacterRenderType = CharacterRenderType.Sparrow;
@@ -482,10 +484,7 @@ class CharacterDataParser
       input.name = DEFAULT_NAME;
     }
 
-    if (input.renderType == null)
-    {
-      input.renderType = DEFAULT_RENDERTYPE;
-    }
+    if (input.renderType == null) input.renderType = DEFAULT_RENDERTYPE;
 
     if (input.assetPath == null)
     {
@@ -493,15 +492,8 @@ class CharacterDataParser
       return null;
     }
 
-    if (input.offsets == null)
-    {
-      input.offsets = DEFAULT_OFFSETS;
-    }
-
-    if (input.cameraOffsets == null)
-    {
-      input.cameraOffsets = DEFAULT_OFFSETS;
-    }
+    if (input.offsets == null) input.offsets = DEFAULT_OFFSETS;
+    if (input.cameraOffsets == null) input.cameraOffsets = DEFAULT_OFFSETS;
 
     if (input.healthIcon == null)
     {
@@ -516,71 +508,26 @@ class CharacterDataParser
         };
     }
 
-    if (input.healthIcon.id == null)
-    {
-      input.healthIcon.id = id;
-    }
-
-    if (input.healthIcon.scale == null)
-    {
-      input.healthIcon.scale = DEFAULT_SCALE;
-    }
-
-    if (input.healthIcon.flipX == null)
-    {
-      input.healthIcon.flipX = DEFAULT_FLIPX;
-    }
-
-    if (input.healthIcon.offsets == null)
-    {
-      input.healthIcon.offsets = DEFAULT_OFFSETS;
-    }
-
-    if (input.startingAnimation == null)
-    {
-      input.startingAnimation = DEFAULT_STARTINGANIM;
-    }
-
-    if (input.scale == null)
-    {
-      input.scale = DEFAULT_SCALE;
-    }
-
-    if (input.isPixel == null)
-    {
-      input.isPixel = DEFAULT_ISPIXEL;
-    }
-
-    if (input.healthIcon.isPixel == null)
-    {
-      input.healthIcon.isPixel = input.isPixel;
-    }
-
-    if (input.danceEvery == null)
-    {
-      input.danceEvery = DEFAULT_DANCEEVERY;
-    }
-
-    if (input.singTime == null)
-    {
-      input.singTime = DEFAULT_SINGTIME;
-    }
-
+    if (input.healthIcon.id == null) input.healthIcon.id = id;
+    if (input.healthIcon.scale == null) input.healthIcon.scale = DEFAULT_SCALE;
+    if (input.healthIcon.flipX == null) input.healthIcon.flipX = DEFAULT_FLIPX;
+    if (input.healthIcon.offsets == null) input.healthIcon.offsets = DEFAULT_OFFSETS;
+    if (input.startingAnimation == null) input.startingAnimation = DEFAULT_STARTINGANIM;
+    if (input.scale == null) input.scale = DEFAULT_SCALE;
+    if (input.isPixel == null) input.isPixel = DEFAULT_ISPIXEL;
+    if (input.healthIcon.isPixel == null) input.healthIcon.isPixel = input.isPixel;
+    if (input.danceEvery == null) input.danceEvery = DEFAULT_DANCEEVERY;
+    if (input.singTime == null) input.singTime = DEFAULT_SINGTIME;
     if (input.animations == null || input.animations.length == 0)
     {
       trace('ERROR: Could not load character data for "$id": missing animations');
       input.animations = [];
     }
 
-    if (input.flipX == null)
-    {
-      input.flipX = DEFAULT_FLIPX;
-    }
-
-    if (input.animations.length == 0 && input.startingAnimation != null)
-    {
-      return null;
-    }
+    if (input.flipX == null) input.flipX = DEFAULT_FLIPX;
+    if (input.loopHold == null) input.loopHold = DEFAULT_LOOPHOLD;
+    if (input.loopHoldFrame == null) input.loopHoldFrame = DEFAULT_LOOPHOLDFRAME;
+    if (input.animations.length == 0 && input.startingAnimation != null) return null;
 
     for (inputAnimation in input.animations)
     {
@@ -590,30 +537,11 @@ class CharacterDataParser
         return null;
       }
 
-      if (inputAnimation.frameRate == null)
-      {
-        inputAnimation.frameRate = DEFAULT_FRAMERATE;
-      }
-
-      if (inputAnimation.offsets == null)
-      {
-        inputAnimation.offsets = DEFAULT_OFFSETS;
-      }
-
-      if (inputAnimation.looped == null)
-      {
-        inputAnimation.looped = DEFAULT_LOOP;
-      }
-
-      if (inputAnimation.flipX == null)
-      {
-        inputAnimation.flipX = DEFAULT_FLIPX;
-      }
-
-      if (inputAnimation.flipY == null)
-      {
-        inputAnimation.flipY = DEFAULT_FLIPY;
-      }
+      if (inputAnimation.frameRate == null) inputAnimation.frameRate = DEFAULT_FRAMERATE;
+      if (inputAnimation.offsets == null) inputAnimation.offsets = DEFAULT_OFFSETS;
+      if (inputAnimation.looped == null) inputAnimation.looped = DEFAULT_LOOP;
+      if (inputAnimation.flipX == null) inputAnimation.flipX = DEFAULT_FLIPX;
+      if (inputAnimation.flipY == null) inputAnimation.flipY = DEFAULT_FLIPY;
     }
 
     // All good!
@@ -712,6 +640,9 @@ typedef CharacterData =
    * @default false
    */
   var isPixel:Null<Bool>;
+
+  var loopHold:Null<Bool>;
+  var loopHoldFrame:Null<Int>;
 
   /**
    * The frequency at which the character will play its idle animation, in beats.

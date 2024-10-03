@@ -102,7 +102,6 @@ class Save
           flashingLights: true,
           zoomCamera: true,
           comboBreakText: false,
-          classicHolds: false,
           coloredHealthBar: false,
           debugDisplay: true,
           autoPause: true,
@@ -1332,12 +1331,6 @@ typedef SaveDataOptions =
    * @default `true`
    */
   var zoomCamera:Bool;
-
-  /**
-   * If enabled, the character corresponding to the player or CPU will play their sing animations on loop, reminiscent of legacy FNF and most other FNF engines.
-   * @default `false`
-   */
-  var classicHolds:Bool;
 
   /**
    * If enabled, the health bar colors will be based off the characters' icons. Otherwise, go with the default red & green colors.

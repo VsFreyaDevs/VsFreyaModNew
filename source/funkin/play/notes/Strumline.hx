@@ -460,9 +460,7 @@ class Strumline extends FlxSpriteGroup
       else if (conductorInUse.songPosition > holdNote.strumTime && holdNote.hitNote)
       {
         // Hold note is currently being hit, clip it off.
-        if (Preferences.classicHolds) playConfirmHold(holdNote.noteDirection);
-        else
-          holdConfirm(holdNote.noteDirection);
+        playConfirmHold(holdNote.noteDirection);
         holdNote.visible = true;
 
         holdNote.sustainLength = (holdNote.strumTime + holdNote.fullSustainLength) - conductorInUse.songPosition;

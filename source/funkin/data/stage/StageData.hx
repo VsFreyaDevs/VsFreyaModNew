@@ -16,6 +16,11 @@ class StageData
   public var props:Array<StageDataProp> = [];
   public var characters:StageDataCharacters;
 
+  @:nullSafety(Off)
+  @:optional
+  @:default([0, 0])
+  public var ratingsOffset:Array<Float>;
+
   @:default(1.0)
   @:optional
   public var cameraZoom:Null<Float>;

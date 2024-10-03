@@ -144,10 +144,6 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects', function(value:Bool):Void {
       Preferences.flashingLights = value;
     }, Preferences.flashingLights);
-    createPrefItemCheckbox('Classic Hold Style',
-      'Enable so whenever a player/CPU hits a note,\nthe character\'s sing animations will loop (Like in legacy FNF)', function(value:Bool):Void {
-        Preferences.classicHolds = value;
-    }, Preferences.classicHolds);
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
     }, Preferences.antialiasing);

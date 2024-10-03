@@ -38,6 +38,8 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
   {
     if (daRating == null) daRating = "good";
 
+    var stageOffset:Array<Float> = PlayState.instance.currentStage == null ? [0, 0] : PlayState.instance.currentStage.ratingsOffset;
+
     var rating:Null<FunkinSprite> = noteStyle.buildJudgementSprite(daRating);
     if (rating == null) return;
 
@@ -51,8 +53,8 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
     rating.x += offsets[0];
     rating.y += offsets[1];
     var styleOffsets = noteStyle.getJudgementSpriteOffsets(daRating);
-    rating.x += styleOffsets[0];
-    rating.y += styleOffsets[1];
+    rating.x += styleOffsets[0] + stageOffset[0];
+    rating.y += styleOffsets[1] + stageOffset[1];
 
     rating.acceleration.y = 550;
     rating.velocity.y -= FlxG.random.int(140, 175);
@@ -101,8 +103,8 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
       numScore.x += offsets[0];
       numScore.y += offsets[1];
       var styleOffsets = noteStyle.getComboNumSpriteOffsets(digit);
-      numScore.x += styleOffsets[0];
-      numScore.y += styleOffsets[1];
+      numScore.x += styleOffsets[0] + stageOffset[0];
+      numScore.y += styleOffsets[1] + stageOffset[1];
 
       numScore.acceleration.y = FlxG.random.int(250, 300);
       numScore.velocity.y -= FlxG.random.int(130, 150);

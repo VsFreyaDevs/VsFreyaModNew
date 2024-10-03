@@ -38,7 +38,7 @@ class CreditsState extends MusicBeatState
    * Choose something that will render Unicode properly.
    */
   #if windows
-  static final CREDITS_FONT = 'Consolas';
+  static final CREDITS_FONT = 'Arial';
   #elseif mac
   static final CREDITS_FONT = 'Menlo';
   #else
@@ -156,7 +156,7 @@ class CreditsState extends MusicBeatState
   {
     if (!entry.hasBuiltHeader)
     {
-      var header:FlxText = buildCreditsLine(entry.data.header, creditsLineY, true, CreditsSide.Left);
+      var header:FlxText = buildCreditsLine(entry.data.header, creditsLineY, true, CreditsSide.Center);
       creditsLineY += CREDITS_HEADER_FONT_SIZE + (header.textField.numLines * CREDITS_HEADER_FONT_SIZE);
       entry.hasBuiltHeader = true;
       return;
@@ -165,28 +165,22 @@ class CreditsState extends MusicBeatState
     if (!entry.hasBuiltBody)
     {
       var lineData:CreditsDataMember = entry.data.body[entry.lineIndexToBuild];
-      var line:FlxText = buildCreditsLine(lineData.line, creditsLineY, false, CreditsSide.Left);
+      var line:FlxText = buildCreditsLine(lineData.line, creditsLineY, false, CreditsSide.Center);
       creditsLineY += CREDITS_FONT_SIZE * line.textField.numLines;
       entry.lineIndexToBuild++;
 
-      if (entry.lineIndexToBuild >= entry.data.body.length)
-      {
-        entry.hasBuiltBody = true;
-      }
+      if (entry.lineIndexToBuild >= entry.data.body.length) entry.hasBuiltBody = true;
       return;
     }
 
     if (!entry.hasBuiltBackers)
     {
       var backer:String = backersToBuild[entry.backerIndexToBuild];
-      creditsGroup.add(buildCreditsLine(backer, creditsLineY, false, CreditsSide.Left));
+      creditsGroup.add(buildCreditsLine(backer, creditsLineY, false, CreditsSide.Center));
       creditsLineY += CREDITS_FONT_SIZE;
 
       entry.backerIndexToBuild++;
-      if (entry.backerIndexToBuild >= backersToBuild.length)
-      {
-        entry.hasBuiltBackers = true;
-      }
+      if (entry.backerIndexToBuild >= backersToBuild.length) entry.hasBuiltBackers = true;
       return;
     }
   }

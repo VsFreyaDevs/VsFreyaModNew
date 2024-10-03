@@ -19,8 +19,8 @@ class ChartEditorThemeHandler
   // TODO: There's probably a better system of organization for these colors.
   // An enum of typedefs or something?
   // ================================
-  static final BACKGROUND_COLOR_LIGHT:FlxColor = 0xFF673AB7;
-  static final BACKGROUND_COLOR_DARK:FlxColor = 0xFF361E60;
+  static final BACKGROUND_COLOR_LIGHT:FlxColor = 0xFFB7813A;
+  static final BACKGROUND_COLOR_DARK:FlxColor = 0xFF603E1E;
 
   // Color 1 of the grid pattern. Alternates with Color 2.
   static final GRID_COLOR_1_LIGHT:FlxColor = 0xFFE7E6E6;
@@ -64,12 +64,12 @@ class ChartEditorThemeHandler
   static final PLAYHEAD_BLOCK_FILL_COLOR:FlxColor = 0xFFBD0231;
 
   // Border on the square over the note preview.
-  static final NOTE_PREVIEW_VIEWPORT_BORDER_COLOR_LIGHT = 0xFFF8A657;
-  static final NOTE_PREVIEW_VIEWPORT_BORDER_COLOR_DARK = 0xFFF8A657;
+  static final NOTE_PREVIEW_VIEWPORT_BORDER_COLOR_LIGHT = 0xFF350EC2;
+  static final NOTE_PREVIEW_VIEWPORT_BORDER_COLOR_DARK = 0xFF6ED6FF;
 
   // Fill on the square over the note preview.
-  static final NOTE_PREVIEW_VIEWPORT_FILL_COLOR_LIGHT = 0x80F8A657;
-  static final NOTE_PREVIEW_VIEWPORT_FILL_COLOR_DARK = 0x80F8A657;
+  static final NOTE_PREVIEW_VIEWPORT_FILL_COLOR_LIGHT = 0x80909BFF;
+  static final NOTE_PREVIEW_VIEWPORT_FILL_COLOR_DARK = 0x8057D8F8;
 
   static final TOTAL_COLUMN_COUNT:Int = ChartEditorState.STRUMLINE_SIZE * 2 + 1;
 
