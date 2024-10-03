@@ -167,7 +167,7 @@ class PreferencesMenu extends Page
     #else
     createPrefItemNumber('FPS Cap', 'Set the maximum framerate that the game targets', function(value:Float) {
       Preferences.framerate = Std.int(value);
-    }, null, Preferences.framerate, #if mobile 60 #else 30 #end, 480, 1, 0);
+    }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 640, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {

@@ -98,19 +98,15 @@ class DebugBoundingState extends FlxState
 
     // offsetEditorDialog.findComponent("btnViewSpriteSheet").onClick = _ -> curView = SPRITESHEET;
     var viewDropdown:DropDown = offsetEditorDialog.findComponent("swapper", DropDown);
-    viewDropdown.onChange = function(e:UIEvent) {
+    viewDropdown.onChange = (e:UIEvent) -> {
       trace(e.type);
       curView = cast e.data.curView;
       trace(e.data);
-      // trace(e.data);
     };
 
     offsetAnimationDropdown = offsetEditorDialog.findComponent("animationDropdown", DropDown);
-
     offsetEditorDialog.cameras = [hudCam];
-
     add(offsetEditorDialog);
-
     offsetEditorDialog.showDialog(false);
 
     // Anchor to the left side by default
@@ -195,7 +191,7 @@ class DebugBoundingState extends FlxState
     offsetView.add(txtOffsetShit);
 
     var characters:Array<String> = CharacterDataParser.listCharacterIds();
-    characters = characters.filter(function(charId:String) {
+    characters = characters.filter((charId:String) -> {
       var char = CharacterDataParser.fetchCharacterData(charId);
       return char.renderType != AnimateAtlas;
     });
@@ -203,11 +199,9 @@ class DebugBoundingState extends FlxState
 
     var charDropdown:DropDown = offsetEditorDialog.findComponent('characterDropdown', DropDown);
     for (char in characters)
-    {
       charDropdown.dataSource.add({text: char});
-    }
 
-    charDropdown.onChange = function(e:UIEvent) {
+    charDropdown.onChange = (e:UIEvent) -> {
       loadAnimShit(e.data.text);
     };
   }
@@ -238,15 +232,8 @@ class DebugBoundingState extends FlxState
         txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
       }
 
-      if (FlxG.mouse.justReleased)
-      {
-        movingCharacter = false;
-      }
-
-      if (FlxG.mouse.justReleased)
-      {
-        movingCharacter = false;
-      }
+      if (FlxG.mouse.justReleased) movingCharacter = false;
+      if (FlxG.mouse.justReleased) movingCharacter = false;
     }
   }
 
@@ -257,18 +244,14 @@ class DebugBoundingState extends FlxState
     swagText.scrollFactor.set();
 
     for (text in txtGrp.members)
-    {
       text.y -= swagText.height;
-    }
     txtGrp.add(swagText);
 
     swagText.text = str + ": " + Std.string(value);
   }
 
   function clearInfo()
-  {
     txtGrp.clear();
-  }
 
   function checkLibrary(library:String)
   {
@@ -279,7 +262,7 @@ class DebugBoundingState extends FlxState
       if (!LimeAssets.libraryPaths.exists(library)) throw "Missing library: " + library;
 
       // var callback = callbacks.add("library:" + library);
-      Assets.loadLibrary(library).onComplete(function(_) {
+      Assets.loadLibrary(library).onComplete((_) -> {
         trace('LOADED... awesomeness...');
         // callback();
       });
@@ -342,30 +325,22 @@ class DebugBoundingState extends FlxState
   {
     if (FlxG.keys.justPressed.RBRACKET || FlxG.keys.justPressed.E)
     {
-      if (offsetAnimationDropdown.selectedIndex + 1 <= offsetAnimationDropdown.dataSource.size)
-      {
-        offsetAnimationDropdown.selectedIndex += 1;
-      }
+      if (offsetAnimationDropdown.selectedIndex + 1 <= offsetAnimationDropdown.dataSource.size) offsetAnimationDropdown.selectedIndex += 1;
       else
-      {
         offsetAnimationDropdown.selectedIndex = 0;
-      }
+      #if debug
       trace(offsetAnimationDropdown.selectedIndex);
       trace(offsetAnimationDropdown.dataSource.size);
       trace(offsetAnimationDropdown.value);
       trace(currentAnimationName);
+      #end
       playCharacterAnimation(currentAnimationName, true);
     }
     if (FlxG.keys.justPressed.LBRACKET || FlxG.keys.justPressed.Q)
     {
-      if (offsetAnimationDropdown.selectedIndex - 1 >= 0)
-      {
-        offsetAnimationDropdown.selectedIndex -= 1;
-      }
+      if (offsetAnimationDropdown.selectedIndex - 1 >= 0) offsetAnimationDropdown.selectedIndex -= 1;
       else
-      {
         offsetAnimationDropdown.selectedIndex = offsetAnimationDropdown.dataSource.size - 1;
-      }
       playCharacterAnimation(currentAnimationName, true);
     }
 
@@ -400,15 +375,9 @@ class DebugBoundingState extends FlxState
       }
     }
 
-    if (FlxG.keys.justPressed.F)
-    {
-      onionSkinChar.visible = !onionSkinChar.visible;
-    }
+    if (FlxG.keys.justPressed.F) onionSkinChar.visible = !onionSkinChar.visible;
 
-    if (FlxG.keys.justPressed.G)
-    {
-      swagChar.flipX = !swagChar.flipX;
-    }
+    if (FlxG.keys.justPressed.G) swagChar.flipX = !swagChar.flipX;
 
     // Plays the idle animation
     if (FlxG.keys.justPressed.SPACE)
@@ -419,10 +388,7 @@ class DebugBoundingState extends FlxState
     }
 
     // Playback the animation
-    if (FlxG.keys.justPressed.ENTER)
-    {
-      playCharacterAnimation(currentAnimationName, false);
-    }
+    if (FlxG.keys.justPressed.ENTER) playCharacterAnimation(currentAnimationName, false);
 
     if (FlxG.keys.justPressed.RIGHT || FlxG.keys.justPressed.LEFT || FlxG.keys.justPressed.UP || FlxG.keys.justPressed.DOWN)
     {
@@ -461,9 +427,7 @@ class DebugBoundingState extends FlxState
     var outputString:String = "";
 
     for (i in swagChar.animationOffsets.keys())
-    {
       outputString += i + " " + swagChar.animationOffsets.get(i)[0] + " " + swagChar.animationOffsets.get(i)[1] + "\n";
-    }
 
     outputString.trim();
 
@@ -502,10 +466,7 @@ class DebugBoundingState extends FlxState
     swagChar.debug = true;
     offsetView.add(swagChar);
 
-    if (swagChar == null || swagChar.frames == null)
-    {
-      trace('ERROR: Failed to load character ${char}!');
-    }
+    if (swagChar == null || swagChar.frames == null) trace('ERROR: Failed to load character ${char}!');
 
     generateOutlines(swagChar.frames.frames);
     bf.pixels = swagChar.pixels;
@@ -520,8 +481,7 @@ class DebugBoundingState extends FlxState
     for (i in swagChar.animationOffsets.keys())
     {
       characterAnimNames.push(i);
-      trace(i);
-      trace(swagChar.animationOffsets[i]);
+      trace(i + " | " + swagChar.animationOffsets[i]);
     }
 
     offsetAnimationDropdown.dataSource.clear();
@@ -536,7 +496,7 @@ class DebugBoundingState extends FlxState
 
     trace('Added ${offsetAnimationDropdown.dataSource.size} to HaxeUI dropdown');
 
-    offsetAnimationDropdown.onChange = function(event:UIEvent) {
+    offsetAnimationDropdown.onChange = (event:UIEvent) -> {
       trace('Selected animation ${event?.data?.id}');
       playCharacterAnimation(event.data.id, true);
     }
