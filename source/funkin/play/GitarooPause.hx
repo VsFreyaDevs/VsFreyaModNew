@@ -35,7 +35,10 @@ class GitarooPause extends MusicBeatState
     var bg:FunkinSprite = FunkinSprite.create('pauseAlt/pauseBG');
     add(bg);
 
-    var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, 'pauseAlt/bfLol');
+    var bfPath:String = 'pauseAlt/bfLol';
+    if (FlxG.random.bool(15)) bfPath = 'pauseAlt/kaniLol'
+
+    var bf:FunkinSprite = FunkinSprite.createSparrow(0, 30, bfPath);
     bf.animation.addByPrefix('lol', "funnyThing", 13);
     bf.animation.play('lol');
     add(bf);
@@ -72,6 +75,7 @@ class GitarooPause extends MusicBeatState
       }
       else
       {
+        FunkinSound.playOnce(Paths.sound('cancelMenu'));
         FlxG.switchState(() -> new MainMenuState());
       }
     }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="kaniLol.png">
+	<SubTexture name="funnyThing0000" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0001" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0002" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0003" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0004" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0005" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0006" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0007" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0008" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0009" x="0" y="0" width="280" height="184" frameX="0" frameY="-12" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0010" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0011" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0012" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0013" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0014" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0015" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0016" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0017" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0018" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+	<SubTexture name="funnyThing0019" x="0" y="189" width="250" height="204" frameX="-11" frameY="0" frameWidth="280" frameHeight="204" />
+</TextureAtlas>
