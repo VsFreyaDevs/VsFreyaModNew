@@ -68,7 +68,7 @@ class Controls extends FlxActionSet
   var _freeplay_char_select = new FunkinAction(Action.FREEPLAY_CHAR_SELECT);
   var _cutscene_advance = new FunkinAction(Action.CUTSCENE_ADVANCE);
   var _debug_menu = new FunkinAction(Action.DEBUG_MENU);
-  if FEATURE_CHART_EDITOR
+  #if FEATURE_CHART_EDITOR
   var _debug_chart = new FunkinAction(Action.DEBUG_CHART);
   #end
   #if FEATURE_STAGE_EDITOR
@@ -287,7 +287,7 @@ class Controls extends FlxActionSet
   inline function get_DEBUG_MENU()
     return _debug_menu.check();
 
-   #if FEATURE_CHART_EDITOR
+  #if FEATURE_CHART_EDITOR
   public var DEBUG_CHART(get, never):Bool;
 
   inline function get_DEBUG_CHART()
@@ -458,7 +458,7 @@ class Controls extends FlxActionSet
       case BACK: _back;
       case PAUSE: _pause;
       case RESET: _reset;
-     #if FEATURE_SCREENSHOTS case WINDOW_SCREENSHOT: _window_screenshot; #end
+      #if FEATURE_SCREENSHOTS case WINDOW_SCREENSHOT: _window_screenshot; #end
       case WINDOW_FULLSCREEN: _window_fullscreen;
       case FREEPLAY_FAVORITE: _freeplay_favorite;
       case FREEPLAY_LEFT: _freeplay_left;
@@ -993,7 +993,8 @@ class Controls extends FlxActionSet
         return [FlxGamepadInputID.BACK]; // Back (i.e. Select)
       case Control.WINDOW_FULLSCREEN:
         [];
-      #if FEATURE_SCREENSHOT case Control.WINDOW_SCREENSHOT:
+      #if FEATURE_SCREENSHOT
+      case Control.WINDOW_SCREENSHOT:
         [];
       #end
       case Control.CUTSCENE_ADVANCE:
