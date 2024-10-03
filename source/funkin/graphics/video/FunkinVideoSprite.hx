@@ -1,7 +1,5 @@
 package funkin.graphics.video;
 
-package funkin.graphics.video;
-
 #if hxvlc
 import hxvlc.flixel.FlxVideoSprite;
 
