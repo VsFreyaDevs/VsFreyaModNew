@@ -531,7 +531,7 @@ class BaseCharacter extends Bopper
    */
   function stopHolding()
   {
-    lastNoteDirection = null;
+    lastNoteAnimation = null;
     lastHoldFinish = null;
   }
 
