@@ -555,6 +555,10 @@ class PlayState extends MusicBeatSubState
    */
   var isMobilePlatform:Bool = #if mobile true #else false #end;
 
+  public var isFreyaSong:Bool = false;
+
+  var randImage:Int = 1;
+
   /**
    * PROPERTIES
    */
@@ -760,19 +764,21 @@ class PlayState extends MusicBeatSubState
     // This gets set back to false when the chart actually starts.
     startingSong = true;
 
-    // TODO: We hardcoded the transition into Winter Horrorland. Do this with a ScriptedSong instead.
-    if ((currentSong?.id ?? '').toLowerCase() == 'winter-horrorland')
+    var coolSongId:String = (currentSong?.id ?? '').toLowerCase();
+    switch (coolSongId)
     {
-      // VanillaCutscenes will call startCountdown later.
-      VanillaCutscenes.playHorrorStartCutscene();
+      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones":
+        isFreyaSong = true;
+      case 'winter-horrorland': // VanillaCutscenes will call startCountdown later.
+        VanillaCutscenes.playHorrorStartCutscene();
+      default:
+        // Call a script event to start the countdown.
+        // Songs with cutscenes should call event.cancel().
+        // As long as they call `PlayState.instance.startCountdown()` later, the countdown will start.
+        startCountdown();
     }
-    else
-    {
-      // Call a script event to start the countdown.
-      // Songs with cutscenes should call event.cancel().
-      // As long as they call `PlayState.instance.startCountdown()` later, the countdown will start.
-      startCountdown();
-    }
+
+    randImage = FlxG.random.int(1, 20);
 
     // Create the pause button.
     #if mobile
@@ -955,14 +961,9 @@ class PlayState extends MusicBeatSubState
     }
     else
     {
-      if (Constants.EXT_SOUND == 'mp3')
-      {
-        Conductor.instance.formatOffset = Constants.MP3_DELAY_MS;
-      }
+      if (Constants.EXT_SOUND == 'mp3') Conductor.instance.formatOffset = Constants.MP3_DELAY_MS;
       else
-      {
         Conductor.instance.formatOffset = 0.0;
-      }
 
       Conductor.instance.update(); // Normal conductor update.
     }
@@ -1056,10 +1057,7 @@ class PlayState extends MusicBeatSubState
       camHUD.zoom = FlxMath.lerp(defaultHUDCameraZoom, camHUD.zoom, 0.95 * cameraZoomingDecay);
     }
 
-    if (currentStage != null && currentStage.getBoyfriend() != null)
-    {
-      FlxG.watch.addQuick('bfAnim', currentStage.getBoyfriend().getCurrentAnimation());
-    }
+    if (currentStage != null && currentStage.getBoyfriend() != null) FlxG.watch.addQuick('bfAnim', currentStage.getBoyfriend().getCurrentAnimation());
     FlxG.watch.addQuick('health', health);
     FlxG.watch.addQuick('cameraBopIntensity', cameraBopIntensity);
 
@@ -1204,10 +1202,7 @@ class PlayState extends MusicBeatSubState
           var eventEvent:SongEventScriptEvent = new SongEventScriptEvent(event);
           dispatchEvent(eventEvent);
           // Calling event.cancelEvent() skips the event. Neat!
-          if (!eventEvent.eventCanceled)
-          {
-            SongEventRegistry.handleEvent(event);
-          }
+          if (!eventEvent.eventCanceled) SongEventRegistry.handleEvent(event);
         }
       }
     }
@@ -1606,13 +1601,17 @@ class PlayState extends MusicBeatSubState
 
     // The score text below the health bar.
     scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
-    scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    if (isFreyaSong) scoreText.setFormat(Paths.font('arial.ttf'), 20, FlxColor.RED, RIGHT);
+    else
+      scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     scoreText.scrollFactor.set();
     scoreText.zIndex = 802;
     add(scoreText);
 
     comboBreakText = new FlxText(healthBarBG.x + 30, healthBarBG.y + 30, 0, '', 20);
-    comboBreakText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    if (isFreyaSong) comboBreakText.setFormat(Paths.font('arial.ttf'), 20, FlxColor.RED, RIGHT);
+    else
+      comboBreakText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     comboBreakText.scrollFactor.set();
     comboBreakText.zIndex = 802;
     if (Preferences.comboBreakText) add(comboBreakText);
@@ -1739,7 +1738,9 @@ class PlayState extends MusicBeatSubState
       iconP2.cameras = [camHUD];
 
       #if FEATURE_DISCORD_RPC
-      discordRPCAlbum = 'album-${currentChart.album}';
+      if (isFreyaSong) discordRPCAlbum = 'album-freya${randImage}';
+      else
+        discordRPCAlbum = 'album-${currentChart.album}';
       discordRPCIcon = 'icon-${currentCharacterData.opponent}';
       #end
     }

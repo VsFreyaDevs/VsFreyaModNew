@@ -7,7 +7,7 @@ import sys.thread.Thread;
 
 class DiscordClient
 {
-  static final CLIENT_ID:String = "816168432860790794";
+  static final CLIENT_ID:String = "1291202292858486855";
   public static var instance(get, never):DiscordClient;
   static var _instance:Null<DiscordClient> = null;
 
@@ -75,7 +75,7 @@ class DiscordClient
     // Presence should always be playing the game.
     presence.type = DiscordActivityType_Playing;
     // Text when hovering over the large image. We just leave this as the game name.
-    presence.largeImageText = "Friday Night Funkin'";
+    presence.largeImageText = "Friday Night Funkin': Vs. Freya Crew";
     // State should be generally what the person is doing, like "In the Menus" or "Pico (Pico Mix) [Freeplay Hard]"
     presence.state = cast(params.state, Null<String>);
     // Details should be what the person is specifically doing, including stuff like timestamps (maybe something like "03:24 elapsed").
@@ -83,7 +83,7 @@ class DiscordClient
     // The large image displaying what the user is doing.
     // This should probably be album art.
     // IMPORTANT NOTE: This can be an asset key uploaded to Discord's developer panel OR any URL you like.
-    presence.largeImageKey = cast(params.largeImageKey, Null<String>) ?? "album-volume1";
+    presence.largeImageKey = cast(params.largeImageKey, Null<String>) ?? "album-freya11";
     trace('[DISCORD] largeImageKey: ${presence.largeImageKey}');
     // TODO: Make this use the song's album art.
     // presence.largeImageKey = "icon";
@@ -96,11 +96,11 @@ class DiscordClient
     // presence.startTimestamp = time - 10;
     // presence.endTimestamp = time + 30;
     final button1:DiscordButton = DiscordButton.create();
-    button1.label = "Play on Web";
-    button1.url = Constants.URL_NEWGROUNDS;
+    button1.label = "Join Freya's Server";
+    button1.url = "https://discord.gg/qXpD55skD5";
     presence.buttons[0] = button1;
     final button2:DiscordButton = DiscordButton.create();
-    button2.label = "Download";
+    button2.label = "Download FNF";
     button2.url = Constants.URL_ITCH;
     presence.buttons[1] = button2;
     return presence;
