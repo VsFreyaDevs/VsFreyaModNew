@@ -248,8 +248,6 @@ class Controls extends FlxActionSet
   inline function get_WINDOW_FULLSCREEN()
     return _window_fullscreen.check();
 
-  public var WINDOW_SCREENSHOT(get, never):Bool;
-
   #if FEATURE_SCREENSHOTS
   public var WINDOW_SCREENSHOT(get, never):Bool;
 
