@@ -289,25 +289,33 @@ class CharacterDataParser
   {
     var charPath = switch (char)
     {
-      case "bf-christmas" | "bf-car" | "bf-pixel" | "bf-holding-gf" | "bf-dark":
+      case "bf-christmas" | "bf-car" | "bf-pixel" | "bf-holding-gf" | "bf-dark" | "bf-kit" | "bf-chikn":
         "bfpixel";
       case "monster-christmas":
         "monsterpixel";
       case "mom" | "mom-car":
         "mommypixel";
-      case "pico-blazin" | "pico-playable" | "pico-speaker" | "pico-christmas" | "pico-dark":
+      case "pico-blazin" | "pico-playable" | "pico-speaker" | "pico-christmas" | "pico-dark" | "pico-kit":
         "picopixel";
-      case "gf-christmas" | "gf-car" | "gf-pixel" | "gf-tankmen" | "gf-dark":
+      case "gf-christmas" | "gf-car" | "gf-pixel" | "gf-tankmen" | "gf-dark" | "gf-kit":
         "gfpixel";
       case "dad":
         "dadpixel";
+      case "freya-angy":
+        "freyapixel";
+      case "milky-angy" | "milky-pissed":
+        "milkypixel";
+      case "kanimate-worried" | "kanimate-pissed" | "animate-cc":
+        "kanimatepixel";
+      case "shadow-milky":
+        "smilkypixel";
       case "darnell-blazin":
         "darnellpixel";
       case "senpai-angry":
         "senpaipixel";
       case "spooky-dark":
         "spookypixel";
-      case "tankman-atlas":
+      case "tankman-atlas" | "tankman-playable":
         "tankmanpixel";
       default:
         '${char}pixel';
