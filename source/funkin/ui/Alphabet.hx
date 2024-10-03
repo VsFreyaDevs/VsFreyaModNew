@@ -6,6 +6,7 @@ import flixel.math.FlxMath;
 import flixel.util.FlxTimer;
 import funkin.util.MathUtil;
 import funkin.audio.FunkinSound;
+import funkin.graphics.shaders.DumbShaders.InvertShader;
 
 /**
  * Loosley based on FlxTypeText lolol
@@ -39,6 +40,8 @@ class Alphabet extends FlxSpriteGroup
   var splitWords:Array<String> = [];
 
   var isBold:Bool = false;
+
+  public var switchXY:Bool = false;
 
   public function new(x:Float = 0.0, y:Float = 0.0, text:String = "", bold:Bool = false, typed:Bool = false)
   {
@@ -219,10 +222,19 @@ class Alphabet extends FlxSpriteGroup
   {
     if (isMenuItem)
     {
-      var scaledY = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
+      if (switchXY)
+      {
+        var scaledX = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
+        x = FlxMath.lerp(x, (scaledX * 120) + (text.length * 30), 0.16);
+        // y = FlxMath.lerp(y, (targetY * 20) + 90, 0.16);
+      }
+      else
+      {
+        var scaledY = FlxMath.remapToRange(targetY, 0, 1, 0, 1.3);
 
-      y = MathUtil.coolLerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.16);
-      x = MathUtil.coolLerp(x, (targetY * 20) + 90, 0.16);
+        y = FlxMath.lerp(y, (scaledY * 120) + (FlxG.height * 0.48), 0.16);
+        x = FlxMath.lerp(x, (targetY * 20) + 90, 0.16);
+      }
     }
 
     super.update(elapsed);
@@ -253,26 +265,28 @@ class AlphaCharacter extends FlxSprite
     updateHitbox();
   }
 
-  public function createLetter(letter:String):Void
+  public function createLetter(letter:String, invert:Bool = false):Void
   {
     var letterCase:String = "lowercase";
-    if (letter.toLowerCase() != letter)
-    {
-      letterCase = 'capital';
-    }
+    if (letter.toLowerCase() != letter) letterCase = 'capital';
 
     animation.addByPrefix(letter, letter + " " + letterCase, 24);
     animation.play(letter);
+
+    if (invert) this.shader = new InvertShader();
+
     updateHitbox();
 
     y = (110 - height);
     y += row * 60;
   }
 
-  public function createNumber(letter:String):Void
+  public function createNumber(letter:String, invert:Bool = false):Void
   {
     animation.addByPrefix(letter, letter, 24);
     animation.play(letter);
+
+    if (invert) this.shader = new InvertShader();
 
     updateHitbox();
   }
@@ -294,6 +308,12 @@ class AlphaCharacter extends FlxSprite
         animation.play(letter);
       case "!":
         animation.addByPrefix(letter, 'exclamation point', 24);
+        animation.play(letter);
+      case "<":
+        animation.addByPrefix(letter, 'less than', 24);
+        animation.play(letter);
+      case ">":
+        animation.addByPrefix(letter, 'greater than', 24);
         animation.play(letter);
     }
 

@@ -226,7 +226,10 @@ class AtlasChar extends FlxSprite
       case '&': return '-andpersand-';
       case "😠": '-angry faic-'; // TODO: Do multi-flag characters work?
       case "'": '-apostraphie-';
+      case ":": '-colon-';
+      case ";": '-semi colon-';
       case "\\": '-back slash-';
+      case '*': '-asterisk-';
       case ",": '-comma-';
       case '-': '-dash-';
       case '↓': '-down arrow-'; // U+2193
@@ -236,9 +239,10 @@ class AtlasChar extends FlxSprite
       case '>': '-greater than-'; // U+003E
       case '♥': '-heart-'; // U+2665
       case '♡': '-heart-';
+      case '|': '-pipe-';
       case '←': '-left arrow-'; // U+2190
       case '<': '-less than-'; // U+003C
-      case "*": '-multiply x-';
+      case "×": '-multiply x-';
       case '.': '-period-'; // U+002E
       case "?": '-question mark-';
       case '→': '-right arrow-'; // U+2192

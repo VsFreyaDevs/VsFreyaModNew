@@ -83,6 +83,8 @@ class NoteSplash extends FlxSprite
 
     // Center the animation on the note splash.
     offset.set(width * 0.3, height * 0.3);
+
+    alpha = 0.725;
   }
 
   public function onAnimationFinished(animationName:String):Void

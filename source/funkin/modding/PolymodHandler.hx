@@ -291,8 +291,8 @@ class PolymodHandler
 
     // `Type`
     // Type.createInstance(Type.resolveClass()) can access blacklisted packages
-    Polymod.blacklistImport('Type');
-    // Polymod.addDefaultImport(Type);
+    // Polymod.blacklistImport('Type');
+    Polymod.addDefaultImport(Type);
 
     // `cpp.Lib`
     // Lib.load() can load malicious DLLs
@@ -306,19 +306,19 @@ class PolymodHandler
 
     // `lime.system.CFFI`
     // Can load and execute compiled binaries.
-    Polymod.blacklistImport('lime.system.CFFI');
+    // Polymod.blacklistImport('lime.system.CFFI');
 
     // `lime.system.JNI`
     // Can load and execute compiled binaries.
-    Polymod.blacklistImport('lime.system.JNI');
+    // Polymod.blacklistImport('lime.system.JNI');
 
     // `lime.system.System`
     // System.load() can load malicious DLLs
-    Polymod.blacklistImport('lime.system.System');
+    // Polymod.blacklistImport('lime.system.System');
 
     // `openfl.desktop.NativeProcess`
     // Can load native processes on the host operating system.
-    Polymod.blacklistImport('openfl.desktop.NativeProcess');
+    // Polymod.blacklistImport('openfl.desktop.NativeProcess');
 
     // `polymod.*`
     // Contains functions which may allow for un-blacklisting other modules.
