@@ -1488,7 +1488,6 @@ enum abstract Action(String) to String from String
   var VOLUME_MUTE = "volume_mute";
   // DEBUG
   var DEBUG_MENU = "debug_menu";
-  var DEBUG_CHART = "debug_chart";
   #if FEATURE_CHART_EDITOR
   var DEBUG_CHART = "debug_chart";
   #end
