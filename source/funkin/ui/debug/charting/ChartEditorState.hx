@@ -5625,7 +5625,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   function handleHelpKeybinds():Void
   {
     // F1 = Open Help
-    if (FlxG.keys.justPressed.F1) this.openUserGuideDialog();
+    if (FlxG.keys.justPressed.F1 && !isHaxeUIDialogOpen) this.openUserGuideDialog();
   }
 
   function handleQuickWatch():Void
