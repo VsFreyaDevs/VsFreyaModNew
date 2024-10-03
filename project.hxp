@@ -676,9 +676,9 @@ class Project extends HXProject {
 		var shouldEmbed = EMBED_ASSETS.isEnabled(this);
 
 		if (shouldEmbed) {
-			info('Embedding assets into executable...');
+			info('Embedding assets into executable... This might take a while.');
 		} else {
-			info('Including assets alongside executable...');
+			info('Including assets alongside executable... This might take a while.');
 		}
 
 		// Default asset library
