@@ -24,7 +24,7 @@ class MemoryCounter extends TextField
 
   @:noCompletion private var times:Array<Float>;
 
-  public static var showFPS:Bool = false;
+  public static var showFPS:Bool = true;
   #if !html5 public static var showRAM:Bool = true; #end
 
   public function new(x:Float = 10, y:Float = 10, color:Int = 0x000000)
@@ -70,7 +70,7 @@ class MemoryCounter extends TextField
   public dynamic function updateText():Void // so people can override it in hscript
   {
     if (showFPS) text = 'FPS: $currentFPS ';
-    #if !html5 if (showRAM) text += 'RAM: ${flixel.util.FlxStringUtil.formatBytes(memoryMegas)}'; #end
+    #if !html5 if (showRAM) text += '\nRAM: ${flixel.util.FlxStringUtil.formatBytes(memoryMegas)}'; #end
     textColor = 0xFFFFFFFF;
     if (currentFPS < FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
   }
