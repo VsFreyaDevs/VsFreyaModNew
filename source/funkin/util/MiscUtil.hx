@@ -44,9 +44,13 @@ class MiscUtil
 
   public static function getAllPath():String
   {
+    #if sys
     var allPath:String = Sys.getCwd();
     allPath = allPath.split("\\").join("/");
 
     return allPath;
+    #else
+    return null;
+    #end
   }
 }
