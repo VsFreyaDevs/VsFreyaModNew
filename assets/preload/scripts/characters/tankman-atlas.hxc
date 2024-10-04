@@ -17,7 +17,7 @@ class TankmanAtlasCharacter extends AnimateAtlasCharacter {
 			switch(event.note.kind) {
 				case "ugh":
 					holdTimer = 0;
-					this.playAnimFbfation('ugh');
+					this.playAnimation('ugh');
 					return;
 				case "hehPrettyGood":
 					holdTimer = 0;
