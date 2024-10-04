@@ -19,4 +19,34 @@ class MiscUtil
       a.pop();
     return a;
   }
+
+  public static function getTime()
+  {
+    var timeNow = Date.now();
+    var hour = timeNow.getHours();
+    var minute = timeNow.getMinutes();
+    var second = timeNow.getSeconds();
+    var all = hour + ":" + (minute < 10 ? "0" : "") + minute + ":" + (second < 10 ? "0" : "") + second;
+
+    return all;
+  }
+
+  public static function getDate()
+  {
+    var dateNow = Date.now();
+    var year = dateNow.getFullYear();
+    var mouth = dateNow.getMonth() + 1;
+    var day = dateNow.getDate();
+    var all = year + "-" + (mouth < 10 ? "0" : "") + mouth + "-" + (day < 10 ? "0" : "") + day;
+
+    return all;
+  }
+
+  public static function getAllPath():String
+  {
+    var allPath:String = Sys.getCwd();
+    allPath = allPath.split("\\").join("/");
+
+    return allPath;
+  }
 }

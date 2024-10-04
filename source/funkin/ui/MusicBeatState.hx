@@ -14,6 +14,7 @@ import funkin.modding.events.ScriptEvent;
 import funkin.modding.module.ModuleHandler;
 import funkin.util.SortUtil;
 import funkin.input.Controls;
+import funkin.util.WindowUtil;
 #if mobile
 import funkin.graphics.FunkinCamera;
 import funkin.mobile.ui.FunkinHitbox;
@@ -27,6 +28,8 @@ import funkin.mobile.ui.FunkinBackspace;
  */
 class MusicBeatState extends FlxTransitionableState implements IEventHandler
 {
+  public var windowTitle:String = "Friday Night Funkin': Vs. Freya Crew";
+
   var controls(get, never):Controls;
 
   inline function get_controls():Controls
@@ -111,7 +114,10 @@ class MusicBeatState extends FlxTransitionableState implements IEventHandler
 
   override function create()
   {
+    WindowUtil.setWindowTitle(windowTitle);
     super.create();
+
+    WindowUtil.setWindowTitle(windowTitle);
 
     createWatermarkText();
 

@@ -277,7 +277,9 @@ class TitleState extends MusicBeatState
     if (FlxG.keys.justPressed.ESCAPE) lime.system.System.exit(0);
     #end
 
-    if (Save.instance.charactersSeen.contains("pico") && false) // this fix doesnt really matter cuz the save data just doesnt work lol
+    // dont wanna bother commenting this piece of code yet cuz the save data just doesnt actually work rn lol!
+    // maybe once i fix the save data i will comment this off, but for now i'll just leave it as is.
+    if (Save.instance.charactersSeen.contains("pico") #if CONSUMER_BUILD && false #end)
     {
       Save.instance.charactersSeen.remove("pico");
       Save.instance.oldChar = false;

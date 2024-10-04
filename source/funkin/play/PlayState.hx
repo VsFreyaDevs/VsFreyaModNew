@@ -324,6 +324,13 @@ class PlayState extends MusicBeatSubState
   public var cameraZoomRate:Int = Constants.DEFAULT_ZOOM_RATE;
 
   /**
+   * How many beats (or quarter notes) the zoom rate should be offset.
+   * For if you want the zoom to happen off-beat.
+   * @default Zero beats (on-beat).
+   */
+  public var cameraZoomRateOffset:Int = Constants.DEFAULT_ZOOM_OFFSET;
+
+  /**
    * Whether the game is currently in the countdown before the song resumes.
    */
   public var isInCountdown:Bool = false;
@@ -1516,7 +1523,7 @@ class PlayState extends MusicBeatSubState
     if (Preferences.zoomCamera
       && FlxG.camera.zoom < (1.35 * FlxCamera.defaultZoom)
       && cameraZoomRate > 0
-      && Conductor.instance.currentBeat % cameraZoomRate == 0)
+      && (Conductor.instance.currentBeat + cameraZoomRateOffset) % cameraZoomRate == 0)
     {
       // Set zoom multiplier for camera bop.
       cameraBopMultiplier += (cameraBopIntensity - 1.0);
@@ -2209,13 +2216,13 @@ class PlayState extends MusicBeatSubState
   function updateScoreText():Void
   {
     // TODO: Add functionality for modules to update the score text.
-    if (isBotPlayMode) scoreText.text = 'BOTPLAY Enabled';
-    else
-    {
-      // TODO: Add an option for this maybe?
-      var commaSeparated:Bool = true;
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
-    }
+    // if (isBotPlayMode) scoreText.text = 'BOTPLAY Enabled';
+    // else
+    // {
+    // TODO: Add an option for this maybe?
+    var commaSeparated:Bool = true;
+    scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
+    // }
   }
 
   /**
@@ -2224,8 +2231,9 @@ class PlayState extends MusicBeatSubState
   function updateComboBreakText():Void
   {
     // TODO: Add functionality for modules to update the combo break text.
-    if (isBotPlayMode) comboBreakText.text = '';
-    else if (Preferences.badsShitsCauseMiss) comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.bad + Highscore.tallies.shit + Highscore.tallies.missed;
+    // if (isBotPlayMode) comboBreakText.text = '';
+    // else
+    if (Preferences.badsShitsCauseMiss) comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.bad + Highscore.tallies.shit + Highscore.tallies.missed;
     else
       comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.missed;
   }
@@ -2235,14 +2243,10 @@ class PlayState extends MusicBeatSubState
    */
   function updateHealthBar():Void
   {
-    if (isBotPlayMode)
-    {
-      healthLerp = Constants.HEALTH_MAX;
-    }
-    else
-    {
-      healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
-    }
+    // if (isBotPlayMode)
+    //  healthLerp = Constants.HEALTH_MAX;
+    // else
+    healthLerp = FlxMath.lerp(healthLerp, health, 0.15);
   }
 
   /**
@@ -2407,10 +2411,14 @@ class PlayState extends MusicBeatSubState
         // NOTE: This is what handles the strumline and cleaning up the note itself!
         playerStrumline.hitNote(note);
 
-        if (note.holdNoteSprite != null)
+        if (botCheat)
         {
-          playerStrumline.playNoteHoldCover(note.holdNoteSprite);
+          playerStrumline.playNoteSplash(note.noteData.getDirection());
+          applyScore(500, 'sick', Constants.HEALTH_SICK_BONUS, false);
+          popUpScore('sick');
         }
+
+        if (note.isHoldNote && note.holdNoteSprite != null) playerStrumline.playNoteHoldCover(note.holdNoteSprite);
       }
       else if (Conductor.instance.songPosition > hitWindowStart)
       {
@@ -2462,17 +2470,12 @@ class PlayState extends MusicBeatSubState
       if (holdNote.hitNote && !holdNote.missedNote && holdNote.sustainLength > 0)
       {
         // Grant the player health.
-        if (!isBotPlayMode)
-        {
-          health += Constants.HEALTH_HOLD_BONUS_PER_SECOND * elapsed;
-          songScore += Std.int(Constants.SCORE_HOLD_BONUS_PER_SECOND * elapsed);
-        }
+        health += Constants.HEALTH_HOLD_BONUS_PER_SECOND * elapsed;
+        songScore += Std.int(Constants.SCORE_HOLD_BONUS_PER_SECOND * elapsed);
 
         // Make sure the player keeps singing while the note is held by the bot.
-        if (isBotPlayMode && currentStage != null && currentStage.getBoyfriend() != null && currentStage.getBoyfriend().isSinging())
-        {
-          currentStage.getBoyfriend().holdTimer = 0;
-        }
+        if (isBotPlayMode && currentStage != null && currentStage.getBoyfriend() != null && currentStage.getBoyfriend()
+          .isSinging()) currentStage.getBoyfriend().holdTimer = 0;
       }
 
       if (holdNote.missedNote && !holdNote.handledMiss)

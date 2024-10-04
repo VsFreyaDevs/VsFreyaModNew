@@ -137,10 +137,15 @@ class Project extends HXProject {
 
   /**
    * `-DHARDCODED_CREDITS`
-   * If this flag is enabled, the credits will be parsed and encoded in the game at compile time,
-   * rather than read from JSON data at runtime.
+   * If this flag is enabled, the credits will be parsed and encoded in the game at compile time, rather than read from JSON data at runtime.
    */
   static final HARDCODED_CREDITS:FeatureFlag = "HARDCODED_CREDITS";
+
+	/**
+	 * `-DCONSUMER_BUILD`
+   * If this flag is enabled, some features will be disabled.
+   */
+  static final CONSUMER_BUILD:FeatureFlag = "CONSUMER_BUILD";
 
 	/**
 	 * `-DFEATURE_DEBUG_FUNCTIONS`
@@ -503,6 +508,8 @@ class Project extends HXProject {
 
 		// Should be true except on web builds, because screenshots just doesn't work there.
 		FEATURE_SCREENSHOTS.apply(this, !isWeb());
+
+		CONSUMER_BUILD.apply(this, false); // will re-enable this once we finna finish the mod (or at least the demo lol)
 	}
 
   /**
@@ -548,6 +555,13 @@ class Project extends HXProject {
 
 		// Cleaner looking compiler errors.
 		setHaxedef("message.reporting", "pretty");
+
+		if (isDebug())
+			setHaxedef("FLX_RECORD");
+
+		setHaxedef("HXCPP_GC_BIG_BLOCKS");
+
+		setHaxedef("queue_experimental_optimization");
   }
 
 	/**

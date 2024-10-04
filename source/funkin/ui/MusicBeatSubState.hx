@@ -13,6 +13,7 @@ import funkin.modding.PolymodHandler;
 import funkin.util.SortUtil;
 import flixel.util.FlxSort;
 import funkin.input.Controls;
+import funkin.util.WindowUtil;
 #if mobile
 import funkin.graphics.FunkinCamera;
 import funkin.mobile.ui.FunkinHitbox;
@@ -25,6 +26,8 @@ import funkin.mobile.ui.FunkinBackspace;
  */
 class MusicBeatSubState extends FlxSubState implements IEventHandler
 {
+  public var windowTitle:String = "Friday Night Funkin': Vs. Freya Crew";
+
   public var leftWatermarkText:FlxText = null;
   public var rightWatermarkText:FlxText = null;
 
@@ -102,6 +105,7 @@ class MusicBeatSubState extends FlxSubState implements IEventHandler
 
   override function create():Void
   {
+    WindowUtil.setWindowTitle(windowTitle);
     super.create();
 
     createWatermarkText();

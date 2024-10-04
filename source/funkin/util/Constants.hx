@@ -6,7 +6,8 @@ import funkin.data.song.SongData.SongTimeFormat;
 import lime.app.Application;
 
 /**
- * A store of unchanging, globally relevant values.
+ * A class that stores variables with unchanging, globally relevant values.
+ * Problem is that HScript just sees them as normal changable variables, which I probably don't think we can fix just yet...
  */
 class Constants
 {
@@ -237,6 +238,11 @@ class Constants
    * The default rate for camera zooms (in beats per zoom).
    */
   public static final DEFAULT_ZOOM_RATE:Int = 4;
+
+  /**
+   * The default offset of camera zooms (in beats).
+   */
+  public static final DEFAULT_ZOOM_OFFSET:Int = 0;
 
   /**
    * The default BPM for charts, so things don't break if none is specified.

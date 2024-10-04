@@ -78,8 +78,10 @@ class InitState extends FlxState
     WindowUtil.initWindowEvents();
     // Disable the thing on Windows where it tries to send a bug report to Microsoft because why do they care?
     WindowUtil.disableCrashHandler();
+    // Just so you don't get FLASHBANGED when booting the game up on Windows.
+    WindowUtil.setDarkMode(true);
 
-    // Disable default keybinds for volume (we manually control volume in MusicBeatState with custom binds)
+    // Disable default keybinds for volume. (we manually control volume in MusicBeatState with custom binds)
     FlxG.sound.volumeUpKeys = [];
     FlxG.sound.volumeDownKeys = [];
     FlxG.sound.muteKeys = [];
@@ -91,6 +93,8 @@ class InitState extends FlxState
 
     @:privateAccess
     FlxG.game.getTimer = () -> openfl.Lib.getTimer();
+
+    // FlxGraphic.defaultPersist = true;
 
     setupFlixelDebug();
 
@@ -134,6 +138,8 @@ class InitState extends FlxState
     //
     #if android
     FlxG.android.preventDefaultKeys = [flixel.input.android.FlxAndroidKey.BACK];
+    #else
+    FlxG.keys.preventDefaultKeys = [TAB];
     #end
 
     //

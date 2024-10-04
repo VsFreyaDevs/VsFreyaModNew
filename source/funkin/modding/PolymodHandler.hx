@@ -365,8 +365,9 @@ class PolymodHandler
   {
     return {
       assetLibraryPaths: [
-        'default' => 'preload', 'shared' => 'shared', 'songs' => 'songs', 'videos' => 'videos', 'tutorial' => 'tutorial', 'week1' => 'week1',
-        'week2' => 'week2', 'week3' => 'week3', 'week4' => 'week4', 'week5' => 'week5', 'week6' => 'week6', 'week7' => 'week7', 'weekend1' => 'weekend1',
+        'default' => 'preload', 'fonts' => 'fonts', 'shared' => 'shared', 'songs' => 'songs', 'videos' => 'videos', 'tutorial' => 'tutorial',
+        'week1' => 'week1', 'week2' => 'week2', 'week3' => 'week3', 'week4' => 'week4', 'week5' => 'week5', 'week6' => 'week6', 'week7' => 'week7',
+        'weekend1' => 'weekend1',
       ],
       coreAssetRedirect: CORE_FOLDER,
     }
@@ -458,6 +459,15 @@ class PolymodHandler
 
     // Reload everything that is cached.
     // Currently this freezes the game for a second but I guess that's tolerable?
+
+    lime.utils.Assets.cache.clear();
+    openfl.Assets.cache.clear();
+
+    FlxG.bitmap.dumpCache();
+
+    #if sys
+    openfl.system.System.gc();
+    #end
 
     // TODO: Reload event callbacks
 
