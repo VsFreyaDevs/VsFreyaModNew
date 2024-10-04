@@ -2,6 +2,7 @@ package funkin.play;
 
 import flixel.FlxSprite;
 import flixel.graphics.frames.FlxAtlasFrames;
+import funkin.audio.FunkinSound;
 import funkin.play.PlayState;
 import funkin.graphics.FunkinSprite;
 import funkin.ui.MusicBeatState;

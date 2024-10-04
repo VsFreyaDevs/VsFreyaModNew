@@ -2251,14 +2251,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
       var result:Null<Array<String>> = this.loadFromFNFCPath(params.fnfcTargetPath);
       if (result != null)
       {
-        if (result.length == 0)
-        {
-          this.success('Loaded Chart', 'Loaded chart (${params.fnfcTargetPath})');
-        }
+        if (result.length == 0) this.success('Loaded Chart', 'Loaded chart (${params.fnfcTargetPath})');
         else
-        {
           this.warning('Loaded Chart', 'Loaded chart with issues (${params.fnfcTargetPath})\n${result.join("\n")}');
-        }
       }
       else
       {
@@ -2266,25 +2261,33 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
         // Song failed to load, open the Welcome dialog so we aren't in a broken state.
         var welcomeDialog = this.openWelcomeDialog(false);
-        if (shouldShowBackupAvailableDialog)
-        {
-          this.openBackupAvailableDialog(welcomeDialog);
-        }
+        if (shouldShowBackupAvailableDialog) this.openBackupAvailableDialog(welcomeDialog);
       }
     }
-    else if (params != null && params.targetSongId != null)
-    {
-      this.loadSongAsTemplate(params.targetSongId);
-    }
+    else if (params != null && params.targetSongId != null) this.loadSongAsTemplate(params.targetSongId);
     else
     {
       var welcomeDialog = this.openWelcomeDialog(false);
-      if (shouldShowBackupAvailableDialog)
-      {
-        this.openBackupAvailableDialog(welcomeDialog);
-      }
+      if (shouldShowBackupAvailableDialog) this.openBackupAvailableDialog(welcomeDialog);
     }
+
+    #if FEATURE_DISCORD_RPC
+    updateDiscordRPC();
+    #end
   }
+
+  #if FEATURE_DISCORD_RPC
+  function updateDiscordRPC():Void
+  {
+    funkin.api.discord.DiscordClient.instance.setPresence(
+      {
+        // TODO: Make this display the song name and update when it changes.
+        // state: '${currentSongName} [${selectedDifficulty}]',
+        state: null,
+        details: 'Chart Editor [Charting]'
+      });
+  }
+  #end
 
   function setupWelcomeMusic()
   {
@@ -2743,7 +2746,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
     // Little text that shows up when you copy something.
     txtCopyNotif = new FlxText(0, 0, 0, '', 24);
-    txtOffsetShit.setFormat(Paths.font("comic_normal.ttf"), 24, 0xFF52FF77, CENTER);
+    txtCopyNotif.setFormat(Paths.font("comic_normal.ttf"), 24, 0xFF52FF77, CENTER);
     txtCopyNotif.setBorderStyle(OUTLINE, 0xFF074809, 1);
     txtCopyNotif.color = 0xFF52FF77;
     txtCopyNotif.zIndex = 120;

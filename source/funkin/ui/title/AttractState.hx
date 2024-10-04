@@ -7,6 +7,7 @@ import funkin.graphics.video.FlxVideo;
 import hxvlc.flixel.FlxVideoSprite;
 #end
 import funkin.ui.MusicBeatState;
+import funkin.graphics.video.FunkinVideoSprite;
 
 /**
  * After about 2 minutes of inactivity on the title screen,

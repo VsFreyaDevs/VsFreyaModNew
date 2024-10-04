@@ -35,9 +35,6 @@ import funkin.util.CLIUtil;
 import funkin.util.CLIUtil.CLIParams;
 import funkin.util.TimerUtil;
 import funkin.util.TrackerUtil;
-#if FEATURE_DISCORD_RPC
-import funkin.api.discord.DiscordClient;
-#end
 
 /**
  * A core class which performs initialization of the game.
@@ -127,11 +124,9 @@ class InitState extends FlxState
     // DISCORD API SETUP
     //
     #if FEATURE_DISCORD_RPC
-    DiscordClient.initialize();
+    DiscordClient.instance.init();
 
-    Application.current.onExit.add(function(exitCode) {
-      DiscordClient.shutdown();
-    });
+    lime.app.Application.current.onExit.add((exitCode) -> DiscordClient.instance.shutdown());
     #end
 
     //
@@ -153,7 +148,9 @@ class InitState extends FlxState
     funkin.util.plugins.EvacuateDebugPlugin.initialize();
     funkin.util.plugins.ForceCrashPlugin.initialize();
     funkin.util.plugins.ReloadAssetsDebugPlugin.initialize();
+    #if FEATURE_SCREENSHOTS
     funkin.util.plugins.ScreenshotPlugin.initialize();
+    #end
     funkin.util.plugins.VolumePlugin.initialize();
     funkin.util.plugins.WatchPlugin.initialize();
 

@@ -70,9 +70,6 @@ import openfl.display.BitmapData;
 import openfl.geom.Rectangle;
 import openfl.Lib;
 import funkin.mobile.util.TouchUtil;
-#if FEATURE_DISCORD_RPC
-import funkin.api.discord.DiscordClient;
-#end
 
 /**
  * Parameters used to initialize the PlayState.
@@ -1052,7 +1049,7 @@ class PlayState extends MusicBeatSubState
         }
 
         #if FEATURE_DISCORD_RPC
-        DiscordClient.instance.setPresence({state: "In the Menus", details: detailsPausedText});
+        // DiscordClient.instance.setPresence({state: "In the Menus", details: detailsPausedText});
         DiscordClient.instance.setPresence(
           {
             details: 'Paused! - ${buildDiscordRPCDetails()}',

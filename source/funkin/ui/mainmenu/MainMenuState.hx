@@ -29,9 +29,6 @@ import funkin.ui.transition.StickerSubState;
 import funkin.ui.Prompt;
 import funkin.util.WindowUtil;
 import funkin.mobile.util.TouchUtil;
-#if FEATURE_DISCORD_RPC
-import funkin.api.discord.DiscordClient;
-#end
 #if newgrounds
 import funkin.ui.NgPrompt;
 import io.newgrounds.NG;
@@ -115,8 +112,9 @@ class MainMenuState extends MusicBeatState
     });
 
     menuItems.enabled = true; // can move on intro
-    createMenuItem('storymode', 'mainmenu/storymode', function() startExitState(() -> new StoryMenuState()));
-    createMenuItem('freeplay', 'mainmenu/freeplay', function() {
+    createMenuItem('storymode', 'mainmenu/storymode',
+      () -> new FlxTimer().start(duration, (_) -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState()))));
+    createMenuItem('freeplay', 'mainmenu/freeplay', () -> {
       persistentDraw = true;
       persistentUpdate = false;
       // Freeplay has its own custom transition
@@ -140,12 +138,12 @@ class MainMenuState extends MusicBeatState
     createMenuItem('merch', 'mainmenu/merch', selectMerch, hasPopupBlocker);
     #end
 
-    createMenuItem('options', 'mainmenu/options', function() {
-      startExitState(() -> new funkin.ui.options.OptionsState());
+    createMenuItem('credits', 'mainmenu/credits', () -> {
+      startExitState(() -> new funkin.ui.credits.CreditsState());
     });
 
-    createMenuItem('credits', 'mainmenu/credits', function() {
-      startExitState(() -> new funkin.ui.credits.CreditsState());
+    createMenuItem('options', 'mainmenu/options', () -> {
+      openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new funkin.ui.options.OptionsState()));
     });
 
     // Reset position of menu items.
@@ -187,7 +185,7 @@ class MainMenuState extends MusicBeatState
 
     // This has to come AFTER!
     this.leftWatermarkText.text = Constants.VERSION;
-    this.rightWatermarkText.text = "Vs. Freya Crew v1.0";
+    this.rightWatermarkText.text = "FreyaFennec_Funkers v1.0 ALPHA";
 
     // NG.core.calls.event.logEvent('swag').send();
 
@@ -334,7 +332,7 @@ class MainMenuState extends MusicBeatState
         item.visible = false;
     });
 
-    new FlxTimer().start(duration, (_) -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> state)));
+    new FlxTimer().start(duration, (_) -> FlxG.switchState(state));
   }
 
   override function update(elapsed:Float):Void
@@ -354,7 +352,7 @@ class MainMenuState extends MusicBeatState
 
     // Ctrl+Alt+Shift+P = Character Unlock screen
     // Ctrl+Alt+Shift+W = Meet requirements for Pico Unlock
-    // Ctrl+Alt+Shift+L = Revoke requirements for Pico Unlock
+    // Ctrl+Alt+Shift+M = Revoke requirements for Pico Unlock
     // Ctrl+Alt+Shift+R = Score/Rank conflict test
     // Ctrl+Alt+Shift+N = Mark all characters as not seen
     // Ctrl+Alt+Shift+E = Dump save data
@@ -389,7 +387,7 @@ class MainMenuState extends MusicBeatState
       }
     }
 
-    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.L)
+    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.M)
     {
       FunkinSound.playOnce(Paths.sound('confirmMenu'));
       // Give the user a score of 0 points on Weekend 1 story mode.
