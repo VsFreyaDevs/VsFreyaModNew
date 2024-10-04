@@ -112,8 +112,7 @@ class MainMenuState extends MusicBeatState
     });
 
     menuItems.enabled = true; // can move on intro
-    createMenuItem('storymode', 'mainmenu/storymode',
-      () -> new FlxTimer().start(duration, (_) -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState()))));
+    createMenuItem('storymode', 'mainmenu/storymode', () -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState())));
     createMenuItem('freeplay', 'mainmenu/freeplay', () -> {
       persistentDraw = true;
       persistentUpdate = false;
