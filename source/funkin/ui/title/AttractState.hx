@@ -69,13 +69,11 @@ class AttractState extends MusicBeatState
   #end
 
   #if hxvlc
-  var vid:FlxVideoSprite;
+  var vid:FunkinVideoSprite;
 
   function playVideoNative(filePath:String):Void
   {
     // Video displays OVER the FlxState.
-    var vid:FunkinVideoSprite;
-
     if (vid != null)
     {
       vid.zIndex = 0;
