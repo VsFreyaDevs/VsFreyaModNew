@@ -947,7 +947,7 @@ class Controls extends FlxActionSet
       Control.PAUSE => getDefaultGamepadBinds(Control.PAUSE),
       Control.RESET => getDefaultGamepadBinds(Control.RESET),
       Control.WINDOW_FULLSCREEN => getDefaultGamepadBinds(Control.WINDOW_FULLSCREEN),
-      Control.WINDOW_SCREENSHOT => getDefaultGamepadBinds(Control.WINDOW_SCREENSHOT),
+      #if FEATURE_SCREENSHOT Control.WINDOW_SCREENSHOT => getDefaultGamepadBinds(Control.WINDOW_SCREENSHOT), #end
       Control.CUTSCENE_ADVANCE => getDefaultGamepadBinds(Control.CUTSCENE_ADVANCE),
       Control.FREEPLAY_FAVORITE => getDefaultGamepadBinds(Control.FREEPLAY_FAVORITE),
       Control.FREEPLAY_LEFT => getDefaultGamepadBinds(Control.FREEPLAY_LEFT),
@@ -956,8 +956,8 @@ class Controls extends FlxActionSet
       Control.VOLUME_DOWN => getDefaultGamepadBinds(Control.VOLUME_DOWN),
       Control.VOLUME_MUTE => getDefaultGamepadBinds(Control.VOLUME_MUTE),
       Control.DEBUG_MENU => getDefaultGamepadBinds(Control.DEBUG_MENU),
-      Control.DEBUG_CHART => getDefaultGamepadBinds(Control.DEBUG_CHART),
-      Control.DEBUG_STAGE => getDefaultGamepadBinds(Control.DEBUG_STAGE),
+      #if FEATURE_CHART_EDITOR Control.DEBUG_CHART => getDefaultGamepadBinds(Control.DEBUG_CHART), #end
+      #if FEATURE_STAGE_EDITOR Control.DEBUG_STAGE => getDefaultGamepadBinds(Control.DEBUG_STAGE), #end
     ]);
   }
 
