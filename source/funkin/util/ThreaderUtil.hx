@@ -1,5 +1,6 @@
 package funkin.util;
 
+#if !html5
 import sys.thread.Lock;
 import sys.thread.Thread;
 
@@ -30,3 +31,17 @@ class ThreaderUtil
     }
   }
 }
+#else
+class ThreaderUtil
+{
+  public static function create(job:() -> Void)
+  {
+    // nothing
+  }
+
+  public static function wait()
+  {
+    // nothing
+  }
+}
+#end
