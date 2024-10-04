@@ -2411,12 +2411,9 @@ class PlayState extends MusicBeatSubState
         // NOTE: This is what handles the strumline and cleaning up the note itself!
         playerStrumline.hitNote(note);
 
-        if (botCheat)
-        {
-          playerStrumline.playNoteSplash(note.noteData.getDirection());
-          applyScore(500, 'sick', Constants.HEALTH_SICK_BONUS, false);
-          popUpScore('sick');
-        }
+        playerStrumline.playNoteSplash(note.noteData.getDirection());
+        applyScore(500, 'sick', Constants.HEALTH_SICK_BONUS, false);
+        popUpScore('sick');
 
         if (note.isHoldNote && note.holdNoteSprite != null) playerStrumline.playNoteHoldCover(note.holdNoteSprite);
       }
