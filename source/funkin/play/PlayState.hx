@@ -446,6 +446,11 @@ class PlayState extends MusicBeatSubState
   var startingSong:Bool = false;
 
   /**
+   * True if the song has finished playing.
+   */
+  var endingSong:Bool = false;
+
+  /**
    * Track if we currently have the music paused for a Pause substate, so we can unpause it when we return.
    */
   var musicPausedBySubState:Bool = false;
@@ -982,6 +987,9 @@ class PlayState extends MusicBeatSubState
         Conductor.instance.formatOffset = 0.0;
 
       Conductor.instance.update(); // Normal conductor update.
+
+      // FlxG.sound.music.onComplete may sometimes not get fired up lol.
+      if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
     }
 
     var pauseButtonCheck:Bool = false;
@@ -2992,6 +3000,9 @@ class PlayState extends MusicBeatSubState
    */
   public function endSong(rightGoddamnNow:Bool = false):Void
   {
+    if (endingSong) return;
+    endingSong = true;
+
     if (FlxG.sound.music != null) FlxG.sound.music.volume = 0;
     vocals.volume = 0;
     mayPauseGame = false;

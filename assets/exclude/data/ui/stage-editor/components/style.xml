@@ -3,17 +3,17 @@
 	<style>
 		body, .label, .link {
 		font-size: 14px;
-		font-family: 'Inconsolata';
+		font-family: 'Arial';
 		font-bold: true;
 		}
 		.button, .menu, .menuitem, .menuLabel, .menuitem-checkbox {
 		font-size: 12px;
-		font-family: 'Inconsolata';
+		font-family: 'Arial';
 		font-bold: true;
 		}
 		.menuHeader {
 		font-size: 16px;
-		font-family: 'Inconsolata';
+		font-family: 'Arial';
 		font-bold: true;
 		}
 		.textfield {
@@ -45,11 +45,11 @@
 		pointer-events: true;
 		}
 		.infoText:hover {
-		background-color: #CCCCCC;
+		background-color: #FFFFFF;
 		}
 		.playbarButton {
 		font-size: 16px;
-		font-family: 'Inconsolata';
+		font-family: 'Arial';
 		font-bold: true;
 		width: 56px;
 		}
