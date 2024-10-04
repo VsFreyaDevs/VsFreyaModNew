@@ -27,6 +27,11 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
    */
   var offsets:Array<Int> = [0, 0];
 
+  /**
+   * Basically `offsets` but they're like set by the stage or smth.
+   */
+  var stageOffset:Array<Float> = [0, 0];
+
   override public function new(noteStyle:NoteStyle)
   {
     super();
@@ -38,7 +43,7 @@ class PopUpStuff extends FlxTypedGroup<FunkinSprite>
   {
     if (daRating == null) daRating = "good";
 
-    var stageOffset:Array<Float> = PlayState.instance.currentStage == null ? [0, 0] : PlayState.instance.currentStage.ratingsOffset;
+    stageOffset = PlayState.instance.currentStage == null ? [0, 0] : PlayState.instance.currentStage.ratingsOffset;
 
     var rating:Null<FunkinSprite> = noteStyle.buildJudgementSprite(daRating);
     if (rating == null) return;
