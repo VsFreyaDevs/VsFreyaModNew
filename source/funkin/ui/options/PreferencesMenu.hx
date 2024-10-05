@@ -147,7 +147,7 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
     }, Preferences.antialiasing);
-    createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use character-based colors', function(value:Bool):Void {
+    createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
     }, Preferences.coloredHealthBar);
     createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
@@ -166,20 +166,20 @@ class PreferencesMenu extends Page
     }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 640, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
-    createPrefItemCheckbox('Naughtyness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
+    createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
       Preferences.naughtyness = value;
     }, Preferences.naughtyness);
-    createPrefItemCheckbox('Debug Display', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
+    createPrefItemCheckbox('Stats Counter', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
       Preferences.debugDisplay = value;
     }, Preferences.debugDisplay);
     createPrefItemCheckbox('Auto Pause', 'Enable so it automatically pauses the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
     }, Preferences.autoPause);
     #if mobile
-    createPrefItemCheckbox('Allow Screen Timeout', 'Toggle screen timeout', function(value:Bool):Void {
+    createPrefItemCheckbox('Allow Screen Timeout', "Enable to let the device sleep on its own while\nin the game", function(value:Bool):Void {
       Preferences.screenTimeout = value;
     }, Preferences.screenTimeout);
-    createPrefItemCheckbox('Vibration', 'Toggle vibration', function(value:Bool):Void {
+    createPrefItemCheckbox('Vibration', 'Enable to let the device vibrate in certain situations\nduring gameplay', function(value:Bool):Void {
       Preferences.vibration = value;
     }, Preferences.vibration);
     #end
