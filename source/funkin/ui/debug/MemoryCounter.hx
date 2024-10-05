@@ -144,9 +144,9 @@ class MemoryCounter extends TextField
       #if !html5
       if (showRAM)
       {
-        if (memPeak != mem) text += '• RAM: ${mem}mb / ${memPeak}mb';
+        if (memPeak != mem) text += ' • RAM: ${mem}mb / ${memPeak}mb';
         else
-          text = 'RAM: ${mem}mb';
+          text += ' • RAM: ${mem}mb';
       }
       #end
       if (showMiscText)
