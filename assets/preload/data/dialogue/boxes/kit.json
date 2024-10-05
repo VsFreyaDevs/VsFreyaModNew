@@ -1,6 +1,6 @@
 {
   "version": "1.1.0",
-  "name": "Default",
+  "name": "Kit",
   "assetPath": "speech_bubble_talking",
   "isPixel": false,
   "flipX": false,
@@ -11,9 +11,9 @@
   "text": {
     "offsets": [140, 100],
     "width": 900,
-    "color": "#3F2021",
-    "fontFamily": "Pixel Arial 11 Bold",
-    "shadowColor": "#D89494",
+    "color": "#ff0000",
+    "fontFamily": "Arial",
+    "shadowColor": "#ffffff",
     "shadowWidth": 2
   },
 

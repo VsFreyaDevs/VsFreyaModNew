@@ -48,7 +48,7 @@ class DiscordClient
   {
     while (true)
     {
-      trace('[DISCORD] Performing client update...');
+      // trace('[DISCORD] Performing client update...');
       #if DISCORD_DISABLE_IO_THREAD
       Discord.updateConnection();
       #end
@@ -65,7 +65,7 @@ class DiscordClient
 
   public function setPresence(params:DiscordClientPresenceParams):Void
   {
-    trace('[DISCORD] Updating presence... (${params})');
+    // trace('[DISCORD] Updating presence... (${params})');
     Discord.updatePresence(buildPresence(params));
   }
 

@@ -1,4 +1,8 @@
 {
+  "search.exclude": {
+    "export/**/*.hx": true
+  },
+
   "[haxe]": {
     // Automatically keep Haxe files formatted.
     "editor.formatOnSave": true,
@@ -62,8 +66,12 @@
   "files.trimTrailingWhitespace": true,
 
   // Automatically detect indentation.
+  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.codeLens": true,
   "editor.detectIndentation": true,
   "editor.insertSpaces": true,
+  "editor.minimap.enabled": true,
   "editor.tabSize": 2,
 
   // Automatically enforce Linux style line endings.
@@ -75,6 +83,7 @@
   "haxe.displayServer": {
     "arguments": ["-v"]
   },
+  "haxe.enableExtendedIndentation": true,
   // Fix file associations for HScript.
   "files.associations": {
     "*.hxp": "haxe",

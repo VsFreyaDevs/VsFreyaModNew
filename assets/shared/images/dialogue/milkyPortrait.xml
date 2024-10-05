@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="milkyPortrait.png" width="2747" height="804">
+	<SubTexture name="portAngy0000" x="974" y="16" width="596" height="459" frameX="-36" frameY="-1" frameWidth="640" frameHeight="460"/>
+	<SubTexture name="portAngy0001" x="1586" y="16" width="596" height="459" frameX="-36" frameY="-1" frameWidth="640" frameHeight="460"/>
+	<SubTexture name="portDemon0000" x="16" y="16" width="942" height="772" frameX="-0" frameY="-88" frameWidth="942" frameHeight="860"/>
+	<SubTexture name="portNormal0000" x="2198" y="16" width="533" height="460" frameX="-67" frameY="-0" frameWidth="640" frameHeight="460"/>
+</TextureAtlas>

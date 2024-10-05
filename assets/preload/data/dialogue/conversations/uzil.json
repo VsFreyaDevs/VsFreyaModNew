@@ -1,0 +1,209 @@
+{
+  "version": "1.0.0",
+
+  "backdrop": {
+    "type": "solid",
+    "fadeTime": 2.0,
+    "color": "#BFB3DFD8"
+  },
+
+  "music": {
+    "asset": "",
+    "fadeTime": 0,
+    "looped": false
+  },
+
+  "outro": {
+    "type": "fade",
+    "fadeTime": 1.0
+  },
+
+  "dialogue": [
+    {
+      "speaker": "freya",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "enter",
+
+      "text": ["...", "L"]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        " WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      ]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "I WANT ME MOMMY MIKA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+      ]
+    },
+    {
+      "speaker": "kanimate",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["YO WHAT??"]
+    },
+    {
+      "speaker": "milky",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["WHAT LE FUCK?!?!?!?"]
+    },
+    {
+      "speaker": "freya",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["For fuck's sake, now that's just down bad..."]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["*dials Mika's number on his phone*"]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["*that one waiting call sound lol*"]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Mika: Hello?"]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["MIKA MOOMY YA NEEDA HELP ME BEAT THESE H8RS!!!"]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "Mika: Alright, first of all. For the 692th time, stop calling me that!"
+      ]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "Mika: Second of all, if it's that stupid orange fox that ended me like 500 times, I WILL beat her ass!"
+      ]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["*sniffles*", "yes mika ...."]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "Mika: Don't worry, I'll be on my way! By the way, FREYA I'LL FIND YOU-"
+      ]
+    },
+    {
+      "speaker": "nothing",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["*hang up*"]
+    },
+    {
+      "speaker": "freya",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["..."]
+    },
+    {
+      "speaker": "kanimate",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Alright, you're just an actual simp for Mika, SOOOO down bad."]
+    },
+    {
+      "speaker": "milky-angy",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Just like every other Mika fan I shot and bitten..."]
+    },
+    {
+      "speaker": "freya",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Aughh, I better make this quick before Mika comes in..."]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["good luck me and me mama mika"]
+    },
+    {
+      "speaker": "kanimate",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["*along w/ Milky* SIMP!!"]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talkEnter",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["SHUT FUCK UP"]
+    }
+  ]
+}

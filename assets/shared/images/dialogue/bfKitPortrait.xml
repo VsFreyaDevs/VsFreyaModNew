@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="bfKitPortrait.png">
+	<!-- Created with- GAHH I MADE THIS SHIT XML WITH MY OWN FUCKING HANDS IEUDHEJDFJK -->
+	<SubTexture name="portBf0000" x="0" y="0" width="640" height="460" />
+</TextureAtlas>
