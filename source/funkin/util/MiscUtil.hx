@@ -1,5 +1,7 @@
 package funkin.util;
 
+import flixel.util.FlxColor;
+
 using StringTools;
 
 class MiscUtil
@@ -101,7 +103,7 @@ class MiscUtil
 
   public static function coolTextFile(key:String):Array<String>
   {
-    var daList:Array<String> = Paths.text(key).split('\n');
+    var daList:Array<String> = Paths.txt(key).split('\n');
 
     for (i in 0...daList.length)
       daList[i] = daList[i].trim();

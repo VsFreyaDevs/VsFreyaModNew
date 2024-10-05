@@ -132,7 +132,7 @@ class MemoryCounter extends TextField
       times.shift();
 
     var currentCount = times.length;
-    currentFPS = Math.fround((currentCount + cacheCount) / 2);
+    currentFPS = Math.round((currentCount + cacheCount) / 2);
 
     // var mem:Float = Math.round(System.totalMemory / 1024 / 1024 * 100) / 100;
     var mem:Float = Math.fround(MemoryUtil.getMemoryUsed() / BYTES_PER_MEG / ROUND_TO) * ROUND_TO;
