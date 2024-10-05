@@ -107,9 +107,7 @@ class MainMenuState extends MusicBeatState
     menuItems = new MenuTypedList<AtlasMenuItem>();
     add(menuItems);
     menuItems.onChange.add(onMenuItemChange);
-    menuItems.onAcceptPress.add(function(_) {
-      FlxFlicker.flicker(magenta, 1.1, 0.15, false, true);
-    });
+    menuItems.onAcceptPress.add((_) -> FlxFlicker.flicker(magenta, 1.1, 0.15, false, true));
 
     menuItems.enabled = true; // can move on intro
     createMenuItem('storymode', 'mainmenu/storymode', () -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState())));
@@ -137,13 +135,10 @@ class MainMenuState extends MusicBeatState
     createMenuItem('merch', 'mainmenu/merch', selectMerch, hasPopupBlocker);
     #end
 
-    createMenuItem('credits', 'mainmenu/credits', () -> {
-      startExitState(() -> new funkin.ui.credits.CreditsState());
-    });
+    createMenuItem('credits', 'mainmenu/credits', () -> startExitState(() -> new funkin.ui.credits.MainCreditsState()));
 
-    createMenuItem('options', 'mainmenu/options', () -> {
-      openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new funkin.ui.options.OptionsState()));
-    });
+    createMenuItem('options', 'mainmenu/options',
+      () -> openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new funkin.ui.options.OptionsState())));
 
     // Reset position of menu items.
     var spacing = 160;

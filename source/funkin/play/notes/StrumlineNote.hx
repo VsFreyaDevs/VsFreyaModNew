@@ -24,6 +24,12 @@ class StrumlineNote extends FlxSprite
     return this.direction;
   }
 
+  /**
+   * Set this flag to `true` to disable performance optimizations that cause
+   * the Strumline note sprite to ignore `velocity` and `acceleration`.
+   */
+  public var forceActive:Bool = false;
+
   public function new(noteStyle:NoteStyle, isPlayer:Bool, direction:NoteDirection)
   {
     super(0, 0);
@@ -105,19 +111,19 @@ class StrumlineNote extends FlxSprite
 
   public function playStatic():Void
   {
-    this.active = true;
+    this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('static', true);
   }
 
   public function playPress():Void
   {
-    this.active = true;
+    this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('press', true);
   }
 
   public function playConfirm():Void
   {
-    this.active = true;
+    this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('confirm', true);
   }
 
@@ -125,7 +131,7 @@ class StrumlineNote extends FlxSprite
   {
     if (getCurrentAnimationFrame() >= 3)
     {
-      this.active = true;
+      this.active = (forceActive || isAnimationDynamic('static'));
       this.playAnimation('confirm', true);
     }
   }

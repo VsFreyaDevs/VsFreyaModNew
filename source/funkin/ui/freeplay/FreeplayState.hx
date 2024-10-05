@@ -1752,6 +1752,8 @@ class FreeplayState extends MusicBeatSubState
 
   function changeDiff(change:Int = 0, force:Bool = false):Void
   {
+    var previousVariation:String = currentVariation;
+
     var currentDifficultyIndex:Int = suffixedDiffIdsCurrent.indexOf(currentSuffixedDifficulty);
 
     if (currentDifficultyIndex == -1) currentDifficultyIndex = suffixedDiffIdsCurrent.indexOf(Constants.DEFAULT_DIFFICULTY);
@@ -1839,7 +1841,7 @@ class FreeplayState extends MusicBeatSubState
           songCapsule.init(null, null, null);
       }
       // Reset the song preview in case we changed variations (normal->erect etc)
-      playCurSongPreview();
+      if (currentVariation != previousVariation) playCurSongPreview();
     }
     // Set the album graphic and play the animation if relevant.
     var newAlbumId:Null<String> = daSong?.albumId;

@@ -141,7 +141,8 @@ class CreditsState extends MusicBeatState
         startingVolume: 0.0,
         overrideExisting: true,
         restartTrack: true,
-        loop: true
+        loop: true,
+        persist: true
       });
     FlxG.sound.music.fadeIn(6, 0, 0.8);
 
@@ -274,7 +275,7 @@ class CreditsState extends MusicBeatState
 
   public function exit():Void
   {
-    FlxG.switchState(() -> new MainMenuState());
+    FlxG.switchState(() -> new MainCreditsState());
   }
 
   public override function destroy():Void
