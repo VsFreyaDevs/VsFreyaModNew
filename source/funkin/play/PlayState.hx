@@ -8,6 +8,7 @@ import flixel.FlxObject;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxSubState;
+import flixel.util.FlxStringUtil;
 import flixel.math.FlxMath;
 import flixel.math.FlxPoint;
 import flixel.math.FlxRect;
@@ -489,6 +490,11 @@ class PlayState extends MusicBeatSubState
   var scoreText:FlxText;
 
   /**
+   * The FlxText that shows the hit time of your last note in ms.
+   */
+  var timingText:FlxText;
+
+  /**
    * The FlxText which displays the amount of combo breaks the player has.
    */
   var comboBreakText:FlxText;
@@ -504,6 +510,11 @@ class PlayState extends MusicBeatSubState
    * Emma says the image is slightly skewed so I'm leaving it as an image instead of a `createGraphic`.
    */
   public var healthBarBG:FunkinSprite;
+
+  /**
+   * The amount of time played in the song, compared to the max length.
+   */
+  public var songPercent:Float = 0;
 
   /**
    * The health icon representing the player.
@@ -558,7 +569,7 @@ class PlayState extends MusicBeatSubState
 
   #if mobile
   /**
-   * The pause button for the game, only appears in Mobile targets.
+   * The pause button for the game, only appears in mobile targets.
    */
   var pauseButton:FunkinSprite;
   #end
@@ -775,6 +786,13 @@ class PlayState extends MusicBeatSubState
     resetCamera();
 
     initPreciseInputs();
+
+    timingText = new FlxText(0, 0, 0, "You hit your note at: ", 28);
+    timingText.setFormat(Paths.font('arial.ttf'), 28, FlxColor.RED, CENTER, OUTLINE, FlxColor.BLACK);
+    timingText.cameras = [camHUD];
+    timingText.screenCenter();
+    timingText.alpha = 0;
+    add(timingText);
 
     FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
@@ -995,6 +1013,14 @@ class PlayState extends MusicBeatSubState
       // FlxG.sound.music.onComplete may sometimes not get fired up lol.
       if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
     }
+
+    songPercent = Math.max(0, Conductor.instance.songPosition) / currentSongLengthMs;
+    var conductorPos:Float = Conductor.instance.songPosition < 0 ? 0 : Conductor.instance.songPosition;
+    var songPos:Float = conductorPos;
+    var songPosString:String = '0:00';
+    if (songPos > 0) songPosString = FlxStringUtil.formatTime(songPos / 1000);
+    var songLength:String = FlxStringUtil.formatTime(currentSongLengthMs / 1000);
+    // songPosString + ' / ' + songLength;
 
     var pauseButtonCheck:Bool = false;
     var androidPause:Bool = false;
@@ -1913,6 +1939,7 @@ class PlayState extends MusicBeatSubState
     if (Preferences.middlescroll) laneUnderlay.x = (FlxG.width / 2 - playerStrumline.width / 2) - 15;
     else
       laneUnderlay.x = (FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET) - 15;
+    if (currentSong.id == 'blazin') laneUnderlay.x = (FlxG.width / 2 - playerStrumline.width / 2) - 15;
     laneUnderlay.y = 0;
     laneUnderlay.zIndex = 600; // Renders beneath the health bar.
     laneUnderlay.cameras = [camHUD];
@@ -2579,10 +2606,7 @@ class PlayState extends MusicBeatSubState
       playerStrumline.playConfirm(input.noteDirection);
     }
     else
-    {
-      // Play the strumline animation.
-      playerStrumline.playPress(input.noteDirection);
-    }
+      playerStrumline.playPress(input.noteDirection); // Play the strumline animation.
     }
 
     while (inputReleaseQueue.length != 0)
@@ -2595,6 +2619,8 @@ class PlayState extends MusicBeatSubState
       playerStrumline.releaseKey(input.noteDirection);
     }
   }
+
+  var latencyTween:FlxTween;
 
   function goodNoteHit(note:NoteSprite, input:PreciseInputEvent):Void
   {
@@ -2611,6 +2637,15 @@ class PlayState extends MusicBeatSubState
     var score = Scoring.scoreNote(noteDiff, PBOT1);
     var daRating = Scoring.judgeNote(noteDiff, PBOT1);
 
+    if (Preferences.showTimings)
+    {
+      timingText.text = '$noteDiff ms';
+      timingText.alpha = 0.725;
+      timingText.screenCenter(X);
+      if (latencyTween != null) latencyTween.cancel();
+      latencyTween = FlxTween.tween(timingText, {alpha: 0}, 1);
+    }
+
     var healthChange = 0.0;
     var isComboBreak = false;
     switch (daRating)
@@ -2618,15 +2653,19 @@ class PlayState extends MusicBeatSubState
       case 'sick':
         healthChange = Constants.HEALTH_SICK_BONUS;
         isComboBreak = Constants.JUDGEMENT_SICK_COMBO_BREAK;
+        if (Preferences.showTimings) timingText.color = 0x00FF00;
       case 'good':
         healthChange = Constants.HEALTH_GOOD_BONUS;
         isComboBreak = Constants.JUDGEMENT_GOOD_COMBO_BREAK;
+        if (Preferences.showTimings) timingText.color = 0xFBFF00;
       case 'bad':
         healthChange = Constants.HEALTH_BAD_BONUS;
         isComboBreak = Constants.JUDGEMENT_BAD_COMBO_BREAK;
+        if (Preferences.showTimings) timingText.color = 0xFF8B17;
       case 'shit':
-        isComboBreak = Constants.JUDGEMENT_SHIT_COMBO_BREAK;
         healthChange = Constants.HEALTH_SHIT_BONUS;
+        isComboBreak = Constants.JUDGEMENT_SHIT_COMBO_BREAK;
+        if (Preferences.showTimings) timingText.color = 0xFF0000;
     }
 
     // Send the note hit event.

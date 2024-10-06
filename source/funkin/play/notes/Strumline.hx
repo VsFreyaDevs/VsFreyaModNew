@@ -943,7 +943,7 @@ class Strumline extends FlxSpriteGroup
 
   /**
    * Apply a small animation which moves the arrow down and fades it in.
-   * Only plays at the start of Free Play songs.
+   * Only plays at the start of Freeplay songs.
    *
    * Note that modifying the offset of the whole strumline won't have the
    * @param arrow The arrow to animate.
@@ -953,15 +953,18 @@ class Strumline extends FlxSpriteGroup
   {
     arrow.y -= 10;
     arrow.alpha = 0.0;
-    FlxTween.tween(arrow, {y: arrow.y + 10, alpha: 1}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * index)});
+
+    var realStrumAlpha:Float = Preferences.strumAlpha * 1.0;
+    realStrumAlpha /= 100;
+
+    var finalAlpha = realStrumAlpha; // Some fix for countdown causing some funny issues. :P
+    FlxTween.tween(arrow, {y: arrow.y + 10, alpha: finalAlpha}, 1, {ease: FlxEase.circOut, startDelay: 0.5 + (0.2 * index)});
   }
 
   public function fadeInArrows():Void
   {
     for (index => arrow in this.strumlineNotes.members.keyValueIterator())
-    {
       fadeInArrow(index, arrow);
-    }
   }
 
   function compareNoteData(order:Int, a:SongNoteData, b:SongNoteData):Int

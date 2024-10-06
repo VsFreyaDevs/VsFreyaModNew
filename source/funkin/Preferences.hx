@@ -160,7 +160,7 @@ class Preferences
 
   static function get_comboBreakText():Bool
   {
-    return Save?.instance?.options?.comboBreakText ?? false;
+    return Save?.instance?.options?.comboBreakText ?? true;
   }
 
   static function set_comboBreakText(value:Bool):Bool
@@ -217,7 +217,7 @@ class Preferences
 
   static function get_coloredHealthBar():Bool
   {
-    return Save?.instance?.options?.coloredHealthBar ?? false;
+    return Save?.instance?.options?.coloredHealthBar ?? true;
   }
 
   static function set_coloredHealthBar(value:Bool):Bool
@@ -303,13 +303,32 @@ class Preferences
 
   static function get_badsShitsCauseMiss():Bool
   {
-    return Save?.instance?.options?.badsShitsCauseMiss ?? true;
+    return Save?.instance?.options?.badsShitsCauseMiss ?? false;
   }
 
   static function set_badsShitsCauseMiss(value:Bool):Bool
   {
     var save:Save = Save.instance;
     save.options.badsShitsCauseMiss = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * If enabled, there will be text on the screen at the top middle, displaying your last input timing in milliseconds.
+   * @default `true`
+   */
+  public static var showTimings(get, set):Bool;
+
+  static function get_showTimings():Bool
+  {
+    return Save?.instance?.options?.showTimings ?? true;
+  }
+
+  static function set_showTimings(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.showTimings = value;
     save.flush();
     return value;
   }
@@ -331,6 +350,28 @@ class Preferences
   {
     var save:Save = Save.instance;
     save.options.laneAlpha = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * How transparent should the strums be?
+   *
+   * Somebody suggested this in the main Funkin' repo, so why not?
+   * @see https://github.com/FunkinCrew/Funkin/issues/3124
+   * @default `100`
+   */
+  public static var strumAlpha(get, set):Int;
+
+  static function get_strumAlpha():Int
+  {
+    return Save?.instance?.options?.strumAlpha ?? 100;
+  }
+
+  static function set_strumAlpha(value:Int):Int
+  {
+    var save:Save = Save.instance;
+    save.options.strumAlpha = value;
     save.flush();
     return value;
   }

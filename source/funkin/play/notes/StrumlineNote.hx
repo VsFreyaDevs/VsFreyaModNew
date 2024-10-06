@@ -54,13 +54,10 @@ class StrumlineNote extends FlxSprite
     // Run a timer before we stop playing the confirm animation.
     // On opponent, this prevent issues with hold notes.
     // On player, this allows holding the confirm key to fall back to press.
-    if (name == 'confirm')
-    {
-      confirmHoldTimer = 0;
-    }
+    if (name == 'confirm') confirmHoldTimer = 0;
   }
 
-  override function update(elapsed:Float)
+  override function update(elapsed:Float):Void
   {
     super.update(elapsed);
 
@@ -113,18 +110,32 @@ class StrumlineNote extends FlxSprite
   {
     this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('static', true);
+
+    var realStrumAlpha:Float = Preferences.strumAlpha * 1.0;
+    realStrumAlpha /= 100;
+
+    var finalAlpha = realStrumAlpha; // Some fix for countdown causing some funny issues. :P
+    this.alpha = finalAlpha;
   }
 
   public function playPress():Void
   {
     this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('press', true);
+
+    var realStrumAlpha:Float = Preferences.strumAlpha * 1.0;
+    realStrumAlpha /= 100;
+
+    var finalAlpha = realStrumAlpha; // Some fix for countdown causing some funny issues. :P
+    this.alpha = finalAlpha;
   }
 
   public function playConfirm():Void
   {
     this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('confirm', true);
+
+    this.alpha = 1;
   }
 
   public function playConfirmHold():Void
@@ -133,6 +144,8 @@ class StrumlineNote extends FlxSprite
     {
       this.active = (forceActive || isAnimationDynamic('static'));
       this.playAnimation('confirm', true);
+
+      this.alpha = 1;
     }
   }
 

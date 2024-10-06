@@ -129,9 +129,10 @@ class PreferencesMenu extends Page
       Preferences.middlescroll = value;
     }, Preferences.middlescroll);
     #if FEATURE_GHOST_TAPPING
-    createPrefItemCheckbox('Ghost Tapping', 'Disable to get miss penalties on key presses', function(value:Bool):Void {
-      Preferences.ghostTapping = value;
-    }, Preferences.ghostTapping);
+    createPrefItemCheckbox('Ghost Tapping', 'Disable to get miss penalties on key presses\nThis is the thing people have been begging for forever lolol',
+      function(value:Bool):Void {
+        Preferences.ghostTapping = value;
+      }, Preferences.ghostTapping);
     #end
     createPrefItemCheckbox('Bad/Shits as Combo Breaks',
       'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
@@ -150,9 +151,18 @@ class PreferencesMenu extends Page
     createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
     }, Preferences.coloredHealthBar);
+    createPrefItemCheckbox('Show Timings', 'Enable to show your input timings in ms\nwhenever you hit a note', function(value:Bool):Void {
+      Preferences.showTimings = value;
+    }, Preferences.showTimings);
+    createPrefItemNumber('Lane Underlay', 'Set the transparency of the lane underlay\nbehind the player\'s strums', function(value:Float) {
+      Preferences.laneAlpha = Std.int(value);
+    }, null, Preferences.laneAlpha, 0, 100, 1, 0);
     createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
       Preferences.comboBreakText = value;
     }, Preferences.comboBreakText);
+    createPrefItemNumber('Strum Transparency', 'Set the transparency of both the CPU & player\'s strums', function(value:Float) {
+      Preferences.strumAlpha = Std.int(value);
+    }, null, Preferences.strumAlpha, 0, 100, 1, 0);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
     }, Preferences.zoomCamera);

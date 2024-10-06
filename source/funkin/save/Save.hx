@@ -101,12 +101,14 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
-          comboBreakText: false,
-          coloredHealthBar: false,
+          comboBreakText: true,
+          coloredHealthBar: true,
+          showTimings: true,
           debugDisplay: true,
           autoPause: true,
           laneAlpha: 0,
-          badsShitsCauseMiss: true,
+          strumAlpha: 100,
+          badsShitsCauseMiss: false,
           inputOffset: 0,
           audioVisualOffset: 0,
           unlockedFramerate: false,
@@ -1283,7 +1285,7 @@ typedef SaveDataOptions =
   var noteSplash:Bool;
 
   /**
-   * The cap of your framerate, self-explanatory.
+   * The cap of your framerate, self-explanatory stuff.
    * @default `60`
    */
   var framerate:Int;
@@ -1339,6 +1341,12 @@ typedef SaveDataOptions =
   var coloredHealthBar:Bool;
 
   /**
+   * If enabled, there will be text on the screen at the top middle, displaying your last input timing in milliseconds.
+   * @default `true`
+   */
+  var showTimings:Bool;
+
+  /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.
    * @default `true`
    */
@@ -1359,7 +1367,16 @@ typedef SaveDataOptions =
   var laneAlpha:Int;
 
   /**
-   * Offset the users inputs by this many miliseconds.
+   * How transparent should the strums be?
+   *
+   * Somebody suggested this in the main Funkin' repo, so why not?
+   * @see https://github.com/FunkinCrew/Funkin/issues/3124
+   * @default `100`
+   */
+  var strumAlpha:Int;
+
+  /**
+   * Offset the users inputs by this many milliseconds.
    * @default `0`
    */
   var inputOffset:Int;
