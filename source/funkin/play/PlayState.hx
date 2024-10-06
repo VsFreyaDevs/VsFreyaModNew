@@ -1728,7 +1728,7 @@ class PlayState extends MusicBeatSubState
     timingText.cameras = [camHUD];
     timingText.screenCenter();
     timingText.alpha = 0;
-    hitTime.zIndex = 805;
+    timingText.zIndex = 805;
     add(timingText);
 
     var healthBarYPos:Float = Preferences.downscroll ? FlxG.height * 0.1 : FlxG.height * 0.9;
