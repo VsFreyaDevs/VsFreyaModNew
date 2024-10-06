@@ -1341,7 +1341,7 @@ typedef SaveDataOptions =
   var coloredHealthBar:Bool;
 
   /**
-   * If enabled, there will be text on the screen at the top middle, displaying your last input timing in milliseconds.
+   * If enabled, there will be text on the screen at the middle, displaying your last input timing in milliseconds.
    * @default `true`
    */
   var showTimings:Bool;

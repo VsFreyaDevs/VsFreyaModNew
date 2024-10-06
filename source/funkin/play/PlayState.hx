@@ -224,6 +224,38 @@ class PlayState extends MusicBeatSubState
   public var songScore:Int = 0;
 
   /**
+   * The player's current amount of misses.
+   */
+  public var songMisses:Int;
+
+  /**
+   * The amount of `SICK`s you have.
+   * Probably for a judgement counter? IDK.
+   */
+  public var sicks:Int = 0;
+
+  /**
+   * The amount of `GOOD`s you have.
+   * Probably for a judgement counter? IDK.
+   */
+  public var goods:Int = 0;
+
+  /**
+   * The amount of `BAD`s you have.
+   * Probably for a judgement counter? IDK.
+   */
+  public var bads:Int = 0;
+
+  /**
+   * The amount of `SHIT`s you have.
+   * Probably for a judgement counter? IDK.
+   */
+  public var shits:Int = 0;
+
+  public var totalPlayed:Int = 0;
+  public var ratingPercent:Float = 0;
+
+  /**
    * Start at this point in the song once the countdown is done.
    * For example, if `startTimestamp` is `30000`, the song will start at the 30 second mark.
    * Used for chart playtesting or practice.
@@ -487,17 +519,17 @@ class PlayState extends MusicBeatSubState
   /**
    * The FlxText which displays the current score.
    */
-  var scoreText:FlxText;
+  public var scoreText:FlxText;
 
   /**
    * The FlxText that shows the hit time of your last note in ms.
    */
-  var timingText:FlxText;
+  public var timingText:FlxText;
 
   /**
    * The FlxText which displays the amount of combo breaks the player has.
    */
-  var comboBreakText:FlxText;
+  public var comboBreakText:FlxText;
 
   /**
    * The bar which displays the player's health.
@@ -641,7 +673,7 @@ class PlayState extends MusicBeatSubState
   /**
    * The length of the current song, in milliseconds.
    */
-  var currentSongLengthMs(get, never):Float;
+  public var currentSongLengthMs(get, never):Float;
 
   function get_currentSongLengthMs():Float
   {
@@ -787,13 +819,6 @@ class PlayState extends MusicBeatSubState
 
     initPreciseInputs();
 
-    timingText = new FlxText(0, 0, 0, "You hit your note at: ", 28);
-    timingText.setFormat(Paths.font('arial.ttf'), 28, FlxColor.RED, CENTER, OUTLINE, FlxColor.BLACK);
-    timingText.cameras = [camHUD];
-    timingText.screenCenter();
-    timingText.alpha = 0;
-    add(timingText);
-
     FlxG.worldBounds.set(0, 0, FlxG.width, FlxG.height);
 
     // The song is loaded and in the process of starting.
@@ -893,6 +918,12 @@ class PlayState extends MusicBeatSubState
     return true;
   }
 
+  public var songLength:Float;
+
+  var setTotalTime:Bool = false;
+
+  public var conductorPos:Float = 0;
+
   public override function update(elapsed:Float):Void
   {
     // TOTAL: 9.42% CPU Time when profiled in VS 2019.
@@ -983,6 +1014,12 @@ class PlayState extends MusicBeatSubState
       health = Constants.HEALTH_STARTING;
       songScore = 0;
       Highscore.tallies.combo = 0;
+      songMisses = 0;
+      sicks = 0;
+      goods = 0;
+      bads = 0;
+      shits = 0;
+      totalPlayed = 0;
       Countdown.performCountdown();
 
       needsReset = false;
@@ -1014,12 +1051,18 @@ class PlayState extends MusicBeatSubState
       if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
     }
 
-    songPercent = Math.max(0, Conductor.instance.songPosition) / currentSongLengthMs;
+    if (!setTotalTime) songLength = currentSongLengthMs;
+    // For soft modding reasons, this only needs to be done until songLength no longer equals 0.
+    if (songLength > 0) setTotalTime = true;
+    songPercent = Math.max(0, Conductor.instance.songPosition) / songLength;
     var conductorPos:Float = Conductor.instance.songPosition < 0 ? 0 : Conductor.instance.songPosition;
     var songPos:Float = conductorPos;
-    var songPosString:String = '0:00';
-    if (songPos > 0) songPosString = FlxStringUtil.formatTime(songPos / 1000);
-    var songLength:String = FlxStringUtil.formatTime(currentSongLengthMs / 1000);
+
+    var songPosString:String = '';
+    if (songPos > 0) songPosString = FlxStringUtil.formatTime(songPos / 1000) + ' / ';
+
+    var songL:String = '';
+    songL = songLength > 0 ? FlxStringUtil.formatTime(songLength / 1000) : '';
     // songPosString + ' / ' + songLength;
 
     var pauseButtonCheck:Bool = false;
@@ -1209,6 +1252,12 @@ class PlayState extends MusicBeatSubState
     opponentStrumline.clean();
 
     songScore = 0;
+    songMisses = 0;
+    sicks = 0;
+    goods = 0;
+    bads = 0;
+    shits = 0;
+    totalPlayed = 0;
     updateScoreText();
 
     health = Constants.HEALTH_STARTING;
@@ -1644,6 +1693,14 @@ class PlayState extends MusicBeatSubState
    */
   function initHealthBar():Void
   {
+    timingText = new FlxText(0, 0, 0, "You hit your note at: ", 28);
+    timingText.setFormat(Paths.font('arial.ttf'), 28, FlxColor.RED, CENTER, OUTLINE, FlxColor.BLACK);
+    timingText.cameras = [camHUD];
+    timingText.screenCenter();
+    timingText.alpha = 0;
+    hitTime.zIndex = 805;
+    add(timingText);
+
     var healthBarYPos:Float = Preferences.downscroll ? FlxG.height * 0.1 : FlxG.height * 0.9;
     healthBarBG = FunkinSprite.create(0, healthBarYPos, 'healthBar');
     healthBarBG.screenCenter(X);
@@ -2633,14 +2690,15 @@ class PlayState extends MusicBeatSubState
     // Get the offset and compensate for input latency.
     // Round inward (trim remainder) for consistency.
     var noteDiff:Int = Std.int(Conductor.instance.songPosition - note.noteData.time - inputLatencyMs + Conductor.instance.inputOffset);
-
+    var latency:Float = (Conductor.instance.songPosition - note.noteData.time - inputLatencyMs);
     var score = Scoring.scoreNote(noteDiff, PBOT1);
     var daRating = Scoring.judgeNote(noteDiff, PBOT1);
 
     if (Preferences.showTimings)
     {
-      timingText.text = '$noteDiff ms';
-      timingText.alpha = 0.725;
+      var latencyRound = FlxMath.roundDecimal(latency, 2);
+      timingText.text = '${latencyRound}ms';
+      timingText.alpha = 0.75;
       timingText.screenCenter(X);
       if (latencyTween != null) latencyTween.cancel();
       latencyTween = FlxTween.tween(timingText, {alpha: 0}, 1);
@@ -2653,19 +2711,19 @@ class PlayState extends MusicBeatSubState
       case 'sick':
         healthChange = Constants.HEALTH_SICK_BONUS;
         isComboBreak = Constants.JUDGEMENT_SICK_COMBO_BREAK;
-        if (Preferences.showTimings) timingText.color = 0x00FF00;
+        if (currentStage.id == 'limoRideErect' || currentStage.id == 'spookyMansionErect') timingText.color = 0x00FF00;
       case 'good':
         healthChange = Constants.HEALTH_GOOD_BONUS;
         isComboBreak = Constants.JUDGEMENT_GOOD_COMBO_BREAK;
-        if (Preferences.showTimings) timingText.color = 0xFBFF00;
+        if (currentStage.id == 'limoRideErect' || currentStage.id == 'spookyMansionErect') timingText.color = 0xFBFF00;
       case 'bad':
         healthChange = Constants.HEALTH_BAD_BONUS;
         isComboBreak = Constants.JUDGEMENT_BAD_COMBO_BREAK;
-        if (Preferences.showTimings) timingText.color = 0xFF8B17;
+        if (currentStage.id == 'limoRideErect' || currentStage.id == 'spookyMansionErect') timingText.color = 0xFF8B17;
       case 'shit':
         healthChange = Constants.HEALTH_SHIT_BONUS;
         isComboBreak = Constants.JUDGEMENT_SHIT_COMBO_BREAK;
-        if (Preferences.showTimings) timingText.color = 0xFF0000;
+        if (currentStage.id == 'limoRideErect' || currentStage.id == 'spookyMansionErect') timingText.color = 0xFF0000;
     }
 
     // Send the note hit event.
@@ -2684,7 +2742,7 @@ class PlayState extends MusicBeatSubState
     vocals.playerVolume = 1;
 
     // Display the combo meter and add the calculation to the score.
-    applyScore(event.score, event.judgement, event.healthChange, event.isComboBreak);
+    applyScore(event.score, event.judgement, event.healthChange, event.isComboBreak, latency);
     popUpScore(event.judgement);
   }
 
@@ -2797,7 +2855,7 @@ class PlayState extends MusicBeatSubState
     if (event.playSound)
     {
       vocals.playerVolume = 0;
-      FunkinSound.playOnce(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.1, 0.2));
+      FunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), FlxG.random.float(0.1, 0.2));
     }
   }
 
@@ -2864,24 +2922,48 @@ class PlayState extends MusicBeatSubState
     if (FlxG.keys.justPressed.B) trace(inputSpitter.join('\n'));
   }
 
+  public var totalLatency:Float;
+
+  public var totalNotesHit:Int;
+
   /**
    * Handles applying health, score, and ratings.
    */
-  function applyScore(score:Int, daRating:String, healthChange:Float, isComboBreak:Bool)
+  function applyScore(score:Int, daRating:String, healthChange:Float, isComboBreak:Bool, ?latency:Float = 0):Void
   {
     switch (daRating)
     {
       case 'sick':
         Highscore.tallies.sick += 1;
+        sicks++;
+
+        if (totalLatency >= 5 && latency < 0) latency = latency * 0.8;
+        if (totalLatency <= 5 && totalLatency < 2 && latency < 0) latency = latency * 0.6;
+        if (totalLatency <= 2 && totalLatency >= 0.5 && latency < 0)
+          latency = latency * 0.2; // REMOVE latency for hitting early (therefore keeping more latency in total) if you had a chain of really good timings!
+        if (totalLatency <= 0.5 && latency < 0) latency = latency * 0.005; // Same as before, but EXTRA, because yes
       case 'good':
         Highscore.tallies.good += 1;
+        goods++;
+
+        if (totalLatency > 5 && latency < 0) latency = latency * 0.5; // Keep more if the rating is good and you have high total latency.
+        if (totalLatency < 5 && totalLatency < 2 && latency < 0) latency = latency * 0.1;
+        if (totalLatency < 2 && latency < 0) latency = latency * -1; // ADD latency for hitting early if you had a chain of really good timings!
       case 'bad':
         Highscore.tallies.bad += 1;
+        bads++;
+
+        if (latency > 0) latency = latency * -1; // Should just kill you for this,but whatever, I guess it'll just be a penalty.
       case 'shit':
         Highscore.tallies.shit += 1;
+        shits++;
+
+        if (latency > 0) latency = latency * -1; // Ditto.
       case 'miss':
         Highscore.tallies.missed += 1;
+        songMisses++;
     }
+    totalPlayed++;
     health += healthChange;
     if (isComboBreak)
     {
@@ -2895,6 +2977,12 @@ class PlayState extends MusicBeatSubState
       if (Highscore.tallies.combo > Highscore.tallies.maxCombo) Highscore.tallies.maxCombo = Highscore.tallies.combo;
     }
     songScore += score;
+
+    totalNotesHit = Preferences.badsShitsCauseMiss ? Highscore.tallies.totalNotesHit - songMisses : Highscore.tallies.totalNotesHit
+      - (songMisses + (shits + bads));
+    if (totalNotesHit < 10) latency = latency * 0.5; // because if you hit it really badly it can cause it to stay at "N/A"
+    if (totalLatency < 0) totalLatency = 0;
+    if (totalLatency > totalNotesHit) totalLatency = totalNotesHit - 0.1;
   }
 
   /**

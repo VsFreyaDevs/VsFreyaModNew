@@ -36,6 +36,7 @@ class PreferencesMenu extends Page
   var preferenceDesc:Array<String> = [];
 
   var menuCamera:FlxCamera;
+  var camDesc:FlxCamera;
   var camFollow:FlxObject;
 
   var descText:FlxText;
@@ -51,6 +52,9 @@ class PreferencesMenu extends Page
     FlxG.cameras.add(menuCamera, false);
     menuCamera.bgColor = 0x0;
     camera = menuCamera;
+    camDesc = new FlxCamera();
+    camDesc.bgColor.alpha = 0;
+    FlxG.cameras.add(camDesc, false);
 
     add(items = new TextMenuList());
     add(preferenceItems = new FlxTypedSpriteGroup<FlxSprite>());
@@ -67,6 +71,9 @@ class PreferencesMenu extends Page
     descTextBG.x = descText.x - DESC_BG_OFFSET_X;
     descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
     descTextBG.updateHitbox();
+
+    descText.cameras = [camDesc];
+    descTextBG.cameras = [camDesc];
 
     createPrefItems();
 
