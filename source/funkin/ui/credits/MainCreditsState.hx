@@ -64,11 +64,12 @@ class MainCreditsState extends MusicBeatState
 
     changeSelection();
 
+    unfinishedBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+    unfinishedBG.alpha = 0;
+
     unfinished = new FlxText(0, 0, 0, "(BTW THIS MENU IS A WIP!!)", 30);
     unfinished.setFormat(Paths.font('vcr.ttf'), 50, 0xFFFFFFFF, CENTER, OUTLINE, 0xFF000000);
     unfinished.alpha = 0;
-    unfinishedBG = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
-    unfinishedBG.alpha = 0;
 
     add(unfinishedBG);
     add(unfinished);
