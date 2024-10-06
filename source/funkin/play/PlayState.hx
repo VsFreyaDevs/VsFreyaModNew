@@ -252,8 +252,25 @@ class PlayState extends MusicBeatSubState
    */
   public var shits:Int = 0;
 
+  /**
+   * The amount of notes played in total.
+   */
   public var totalPlayed:Int = 0;
-  public var ratingPercent:Float = 0;
+
+  /**
+   * The amount of notes hit per second.
+   */
+  public var notesPerSecond:Int = 0;
+
+  /**
+   * Array of the amount of notes hit per second.
+   */
+  public var npsArray:Array<Date> = [];
+
+  /**
+   * The maximum amount of notes hit per second.
+   */
+  public var maxNps:Int = 0;
 
   /**
    * Start at this point in the song once the countdown is done.
@@ -1144,6 +1161,19 @@ class PlayState extends MusicBeatSubState
     // Cap health.
     if (health > Constants.HEALTH_MAX) health = Constants.HEALTH_MAX;
     if (health < Constants.HEALTH_MIN) health = Constants.HEALTH_MIN;
+
+    // Manage how NPS works.
+    var balls = npsArray.length - 1;
+    while (balls >= 0)
+    {
+      var cock:Date = npsArray[balls];
+      if (cock != null && cock.getTime() + 1000 < Date.now().getTime()) npsArray.remove(cock);
+      else
+        balls = 0;
+      balls--;
+    }
+    notesPerSecond = npsArray.length;
+    if (notesPerSecond > maxNps) maxNps = notesPerSecond;
 
     // Apply camera zoom + multipliers.
     if (subState == null && cameraZoomRate > 0.0) // && !isInCutscene)
@@ -2744,6 +2774,8 @@ class PlayState extends MusicBeatSubState
     // Display the combo meter and add the calculation to the score.
     applyScore(event.score, event.judgement, event.healthChange, event.isComboBreak, latency);
     popUpScore(event.judgement);
+
+    if (!note.isHoldNote) npsArray.unshift(Date.now());
   }
 
   /**

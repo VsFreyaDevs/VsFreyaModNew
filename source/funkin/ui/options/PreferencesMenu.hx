@@ -18,6 +18,7 @@ import funkin.ui.options.MenuItemEnums;
 import funkin.ui.options.items.CheckboxPreferenceItem;
 import funkin.ui.options.items.NumberPreferenceItem;
 import funkin.ui.options.items.EnumPreferenceItem;
+import funkin.graphics.FunkinSprite;
 import funkin.mobile.ui.FunkinBackspace;
 #if mobile
 import funkin.mobile.util.TouchUtil;
@@ -37,7 +38,10 @@ class PreferencesMenu extends Page
 
   var menuCamera:FlxCamera;
   var camDesc:FlxCamera;
+  var camWhat:FlxCamera;
   var camFollow:FlxObject;
+
+  var boyFriend:FlxSprite;
 
   var descText:FlxText;
   var descTextBG:FlxSprite;
@@ -52,6 +56,9 @@ class PreferencesMenu extends Page
     FlxG.cameras.add(menuCamera, false);
     menuCamera.bgColor = 0x0;
     camera = menuCamera;
+    camWhat = new FlxCamera();
+    camWhat.bgColor.alpha = 0;
+    FlxG.cameras.add(camWhat, false);
     camDesc = new FlxCamera();
     camDesc.bgColor.alpha = 0;
     FlxG.cameras.add(camDesc, false);
@@ -74,6 +81,32 @@ class PreferencesMenu extends Page
 
     descText.cameras = [camDesc];
     descTextBG.cameras = [camDesc];
+
+    try
+    {
+      boyFriend = new FlxSprite();
+      boyFriend.frames = Paths.getSparrowAtlas('cheerFriend');
+      boyFriend.animation.addByIndices('off', 'yayy0', [0, 1], '', 24, true);
+      boyFriend.animation.addByPrefix('on', 'yayy0', 24, false);
+      boyFriend.animation.addByPrefix('onLoop', 'yayy loop', 24, true);
+      boyFriend.animation.play('off', true);
+      boyFriend.screenCenter();
+      boyFriend.x = 300;
+      boyFriend.cameras = [camWhat];
+      boyFriend.antialiasing = Preferences.antialiasing;
+    }
+    catch (e:Any)
+      trace("BOYFRIEND GOT KILLED IN A SPREE, SORRY!!!!");
+
+    descText.cameras = [camDesc];
+    descTextBG.cameras = [camDesc];
+
+    try
+    {
+      add(boyFriend);
+    }
+    catch (e:Any)
+      trace("BOYFRIEND GOT KILLED IN A SPREE, SORRY!!!!");
 
     createPrefItems();
 
@@ -131,75 +164,106 @@ class PreferencesMenu extends Page
     createPrefHeader('Gameplay');
     createPrefItemCheckbox('Downscroll', 'Enable to make notes move downwards', function(value:Bool):Void {
       Preferences.downscroll = value;
+      yeahBf(value);
     }, Preferences.downscroll);
     createPrefItemCheckbox('Middlescroll', 'Enable to move the player strums to the center', function(value:Bool):Void {
       Preferences.middlescroll = value;
+      yeahBf(value);
     }, Preferences.middlescroll);
     #if FEATURE_GHOST_TAPPING
     createPrefItemCheckbox('Ghost Tapping', 'Disable to get miss penalties on key presses\nThis is the thing people have been begging for forever lolol',
       function(value:Bool):Void {
         Preferences.ghostTapping = value;
+        yeahBf(value);
       }, Preferences.ghostTapping);
     #end
     createPrefItemCheckbox('Bad/Shits as Combo Breaks',
       'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
         Preferences.badsShitsCauseMiss = value;
+        yeahBf(value);
     }, Preferences.badsShitsCauseMiss);
     createPrefHeader('Visuals and Graphics');
     createPrefItemCheckbox('Note Splashes', 'Disable to remove splash animations when hitting notes', function(value:Bool):Void {
       Preferences.noteSplash = value;
+      yeahBf(value);
     }, Preferences.noteSplash);
     createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects', function(value:Bool):Void {
       Preferences.flashingLights = value;
+      yeahBf(value);
     }, Preferences.flashingLights);
     createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
       Preferences.antialiasing = value;
+      boyFriend.antialiasing = value;
+      yeahBf(value);
     }, Preferences.antialiasing);
     createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
+      yeahBf(value);
     }, Preferences.coloredHealthBar);
     createPrefItemCheckbox('Show Timings', 'Enable to show your input timings in ms\nwhenever you hit a note', function(value:Bool):Void {
       Preferences.showTimings = value;
+      yeahBf(value);
     }, Preferences.showTimings);
     createPrefItemNumber('Lane Underlay', 'Set the transparency of the lane underlay\nbehind the player\'s strums', function(value:Float) {
       Preferences.laneAlpha = Std.int(value);
+      yeahBf(false);
     }, null, Preferences.laneAlpha, 0, 100, 1, 0);
     createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
       Preferences.comboBreakText = value;
+      yeahBf(value);
     }, Preferences.comboBreakText);
     createPrefItemNumber('Strum Transparency', 'Set the transparency of both the CPU & player\'s strums', function(value:Float) {
       Preferences.strumAlpha = Std.int(value);
+      yeahBf(false);
     }, null, Preferences.strumAlpha, 0, 100, 1, 0);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
+      yeahBf(value);
     }, Preferences.zoomCamera);
     #if web
     createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
       Preferences.unlockedFramerate = value;
+      yeahBf(value);
     }, Preferences.unlockedFramerate);
     #else
     createPrefItemNumber('FPS Cap', 'Set the maximum framerate that the game targets', function(value:Float) {
       Preferences.framerate = Std.int(value);
+      yeahBf(false);
     }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 640, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
       Preferences.naughtyness = value;
+      yeahBf(value);
     }, Preferences.naughtyness);
     createPrefItemCheckbox('Stats Counter', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
       Preferences.debugDisplay = value;
+      yeahBf(value);
     }, Preferences.debugDisplay);
     createPrefItemCheckbox('Auto Pause', 'Enable so it automatically pauses the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
+      yeahBf(value);
     }, Preferences.autoPause);
     #if mobile
     createPrefItemCheckbox('Allow Screen Timeout', "Enable to let the device sleep on its own while\nin the game", function(value:Bool):Void {
       Preferences.screenTimeout = value;
+      yeahBf(value);
     }, Preferences.screenTimeout);
     createPrefItemCheckbox('Vibration', 'Enable to let the device vibrate in certain situations\nduring gameplay', function(value:Bool):Void {
       Preferences.vibration = value;
+      yeahBf(value);
     }, Preferences.vibration);
     #end
+  }
+
+  function yeahBf(help:Bool):Void
+  {
+    if (boyFriend != null)
+    {
+      if (help) boyFriend.animation.play('on', true);
+      else
+        boyFriend.animation.play('off', true);
+    }
   }
 
   override function update(elapsed:Float):Void
@@ -227,6 +291,9 @@ class PreferencesMenu extends Page
 
       daItem.x = thyOffset;
     });
+
+    if (boyFriend != null) if (boyFriend.animation.curAnim != null) if (boyFriend.animation.curAnim.finished
+      && boyFriend.animation.curAnim.name == 'on') boyFriend.animation.play('onLoop', true);
 
     #if mobile
     if (items.enabled

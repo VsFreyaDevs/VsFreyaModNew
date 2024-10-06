@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="bf.png">
+	<!-- Created with Adobe Animate version 24.0.1.329 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="yayy0000" x="0" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0001" x="0" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0002" x="397" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0003" x="794" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0004" x="1191" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0005" x="1588" y="0" width="397" height="436"/>
+	<SubTexture name="yayy0006" x="0" y="436" width="397" height="436"/>
+	<SubTexture name="yayy0007" x="397" y="436" width="397" height="436"/>
+	<SubTexture name="yayy loop0000" x="1588" y="0" width="397" height="436"/>
+	<SubTexture name="yayy loop0001" x="0" y="436" width="397" height="436"/>
+	<SubTexture name="yayy loop0002" x="397" y="436" width="397" height="436"/>
+</TextureAtlas>
