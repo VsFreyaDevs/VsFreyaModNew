@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TextureAtlas imagePath="milkyPortrait.png" width="2747" height="804">
-	<SubTexture name="portAngy0000" x="974" y="16" width="596" height="459" frameX="-36" frameY="-1" frameWidth="640" frameHeight="460"/>
-	<SubTexture name="portAngy0001" x="1586" y="16" width="596" height="459" frameX="-36" frameY="-1" frameWidth="640" frameHeight="460"/>
-	<SubTexture name="portDemon0000" x="16" y="16" width="942" height="772" frameX="-0" frameY="-88" frameWidth="942" frameHeight="860"/>
-	<SubTexture name="portNormal0000" x="2198" y="16" width="533" height="460" frameX="-67" frameY="-0" frameWidth="640" frameHeight="460"/>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="milkyPortrait.png" width="2104" height="2201">
+	<SubTexture name="portAngy0000" x="16" y="813" width="604" height="463" frameX="-32" frameY="-27" frameWidth="640" frameHeight="490"/>
+	<SubTexture name="portAngy0001" x="636" y="813" width="604" height="463" frameX="-32" frameY="-27" frameWidth="640" frameHeight="490"/>
+	<SubTexture name="portBruh0000" x="974" y="16" width="557" height="456" frameX="-64" frameY="-24" frameWidth="640" frameHeight="480"/>
+	<SubTexture name="portConfused0000" x="16" y="1742" width="534" height="443" frameX="-63" frameY="-17" frameWidth="640" frameHeight="460"/>
+	<SubTexture name="portDemon0000" x="16" y="16" width="942" height="781" frameX="-0" frameY="-79" frameWidth="942" frameHeight="860"/>
+	<SubTexture name="portExcited0000" x="641" y="1292" width="536" height="446" frameX="-56" frameY="-34" frameWidth="640" frameHeight="480"/>
+	<SubTexture name="portScared0000" x="16" y="1292" width="609" height="434" frameX="-29" frameY="-26" frameWidth="640" frameHeight="460"/>
+	<SubTexture name="portShocked0000" x="1197" y="1456" width="468" height="372" frameX="-29" frameY="-37" frameWidth="640" frameHeight="409"/>
+	<SubTexture name="portSleepy0000" x="566" y="1754" width="615" height="381" frameX="-34" frameY="-32" frameWidth="690" frameHeight="413"/>
+	<SubTexture name="portSmile0000" x="1547" y="16" width="541" height="464" frameX="-63" frameY="-16" frameWidth="640" frameHeight="480"/>
+	<SubTexture name="portSmug0000" x="1256" y="496" width="541" height="464" frameX="-63" frameY="-21" frameWidth="640" frameHeight="485"/>
+	<SubTexture name="portUhhh0000" x="1256" y="976" width="541" height="464" frameX="-63" frameY="-16" frameWidth="640" frameHeight="480"/>
 </TextureAtlas>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
+-->
+<TextureAtlas imagePath="kanimPortrait.png" width="1740" height="1297">
+	<SubTexture name="portBroReally0000" x="634" y="16" width="537" height="405" frameX="-42" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portBruh0000" x="16" y="861" width="537" height="405" frameX="-42" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portCringe0000" x="569" y="861" width="537" height="405" frameX="-42" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portNormal0000" x="1187" y="16" width="537" height="405" frameX="-42" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portPissed0000" x="1122" y="876" width="502" height="405" frameX="-77" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portScream0000" x="1196" y="437" width="489" height="423" frameX="-79" frameY="-28" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portShaky0000" x="16" y="16" width="602" height="405" frameX="-42" frameY="-46" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portShockAlt0000" x="16" y="437" width="574" height="408" frameX="-2" frameY="-43" frameWidth="720" frameHeight="451"/>
+	<SubTexture name="portShocked0000" x="606" y="437" width="574" height="408" frameX="-2" frameY="-43" frameWidth="720" frameHeight="451"/>
+</TextureAtlas>
