@@ -119,14 +119,9 @@ class PolymodHandler
    */
   public static function loadModsById(ids:Array<String>):Void
   {
-    if (ids.length == 0)
-    {
-      trace('You attempted to load zero mods.');
-    }
+    if (ids.length == 0) trace('You attempted to load zero mods.');
     else
-    {
       trace('Attempting to load ${ids.length} mods...');
-    }
 
     buildImports();
 
@@ -159,25 +154,17 @@ class PolymodHandler
         // Parsing rules for various data formats.
         parseRules: buildParseRules(),
 
-        // Parse hxc files and register the scripted classes in them.
+        // Parse `.hxc` files and register the scripted classes in them.
         useScriptedClasses: true,
         loadScriptsAsync: #if html5 true #else false #end,
       });
 
-    if (loadedModList == null)
-    {
-      trace('An error occurred! Failed when loading mods!');
-    }
+    if (loadedModList == null) trace('An error occurred! Failed when loading mods!');
     else
     {
-      if (loadedModList.length == 0)
-      {
-        trace('Mod loading complete. We loaded no mods / ${ids.length} mods.');
-      }
+      if (loadedModList.length == 0) trace('Mod loading complete. We loaded no mods / ${ids.length} mods.');
       else
-      {
         trace('Mod loading complete. We loaded ${loadedModList.length} / ${ids.length} mods.');
-      }
     }
 
     loadedModIds = [];
@@ -190,37 +177,27 @@ class PolymodHandler
     var fileList:Array<String> = Polymod.listModFiles(PolymodAssetType.IMAGE);
     trace('Installed mods have replaced ${fileList.length} images.');
     for (item in fileList)
-    {
       trace('  * $item');
-    }
 
     fileList = Polymod.listModFiles(PolymodAssetType.TEXT);
     trace('Installed mods have added/replaced ${fileList.length} text files.');
     for (item in fileList)
-    {
       trace('  * $item');
-    }
 
     fileList = Polymod.listModFiles(PolymodAssetType.AUDIO_MUSIC);
     trace('Installed mods have replaced ${fileList.length} music files.');
     for (item in fileList)
-    {
       trace('  * $item');
-    }
 
     fileList = Polymod.listModFiles(PolymodAssetType.AUDIO_SOUND);
     trace('Installed mods have replaced ${fileList.length} sound files.');
     for (item in fileList)
-    {
       trace('  * $item');
-    }
 
     fileList = Polymod.listModFiles(PolymodAssetType.AUDIO_GENERIC);
     trace('Installed mods have replaced ${fileList.length} generic audio files.');
     for (item in fileList)
-    {
       trace('  * $item');
-    }
   }
 
   static function buildFileSystem():polymod.fs.ZipFileSystem
@@ -422,13 +399,10 @@ class PolymodHandler
     var modIds:Array<String> = Save.instance.enabledModIds;
     var modMetadata:Array<ModMetadata> = getAllMods();
     var enabledMods:Array<ModMetadata> = [];
+
     for (item in modMetadata)
-    {
-      if (modIds.indexOf(item.id) != -1)
-      {
-        enabledMods.push(item);
-      }
-    }
+      if (modIds.indexOf(item.id) != -1) enabledMods.push(item);
+
     return enabledMods;
   }
 
