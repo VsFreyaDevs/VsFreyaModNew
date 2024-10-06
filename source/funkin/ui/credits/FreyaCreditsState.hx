@@ -9,6 +9,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import funkin.ui.credits.MainCreditsState;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
+import funkin.data.JsonFile;
 
 /**
  * The `credits.json` file, used to store the credits data.
@@ -115,9 +116,9 @@ class FreyaCreditsState extends MusicBeatState
 
   override function update(elapsed:Float):Void
   {
-    if (curSelected == 0 && creditsList[curSelected][1] == true && controls.UI_LEFT) changeSelection(-1, true);
-    if (curSelected == 0 && creditsList[curSelected][1] == true && controls.UI_UP) changeSelection(-1, true);
-    if (curSelected == 0 && creditsList[curSelected][1] == true) changeSelection(1, true);
+    if (curSelected == 0 && creditsList[curSelected][1] == "header" && controls.UI_LEFT) changeSelection(-1, true);
+    if (curSelected == 0 && creditsList[curSelected][1] == "header" && controls.UI_UP) changeSelection(-1, true);
+    if (curSelected == 0 && creditsList[curSelected][1] == "header") changeSelection(1, true);
 
     final upP:Bool = (controls.UI_UP_P #if mobile || SwipeUtil.swipeUp #end);
     final downP:Bool = (controls.UI_DOWN_P #if mobile || SwipeUtil.swipeDown #end);
@@ -137,7 +138,7 @@ class FreyaCreditsState extends MusicBeatState
     }
   }
 
-  function spawnCredits():Void
+  function bringUpCredits():Void
   {
     for (i in 0...creditsList.length)
     {
