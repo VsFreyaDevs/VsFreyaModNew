@@ -8,6 +8,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import funkin.audio.FunkinSound;
 import funkin.ui.credits.FreyaCreditsState;
 import funkin.ui.mainmenu.MainMenuState;
+import funkin.data.JsonFile;
 
 /**
  * A state for handling which credits menu you wanna go to.
