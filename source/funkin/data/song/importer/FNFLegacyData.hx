@@ -114,7 +114,7 @@ typedef LegacyNoteSection =
   public var ?bpm:Float;
   public var ?gfSection:Bool;
   public var ?altAnim:Bool;
-  public var ?sectionBeats:Bool;
+  public var ?sectionBeats:Int;
 }
 
 /**
