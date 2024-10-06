@@ -21,6 +21,7 @@
 				<link id="splashImportChartStepMania" width="100%" text="StepMania" disabled="true" />
 				<link id="splashImportChartPsych" width="100%" text="Psych Engine" disabled="true" />
 				<link id="splashImportChartCodename" width="100%" text="Codename Engine" disabled="true" />
+				<link id="splashImportChartMidi" width="100%" text=".MIDI File " disabled="true" />
 			</card>
 		</vbox>
 		<card id="splashSectionRight" width="25%" height="100%" text="Create From Song">

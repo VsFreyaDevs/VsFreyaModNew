@@ -13,7 +13,7 @@ import funkin.util.MathUtil;
  *  Extends the default flixel soundtray, but with some art
  *  and lil polish!
  *
- *  Gets added to the game in Main.hx, right after FlxGame is new'd
+ *  Gets added to the game in Main.hx, right after FunkinGame is new'd
  *  since it's a Sprite rather than Flixel related object
  */
 class FunkinSoundTray extends FlxSoundTray
@@ -137,14 +137,9 @@ class FunkinSoundTray extends FlxSoundTray
 
     for (i in 0..._bars.length)
     {
-      if (i < globalVolume)
-      {
-        _bars[i].visible = true;
-      }
+      if (i < globalVolume) _bars[i].visible = true;
       else
-      {
         _bars[i].visible = false;
-      }
     }
   }
 }

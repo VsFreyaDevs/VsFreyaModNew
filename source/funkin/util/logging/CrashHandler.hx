@@ -59,9 +59,13 @@ class CrashHandler
       displayError(error);
     }
     catch (e:Dynamic)
-    {
       trace('Error while handling crash: ' + e);
-    }
+
+    #if sys
+    Sys.sleep(1); // Wait a few moments of margin to process.
+    // Exit the game. Since it threw an error, we use a non-zero exit code.
+    openfl.Lib.application.window.close();
+    #end
   }
 
   static function onCriticalError(message:String):Void
@@ -83,8 +87,11 @@ class CrashHandler
       trace('Message: $message');
     }
 
+    #if sys
+    Sys.sleep(1); // wait a few moments of margin to process.
     // Exit the game. Since it threw an error, we use a non-zero exit code.
-    lime.system.System.exit(1);
+    openfl.Lib.application.window.close();
+    #end
   }
 
   static function displayError(error:UncaughtErrorEvent):Void

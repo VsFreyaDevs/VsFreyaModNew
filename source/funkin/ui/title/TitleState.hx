@@ -274,7 +274,7 @@ class TitleState extends MusicBeatState
     #end
 
     #if desktop
-    if (FlxG.keys.justPressed.ESCAPE) lime.system.System.exit(0);
+    if (FlxG.keys.justPressed.ESCAPE) openfl.Lib.application.window.close();
     #end
 
     // dont wanna bother commenting this piece of code yet cuz the save data just doesnt actually work rn lol!

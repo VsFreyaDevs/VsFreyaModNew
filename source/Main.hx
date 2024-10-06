@@ -9,6 +9,7 @@ import funkin.audio.ALSoftConfig; // Just to make sure DCE doesn't remove this, 
 #end
 import funkin.util.logging.CrashHandler;
 import funkin.ui.debug.MemoryCounter;
+import funkin.FunkinGame;
 import funkin.save.Save;
 import haxe.ui.Toolkit;
 import openfl.display.FPS;
@@ -31,6 +32,9 @@ import openfl.net.NetStream;
  */
 class Main extends Sprite
 {
+  var instance:Main;
+  var game:FunkinGame;
+
   var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
   var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
   var initialState:Class<FlxState> = funkin.InitState; // The FlxState the game starts with.
@@ -58,6 +62,8 @@ class Main extends Sprite
     #elseif ios
     Sys.setCwd(haxe.io.Path.addTrailingSlash(lime.system.System.documentsDirectory)); // For iOS we use documents directory and this is only way we can do.
     #end
+
+    var instance = this;
 
     // We need to make the crash handler LITERALLY FIRST so nothing EVER gets past it.
     CrashHandler.initialize();
@@ -124,7 +130,7 @@ class Main extends Sprite
     // addChild gets called by the user settings code.
     fpsCounter = new MemoryCounter(10, 3, 0xFFFFFF);
 
-    // George recommends binding the save before FlxGame is created.
+    // George recommends binding the save before FunkinGame is created.
     Save.load();
 
     #if mobile
@@ -137,7 +143,7 @@ class Main extends Sprite
     if (coolRate < 60) coolRate = 60;
     #end
 
-    var game:FlxGame = new FlxGame(gameWidth, gameHeight, initialState, Preferences.framerate, Preferences.framerate, skipSplash, startFullscreen);
+    game = new FunkinGame(gameWidth, gameHeight, initialState, Preferences.framerate, Preferences.framerate, skipSplash, startFullscreen);
 
     openfl.Lib.current.stage.align = "tl";
     openfl.Lib.current.stage.scaleMode = openfl.display.StageScaleMode.NO_SCALE;
