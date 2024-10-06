@@ -6,7 +6,7 @@ import flixel.util.FlxColor;
 import flixel.tweens.FlxTween;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import funkin.audio.FunkinSound;
-import funkin.ui.credits.tweaked.TweakedCredits;
+import funkin.ui.credits.FreyaCreditsState;
 import funkin.ui.mainmenu.MainMenuState;
 
 /**
@@ -14,8 +14,8 @@ import funkin.ui.mainmenu.MainMenuState;
  */
 class MainCreditsState extends MusicBeatState
 {
-  var optionShit:Array<String> = ['Credits Roll'];
-  var formattedOptions:Array<String> = ['funkin'];
+  var optionShit:Array<String> = ['Credits List (WIP)', 'Credits Roll'];
+  var formattedOptions:Array<String> = ['funkin', 'freya'];
 
   var bg:FlxSprite;
   var grpOptions:FlxTypedGroup<FlxText>;
@@ -98,6 +98,8 @@ class MainCreditsState extends MusicBeatState
       {
         case 'funkin':
           FlxG.switchState(() -> new CreditsState());
+        case 'freya':
+          FlxG.switchState(() -> new FreyaCreditsState());
       }
     }
 
