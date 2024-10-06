@@ -158,10 +158,7 @@ class StrumlineNote extends FlxSprite
   {
     this.active = true;
 
-    if (getCurrentAnimation() == "confirm-hold")
-    {
-      return;
-    }
+    if (getCurrentAnimation() == "confirm-hold") return;
     else if (getCurrentAnimation() == "confirm")
     {
       if (isAnimationFinished())
@@ -171,9 +168,7 @@ class StrumlineNote extends FlxSprite
       }
     }
     else
-    {
       this.playAnimation('confirm', false, false);
-    }
   }
 
   public function getCurrentAnimationFrame():Int
@@ -215,9 +210,7 @@ class StrumlineNote extends FlxSprite
       this.offset.y -= DEFAULT_OFFSET;
     }
     else
-    {
       this.centerOrigin();
-    }
   }
 
   /**

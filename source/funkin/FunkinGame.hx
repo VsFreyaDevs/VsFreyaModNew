@@ -1,7 +1,9 @@
 package funkin;
 
-import openfl.events.Event;
+import flixel.FlxG;
 import flixel.FlxGame;
+import flixel.FlxState;
+import openfl.events.Event;
 
 class FunkinGame extends FlxGame
 {
