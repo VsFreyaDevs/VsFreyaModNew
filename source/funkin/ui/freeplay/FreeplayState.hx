@@ -926,7 +926,7 @@ class FreeplayState extends MusicBeatSubState
           return str.isFav;
         });
 
-        songsToFilter.sort(filterAlphabetically);
+      // songsToFilter.sort(filterAlphabetically);
 
       default:
         // return all on default

@@ -203,6 +203,12 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   public static final NOTE_SELECT_BUTTON_HEIGHT:Int = 24;
 
   /**
+   * How "close" in milliseconds two notes have to be to be considered as stacked.
+   * TODO: This should probably be turned into a modifiable value.
+   */
+  public static final STACK_NOTE_THRESHOLD:Int = 20;
+
+  /**
    * The amount of padding between the menu bar and the chart grid when fully scrolled up.
    */
   public static final GRID_TOP_PAD:Int = NOTE_SELECT_BUTTON_HEIGHT + 12;
@@ -3653,16 +3659,13 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         }
       }
 
-      var stackedNotes:Array<SongNoteData> = NoteDataFilter.filterStackedNotes(displayedNoteData, 5);
+      var stackedNotes = NoteDataFilter.listStackedNotes(currentSongChartNoteData, STACK_NOTE_THRESHOLD);
 
       // Add events that are now visible.
       for (eventData in currentSongChartEventData)
       {
         // Remember if we are already displaying this event.
-        if (displayedEventData.indexOf(eventData) != -1)
-        {
-          continue;
-        }
+        if (displayedEventData.indexOf(eventData) != -1) continue;
 
         if (!ChartEditorEventSprite.wouldEventBeVisible(viewAreaBottomPixels, viewAreaTopPixels, eventData, renderedNotes)) continue;
 
@@ -3701,10 +3704,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         if (!ChartEditorHoldNoteSprite.wouldHoldNoteBeVisible(viewAreaBottomPixels, viewAreaTopPixels, noteData, renderedHoldNotes)) continue;
 
         // Hold note should be rendered.
-        var holdNoteFactory = function() {
-          // TODO: Print some kind of warning if `renderedHoldNotes.members` is too high?
-          return new ChartEditorHoldNoteSprite(this);
-        }
+        var holdNoteFactory = () -> return new ChartEditorHoldNoteSprite(this); // TODO: Print some kind of warning if `renderedHoldNotes.members` is too high?
         var holdNoteSprite:ChartEditorHoldNoteSprite = renderedHoldNotes.recycle(holdNoteFactory);
 
         var noteLengthPixels:Float = noteData.getStepLength() * GRID_SIZE;
@@ -3788,6 +3788,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         }
         else
         {
+          // TODO: Move this to a function like isNoteSelected does
           if (noteSprite.noteData != null && stackedNotes.contains(noteSprite.noteData))
           {
             // TODO: Maybe use another way to display these notes
@@ -3853,6 +3854,11 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
       // Sort the events DESCENDING. This keeps the sustain behind the associated note.
       renderedEvents.sort(FlxSort.byY, FlxSort.DESCENDING); // TODO: .group.insertionSort()
+    }
+
+    if (FlxG.keys.pressed.CONTROL && FlxG.keys.justPressed.H)
+    {
+      // performCommand(new RemoveNotesCommand(stackedNotes));
     }
   }
 

@@ -5,6 +5,8 @@ import funkin.data.song.SongData.SongNoteData;
 import funkin.data.song.SongDataUtils;
 import funkin.data.song.SongDataUtils.SongClipboardItems;
 
+using funkin.ui.debug.charting.util.NoteDataFilter;
+
 /**
  * A command which inserts the contents of the clipboard into the chart editor.
  */
@@ -41,18 +43,23 @@ class PasteItemsCommand implements ChartEditorCommand
     addedEvents = SongDataUtils.offsetSongEventData(currentClipboard.events, Std.int(targetTimestamp));
     addedEvents = SongDataUtils.clampSongEventData(addedEvents, 0.0, msCutoff);
 
-    state.currentSongChartNoteData = state.currentSongChartNoteData.concat(addedNotes);
+    var curAddedNotesLen = addedNotes.length;
+
+    // TODO: Should events also not be allowed to stack?
+    state.currentSongChartNoteData = state.currentSongChartNoteData.concatNoOverlap(addedNotes, ChartEditorState.STACK_NOTE_THRESHOLD, true);
     state.currentSongChartEventData = state.currentSongChartEventData.concat(addedEvents);
     state.currentNoteSelection = addedNotes.copy();
     state.currentEventSelection = addedEvents.copy();
-
     state.saveDataDirty = true;
     state.noteDisplayDirty = true;
     state.notePreviewDirty = true;
 
     state.sortChartData();
 
-    state.success('Paste Successful', 'Successfully pasted clipboard contents.');
+    if (curAddedNotesLen != addedNotes.length) state.warning('Failed to Paste Notes',
+      'Some notes couldn\'t be pasted because they would be overlapping others.');
+    else
+      state.success('Successfully Pasted', 'Successfully pasted clipboard contents.');
   }
 
   public function undo(state:ChartEditorState):Void
