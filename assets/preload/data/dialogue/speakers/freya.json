@@ -1,18 +1,12 @@
 {
   "version": "1.0.0",
   "name": "Freya",
-  "assetPath": "dialogue/milkyPortrait",
+  "assetPath": "dialogue/freyaPortrait",
   "flipX": false,
   "isPixel": false,
   "scale": 1,
   "offsets": [0, 0],
   "animations": [
-    {
-      "name": "talkEnter",
-      "prefix": "portNormal",
-      "offsets": [0, 0],
-      "frameRate": 12
-    },
     {
       "name": "talk",
       "prefix": "portNormal",

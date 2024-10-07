@@ -32,7 +32,8 @@ import openfl.net.NetStream;
  */
 class Main extends Sprite
 {
-  var instance:Main;
+  public static var instance:Main;
+
   var game:FunkinGame;
 
   var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
@@ -63,8 +64,6 @@ class Main extends Sprite
     Sys.setCwd(haxe.io.Path.addTrailingSlash(lime.system.System.documentsDirectory)); // For iOS we use documents directory and this is only way we can do.
     #end
 
-    var instance = this;
-
     // We need to make the crash handler LITERALLY FIRST so nothing EVER gets past it.
     CrashHandler.initialize();
     CrashHandler.queryStatus();
@@ -75,6 +74,8 @@ class Main extends Sprite
   public function new()
   {
     super();
+
+    instance = this;
 
     #if windows
     @:functionCode("

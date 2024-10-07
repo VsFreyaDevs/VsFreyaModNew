@@ -1,21 +1,63 @@
 {
   "version": "1.0.0",
   "name": "Killer Animate",
-  "assetPath": "dialogue/milkyPortrait",
+  "assetPath": "dialogue/kanimPortrait",
   "flipX": false,
   "isPixel": false,
   "scale": 1,
   "offsets": [0, 0],
   "animations": [
     {
-      "name": "talkEnter",
+      "name": "talk",
       "prefix": "portNormal",
       "offsets": [0, 0],
       "frameRate": 12
     },
     {
-      "name": "talk",
-      "prefix": "portNormal",
+      "name": "bruh",
+      "prefix": "portBruh",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "shocked",
+      "prefix": "portShocked",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "shocked-alt",
+      "prefix": "portShockAlt",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "pissed",
+      "prefix": "portPissed",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "scream",
+      "prefix": "portScream",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "shaking",
+      "prefix": "portShaky",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "kkkkk",
+      "prefix": "portBroReally",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "cringe",
+      "prefix": "portCringe",
       "offsets": [0, 0],
       "frameRate": 12
     }

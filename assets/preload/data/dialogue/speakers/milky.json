@@ -8,14 +8,70 @@
   "offsets": [0, 0],
   "animations": [
     {
-      "name": "talkEnter",
-      "prefix": "portNormal",
+      "name": "talk",
+      "prefix": "portSmile",
+      "offsets": [0, 0],
+      "frameRate": 12,
+      "flipX": false
+    },
+    {
+      "name": "talkFlip",
+      "prefix": "portSmile",
+      "offsets": [0, 0],
+      "frameRate": 12,
+      "flipX": true
+    },
+    {
+      "name": "angy",
+      "prefix": "portAngy",
       "offsets": [0, 0],
       "frameRate": 12
     },
     {
-      "name": "talk",
-      "prefix": "portNormal",
+      "name": "bruh",
+      "prefix": "portBruh",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "smug",
+      "prefix": "portSmug",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "confused",
+      "prefix": "portConfused",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "shocked",
+      "prefix": "portShocked",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "scared",
+      "prefix": "portScared",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "realize",
+      "prefix": "portUhhh",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "sleepy",
+      "prefix": "portSleepy",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "cheer",
+      "prefix": "portExcited",
       "offsets": [0, 0],
       "frameRate": 12
     }

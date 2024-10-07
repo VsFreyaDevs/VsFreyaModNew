@@ -22,6 +22,7 @@ import funkin.audio.FunkinSound;
 import funkin.data.freeplay.player.PlayerRegistry;
 import funkin.data.song.SongRegistry;
 import funkin.data.story.level.LevelRegistry;
+import funkin.data.song.SongData.SongTimeChange;
 import funkin.effects.IntervalShake;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.graphics.FunkinCamera;
@@ -1409,6 +1410,8 @@ class FreeplayState extends MusicBeatSubState
   {
     super.update(elapsed);
 
+    Conductor.instance.update();
+
     if (charSelectHint != null)
     {
       hintTimer += elapsed * 2;
@@ -1657,8 +1660,8 @@ class FreeplayState extends MusicBeatSubState
 
   override function beatHit():Bool
   {
+    dj?.beatHit();
     backingCard?.beatHit();
-    if (dj != null) dj.bop();
 
     return super.beatHit();
   }
@@ -2126,6 +2129,9 @@ class FreeplayState extends MusicBeatSubState
           restartTrack: false
         });
       FlxG.sound.music.fadeIn(2, 0, volume);
+
+      Conductor.instance.mapTimeChanges([new SongTimeChange(0, 145)]);
+      Conductor.instance.update();
     }
     else
     {
@@ -2179,7 +2185,7 @@ class FreeplayState extends MusicBeatSubState
       if (songDifficulty != null)
       {
         Conductor.instance.mapTimeChanges(songDifficulty.timeChanges);
-        Conductor.instance.update(FlxG.sound?.music?.time ?? 0.0);
+        Conductor.instance.update();
       }
     }
   }

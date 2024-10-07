@@ -303,9 +303,9 @@ class CharacterDataParser
         "dadpixel";
       case "freya-angy":
         "freyapixel";
-      case "milky-angy" | "milky-pissed":
+      case "milky-angy" | "milky-pissed" | "milky-playable":
         "milkypixel";
-      case "kanimate-worried" | "kanimate-pissed" | "animate-cc":
+      case "kanimate-worried" | "kanimate-pissed" | "animate-cc" | "animate-cc":
         "kanimatepixel";
       case "shadow-milky":
         "smilkypixel";

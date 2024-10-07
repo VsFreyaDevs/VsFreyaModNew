@@ -72,9 +72,6 @@ class FreeplayDJ extends FlxAtlasSprite
     return anims;
   }
 
-  public function bop()
-    if (currentState == Idle) playFlashAnimation(playableCharData.getAnimationPrefix('idle'), true, false, true);
-
   var lowPumpLoopPoint:Int = 4;
 
   public override function update(elapsed:Float):Void
@@ -91,10 +88,7 @@ class FreeplayDJ extends FlxAtlasSprite
       case Idle:
         // We are in this state the majority of the time.
         var animPrefix = playableCharData.getAnimationPrefix('idle');
-        if (getCurrentAnimation() != animPrefix)
-        {
-          playFlashAnimation(animPrefix, true, false, false);
-        }
+        if (getCurrentAnimation() != animPrefix) playFlashAnimation(animPrefix, true);
 
         if (getCurrentAnimation() == animPrefix && this.isLoopComplete())
         {
@@ -279,6 +273,23 @@ class FreeplayDJ extends FlxAtlasSprite
     {
       // trace('Finished ${name}');
     }
+  }
+
+  var beatFreq:Int = 1;
+  var beatFreqList:Array<Int> = [1, 2, 4, 8];
+
+  /**
+   * Called on each beat in this state.
+   */
+  public function beatHit():Void
+  {
+    if (currentState != Idle) return;
+
+    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
+    if (Conductor.instance.currentBeat % beatFreq != 0) return;
+
+    var animPrefix = playableCharData.getAnimationPrefix('idle');
+    playFlashAnimation(animPrefix, true);
   }
 
   public function resetAFKTimer():Void

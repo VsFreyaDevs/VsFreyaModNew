@@ -8,14 +8,26 @@
   "offsets": [0, 0],
   "animations": [
     {
-      "name": "talkEnter",
-      "prefix": "portBf",
+      "name": "talk",
+      "prefix": "portNormal",
       "offsets": [0, 0],
       "frameRate": 12
     },
     {
-      "name": "talk",
-      "prefix": "portBf",
+      "name": "dumb",
+      "prefix": "portDumb",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "laugh",
+      "prefix": "portLaugh",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "scared",
+      "prefix": "portScared",
       "offsets": [0, 0],
       "frameRate": 12
     }

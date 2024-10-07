@@ -21,7 +21,7 @@
   "dialogue": [
     {
       "speaker": "nothing",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "enter",
 
@@ -29,7 +29,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -39,7 +39,7 @@
     },
     {
       "speaker": "milky",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -47,7 +47,7 @@
     },
     {
       "speaker": "kanimate",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -55,7 +55,7 @@
     },
     {
       "speaker": "kanimate",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -63,15 +63,15 @@
     },
     {
       "speaker": "milky",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talkFlip",
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Eh, cya later."]
+      "text": ["Aight, cya later."]
     },
     {
       "speaker": "nothing",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -79,7 +79,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -87,7 +87,7 @@
     },
     {
       "speaker": "milky",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "bruh",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -95,7 +95,7 @@
     },
     {
       "speaker": "nothing",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -103,7 +103,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "scared",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -111,15 +111,15 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["wait a minute.... your freyafennec foxes right ?"]
     },
     {
-      "speaker": "milky-angy",
-      "speakerAnimation": "talkEnter",
+      "speaker": "milky",
+      "speakerAnimation": "bruh",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -127,7 +127,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -135,7 +135,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "laugh",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -143,7 +143,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -151,8 +151,8 @@
       "speed": 0.5
     },
     {
-      "speaker": "milky-angy",
-      "speakerAnimation": "talkEnter",
+      "speaker": "milky",
+      "speakerAnimation": "angy",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -162,15 +162,15 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["so has any one seen that blocky looking ass kit-"]
     },
     {
-      "speaker": "milky-angy",
-      "speakerAnimation": "talkEnter",
+      "speaker": "milky",
+      "speakerAnimation": "bruh",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -178,7 +178,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "dumb",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -186,7 +186,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "dumb",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -194,7 +194,7 @@
     },
     {
       "speaker": "kanimate",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -202,7 +202,7 @@
     },
     {
       "speaker": "kanimate",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "shocked",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -210,7 +210,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -218,7 +218,7 @@
     },
     {
       "speaker": "kanimate",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "bruh",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -226,7 +226,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -234,7 +234,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -242,7 +242,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -250,7 +250,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -258,7 +258,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -269,7 +269,7 @@
     },
     {
       "speaker": "milky",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "scared",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -280,7 +280,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -290,7 +290,7 @@
     },
     {
       "speaker": "freya",
-      "speakerAnimation": "talkEnter",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 

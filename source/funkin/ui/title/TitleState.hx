@@ -254,9 +254,7 @@ class TitleState extends MusicBeatState
     var swagGoodArray:Array<Array<String>> = [];
 
     for (i in firstArray)
-    {
       swagGoodArray.push(i.split('--'));
-    }
 
     return swagGoodArray;
   }
@@ -484,17 +482,29 @@ class TitleState extends MusicBeatState
               addMoreText(curWacky[1]);
             case 12:
               deleteCoolText();
+            // easter egg for when the game is trending with the wrong spelling
+            // the random intro text would be "trending--only on x"
             case 13:
-              addMoreText('Friday');
-            case 14:
-              // easter egg for when the game is trending with the wrong spelling
-              // the random intro text would be "trending--only on x"
-
-              if (curWacky[0] == "trending") addMoreText('Nigth');
+              if (curWacky[0] == "why did we") addMoreText('I');
+              else if (curWacky[0] == "chud") addMoreText('chud');
+              else if (curWacky[0] == "peter what are you doing") addMoreText('WHAT');
+              else if (curWacky[0] == "trending") addMoreText('Friday');
               else
-                addMoreText('Night');
+                addMoreText('Freya');
+            case 14:
+              if (curWacky[0] == "why did we") addMoreText('dont');
+              else if (curWacky[0] == "chud") addMoreText('chud');
+              else if (curWacky[0] == "peter what are you doing") addMoreText('THE');
+              else if (curWacky[0] == "trending") addMoreText('Nigth');
+              else
+                addMoreText('Fennec');
             case 15:
-              addMoreText('Funkin');
+              if (curWacky[0] == "why did we") addMoreText('know');
+              else if (curWacky[0] == "chud") addMoreText('chud');
+              else if (curWacky[0] == "peter what are you doing") addMoreText('FUCK');
+              else if (curWacky[0] == "trending") addMoreText('Funkin');
+              else
+                addMoreText('Funkers');
             case 16:
               skipIntro();
           }
