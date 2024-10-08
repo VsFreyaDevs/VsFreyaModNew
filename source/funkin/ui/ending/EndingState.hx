@@ -6,6 +6,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxTimer;
 import funkin.audio.FunkinSound;
 import funkin.ui.MusicBeatState;
+import funkin.ui.story.StoryMenuState;
 
 /**
  * I DO NOT LOOK LIKE A BBPANZU
