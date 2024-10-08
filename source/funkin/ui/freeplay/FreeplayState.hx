@@ -751,8 +751,7 @@ class FreeplayState extends MusicBeatSubState
     FlxTween.tween(backButton, {x: 824}, FlxG.random.float(0.5, 0.95), {ease: FlxEase.backOut});
     #end
 
-    if (prepForNewRank)
-      rankCamera.fade(0xFF000000, 0, false, null, true);
+    if (prepForNewRank) rankCamera.fade(0xFF000000, 0, false, null, true);
 
     if (fromCharSelect == true)
     {
@@ -836,8 +835,7 @@ class FreeplayState extends MusicBeatSubState
     randomCapsule.favIconBlurred.visible = false;
     randomCapsule.ranking.visible = false;
     randomCapsule.blurredRanking.visible = false;
-    if (fromCharSelect == false)
-      randomCapsule.initJumpIn(0, force);
+    if (fromCharSelect == false) randomCapsule.initJumpIn(0, force);
     else
       randomCapsule.forcePosition();
     randomCapsule.hsvShader = hsvShader;
@@ -1126,86 +1124,86 @@ class FreeplayState extends MusicBeatSubState
       if (fromResultsParams?.newRank == SHIT)
       {
         if (dj != null) dj.fistPumpLoss();
-
-      else
-      {
-        if (dj != null) dj.fistPump();
-      }
-
-      rankCamera.zoom = 0.8;
-      funnyCam.zoom = 0.8;
-      FlxTween.tween(rankCamera, {"zoom": 1}, 1, {ease: FlxEase.elasticOut});
-      FlxTween.tween(funnyCam, {"zoom": 1}, 0.8, {ease: FlxEase.elasticOut});
-
-      for (index => capsule in grpCapsules.members)
-      {
-        var distFromSelected:Float = Math.abs(index - curSelected) - 1;
-
-        if (distFromSelected < 5)
+        else
         {
-          if (index == curSelected)
-          {
-            FlxTween.cancelTweensOf(capsule);
-            // capsule.targetPos.x += 50;
-            capsule.fadeAnim();
-
-            rankVignette.color = capsule.getTrailColor();
-            rankVignette.alpha = 1;
-            FlxTween.tween(rankVignette, {alpha: 0}, 0.6, {ease: FlxEase.expoOut});
-
-            capsule.doLerp = false;
-            capsule.setPosition(originalPos.x, originalPos.y);
-            IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12, 0, FlxEase.quadOut, function(_) {
-              capsule.doLerp = true;
-              capsule.cameras = [funnyCam];
-
-              // NOW we can interact with the menu
-              busy = false;
-              capsule.sparkle.alpha = 0.7;
-              playCurSongPreview(capsule);
-            }, null);
-
-            // FlxTween.tween(capsule, {"targetPos.x": capsule.targetPos.x - 50}, 0.6,
-            //   {
-            //     ease: FlxEase.backInOut,
-            //     onComplete: function(_) {
-            //       capsule.cameras = [funnyCam];
-            //     }
-            //   });
-            FlxTween.tween(capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
-          }
-          if (index > curSelected)
-          {
-            // capsule.color = FlxColor.RED;
-            new FlxTimer().start(distFromSelected / 20, _ -> {
-              capsule.doLerp = false;
-
-              capsule.capsule.angle = FlxG.random.float(-10 + (distFromSelected * 2), 10 - (distFromSelected * 2));
-              FlxTween.tween(capsule.capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
-
-              IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12 / (distFromSelected + 1), 0, FlxEase.quadOut, function(_) {
-                capsule.doLerp = true;
-              });
-            });
-          }
-
-          if (index < curSelected)
-          {
-            // capsule.color = FlxColor.BLUE;
-            new FlxTimer().start(distFromSelected / 20, _ -> {
-              capsule.doLerp = false;
-
-              capsule.capsule.angle = FlxG.random.float(-10 + (distFromSelected * 2), 10 - (distFromSelected * 2));
-              FlxTween.tween(capsule.capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
-
-              IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12 / (distFromSelected + 1), 0, FlxEase.quadOut, function(_) {
-                capsule.doLerp = true;
-              });
-            });
-          }
+          if (dj != null) dj.fistPump();
         }
 
-        index += 1;
+        rankCamera.zoom = 0.8;
+        funnyCam.zoom = 0.8;
+        FlxTween.tween(rankCamera, {"zoom": 1}, 1, {ease: FlxEase.elasticOut});
+        FlxTween.tween(funnyCam, {"zoom": 1}, 0.8, {ease: FlxEase.elasticOut});
+
+        for (index => capsule in grpCapsules.members)
+        {
+          var distFromSelected:Float = Math.abs(index - curSelected) - 1;
+
+          if (distFromSelected < 5)
+          {
+            if (index == curSelected)
+            {
+              FlxTween.cancelTweensOf(capsule);
+              // capsule.targetPos.x += 50;
+              capsule.fadeAnim();
+
+              rankVignette.color = capsule.getTrailColor();
+              rankVignette.alpha = 1;
+              FlxTween.tween(rankVignette, {alpha: 0}, 0.6, {ease: FlxEase.expoOut});
+
+              capsule.doLerp = false;
+              capsule.setPosition(originalPos.x, originalPos.y);
+              IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12, 0, FlxEase.quadOut, function(_) {
+                capsule.doLerp = true;
+                capsule.cameras = [funnyCam];
+
+                // NOW we can interact with the menu
+                busy = false;
+                capsule.sparkle.alpha = 0.7;
+                playCurSongPreview(capsule);
+              }, null);
+
+              // FlxTween.tween(capsule, {"targetPos.x": capsule.targetPos.x - 50}, 0.6,
+              //   {
+              //     ease: FlxEase.backInOut,
+              //     onComplete: function(_) {
+              //       capsule.cameras = [funnyCam];
+              //     }
+              //   });
+              FlxTween.tween(capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
+            }
+            if (index > curSelected)
+            {
+              // capsule.color = FlxColor.RED;
+              new FlxTimer().start(distFromSelected / 20, _ -> {
+                capsule.doLerp = false;
+
+                capsule.capsule.angle = FlxG.random.float(-10 + (distFromSelected * 2), 10 - (distFromSelected * 2));
+                FlxTween.tween(capsule.capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
+
+                IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12 / (distFromSelected + 1), 0, FlxEase.quadOut, function(_) {
+                  capsule.doLerp = true;
+                });
+              });
+            }
+
+            if (index < curSelected)
+            {
+              // capsule.color = FlxColor.BLUE;
+              new FlxTimer().start(distFromSelected / 20, _ -> {
+                capsule.doLerp = false;
+
+                capsule.capsule.angle = FlxG.random.float(-10 + (distFromSelected * 2), 10 - (distFromSelected * 2));
+                FlxTween.tween(capsule.capsule, {angle: 0}, 0.5, {ease: FlxEase.backOut});
+
+                IntervalShake.shake(capsule, 0.6, 1 / 24, 0.12 / (distFromSelected + 1), 0, FlxEase.quadOut, function(_) {
+                  capsule.doLerp = true;
+                });
+              });
+            }
+          }
+
+          index += 1;
+        }
       }
     });
 
@@ -1221,8 +1219,7 @@ class FreeplayState extends MusicBeatSubState
     trace('Is Pico unlocked? ${PlayerRegistry.instance.fetchEntry('pico')?.isUnlocked()}');
     trace('Number of characters: ${PlayerRegistry.instance.countUnlockedCharacters()}');
 
-    if (PlayerRegistry.instance.countUnlockedCharacters() > 1)
-      trace('Opening character select!');
+    if (PlayerRegistry.instance.countUnlockedCharacters() > 1) trace('Opening character select!');
     else
     {
       trace('Not enough characters unlocked to open character select!');
@@ -1234,8 +1231,7 @@ class FreeplayState extends MusicBeatSubState
 
     FunkinSound.playOnce(Paths.sound('confirmMenu'));
 
-    if (dj != null)
-      dj.toCharSelect();
+    if (dj != null) dj.toCharSelect();
 
     // Get this character's transition delay, with a reasonable default.
     var transitionDelay:Float = currentCharacter.getFreeplayDJData()?.getCharSelectTransitionDelay() ?? 0.25;
