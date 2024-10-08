@@ -793,6 +793,11 @@ class ResultState extends MusicBeatSubState
             targetState = new funkin.ui.charSelect.CharacterUnlockState(charId, targetState);
           }
         }
+          // else if (false)
+          // {
+          // shouldTween = true;
+          // targetState = new funkin.ui.ending.EndingState("goodEnding", "uzil");
+        // }
         else
         {
           // No new characters.
@@ -805,7 +810,7 @@ class ResultState extends MusicBeatSubState
       {
         if (rank > Scoring.calculateRank(params?.prevScoreData))
         {
-          trace('THE RANK IS Higher.....');
+          // trace('THE RANK IS Higher.....');
 
           shouldTween = true;
           targetState = FreeplayState.build(
