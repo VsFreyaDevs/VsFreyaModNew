@@ -468,7 +468,12 @@ class DebugBoundingState extends FlxState
 
     if (swagChar == null || swagChar.frames == null) trace('ERROR: Failed to load character ${char}!');
 
-    generateOutlines(swagChar.frames.frames);
+    try
+    {
+      generateOutlines(swagChar.frames.frames);
+    }
+    catch (e:Any)
+      trace(e + "\nidk i just cant do le outlines, get in the spritesheet view, you know what u did");
     bf.pixels = swagChar.pixels;
 
     clearInfo();
