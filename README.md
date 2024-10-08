@@ -1,3 +1,8 @@
+# FreyaFennec_Funkers
+
+![](https://media.discordapp.net/attachments/1263192822282981422/1263595615678627860/Untitled705_20240718163734.png?ex=6706e99f&is=6705981f&hm=72c026ab5d6d26cfd4394a90829f44f1368c89122e9e9449f6b4ca92e3eb3373&=&quality=lossless)
+
+
 # Friday Night Funkin'
 
 Friday Night Funkin' is a rhythm game. Built using HaxeFlixel for Ludum Dare 47.
