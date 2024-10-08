@@ -3,7 +3,7 @@ import funkin.play.PlayState;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 
-// using -pico as placeholder btw lol
+// using -pico as placeholder for pause menu & game over confirmation sound btw lol
 class BfKitCharacter extends MultiSparrowCharacter {
 	function new() {
 		super('bf-kit');
@@ -14,8 +14,8 @@ class BfKitCharacter extends MultiSparrowCharacter {
 
 		// NOTE: this.x and this.y are not properly set here.
 
-		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-pico';
+		GameOverSubState.musicSuffix = '-kit';
+		// GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
 	}
@@ -28,8 +28,8 @@ class BfKitCharacter extends MultiSparrowCharacter {
 		super.onSongRetry(event);
 
 		// Reset to standard death animation.
-		GameOverSubState.musicSuffix = '-pico';
-		GameOverSubState.blueBallSuffix = '-pico';
+		GameOverSubState.musicSuffix = '-kit';
+		// GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
 
