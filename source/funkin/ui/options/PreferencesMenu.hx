@@ -72,7 +72,7 @@ class PreferencesMenu extends Page
       boyFriend.animation.addByPrefix('onLoop', 'yayy loop', 24, true);
       boyFriend.animation.play('off', true);
       boyFriend.screenCenter();
-      boyFriend.x += 750;
+      boyFriend.x += 500;
       boyFriend.cameras = [camWhat];
       boyFriend.antialiasing = Preferences.antialiasing;
     }
