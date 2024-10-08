@@ -21,6 +21,7 @@ import funkin.ui.MusicBeatSubState;
 import lime.utils.Assets;
 import openfl.display.BlendMode;
 import flixel.group.FlxSpriteGroup;
+import funkin.data.freeplay.player.PlayerRegistry;
 
 class BoyfriendCard extends BackingCard
 {
@@ -89,19 +90,20 @@ class BoyfriendCard extends BackingCard
     FlxTween.tween(funnyScroll3, {speed: 0}, 0.8, {ease: FlxEase.sineIn});
   }
 
-  public override function new(currentCharacter:PlayableCharacter)
+  public override function new(currentCharacter:String)
   {
     super(currentCharacter);
 
-    funnyScroll = new BGScrollingText(0, 220, currentCharacter.getFreeplayDJText(1), FlxG.width / 2, false, 60);
-    funnyScroll2 = new BGScrollingText(0, 335, currentCharacter.getFreeplayDJText(1), FlxG.width / 2, false, 60);
-    moreWays = new BGScrollingText(0, 160, currentCharacter.getFreeplayDJText(2), FlxG.width, true, 43);
-    moreWays2 = new BGScrollingText(0, 397, currentCharacter.getFreeplayDJText(2), FlxG.width, true, 43);
-    txtNuts = new BGScrollingText(0, 285, currentCharacter.getFreeplayDJText(3), FlxG.width / 2, true, 43);
-    funnyScroll3 = new BGScrollingText(0, orangeBackShit.y + 10, currentCharacter.getFreeplayDJText(1), FlxG.width / 2, 60);
+    var player = PlayerRegistry.instance.fetchEntry(currentCharacter);
+    funnyScroll = new BGScrollingText(0, 220, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
+    funnyScroll2 = new BGScrollingText(0, 335, player.getFreeplayDJText(1), FlxG.width / 2, false, 60);
+    moreWays = new BGScrollingText(0, 160, player.getFreeplayDJText(2), FlxG.width, true, 43);
+    moreWays2 = new BGScrollingText(0, 397, player.getFreeplayDJText(2), FlxG.width, true, 43);
+    txtNuts = new BGScrollingText(0, 285, player.getFreeplayDJText(3), FlxG.width / 2, true, 43);
+    funnyScroll3 = new BGScrollingText(0, orangeBackShit.y + 10, player.getFreeplayDJText(1), FlxG.width / 2, 60);
   }
 
-  public override function init():Void
+  public override function initCard():Void
   {
     FlxTween.tween(pinkBack, {x: 0}, 0.6, {ease: FlxEase.quartOut});
     add(pinkBack);
@@ -177,20 +179,21 @@ class BoyfriendCard extends BackingCard
   }
 
   var beatFreq:Int = 1;
-  var beatFreqList:Array<Int> = [1,2,4,8];
+  var beatFreqList:Array<Int> = [1, 2, 4, 8];
 
-  public override function beatHit():Void {
+  public override function beatHit():Void
+  {
     // increases the amount of beats that need to go by to pulse the glow because itd flash like craazy at high bpms.....
-    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm/140)];
+    beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];
 
-    if(Conductor.instance.currentBeat % beatFreq != 0) return;
+    if (Conductor.instance.currentBeat % beatFreq != 0) return;
     FlxTween.cancelTweensOf(glow);
     FlxTween.cancelTweensOf(glowDark);
 
     glow.alpha = 0.8;
-    FlxTween.tween(glow, {alpha: 0}, 16/24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glow, {alpha: 0}, 16 / 24, {ease: FlxEase.quartOut});
     glowDark.alpha = 0;
-    FlxTween.tween(glowDark, {alpha: 0.6}, 18/24, {ease: FlxEase.quartOut});
+    FlxTween.tween(glowDark, {alpha: 0.6}, 18 / 24, {ease: FlxEase.quartOut});
   }
 
   public override function introDone():Void

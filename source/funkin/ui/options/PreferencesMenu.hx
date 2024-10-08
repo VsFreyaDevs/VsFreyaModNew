@@ -84,14 +84,14 @@ class PreferencesMenu extends Page
 
     try
     {
-      boyFriend = new FlxSprite();
+      boyFriend = new FlxSprite(0, 0);
       boyFriend.frames = Paths.getSparrowAtlas('cheerFriend');
       boyFriend.animation.addByIndices('off', 'yayy0', [0, 1], '', 24, true);
       boyFriend.animation.addByPrefix('on', 'yayy0', 24, false);
       boyFriend.animation.addByPrefix('onLoop', 'yayy loop', 24, true);
       boyFriend.animation.play('off', true);
       boyFriend.screenCenter();
-      boyFriend.x = 300;
+      boyFriend.x += 750;
       boyFriend.cameras = [camWhat];
       boyFriend.antialiasing = Preferences.antialiasing;
     }
@@ -106,7 +106,7 @@ class PreferencesMenu extends Page
       add(boyFriend);
     }
     catch (e:Any)
-      trace("BOYFRIEND GOT KILLED IN A SPREE, SORRY!!!!");
+      trace("I WILL REVIVE HIM BACK DW ABOUT IT!!!!!");
 
     createPrefItems();
 

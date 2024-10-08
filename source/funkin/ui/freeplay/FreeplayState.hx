@@ -293,13 +293,14 @@ class FreeplayState extends MusicBeatSubState
     switch (currentCharacterId)
     {
       case(PlayerRegistry.instance.hasNewCharacter()) => true:
-        backingCard = new NewCharacterCard(currentCharacter);
+        backingCard = new NewCharacterCard(currentCharacterId);
       case 'bf':
-        backingCard = new BoyfriendCard(currentCharacter);
+        backingCard = new BoyfriendCard(currentCharacterId);
       case 'pico':
-        backingCard = new PicoCard(currentCharacter);
+        backingCard = new PicoCard(currentCharacterId);
       default:
-        backingCard = new BackingCard(currentCharacter);
+        backingCard = PlayerRegistry.instance.getBackingCard(currentCharacterId);
+        // backingCard = new BackingCard(currentCharacter);
     }
 
     // We build a bunch of sprites BEFORE create() so we can guarantee they aren't null later on.
@@ -320,7 +321,8 @@ class FreeplayState extends MusicBeatSubState
     ostName = new FlxText(8, 8, FlxG.width - 8 - 8, 'OFFICIAL OST', 48);
     charSelectHint = new FlxText(-40, 18, FlxG.width - 8 - 8, 'Press [ LOL ] to change characters', 32);
 
-    bgDad = new FlxSprite(backingCard.pinkBack.width * 0.74, 0).loadGraphic(styleData == null ? 'freeplay/freeplayBGdad' : styleData.getBgAssetGraphic());
+    bgDad = new FlxSprite(backingCard == null ? 0 : backingCard.pinkBack.width * 0.74,
+      0).loadGraphic(styleData == null ? 'freeplay/freeplayBGdad' : styleData.getBgAssetGraphic());
   }
 
   var fadeShader:BlueFade = new BlueFade();
@@ -403,7 +405,7 @@ class FreeplayState extends MusicBeatSubState
     if (backingCard != null)
     {
       add(backingCard);
-      backingCard.init();
+      backingCard.initCard();
       backingCard.applyExitMovers(exitMovers, exitMoversCharSel);
       backingCard.instance = this;
     }
