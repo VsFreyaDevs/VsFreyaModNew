@@ -9,6 +9,8 @@ import funkin.audio.FunkinSound;
 import funkin.ui.credits.FreyaCreditsState;
 import funkin.ui.mainmenu.MainMenuState;
 import funkin.data.JsonFile;
+import funkin.mobile.util.SwipeUtil;
+import funkin.mobile.util.TouchUtil;
 
 /**
  * A state for handling which credits menu you wanna go to.

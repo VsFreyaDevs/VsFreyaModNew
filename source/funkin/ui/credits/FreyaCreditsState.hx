@@ -10,6 +10,8 @@ import funkin.ui.credits.MainCreditsState;
 import funkin.graphics.FunkinSprite;
 import funkin.audio.FunkinSound;
 import funkin.data.JsonFile;
+import funkin.mobile.util.SwipeUtil;
+import funkin.mobile.util.TouchUtil;
 
 /**
  * The `credits.json` file, used to store the credits data.
