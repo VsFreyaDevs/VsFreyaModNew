@@ -3,6 +3,7 @@
   "name": "Animate CC",
   "assetPath": "characters/Animate_CC_NEWER",
   "singTime": 8.0,
+  "flipX": false,
   "healthIcon": {
     "id": "kanimate",
     "flipX": false
