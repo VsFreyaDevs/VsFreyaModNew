@@ -36,7 +36,7 @@ class SongRegistry extends BaseRegistry<Song, SongMetadata>
 
   static function get_DEFAULT_GENERATEDBY():String
   {
-    return '${Constants.TITLE} - ${Constants.VERSION}';
+    return '${Constants.TITLE} ALPHA - FNF ${Constants.VERSION}';
   }
 
   /**

@@ -97,7 +97,7 @@ class DiscordClient
     // presence.endTimestamp = time + 30;
     final button1:DiscordButton = DiscordButton.create();
     button1.label = "Join Freya's Server";
-    button1.url = "https://discord.gg/qXpD55skD5";
+    button1.url = Constants.URL_DISCORD;
     presence.buttons[0] = button1;
     final button2:DiscordButton = DiscordButton.create();
     button2.label = "Download FNF";

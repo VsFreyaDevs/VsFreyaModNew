@@ -256,6 +256,11 @@ class MainMenuState extends MusicBeatState
   {
     WindowUtil.openURL(Constants.URL_MERCH);
   }
+
+  function selectDiscord()
+  {
+    WindowUtil.openURL(Constants.URL_DISCORD);
+  }
   #end
 
   #if newgrounds

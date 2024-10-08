@@ -20,7 +20,7 @@ class Constants
    * The title of the game, for debug printing purposes.
    * Change this if you're making an engine.
    */
-  public static final TITLE:String = "Friday Night Funkin': Vs. Freya Crew";
+  public static final TITLE:String = "FreyaFennec_Funkers";
 
   /**
    * The current version number of the game.
@@ -35,14 +35,14 @@ class Constants
 
   static function get_GENERATED_BY():String
   {
-    return '${Constants.TITLE} - ${Constants.VERSION}';
+    return '${Constants.TITLE} ALPHA - FNF ${Constants.VERSION}';
   }
 
   /**
    * A suffix to add to the game version.
    * Add a suffix to prototype builds and remove it for releases.
    */
-  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #else '' #end;
+  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #else ' FREYA' #end;
 
   #if FEATURE_DEBUG_FUNCTIONS
   static function get_VERSION():String
@@ -75,6 +75,11 @@ class Constants
     "https://www.newgrounds.com/portal/view/770371", // Newgrounds, baybee!
     FlxBasePreloader.LOCAL // localhost for dev stuff
   ];
+
+  /**
+   * Link to the official Discord server.
+   */
+  public static final URL_DISCORD:String = 'https://discord.gg/qXpD55skD5';
 
   /**
    * Link to download the game on Itch.io.
