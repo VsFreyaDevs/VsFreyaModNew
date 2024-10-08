@@ -34,13 +34,9 @@ class LevelTitle extends FlxSpriteGroup
     if (length == 0) return 0;
 
     if (lock.visible)
-    {
       return title.width + lock.width + LOCK_PAD;
-    }
     else
-    {
       return title.width;
-    }
   }
 
   public var isFlashing:Bool = false;
@@ -49,7 +45,7 @@ class LevelTitle extends FlxSpriteGroup
 
   public override function update(elapsed:Float):Void
   {
-    this.y = MathUtil.coolLerp(y, targetY, 0.17);
+    this.y = MathUtil.smoothLerpPrecision(y, targetY, elapsed, 0.5);
 
     if (isFlashing)
     {

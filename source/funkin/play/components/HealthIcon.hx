@@ -220,7 +220,7 @@ class HealthIcon extends FunkinSprite
       lerpIconSize();
 
       // Lerp the health icon back to its normal angle.
-      this.angle = MathUtil.coolLerp(this.angle, 0, 0.15);
+      this.angle = MathUtil.smoothLerpPrecision(this.angle, 0, elapsed, 0.54);
     }
 
     this.updatePosition();
@@ -270,10 +270,10 @@ class HealthIcon extends FunkinSprite
   {
     // Lerp the health icon back to its normal size,
     // while maintaining aspect ratio.
-    if (this.width > this.height)
+     if (this.width > this.height)
     {
       // Apply linear interpolation while accounting for frame rate.
-      var targetSize:Int = Std.int(MathUtil.coolLerp(this.width, HEALTH_ICON_SIZE * this.size.x, 0.15));
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.width, HEALTH_ICON_SIZE * this.size.x, FlxG.elapsed, 0.54));
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.x);
 
@@ -281,7 +281,7 @@ class HealthIcon extends FunkinSprite
     }
     else
     {
-      var targetSize:Int = Std.int(MathUtil.coolLerp(this.height, HEALTH_ICON_SIZE * this.size.y, 0.15));
+      var targetSize:Int = Std.int(MathUtil.smoothLerpPrecision(this.height, HEALTH_ICON_SIZE * this.size.y, FlxG.elapsed, 0.54));
 
       if (force) targetSize = Std.int(HEALTH_ICON_SIZE * this.size.y);
 
