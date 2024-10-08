@@ -1,38 +1,47 @@
 {
-  "version": "2.2.3",
+  "version": "2.2.4",
   "songName": "Freyin",
   "artist": "TheAnimateMan",
-  "charter": " CharlesCatYT",
+  "charter": "charlesisfeline",
   "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
     "altInstrumentals": {    },
-    "vocals": {    }
+    "vocals": {    },
+    "altVocals": {    }
   },
   "playData": {
     "songVariations": [    ],
     "difficulties": [
-      "normal"
+      "normal",
+      "hard",
+      "easy"
     ],
     "characters": {
       "player": "bf-kit",
       "girlfriend": "gf",
       "opponent": "freya",
       "instrumental": "",
-      "altInstrumentals": [      ]
+      "altInstrumentals": [      ],
+      "opponentVocals": [
+        "freya"
+      ],
+      "playerVocals": [
+        "bf-kit"
+      ]
     },
     "stage": "mainStage",
-    "noteStyle": "funkin",
+    "noteStyle": "kit",
     "ratings": {
-      "easy": 0,
-      "hard": 0,
-      "normal": 2
+      "easy": 2,
+      "hard": 5,
+      "normal": 4
     },
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "Friday Night Funkin': Vs. Freya Crew - v0.4.0",
+  "generatedBy": "Friday Night Funkin': Vs. Freya Crew - v0.5.1",
   "timeFormat": "ms",
   "timeChanges": [
     {
