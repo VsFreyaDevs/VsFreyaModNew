@@ -90,7 +90,7 @@ class Save
       options:
         {
           // Reasonable defaults.
-          framerate: 60,
+          framerate: 300,
           noteSplash: true,
           naughtyness: true,
           downscroll: false,
@@ -1286,7 +1286,7 @@ typedef SaveDataOptions =
 
   /**
    * The cap of your framerate, self-explanatory stuff.
-   * @default `60`
+   * @default `300`
    */
   var framerate:Int;
 
