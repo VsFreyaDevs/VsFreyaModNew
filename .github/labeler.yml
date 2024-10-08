@@ -5,7 +5,7 @@ Documentation:
       - docs/*
       - '**/*.md'
 
-# Adds Haxe tag to PR's changing haxe code files
+# Add Haxe tag to PR's changing haxe code files
 Haxe:
 - changed-files:
   - any-glob-to-any-file: '**/*.hx'
