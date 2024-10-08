@@ -78,10 +78,7 @@ class AlbumRoll extends FlxSpriteGroup
   function onAlbumFinish(animName:String):Void
   {
     // Play the idle animation for the current album.
-    if (animName != "idle")
-    {
-      newAlbumArt.playAnimation('idle', true);
-    }
+    if (animName != "idle") newAlbumArt.playAnimation('idle', true);
   }
 
   /**
@@ -96,9 +93,7 @@ class AlbumRoll extends FlxSpriteGroup
       return;
     }
     else
-    {
       this.visible = true;
-    }
 
     albumData = AlbumRegistry.instance.fetchEntry(albumId);
 
@@ -113,7 +108,7 @@ class AlbumRoll extends FlxSpriteGroup
     var albumGraphic = Paths.image(albumData.getAlbumArtAssetKey());
     newAlbumArt.replaceFrameGraphic(0, albumGraphic);
 
-    buildAlbumTitle(albumData.getAlbumTitleAssetKey());
+    buildAlbumTitle(albumData.getAlbumTitleAssetKey(), albumData.getAlbumTitleOffsets());
 
     applyExitMovers();
 
@@ -131,25 +126,15 @@ class AlbumRoll extends FlxSpriteGroup
    */
   public function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
-    if (exitMovers == null)
-    {
-      exitMovers = _exitMovers;
-    }
+    if (exitMovers == null) exitMovers = _exitMovers;
     else
-    {
       _exitMovers = exitMovers;
-    }
 
     if (exitMovers == null) return;
 
-    if (exitMoversCharSel == null)
-    {
-      exitMoversCharSel = _exitMoversCharSel;
-    }
+    if (exitMoversCharSel == null) exitMoversCharSel = _exitMoversCharSel;
     else
-    {
       _exitMoversCharSel = exitMoversCharSel;
-    }
 
     if (exitMoversCharSel == null) return;
 
@@ -180,7 +165,7 @@ class AlbumRoll extends FlxSpriteGroup
     newAlbumArt.playAnimation('intro', true);
 
     difficultyStars.visible = false;
-    new FlxTimer().start(0.75, function(_) {
+    new FlxTimer().start(0.75, (_) -> {
       showTitle();
       showStars();
       albumTitle.animation.play('switch');
@@ -195,11 +180,9 @@ class AlbumRoll extends FlxSpriteGroup
   }
 
   public function showTitle():Void
-  {
     albumTitle.visible = true;
-  }
 
-  public function buildAlbumTitle(assetKey:String):Void
+  public function buildAlbumTitle(assetKey:String, ?titleOffsets:Array<Float>):Void
   {
     if (albumTitle != null)
     {
@@ -207,18 +190,23 @@ class AlbumRoll extends FlxSpriteGroup
       albumTitle = null;
     }
 
+    if (titleOffsets == null) titleOffsets = [0, 0];
+
     albumTitle = FunkinSprite.createSparrow(925, 500, assetKey);
     albumTitle.visible = albumTitle.frames != null && newAlbumArt.visible;
     albumTitle.animation.addByPrefix('idle', 'idle0', 24, true);
     albumTitle.animation.addByPrefix('switch', 'switch0', 24, false);
     add(albumTitle);
 
-    albumTitle.animation.finishCallback = (function(name) {
+    albumTitle.animation.finishCallback = ((name) -> {
       if (name == 'switch') albumTitle.animation.play('idle');
     });
     albumTitle.animation.play('idle');
 
     albumTitle.zIndex = 1000;
+
+    albumTitle.x += titleOffsets[0];
+    albumTitle.y += titleOffsets[1];
 
     if (_exitMovers != null) _exitMovers.set([albumTitle],
       {
