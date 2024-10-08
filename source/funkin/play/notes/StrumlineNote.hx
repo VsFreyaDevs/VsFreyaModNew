@@ -134,6 +134,7 @@ class StrumlineNote extends FlxSprite
   {
     this.active = (forceActive || isAnimationDynamic('static'));
     this.playAnimation('confirm', true);
+    this.confirmHoldTimer = -1;
 
     this.alpha = 1;
   }
