@@ -1,26 +1,24 @@
 name: Crash Report
-description: Report a crash that occurred while playing the game.
-labels: ["type: major bug", "status: pending triage"]
-title: "Crash Report: "
+description: Report a crash that occurred while playing the mod.
+labels: ["crash", "pending triage"]
+title: "[CRASH REPORT] - "
 body:
   - type: checkboxes
     attributes:
       label: Issue Checklist
       options:
         - label: I have properly named the issue
-        - label: I have checked the issues/discussions pages to see if the issue has been previously reported
+        - label: I have checked the issues pages to see if the issue has been previously reported
 
   - type: dropdown
     attributes:
       label: What platform are you using?
       options:
-        - Newgrounds (Web)
-        - Itch.io (Web)
-        - Itch.io (Downloadable Build) - Windows
-        - Itch.io (Downloadable Build) - MacOS
-        - Itch.io (Downloadable Build) - Linux
         - GitHub Actions - Windows
+        - GitHub Actions - HTML5
+        - GitHub Actions - Linux
         - GitHub Actions - Android
+        - GitHub Actions - iOS
     validations:
       required: true
 
@@ -43,21 +41,17 @@ body:
     validations:
       required: true
 
-  - type: markdown
+ - type: markdown
     attributes:
-      value: "## Describe your issue."
+      value: "## Describe the bug."
 
   - type: markdown
     attributes:
-      value: "### Please do not report issues from other engines. These must be reported in their respective repositories."
-
-  - type: markdown
-    attributes:
-      value: "#### Provide as many details as you can."
+      value: "#### Remember to provide as many details as you can."
 
   - type: textarea
     attributes:
-      label: Context (Provide screenshots or videos of the crash happening)
+      label: Some context (Provide screenshots or videos of the crash happening)
 
   - type: textarea
     attributes:
@@ -67,6 +61,6 @@ body:
 
   - type: textarea
     attributes:
-      label: Crash logs (can be found in the logs folder where Funkin.exe is)
+      label: Crash logs (can be found in the logs folder where "Funkin.exe" is)
     validations:
       required: true

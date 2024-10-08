@@ -1,14 +1,14 @@
 name: Enhancement
 description: Suggest a new feature.
-labels: ["type: enhancement", "status: pending triage"]
-title: "Enhancement: "
+labels: ["enhancement", "pending triage"]
+title: "[ENHANCEMENT] - "
 body:
   - type: checkboxes
     attributes:
       label: Issue Checklist
       options:
         - label: I have properly named the enhancement
-        - label: I have checked the issues/discussions pages to see if the enhancement has been previously suggested
+        - label: I have checked the issues pages to see if the enhancement has been previously suggested
 
   - type: textarea
     attributes:

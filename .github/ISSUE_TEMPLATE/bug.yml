@@ -1,26 +1,26 @@
 name: Bug Report
 description: Report a bug or an issue in the game.
-labels: ["type: minor bug", "status: pending triage"]
-title: "Bug Report: "
+labels: ["bug", "pending triage"]
+title: "[BUG REPORT] - "
 body:
   - type: checkboxes
     attributes:
       label: Issue Checklist
       options:
         - label: I have properly named the issue
-        - label: I have checked the issues/discussions pages to see if the issue has been previously reported
+        - label: I have checked the issues pages to see if the issue has been previously reported
 
   - type: dropdown
     attributes:
       label: What platform are you using?
       options:
-        - Newgrounds (Web)
-        - Itch.io (Web)
-        - Itch.io (Downloadable Build) - Windows
-        - Itch.io (Downloadable Build) - MacOS
-        - Itch.io (Downloadable Build) - Linux
-        - GitHub Actions - Windows
-        - GitHub Actions - Android
+        - Windows
+        - MacOS
+        - Linux
+        - Android
+        - iOS
+        - HTML5
+        - Other (Neko, HashLink, Flash, AIR, etc.)
     validations:
       required: true
 
@@ -34,31 +34,26 @@ body:
         - Opera
         - Safari
         - Other (Specify below)
-
-  - type: input
-    attributes:
-      label: Version
-      description: What version are you using?
-      placeholder: ex. 0.4.1
+        - BUT I AM PLAYING ON DESKTOP/PHONE, REALLY?????
     validations:
-      required: true
+      required: false
 
   - type: markdown
     attributes:
-      value: "## Describe your bug."
+      value: "## Describe the bug."
 
   - type: markdown
     attributes:
-      value: "### Please do not report issues from other engines. These must be reported in their respective repositories."
-
-  - type: markdown
-    attributes:
-      value: "#### Provide as many details as you can."
+      value: "#### Remember to provide as many details as you can."
 
   - type: textarea
     attributes:
-      label: Context (Provide images, videos, etc.)
+      label: Some context (Provide images, videos, etc.)
+    validations:
+      required: false
 
   - type: textarea
     attributes:
-      label: Steps to reproduce (or crash logs, errors, etc.)
+      label: Steps to reproduce
+    validations:
+      required: false
