@@ -692,7 +692,7 @@ class FreeplayState extends MusicBeatSubState
           wait: 0.1
         });
 
-      new FlxTimer().start(1 / 24, function(handShit) {
+      new FlxTimer().start(1 / 24, (handShit) -> {
         fnfHighscoreSpr.visible = true;
         fnfFreeplay.visible = true;
         ostName.visible = true;
@@ -752,9 +752,7 @@ class FreeplayState extends MusicBeatSubState
     #end
 
     if (prepForNewRank)
-    {
       rankCamera.fade(0xFF000000, 0, false, null, true);
-    }
 
     if (fromCharSelect == true)
     {
@@ -839,13 +837,9 @@ class FreeplayState extends MusicBeatSubState
     randomCapsule.ranking.visible = false;
     randomCapsule.blurredRanking.visible = false;
     if (fromCharSelect == false)
-    {
       randomCapsule.initJumpIn(0, force);
-    }
     else
-    {
       randomCapsule.forcePosition();
-    }
     randomCapsule.hsvShader = hsvShader;
     grpCapsules.add(randomCapsule);
 
@@ -1029,9 +1023,7 @@ class FreeplayState extends MusicBeatSubState
     grpCapsules.members[curSelected].setPosition((FlxG.width / 2) - (grpCapsules.members[curSelected].width / 2),
       (FlxG.height / 2) - (grpCapsules.members[curSelected].height / 2));
 
-    new FlxTimer().start(0.5, _ -> {
-      rankDisplayNew(fromResults);
-    });
+    new FlxTimer().start(0.5, _ -> rankDisplayNew(fromResults));
   }
 
   function rankDisplayNew(fromResults:Null<FromResultsParams>):Void
@@ -1042,16 +1034,12 @@ class FreeplayState extends MusicBeatSubState
     grpCapsules.members[curSelected].blurredRanking.scale.set(20, 20);
 
     if (fromResults != null && fromResults.newRank != null)
-    {
       grpCapsules.members[curSelected].ranking.animation.play(fromResults.newRank.getFreeplayRankIconAsset(), true);
-    }
 
     FlxTween.tween(grpCapsules.members[curSelected].ranking, {"scale.x": 1, "scale.y": 1}, 0.1);
 
     if (fromResults != null && fromResults.newRank != null)
-    {
       grpCapsules.members[curSelected].blurredRanking.animation.play(fromResults.newRank.getFreeplayRankIconAsset(), true);
-    }
     FlxTween.tween(grpCapsules.members[curSelected].blurredRanking, {"scale.x": 1, "scale.y": 1}, 0.1);
 
     new FlxTimer().start(0.1, _ -> {
@@ -1103,9 +1091,7 @@ class FreeplayState extends MusicBeatSubState
       FlxTween.tween(grpCapsules.members[curSelected], {x: originalPos.x - 7, y: originalPos.y - 80}, 0.8 + 0.5, {ease: FlxEase.quartIn});
     });
 
-    new FlxTimer().start(0.6, _ -> {
-      rankAnimSlam(fromResults);
-    });
+    new FlxTimer().start(0.6, _ -> rankAnimSlam(fromResults));
   }
 
   function rankAnimSlam(fromResultsParams:Null<FromResultsParams>):Void
@@ -1140,7 +1126,7 @@ class FreeplayState extends MusicBeatSubState
       if (fromResultsParams?.newRank == SHIT)
       {
         if (dj != null) dj.fistPumpLoss();
-      }
+
       else
       {
         if (dj != null) dj.fistPump();
@@ -1236,9 +1222,7 @@ class FreeplayState extends MusicBeatSubState
     trace('Number of characters: ${PlayerRegistry.instance.countUnlockedCharacters()}');
 
     if (PlayerRegistry.instance.countUnlockedCharacters() > 1)
-    {
       trace('Opening character select!');
-    }
     else
     {
       trace('Not enough characters unlocked to open character select!');
@@ -1251,16 +1235,12 @@ class FreeplayState extends MusicBeatSubState
     FunkinSound.playOnce(Paths.sound('confirmMenu'));
 
     if (dj != null)
-    {
       dj.toCharSelect();
-    }
 
     // Get this character's transition delay, with a reasonable default.
     var transitionDelay:Float = currentCharacter.getFreeplayDJData()?.getCharSelectTransitionDelay() ?? 0.25;
 
-    new FlxTimer().start(transitionDelay, _ -> {
-      transitionToCharSelect();
-    });
+    new FlxTimer().start(transitionDelay, _ -> transitionToCharSelect());
   }
 
   function transitionToCharSelect():Void
@@ -1441,14 +1421,10 @@ class FreeplayState extends MusicBeatSubState
     }
 
     // if (FlxG.keys.justPressed.H)
-    // {
     //   rankDisplayNew(fromResultsParams);
-    // }
 
     // if (FlxG.keys.justPressed.G)
-    // {
     //   rankAnimSlam(fromResultsParams);
-    // }
     // #end // ^<-- FEATURE_DEBUG_FUNCTIONS
 
     if ((controls.FREEPLAY_CHAR_SELECT #if mobile || (TouchUtil.overlaps(djHitbox) && TouchUtil.justReleased && !SwipeUtil.swipeAny) #end)
@@ -1461,6 +1437,7 @@ class FreeplayState extends MusicBeatSubState
       {
         var realShit:Int = curSelected;
         var isFav = targetSong.toggleFavorite();
+
         if (isFav)
         {
           grpCapsules.members[realShit].favIcon.visible = true;
@@ -1479,7 +1456,7 @@ class FreeplayState extends MusicBeatSubState
             {
               ease: FlxEase.expoIn,
               startDelay: 0.1,
-              onComplete: function(_) {
+              onComplete: (_) -> {
                 grpCapsules.members[realShit].doLerp = true;
                 busy = false;
               }
@@ -1504,7 +1481,7 @@ class FreeplayState extends MusicBeatSubState
             {
               ease: FlxEase.expoIn,
               startDelay: 0.1,
-              onComplete: function(_) {
+              onComplete: (_) -> {
                 grpCapsules.members[realShit].doLerp = true;
                 busy = false;
               }
@@ -1516,15 +1493,9 @@ class FreeplayState extends MusicBeatSubState
     lerpScore = MathUtil.smoothLerp(lerpScore, intendedScore, elapsed, 0.5);
     lerpCompletion = MathUtil.smoothLerp(lerpCompletion, intendedCompletion, elapsed, 0.5);
 
-    if (Math.isNaN(lerpScore))
-    {
-      lerpScore = intendedScore;
-    }
+    if (Math.isNaN(lerpScore)) lerpScore = intendedScore;
 
-    if (Math.isNaN(lerpCompletion))
-    {
-      lerpCompletion = intendedCompletion;
-    }
+    if (Math.isNaN(lerpCompletion)) lerpCompletion = intendedCompletion;
 
     fp.updateScore(Std.int(lerpScore));
 
@@ -1572,30 +1543,17 @@ class FreeplayState extends MusicBeatSubState
         {
           spamTimer = 0;
 
-          if (upP)
-          {
-            changeSelection(-1);
-          }
+          if (upP) changeSelection(-1);
           else
-          {
             changeSelection(1);
-          }
         }
       }
-      else if (spamTimer >= 0.9)
-      {
-        spamming = true;
-      }
+      else if (spamTimer >= 0.9) spamming = true;
       else if (spamTimer <= 0)
       {
-        if (upP)
-        {
-          changeSelection(-1);
-        }
+        if (upP) changeSelection(-1);
         else
-        {
           changeSelection(1);
-        }
       }
 
       spamTimer += elapsed;
@@ -1655,7 +1613,8 @@ class FreeplayState extends MusicBeatSubState
 
     if (controls.BACK) goBack();
 
-    if (controls.ACCEPT) grpCapsules.members[curSelected].onConfirm();
+    // onConfirm() calls functions that set busy to true
+    if (accepted && !busy) grpCapsules.members[curSelected].onConfirm();
   }
 
   override function beatHit():Bool
