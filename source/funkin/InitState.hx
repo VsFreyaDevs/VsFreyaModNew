@@ -288,10 +288,6 @@ class InitState extends FlxState
     #elseif ANIMDEBUG
     // -DANIMDEBUG
     FlxG.switchState(() -> new funkin.ui.debug.anim.DebugBoundingState());
-    #elseif LATENCY
-    // -DLATENCY
-    FlxG.switchState(() -> new funkin.LatencyState());
-    #else
     startGameNormally();
     #end
   }
