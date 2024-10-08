@@ -63,25 +63,6 @@ class PreferencesMenu extends Page
     camDesc.bgColor.alpha = 0;
     FlxG.cameras.add(camDesc, false);
 
-    add(items = new TextMenuList());
-    add(preferenceItems = new FlxTypedSpriteGroup<FlxSprite>());
-
-    descTextBG = new FlxSprite().makeGraphic(1, 1, 0x80000000);
-    descTextBG.scrollFactor.set();
-    descTextBG.antialiasing = false;
-    descTextBG.active = false;
-    descText = new FlxText(0, 0, 0, "what the fuck", 26);
-    descText.scrollFactor.set();
-    descText.font = Paths.font("vcr.ttf");
-    descText.alignment = CENTER;
-    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
-    descTextBG.x = descText.x - DESC_BG_OFFSET_X;
-    descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
-    descTextBG.updateHitbox();
-
-    descText.cameras = [camDesc];
-    descTextBG.cameras = [camDesc];
-
     try
     {
       boyFriend = new FlxSprite(0, 0);
@@ -107,6 +88,25 @@ class PreferencesMenu extends Page
     }
     catch (e:Any)
       trace("I WILL REVIVE HIM BACK DW ABOUT IT!!!!!");
+
+    add(items = new TextMenuList());
+    add(preferenceItems = new FlxTypedSpriteGroup<FlxSprite>());
+
+    descTextBG = new FlxSprite().makeGraphic(1, 1, 0x80000000);
+    descTextBG.scrollFactor.set();
+    descTextBG.antialiasing = false;
+    descTextBG.active = false;
+    descText = new FlxText(0, 0, 0, "what the fuck", 26);
+    descText.scrollFactor.set();
+    descText.font = Paths.font("arial.ttf");
+    descText.alignment = CENTER;
+    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
+    descTextBG.x = descText.x - DESC_BG_OFFSET_X;
+    descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
+    descTextBG.updateHitbox();
+
+    descText.cameras = [camDesc];
+    descTextBG.cameras = [camDesc];
 
     createPrefItems();
 

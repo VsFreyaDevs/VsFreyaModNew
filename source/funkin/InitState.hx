@@ -427,7 +427,7 @@ class InitState extends FlxState
     // Adds an additional Close Debugger button.
     // This big obnoxious white button is for MOBILE, so that you can press it
     // easily with your finger when debug bullshit pops up during testing lol!
-    FlxG.debugger.addButton(LEFT, new BitmapData(200, 200), function() {
+    FlxG.debugger.addButton(LEFT, new BitmapData(200, 200), () -> {
       FlxG.debugger.visible = false;
 
       // Make errors and warnings less annoying.
@@ -440,15 +440,13 @@ class InitState extends FlxState
 
     // Adds a red button to the debugger.
     // This pauses the game AND the music! This ensures the Conductor stops.
-    FlxG.debugger.addButton(CENTER, new BitmapData(20, 20, true, 0xFFCC2233), function() {
+    FlxG.debugger.addButton(CENTER, new BitmapData(20, 20, true, 0xFFCC2233), () -> {
       if (FlxG.vcr.paused)
       {
         FlxG.vcr.resume();
 
         for (snd in FlxG.sound.list)
-        {
           snd.resume();
-        }
 
         FlxG.sound.music.resume();
       }
@@ -457,9 +455,7 @@ class InitState extends FlxState
         FlxG.vcr.pause();
 
         for (snd in FlxG.sound.list)
-        {
           snd.pause();
-        }
 
         FlxG.sound.music.pause();
       }
