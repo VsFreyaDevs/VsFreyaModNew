@@ -508,7 +508,7 @@ class DebugBoundingState extends FlxState
         playCharacterAnimation(event.data.id, true);
       }
       catch (e:Any)
-        trace('${e} \n CANT PULLL UP ANIMATION :sob:')
+        trace('${e} \n CANT PULLL UP ANIMATION :sob:');
     }
 
     txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
