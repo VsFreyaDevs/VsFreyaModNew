@@ -519,19 +519,19 @@ class PhillyStreetsErectStage extends Stage
 			}
 		}
 
-		// var paper = getNamedProp('paper');
-		// if (FlxG.random.bool(0.6) && paperInterruptable == true)
-		// {
-		// 	paper.alpha = 1;
-		// 	paper.animation.play('paperBlow');
-		// 	paper.y = 608 + FlxG.random.float(-150,150);
-		// 	paperInterruptable = false;
-		// 	new FlxTimer().start(2, function(tmr:FlxTimer)
-		// 	{
-		// 		paperInterruptable = true;
-		// 		paper.alpha = 0;
-		// 	});
-		// }
+		var paper = getNamedProp('paper');
+		if (FlxG.random.bool(0.55) && paperInterruptable == true)
+		{
+		paper.alpha = 1;
+		paper.animation.play('paperBlow');
+		paper.y = 608 + FlxG.random.float(-150,150);
+		paperInterruptable = false;
+		new FlxTimer().start(2, function(tmr:FlxTimer)
+		{
+		paperInterruptable = true;
+		paper.alpha = 0;
+		});
+		}
 
 		// try driving one on the right too. in this case theres no red light logic, it just can only spawn on green lights
 		if(FlxG.random.bool(10) && event.beat != (lastChange + changeInterval) && car2Interruptable == true && lightsStop == false) driveCarBack(getNamedProp('phillyCars2'));
