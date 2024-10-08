@@ -52,12 +52,12 @@ class PlayerRegistry extends BaseRegistry<PlayableCharacter, PlayerData>
       var currentPlayerCharIds = player.getOwnedCharacterIds();
       for (characterId in currentPlayerCharIds)
         ownedCharacterIds.set(characterId, playerId);
-    }
 
-    for (entryCls in ScriptedBackingCard.listScriptClasses()) // TODO: Make a better system, because this one kinda fucking sucks.
-    {
-      var daCard:BackingCard = getScriptedBackingCard(entryCls);
-      if (daCard != null && daCard.currentCharacter == playerId) backingCards.set(playerId, daCard);
+      for (entryCls in ScriptedBackingCard.listScriptClasses()) // TODO: Make a better system, because this one kinda fucking sucks.
+      {
+        var daCard:BackingCard = getScriptedBackingCard(entryCls);
+        if (daCard != null && daCard.currentCharacter == playerId) backingCards.set(playerId, daCard);
+      }
     }
 
     log('Loaded ${countEntries()} playable characters with ${ownedCharacterIds.size()} associations.');
