@@ -8,7 +8,7 @@ import funkin.Preferences;
 import flixel.FlxG; // This one in particular causes a compile error if you're using macros.
 import flixel.system.debug.watch.Tracker;
 #if FEATURE_DISCORD_RPC
-import funkin.api.discord.DiscordClient; // I don't know, I'm just tired of putting this in a lot of states...
+import funkin.api.discord.DiscordClient; // IDK, I'm just tired of putting this in a lot of states...
 
 #end
 // These are great.
