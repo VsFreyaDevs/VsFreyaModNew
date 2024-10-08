@@ -79,9 +79,6 @@ class PreferencesMenu extends Page
     catch (e:Any)
       trace("BOYFRIEND GOT KILLED IN A SPREE, SORRY!!!!");
 
-    descText.cameras = [camDesc];
-    descTextBG.cameras = [camDesc];
-
     try
     {
       add(boyFriend);
