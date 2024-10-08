@@ -66,7 +66,7 @@ class Preferences
 
   /**
    * The cap of your framerate, self-explanatory.
-   * @default `300`
+   * @default `60`
    */
   public static var framerate(get, set):Int;
 
@@ -75,7 +75,7 @@ class Preferences
     #if (web || CHEEMS)
     return 60;
     #else
-    return Save?.instance?.options?.framerate ?? 300;
+    return Save?.instance?.options?.framerate ?? 60;
     #end
   }
 

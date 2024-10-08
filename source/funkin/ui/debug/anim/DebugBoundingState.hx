@@ -503,7 +503,12 @@ class DebugBoundingState extends FlxState
 
     offsetAnimationDropdown.onChange = (event:UIEvent) -> {
       trace('Selected animation ${event?.data?.id}');
-      playCharacterAnimation(event.data.id, true);
+      try
+      {
+        playCharacterAnimation(event.data.id, true);
+      }
+      catch (e:Any)
+        trace('${e} \n CANT PULLL UP ANIMATION :sob:')
     }
 
     txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
