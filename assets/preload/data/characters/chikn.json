@@ -3,6 +3,7 @@
   "name": "Chikn Nuggit",
   "assetPath": "characters/chiknNuggit",
   "singTime": 8.0,
+  "scale": 0.6,
   "renderType": "sparrow",
   "animations": [
     {

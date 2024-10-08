@@ -119,15 +119,13 @@ class ChartEditorEventSprite extends FlxSprite
   {
     var eventNames:Array<String> = [DEFAULT_EVENT].concat(SongEventRegistry.listEventIds());
     for (eventName in eventNames)
-    {
       this.animation.addByPrefix(eventName, '${eventName}0', 24, false);
-    }
   }
 
   public function correctAnimationName(name:String):String
   {
     if (this.animation.exists(name)) return name;
-    trace('Warning: Invalid animation name "${name}" for song event. Using "${DEFAULT_EVENT}"');
+    // trace('Warning: Invalid animation name "${name}" for song event. Using "${DEFAULT_EVENT}"');
     return DEFAULT_EVENT;
   }
 

@@ -1,32 +1,95 @@
 {
-  "version": "1.0.0",
-  "name": "dave png lol",
-  "assetPath": "characters/DaveGames",
-  "animations": [
-    {
-      "name": "idle",
-      "prefix": "dave games idle dance",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singRIGHT",
-      "prefix": "dave games sing right",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singDOWN",
-      "prefix": "dave games sing down",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singUP",
-      "prefix": "dave games sing up",
-      "offsets": [0, 0]
-    },
-    {
-      "name": "singLEFT",
-      "prefix": "dave games sing left",
-      "offsets": [0, 0]
-    }
-  ]
+	"version": "1.0.0",
+	"renderType": "sparrow",
+	"offsets": [
+		0,
+		0
+	],
+	"danceEvery": 1,
+	"scale": 1,
+	"loopHoldFrame": 3,
+	"name": "dave png lol",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"flipX": false,
+	"loopHold": false,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"singTime": 8,
+	"healthIcon": {
+		"iconDivisor": null,
+		"offsets": [
+			0,
+			0
+		],
+		"id": "dave-png",
+		"flipX": false,
+		"isPixel": false,
+		"scale": 1
+	},
+	"assetPath": "characters/DaveGames",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				11,
+				3
+			],
+			"frameRate": 24,
+			"prefix": "dave games idle dance",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-14,
+				5
+			],
+			"frameRate": 24,
+			"prefix": "dave games sing right",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				5,
+				5
+			],
+			"frameRate": 24,
+			"prefix": "dave games sing down",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				-14,
+				23
+			],
+			"frameRate": 24,
+			"prefix": "dave games sing up",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				25,
+				5
+			],
+			"frameRate": 24,
+			"prefix": "dave games sing left",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		}
+	]
 }
