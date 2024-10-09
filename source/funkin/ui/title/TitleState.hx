@@ -66,58 +66,60 @@ class TitleState extends MusicBeatState
     super.create();
     swagShader = new ColorSwap();
 
-    if (true)
-    {
-      var paths = [
-        "characters/BOYFRIEND",
-        "characters/bfCar",
-        "characters/daddyDearest",
-        "characters/gfCar",
-        "characters/KillerAnimateSprite",
-        "characters/Milky_Assets",
-        "characters/darnell"
-      ];
-
+    /*
+      if (true)
       {
-        var start = Timer.stamp();
-        for (rpath in paths)
+        var paths = [
+          "characters/BOYFRIEND",
+          "characters/bfCar",
+          "characters/daddyDearest",
+          "characters/gfCar",
+          "characters/KillerAnimateSprite",
+          "characters/Milky_Assets",
+          "characters/darnell"
+        ];
+
         {
-          var path = Paths.image(rpath, "shared");
-          funkin.util.assets.AsyncAssetLoader.loadGraphic(path);
+          var start = Timer.stamp();
+          for (rpath in paths)
+          {
+            var path = Paths.image(rpath, "shared");
+            funkin.util.assets.AsyncAssetLoader.loadGraphic(path);
+          }
+
+          funkin.util.assets.AsyncAssetLoader.waitForAssets();
+          var end = Timer.stamp();
+
+          trace('async load took ${end - start}s');
         }
-
-        funkin.util.assets.AsyncAssetLoader.waitForAssets();
-        var end = Timer.stamp();
-
-        trace('async load took ${end - start}s');
       }
-    }
 
-    if (true)
-    {
-      var paths = [
-        "freakyMenu/freakyMenu",
-        "optionsSong/optionsSong",
-        "chartEditorLoop/chartEditorLoop",
-        "freeplayRandom/freeplayRandom",
-        "girlfriendsRingtone/girlfriendsRingtone",
-        "stayFunky/stayFunky",
-      ];
-
+      if (true)
       {
-        var start = Timer.stamp();
-        for (rpath in paths)
+        var paths = [
+          "freakyMenu/freakyMenu",
+          "optionsSong/optionsSong",
+          "chartEditorLoop/chartEditorLoop",
+          "freeplayRandom/freeplayRandom",
+          "girlfriendsRingtone/girlfriendsRingtone",
+          "stayFunky/stayFunky",
+        ];
+
         {
-          var path = Paths.music(rpath);
-          funkin.util.assets.AsyncAssetLoader.loadSound(path);
+          var start = Timer.stamp();
+          for (rpath in paths)
+          {
+            var path = Paths.music(rpath);
+            funkin.util.assets.AsyncAssetLoader.loadSound(path);
+          }
+
+          funkin.util.assets.AsyncAssetLoader.waitForAssets();
+          var end = Timer.stamp();
+
+          trace('async load took ${end - start}s');
         }
-
-        funkin.util.assets.AsyncAssetLoader.waitForAssets();
-        var end = Timer.stamp();
-
-        trace('async load took ${end - start}s');
       }
-    }
+     */
 
     curWacky = FlxG.random.getObject(getIntroTextShit());
     FlxG.sound.cache(Paths.music('freakyMenu/freakyMenu'));
