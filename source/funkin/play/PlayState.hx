@@ -702,7 +702,7 @@ class PlayState extends MusicBeatSubState
 
   var skipEndingTransition:Bool = false;
 
-  static final BACKGROUND_COLOR:FlxColor = FlxColor.BLACK;
+  static var BACKGROUND_COLOR:FlxColor = FlxColor.BLACK; // making this an editable variable since we like the white void
 
   /**
    * Instantiate a new PlayState.
@@ -1705,6 +1705,8 @@ class PlayState extends MusicBeatSubState
    */
   function initCameras():Void
   {
+    if (isFreyaSong) BACKGROUND_COLOR = FlxColor.WHITE; // white void moment :D
+
     camGame = new FunkinCamera('playStateCamGame');
     camGame.bgColor = BACKGROUND_COLOR; // Show a pink background behind the stage.
     camHUD = new FlxCamera();
