@@ -138,6 +138,11 @@ interface IPlayStateScriptedClass extends INoteScriptedClass extends IBPMSyncedS
   public function onGameOver(event:ScriptEvent):Void;
 
   /**
+   * Called as the player enters the game over substate, but before the start of music.
+   */
+  public function onPostGameOver(event:PostGameOverScriptEvent):Void;
+
+  /**
    * Called when the player restarts the song, either via pause menu or restarting after a game over.
    */
   public function onSongRetry(event:ScriptEvent):Void;

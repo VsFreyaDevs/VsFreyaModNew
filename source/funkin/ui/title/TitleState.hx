@@ -33,6 +33,7 @@ import openfl.net.NetStream;
 import funkin.api.newgrounds.NGio;
 import openfl.display.BlendMode;
 import funkin.save.Save;
+import haxe.Timer;
 #if mobile
 import funkin.mobile.util.TouchUtil;
 import funkin.mobile.util.SwipeUtil;
@@ -64,6 +65,59 @@ class TitleState extends MusicBeatState
   {
     super.create();
     swagShader = new ColorSwap();
+
+    if (true)
+    {
+      var paths = [
+        "characters/BOYFRIEND",
+        "characters/bfCar",
+        "characters/daddyDearest",
+        "characters/gfCar",
+        "characters/KillerAnimateSprite",
+        "characters/Milky_Assets",
+        "characters/darnell"
+      ];
+
+      {
+        var start = Timer.stamp();
+        for (rpath in paths)
+        {
+          var path = Paths.image(rpath, "shared");
+          funkin.util.assets.AsyncAssetLoader.loadGraphic(path);
+        }
+
+        funkin.util.assets.AsyncAssetLoader.waitForAssets();
+        var end = Timer.stamp();
+
+        trace('async load took ${end - start}s');
+      }
+    }
+
+    if (true)
+    {
+      var paths = [
+        "freakyMenu/freakyMenu",
+        "optionsSong/optionsSong",
+        "chartEditorLoop/chartEditorLoop",
+        "freeplayRandom/freeplayRandom",
+        "girlfriendsRingtone/girlfriendsRingtone",
+        "stayFunky/stayFunky",
+      ];
+
+      {
+        var start = Timer.stamp();
+        for (rpath in paths)
+        {
+          var path = Paths.music(rpath);
+          funkin.util.assets.AsyncAssetLoader.loadSound(path);
+        }
+
+        funkin.util.assets.AsyncAssetLoader.waitForAssets();
+        var end = Timer.stamp();
+
+        trace('async load took ${end - start}s');
+      }
+    }
 
     curWacky = FlxG.random.getObject(getIntroTextShit());
     FlxG.sound.cache(Paths.music('freakyMenu/freakyMenu'));

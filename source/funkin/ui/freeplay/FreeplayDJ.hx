@@ -88,7 +88,7 @@ class FreeplayDJ extends FlxAtlasSprite
       case Idle:
         // We are in this state the majority of the time.
         var animPrefix = playableCharData.getAnimationPrefix('idle');
-        if (getCurrentAnimation() != animPrefix) playFlashAnimation(animPrefix, true);
+        if (getCurrentAnimation() != animPrefix) playFlashAnimation(animPrefix, true, false, !playableCharData.shouldIdleOnBeat());
 
         if (getCurrentAnimation() == animPrefix && this.isLoopComplete())
         {
@@ -279,10 +279,11 @@ class FreeplayDJ extends FlxAtlasSprite
   var beatFreqList:Array<Int> = [1, 2, 4, 8];
 
   /**
-   * Called on each beat in this state.
+   * Called on each beat in freeplay state.
    */
   public function beatHit():Void
   {
+    if (!playableCharData.shouldIdleOnBeat()) return;
     if (currentState != Idle) return;
 
     beatFreq = beatFreqList[Math.floor(Conductor.instance.bpm / 140)];

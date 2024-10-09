@@ -227,6 +227,31 @@ class GhostMissNoteScriptEvent extends ScriptEvent
   }
 }
 
+class PostGameOverScriptEvent extends ScriptEvent
+{
+  /**
+   * Whether to play the game over music.
+   */
+  public var shouldPlayMusic(default, default):Bool;
+
+  /**
+   * How loud the game over music should play (unless it isn't due to shouldPlayMusic being `false`).
+   */
+  public var musicVolume(default, default):Float;
+
+  public function new(shouldPlayMusic:Bool, musicVolume:Float):Void
+  {
+    super(POST_GAME_OVER, true);
+    this.shouldPlayMusic = shouldPlayMusic;
+    this.musicVolume = musicVolume;
+  }
+
+  public override function toString():String
+  {
+    return 'PostGameOverScriptEvent(shouldPlayMusic=' + shouldPlayMusic + ', musicVolume=' + musicVolume + ')';
+  }
+}
+
 /**
  * An event that is fired when the song reaches an event.
  */

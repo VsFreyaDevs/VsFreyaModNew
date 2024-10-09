@@ -3,17 +3,28 @@ import flixel.math.FlxAngle;
 import funkin.Paths;
 import funkin.play.PlayState;
 import funkin.play.stage.Stage;
+import funkin.play.GameOverSubState;
+import funkin.Preferences;
+import flixel.FlxG;
+import funkin.audio.FunkinSound;
+import funkin.Paths;
 
 class TankmanBattlefieldStage extends Stage
 {
+	var playingJeffQuote:Bool;
+
 	function new()
 	{
 		super('tankmanBattlefield');
+
+		playingJeffQuote = false;
 	}
 
 	function onCreate(event:ScriptEvent):Void
 	{
-			super.onCreate(event);
+		super.onCreate(event);
+
+		playingJeffQuote = false;
 	}
 
 	override function buildStage()
@@ -62,6 +73,8 @@ class TankmanBattlefieldStage extends Stage
 	{
 		super.onSongRetry(event);
 
+		playingJeffQuote = false;
+
 		// resets the clouds!
 		var clouds = getNamedProp('clouds');
 		clouds.active = true;
@@ -69,4 +82,35 @@ class TankmanBattlefieldStage extends Stage
 		clouds.y = FlxG.random.int(-20, 20);
 		clouds.velocity.x = FlxG.random.float(5, 15);
 	}
+
+	function onPostGameOver(event:PostGameOverScriptEvent)
+  {
+    event.musicVolume = 0.2;
+
+    // Jeff quotes
+    if(!playingJeffQuote) {
+      playingJeffQuote = true;
+      playJeffQuote();
+    }
+
+		super.onPostGameOver(event);
+  }
+
+	function playJeffQuote():Void
+  {
+    var randomCensor:Array<Int> = [];
+    var gameOverSubState = GameOverSubState.instance;
+
+    if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
+
+    FunkinSound.playOnce(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor)), 1, function() {
+      // Once the quote ends, fade in the game over music.
+      @:privateAccess
+      if (!gameOverSubState.isEnding && gameOverSubState.gameOverMusic != null)
+      {
+        @:privateAccess
+        gameOverSubState.gameOverMusic.fadeIn(4, 0.2, 1);
+      }
+    });
+  }
 }

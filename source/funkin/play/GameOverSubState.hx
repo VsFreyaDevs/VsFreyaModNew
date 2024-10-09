@@ -126,7 +126,7 @@ class GameOverSubState extends MusicBeatSubState
     super.create();
 
     //
-    // Set up the visuals
+    // Set up the visuals.
     //
 
     var playState = PlayState.instance;
@@ -226,8 +226,7 @@ class GameOverSubState extends MusicBeatSubState
       }
       else
       {
-        if (boyfriend.hasAnimation('fakeoutDeath')
-          && FlxG.random.bool((1 / 2591) * 102)) boyfriend.playAnimation('fakeoutDeath', true, false);
+        if (boyfriend.hasAnimation('fakeoutDeath') && FlxG.random.bool(0.09)) boyfriend.playAnimation('fakeoutDeath', true, false);
         else
         {
           boyfriend.playAnimation('firstDeath', true, false); // ignoreOther is set to FALSE since you WANT to be able to mash and confirm game over!
@@ -269,27 +268,17 @@ class GameOverSubState extends MusicBeatSubState
       }
       else
       {
-        // Music hasn't started yet.
-        switch (PlayStatePlaylist.campaignId)
+        // Start music at normal volume once the initial death animation finishes.
+        if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished())
         {
-          // TODO: Make the behavior for playing Jeff's voicelines generic or un-hardcoded.
-          // This will simplify the class and make it easier for mods to add death quotes.
-          case 'week7':
-            if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished() && !playingJeffQuote)
-            {
-              playingJeffQuote = true;
-              playJeffQuote();
-              // Start music at lower volume
-              startDeathMusic(0.2, false);
-              boyfriend.playAnimation('deathLoop' + animationSuffix);
-            }
-          default:
-            // Start music at normal volume once the initial death animation finishes.
-            if (boyfriend.getCurrentAnimation().startsWith('firstDeath') && boyfriend.isAnimationFinished())
-            {
-              startDeathMusic(1.0, false);
-              boyfriend.playAnimation('deathLoop' + animationSuffix);
-            }
+          var event:PostGameOverScriptEvent = new PostGameOverScriptEvent(true, 1.0);
+          dispatchEvent(event);
+
+          if (!event.eventCanceled)
+          {
+            if (event.shouldPlayMusic) startDeathMusic(event.musicVolume, false);
+            boyfriend.playAnimation('deathLoop' + animationSuffix);
+          }
         }
         canInput = true;
       }
@@ -311,15 +300,13 @@ class GameOverSubState extends MusicBeatSubState
 
       if (PlayState.instance.isMinimalMode || boyfriend == null) {}
       else
-      {
         boyfriend.playAnimation('deathConfirm' + animationSuffix, true);
-      }
 
       // After the animation finishes...
-      new FlxTimer().start(0.7, function(tmr:FlxTimer) {
+      new FlxTimer().start(0.7, (tmr:FlxTimer) -> {
         // ...fade out the graphics. Then after that happens...
 
-        var resetPlaying = function(pixel:Bool = false) {
+        var resetPlaying = (pixel:Bool = false) -> {
           // ...close the GameOverSubState.
           if (pixel) RetroCameraFade.fadeBlack(FlxG.camera, 10, 1);
           else
@@ -351,11 +338,7 @@ class GameOverSubState extends MusicBeatSubState
           });
         }
         else
-        {
-          FlxG.camera.fade(FlxColor.BLACK, 2, false, function() {
-            resetPlaying();
-          });
-        }
+          FlxG.camera.fade(FlxColor.BLACK, 2, false, () -> resetPlaying());
       });
     }
   }
@@ -365,6 +348,10 @@ class GameOverSubState extends MusicBeatSubState
     super.dispatchEvent(event);
 
     ScriptEventDispatcher.callEvent(boyfriend, event);
+
+    // Modules, stages, characters.
+    @:privateAccess
+    PlayState.instance.dispatchEvent(event);
   }
 
   /**
@@ -455,19 +442,14 @@ class GameOverSubState extends MusicBeatSubState
       PlayState.instance.close(); // This only works because PlayState is a substate!
       return;
     }
-    else if (PlayStatePlaylist.isStoryMode)
-    {
-      openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState(sticker)));
-    }
+    else if (PlayStatePlaylist.isStoryMode) openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> new StoryMenuState(sticker)));
     else
-    {
       openSubState(new funkin.ui.transition.StickerSubState(null, (sticker) -> FreeplayState.build(sticker)));
-    }
   }
 
   /**
    * Play the sound effect that occurs when
-   * boyfriend's testicles get utterly annihilated.
+   * Boyfriend's testicles get utterly annihilated.
    */
   public static function playBlueBalledSFX():Void
   {
@@ -477,35 +459,10 @@ class GameOverSubState extends MusicBeatSubState
     if (Preferences.vibration) lime.ui.Haptic.vibrate(500, 1000);
     #end
 
-    if (Assets.exists(Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix)))
-    {
-      FunkinSound.playOnce(Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix));
-    }
+    if (Assets.exists(Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix))) FunkinSound.playOnce(Paths.sound('gameplay/gameover/fnf_loss_sfx'
+      + blueBallSuffix));
     else
-    {
       FlxG.log.error('Missing blue ball sound effect: ' + Paths.sound('gameplay/gameover/fnf_loss_sfx' + blueBallSuffix));
-    }
-  }
-
-  var playingJeffQuote:Bool = false;
-
-  /**
-   * Week 7-specific hardcoded behavior, to play a custom death quote.
-   * TODO: Make this a module somehow.
-   */
-  function playJeffQuote():Void
-  {
-    var randomCensor:Array<Int> = [];
-
-    if (!Preferences.naughtyness) randomCensor = [1, 3, 8, 13, 17, 21];
-
-    FunkinSound.playOnce(Paths.sound('jeffGameover/jeffGameover-' + FlxG.random.int(1, 25, randomCensor)), function() {
-      // Once the quote ends, fade in the game over music.
-      if (!isEnding && gameOverMusic != null)
-      {
-        gameOverMusic.fadeIn(4, 0.2, 1);
-      }
-    });
   }
 
   public override function destroy():Void

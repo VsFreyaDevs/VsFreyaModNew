@@ -10,7 +10,8 @@
     {
       "name": "idle",
       "prefix": "mika idle dance",
-      "offsets": [0, 0]
+      "offsets": [0, 0],
+      "looped": true
     },
     {
       "name": "singLEFT",
