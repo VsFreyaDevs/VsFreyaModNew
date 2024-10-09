@@ -6,28 +6,20 @@
   "looped": false,
   "offsets": {
     "instrumental": 0,
-    "altInstrumentals": {    },
-    "vocals": {    },
-    "altVocals": {    }
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
   },
   "playData": {
-    "songVariations": [    ],
-    "difficulties": [
-      "normal",
-      "hard",
-      "easy"
-    ],
+    "songVariations": [],
+    "difficulties": ["normal", "hard", "easy"],
     "characters": {
       "player": "bf-kit",
       "girlfriend": "gf",
       "opponent": "milky",
       "instrumental": "",
-      "opponentVocals": [
-        "milky"
-      ],
-      "playerVocals": [
-        "bf-kit"
-      ]
+      "opponentVocals": [],
+      "playerVocals": ["bf-kit"]
     },
     "stage": "mainStage",
     "noteStyle": "kit",
@@ -48,12 +40,7 @@
       "bpm": 142,
       "n": 4,
       "d": 4,
-      "bt": [
-        4,
-        4,
-        4,
-        4
-      ]
+      "bt": [4, 4, 4, 4]
     }
   ]
 }
