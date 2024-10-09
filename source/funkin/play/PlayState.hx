@@ -1809,15 +1809,15 @@ class PlayState extends MusicBeatSubState
 
     funnySexBox = new FlxSprite(healthBarBG.x + healthBarBG.width - 545, healthBarBG.y + 41).makeGraphic(500, 20, FlxColor.BLACK);
     funnySexBox.alpha = 0.35;
-    if (Preferences.extraScoreInfo) add(funnySexBox);
+    if (Preferences.extraScoreText) add(funnySexBox);
 
     // The score text below the health bar.
-    if (Preferences.extraScoreInfo)
+    if (Preferences.extraScoreText)
     {
       scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
       if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
       else
-        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTGER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     }
     else
     {
