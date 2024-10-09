@@ -523,8 +523,9 @@ class FreeplayState extends MusicBeatSubState
       FlxTween.tween(blackOverlayBullshitLOLXD, {x: 387.76}, 0.7, {ease: FlxEase.quintOut});
     }
 
-    var fnfFreeplay:FlxText = new FlxText(8, 8, 0, 'FREEPLAY', 48);
+    var fnfFreeplay:FlxText = new FlxText(8, 8, 0, 'freeplay is broken\npls check the chart editor', 24);
     fnfFreeplay.font = Paths.font("vcr.ttf");
+    fnfFreeplay.color = 0xFFFF0000;
     fnfFreeplay.visible = false;
 
     ostName.font = Paths.font("vcr.ttf");
