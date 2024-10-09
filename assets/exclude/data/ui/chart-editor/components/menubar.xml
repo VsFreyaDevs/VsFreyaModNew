@@ -26,7 +26,7 @@
     <menu-item id="menubarItemCut" text="Cut" shortcutText="Ctrl+X" />
     <menu-item id="menubarItemCopy" text="Copy" shortcutText="Ctrl+C" />
     <menu-item id="menubarItemPaste" text="Paste" shortcutText="Ctrl+V" />
-    <menu-item id="menubarItemPasteUnsnapped" text="Paste (Unsnapped)" shortcutText="Ctrl+Shift+V" />
+    <menu-item id="menubarItemPasteUnsnapped" text="Paste (Without Snap)" shortcutText="Ctrl+Shift+V" />
     <menu-item id="menubarItemDelete" text="Delete" shortcutText="Delete" />
     <menu-separator />
     <menu-item id="menubarItemFlipNotes" text="Flip Selected Notes" shortcutText="Ctrl+F" />
@@ -71,7 +71,7 @@
     </vbox>
     <menu-separator />
     <vbox width="100%" style="padding: 5px;">
-      <label id="menubarLabelHitsoundVolume" width="100%" styleName="menuHeader" text="HITSOUNDS" />
+      <label id="menubarLabelHitsoundVolume" width="100%" styleName="menuHeader" text="[ - HITSOUNDS - ]" />
       <hbox width="100%" style="padding: 5px;">
         <vbox width="50%">
           <label id="menubarLabelVolumeHitsoundPlayer" styleName="menuLabel" text="Player - 100%" />
@@ -86,7 +86,7 @@
     <menu-separator />
     <vbox width="100%" style="padding-bottom: 9px;">
       <vbox width="100%" style="padding: 5px;">
-        <label id="menubarLabelSongVolume" width="100%" styleName="menuHeader" text="SONG" />
+        <label id="menubarLabelSongVolume" width="100%" styleName="menuHeader" text="[ - SONG - ]" />
         <label id="menubarLabelVolumeInstrumental" styleName="menuLabel" text="Instrumental - 100%" />
         <slider id="menubarItemVolumeInstrumental" width="100%" majorTicks="10" minorTicks="5" pos="100" />
       </vbox>
@@ -117,9 +117,9 @@
     <menu-checkbox id="menubarItemToggleToolboxDifficulty" text="Difficulty" />
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxPlayerPreview" text="Player Preview" />
     <menu-checkbox hidden="true" id="menubarItemToggleToolboxOpponentPreview" text="Opponent Preview" />
-    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Metadata" />
+    <menu-checkbox id="menubarItemToggleToolboxMetadata" text="Song Metadata" />
     <menu-checkbox id="menubarItemToggleToolboxOffsets" text="Offsets" />
-    <menu-checkbox id="menubarItemToggleToolboxNoteData" text="Notes" />
+    <menu-checkbox id="menubarItemToggleToolboxNoteData" text="Note Kinds" />
     <menu-checkbox id="menubarItemToggleToolboxEventData" text="Events" />
     <menu-checkbox id="menubarItemToggleToolboxFreeplay" text="Freeplay Properties" />
     <menu-checkbox id="menubarItemToggleToolboxPlaytestProperties" text="Playtest Properties" />

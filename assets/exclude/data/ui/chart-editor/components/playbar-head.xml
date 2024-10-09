@@ -12,13 +12,13 @@
 		height: 16px;
 		width: 16px;
 		border-radius: 8px;
-		background: #8844DD #6622BB vertical;
+		background: #DD6E44 #BB5C22 vertical;
 		}
 		#playbarHead .slider-value {
-		background: #442277 #220055 vertical;
+		background: #773F22 #552300 vertical;
 		}
 		#playbarHead .range-value {
-		background: #8844DD #6622BB vertical;
+		background: #DD6E44 #BB5C22  vertical;
 		}
 	</style>
 	<horizontal-slider id="playbarHead" styleName="playhead-slider" />

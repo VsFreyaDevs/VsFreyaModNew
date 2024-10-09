@@ -242,9 +242,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   // Background color tint.
   public static final CURSOR_COLOR:FlxColor = 0xE0FFFFFF;
   public static final PREVIEW_BG_COLOR:FlxColor = 0xFF303030;
-  public static final PLAYHEAD_SCROLL_AREA_COLOR:FlxColor = 0xFF682B2F;
-  public static final SPECTROGRAM_COLOR:FlxColor = 0xFFFF0000;
-  public static final PLAYHEAD_COLOR:FlxColor = 0xC0BD0231;
+  public static final PLAYHEAD_SCROLL_AREA_COLOR:FlxColor = 0xFF683E2B;
+  public static final SPECTROGRAM_COLOR:FlxColor = 0xFFFF5100;
+  public static final PLAYHEAD_COLOR:FlxColor = 0xC0BD2E02;
 
   // Timings
 
@@ -2754,9 +2754,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
     // Little text that shows up when you copy something.
     txtCopyNotif = new FlxText(0, 0, 0, '', 24);
-    txtCopyNotif.setFormat(Paths.font("comic_normal.ttf"), 24, 0xFF52FF77, CENTER);
-    txtCopyNotif.setBorderStyle(OUTLINE, 0xFF074809, 1);
-    txtCopyNotif.color = 0xFF52FF77;
+    txtCopyNotif.setFormat(Paths.font("comic_normal.ttf"), 24, 0xFF09FF00, CENTER);
+    txtCopyNotif.setBorderStyle(OUTLINE, 0xFF050505, 1);
+    txtCopyNotif.color = 0xFF09FF00;
     txtCopyNotif.zIndex = 120;
     add(txtCopyNotif);
 
@@ -2786,7 +2786,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     buttonSelectOpponent.y = GRID_INITIAL_Y_POS - NOTE_SELECT_BUTTON_HEIGHT - 8;
     buttonSelectOpponent.width = GRID_SIZE * 4;
     buttonSelectOpponent.height = NOTE_SELECT_BUTTON_HEIGHT;
-    buttonSelectOpponent.tooltip = "Click to set selection to all notes on this side.\nShift-click to add all notes on this side to selection.";
+    buttonSelectOpponent.tooltip = "Click to set selection to all notes on this side.\nShift-Click to add all notes on this side to selection.";
     buttonSelectOpponent.zIndex = 110;
     add(buttonSelectOpponent);
 
@@ -2810,7 +2810,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     buttonSelectPlayer.y = buttonSelectOpponent.y;
     buttonSelectPlayer.width = GRID_SIZE * 4;
     buttonSelectPlayer.height = NOTE_SELECT_BUTTON_HEIGHT;
-    buttonSelectPlayer.tooltip = "Click to set selection to all notes on this side.\nShift-click to add all notes on this side to selection.";
+    buttonSelectPlayer.tooltip = "Click to set selection to all notes on this side.\nShift-Click to add all notes on this side to selection.";
     buttonSelectPlayer.zIndex = 110;
     add(buttonSelectPlayer);
 
@@ -2835,7 +2835,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     buttonSelectEvent.y = buttonSelectPlayer.y;
     buttonSelectEvent.width = GRID_SIZE;
     buttonSelectEvent.height = NOTE_SELECT_BUTTON_HEIGHT;
-    buttonSelectEvent.tooltip = "Click to set selection to all events.\nShift-click to add all events to selection.";
+    buttonSelectEvent.tooltip = "Click to set selection to all events.\nShift-Click to add all events to selection.";
     buttonSelectEvent.zIndex = 110;
     add(buttonSelectEvent);
 

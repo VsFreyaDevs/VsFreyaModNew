@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog width="500" title="About Chart Editor">
+<dialog width="550" title="About Chart Editor">
 	<vbox width="100%">
-		<label text="Friday Night Funkin'" horizontalAlign="left" />
-		<label text="Chart Editor v1.0-Freya" horizontalAlign="center" />
+		<label text="Friday Night Funkin': Vs. Freya" horizontalAlign="left" />
+		<label text="Chart Editor v1.0" horizontalAlign="center" />
 		<label text="Built by EliteMasterEric" horizontalAlign="right" />
 		<label text="Modified by charlesisfeline" horizontalAlign="center" />
 		<label text="HaxeUI by Ian Harrigan" horizontalAlign="left" />
