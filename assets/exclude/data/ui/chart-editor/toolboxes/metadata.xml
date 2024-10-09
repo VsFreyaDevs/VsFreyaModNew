@@ -5,7 +5,7 @@
             <vbox width="100%" height="100%">
                 <grid columns="2" height="100%">
                     <label text="Song Name:" verticalAlign="center" horizontalAlign="right" />
-                    <textfield id="inputSongName" value="Bopeebo" tooltip="The readable name of the song." />
+                    <textfield id="inputSongName" value="Bopeebo" tooltip="The readable display name of the song." />
                     <label text="Song Artist:" verticalAlign="center" horizontalAlign="right" />
                     <textfield id="inputSongArtist" value="Kawai Sprite" tooltip="The artist who composed the song." />
                     <label text="Charter:" verticalAlign="center" horizontalAlign="right" />
@@ -72,7 +72,7 @@
                 </dropdown>
                 <label id="labelScrollSpeed" text="Scroll Speed: 1.0x" />
                 <spacer />
-                <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="10.0" tooltip="Adjust the relative speed at which the notes move." />
+                <slider id="inputScrollSpeed" pos="1.0" step="0.1" precision="1" min="0.5" max="20.0" tooltip="Adjust the relative speed at which the notes move." />
                 <spacer />
                 <label id="labelDifficultyRating" text="Difficulty Rank" verticalAlign="center" />
                 <number-stepper id="inputDifficultyRating" pos="0" step="1" min="0" max="15" tooltip="Set the rating for this difficulty as shown in the Freeplay menu." />
