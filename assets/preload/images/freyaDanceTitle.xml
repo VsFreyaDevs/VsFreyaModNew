@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="freyaDanceTitle.png">
+	<!-- Created with Adobe Animate version 22.0.7.214 -->
+	<!-- http://www.adobe.com/products/animate.html -->
+	<SubTexture name="freya rockstar dance left instance 10000" x="10" y="10" width="1077" height="1004" frameX="-54" frameY="-155" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10001" x="10" y="10" width="1077" height="1004" frameX="-54" frameY="-155" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10002" x="1097" y="10" width="1127" height="886" frameX="0" frameY="-261" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10003" x="1097" y="10" width="1127" height="886" frameX="0" frameY="-261" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10004" x="2234" y="10" width="857" height="1070" frameX="-212" frameY="-77" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10005" x="2234" y="10" width="857" height="1070" frameX="-212" frameY="-77" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10006" x="3101" y="10" width="802" height="1131" frameX="-252" frameY="-16" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10007" x="3101" y="10" width="802" height="1131" frameX="-252" frameY="-16" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10008" x="3913" y="10" width="796" height="1141" frameX="-255" frameY="-6" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10009" x="3913" y="10" width="796" height="1141" frameX="-255" frameY="-6" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10010" x="4719" y="10" width="794" height="1146" frameX="-256" frameY="-1" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10011" x="4719" y="10" width="794" height="1146" frameX="-256" frameY="-1" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10012" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10013" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10014" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10015" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10016" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10017" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10018" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10019" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10020" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10021" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10022" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance left instance 10023" x="5523" y="10" width="792" height="1147" frameX="-257" frameY="0" frameWidth="1131" frameHeight="1159"/>
+	<SubTexture name="freya rockstar dance right instance 10000" x="6325" y="10" width="1085" height="1004" frameX="-51" frameY="-170" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10001" x="6325" y="10" width="1085" height="1004" frameX="-51" frameY="-170" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10002" x="10" y="1167" width="1213" height="886" frameX="0" frameY="-276" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10003" x="10" y="1167" width="1213" height="886" frameX="0" frameY="-276" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10004" x="1233" y="1167" width="912" height="1070" frameX="-107" frameY="-92" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10005" x="1233" y="1167" width="912" height="1070" frameX="-107" frameY="-92" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10006" x="2155" y="1167" width="803" height="1094" frameX="-147" frameY="-67" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10007" x="2155" y="1167" width="803" height="1094" frameX="-147" frameY="-67" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10008" x="2968" y="1167" width="797" height="1127" frameX="-150" frameY="-35" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10009" x="2968" y="1167" width="797" height="1127" frameX="-150" frameY="-35" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10010" x="3775" y="1167" width="795" height="1160" frameX="-151" frameY="-2" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10011" x="3775" y="1167" width="795" height="1160" frameX="-151" frameY="-2" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10012" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10013" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10014" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10015" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10016" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10017" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10018" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10019" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10020" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10021" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10022" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+	<SubTexture name="freya rockstar dance right instance 10023" x="4580" y="1167" width="793" height="1161" frameX="-152" frameY="0" frameWidth="1213" frameHeight="1174"/>
+</TextureAtlas>

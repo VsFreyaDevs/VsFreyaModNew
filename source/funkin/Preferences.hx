@@ -153,20 +153,39 @@ class Preferences
   #end
 
   /**
-   * If enabled, there will be a text display showing your combo breaks.
-   * @default `false`
+   * If enabled, the score display will be centered and extended to show your combo breaks and accuracy.
+   * @default `true`
    */
-  public static var comboBreakText(get, set):Bool;
+  public static var extraScoreText(get, set):Bool;
 
-  static function get_comboBreakText():Bool
+  static function get_extraScoreText():Bool
   {
-    return Save?.instance?.options?.comboBreakText ?? true;
+    return Save?.instance?.options?.extraScoreText ?? true;
   }
 
-  static function set_comboBreakText(value:Bool):Bool
+  static function set_extraScoreText(value:Bool):Bool
   {
     var save:Save = Save.instance;
-    save.options.comboBreakText = value;
+    save.options.extraScoreText = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * If enabled, there will be a display showing your NPS & judgements that you've gotten during gameplay.
+   * @default `true`
+   */
+  public static var judgeCounter(get, set):Bool;
+
+  static function get_judgeCounter():Bool
+  {
+    return Save?.instance?.options?.judgeCounter ?? true;
+  }
+
+  static function set_judgeCounter(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.judgeCounter = value;
     save.flush();
     return value;
   }

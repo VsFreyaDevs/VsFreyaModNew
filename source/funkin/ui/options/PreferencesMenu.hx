@@ -56,10 +56,10 @@ class PreferencesMenu extends Page
     FlxG.cameras.add(menuCamera, false);
     menuCamera.bgColor = 0x0;
     camera = menuCamera;
-    camWhat = new FlxCamera();
+    camWhat = new FunkinCamera('prefBfCam');
     camWhat.bgColor.alpha = 0;
     FlxG.cameras.add(camWhat, false);
-    camDesc = new FlxCamera();
+    camDesc = new FunkinCamera('prefDescCam');
     camDesc.bgColor.alpha = 0;
     FlxG.cameras.add(camDesc, false);
 
@@ -188,7 +188,7 @@ class PreferencesMenu extends Page
       Preferences.flashingLights = value;
       yeahBf(value);
     }, Preferences.flashingLights);
-    createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals.', function(value:Bool):Void {
+    createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals', function(value:Bool):Void {
       Preferences.antialiasing = value;
       boyFriend.antialiasing = value;
       yeahBf(value);
@@ -205,10 +205,10 @@ class PreferencesMenu extends Page
       Preferences.laneAlpha = Std.int(value);
       yeahBf(false);
     }, null, Preferences.laneAlpha, 0, 100, 1, 0);
-    createPrefItemCheckbox('Combo Break Display', 'Enable to show your combo breaks during gameplay', function(value:Bool):Void {
-      Preferences.comboBreakText = value;
+    createPrefItemCheckbox('Extended Score Display', 'Enable to show your combo breaks and accuracy during gameplay', function(value:Bool):Void {
+      Preferences.extraScoreText = value;
       yeahBf(value);
-    }, Preferences.comboBreakText);
+    }, Preferences.extraScoreText);
     createPrefItemNumber('Strum Transparency', 'Set the transparency of both the CPU & player\'s strums', function(value:Float) {
       Preferences.strumAlpha = Std.int(value);
       yeahBf(false);
@@ -217,6 +217,10 @@ class PreferencesMenu extends Page
       Preferences.zoomCamera = value;
       yeahBf(value);
     }, Preferences.zoomCamera);
+    createPrefItemCheckbox('Judgement Counter', 'Enable to show your NPS and judgements at the left side\nduring gameplay', function(value:Bool):Void {
+      Preferences.judgeCounter = value;
+      yeahBf(value);
+    }, Preferences.judgeCounter);
     #if web
     createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
       Preferences.unlockedFramerate = value;
@@ -229,7 +233,7 @@ class PreferencesMenu extends Page
     }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 960, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
-    createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'nt do much', function(value:Bool):Void {
+    createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'t do much', function(value:Bool):Void {
       Preferences.naughtyness = value;
       yeahBf(value);
     }, Preferences.naughtyness);

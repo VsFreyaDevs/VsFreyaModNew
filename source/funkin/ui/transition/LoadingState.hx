@@ -223,35 +223,28 @@ class LoadingState extends MusicBeatSubState
     stageDirectory = daStage?._data?.directory ?? "shared";
     Paths.setCurrentLevel(stageDirectory);
 
-    var playStateCtor:() -> PlayState = function() {
-      return new PlayState(params);
-    };
+    var playStateCtor:() -> PlayState = () -> return new PlayState(params);
 
     if (onConstruct != null)
     {
-      playStateCtor = function() {
+      playStateCtor = () -> {
         var result = new PlayState(params);
         onConstruct(result);
         return result;
       };
     }
 
-    #if NO_PRELOAD_ALL
+    #if FEATURE_LOADING_SCREEN
     // Switch to loading state while we load assets (default on HTML5 target).
-    var loadStateCtor = function() {
+    var loadStateCtor = () -> {
       var result = new LoadingState(playStateCtor, shouldStopMusic, params);
       @:privateAccess
       result.asSubState = asSubState;
       return result;
     }
-    if (asSubState)
-    {
-      FlxG.state.openSubState(cast loadStateCtor());
-    }
+    if (asSubState) FlxG.state.openSubState(cast loadStateCtor());
     else
-    {
       FlxG.switchState(loadStateCtor);
-    }
     #else
     // All assets preloaded, switch directly to play state (defualt on other targets).
     if (shouldStopMusic && FlxG.sound.music != null)
@@ -262,27 +255,19 @@ class LoadingState extends MusicBeatSubState
 
     // Load and cache the song's charts.
     // Don't do this if we already provided the music and charts.
-    if (params?.targetSong != null && !params.overrideMusic)
-    {
-      params.targetSong.cacheCharts(true);
-    }
+    if (params?.targetSong != null && !params.overrideMusic) params.targetSong.cacheCharts(true);
 
     var shouldPreloadLevelAssets:Bool = !(params?.minimalMode ?? false);
 
     if (shouldPreloadLevelAssets) preloadLevelAssets();
 
-    if (asSubState)
-    {
-      FlxG.state.openSubState(cast playStateCtor());
-    }
+    if (asSubState) FlxG.state.openSubState(cast playStateCtor());
     else
-    {
       FlxG.switchState(playStateCtor);
-    }
     #end
   }
 
-  #if NO_PRELOAD_ALL
+  #if FEATURE_LOADING_SCREEN
   static function isSoundLoaded(path:String):Bool
   {
     return Assets.cache.hasSound(path);
@@ -409,10 +394,7 @@ class LoadingState extends MusicBeatSubState
 
     var library = LimeAssets.getLibrary(id);
 
-    if (library != null)
-    {
-      return Future.withValue(library);
-    }
+    if (library != null) return Future.withValue(library);
 
     var path = id;
     var rootPath = null;
@@ -432,14 +414,12 @@ class LoadingState extends MusicBeatSubState
         path += '/library.json';
       }
       else
-      {
         rootPath = Path.directory(path);
-      }
       @:privateAccess
       path = LimeAssets.__cacheBreak(path);
     }
 
-    AssetManifest.loadFromFile(path, rootPath).onComplete(function(manifest) {
+    AssetManifest.loadFromFile(path, rootPath).onComplete((manifest) -> {
       if (manifest == null)
       {
         promise.error('Cannot parse asset manifest for library \'' + id + '\'');
@@ -448,10 +428,7 @@ class LoadingState extends MusicBeatSubState
 
       var library = AssetLibrary.fromManifest(manifest);
 
-      if (library == null)
-      {
-        promise.error('Cannot open library \'' + id + '\'');
-      }
+      if (library == null) promise.error('Cannot open library \'' + id + '\'');
       else
       {
         @:privateAccess
@@ -459,9 +436,7 @@ class LoadingState extends MusicBeatSubState
         library.onChange.add(LimeAssets.onChange.dispatch);
         promise.completeWith(Future.withValue(library));
       }
-    }).onError(function(_) {
-      promise.error('There is no asset library with an ID of \'' + id + '\'');
-    });
+    }).onError((_) -> promise.error('There is no asset library with an ID of \'' + id + '\''));
 
     return promise.future;
   }
@@ -523,7 +498,7 @@ class MultiCallback
     return unfired.array();
 
   /**
-   * Perform an FlxG.switchState with a nice transition
+   * Perform an FlxG.switchState with a nice transition.
    * @param state
    * @param transitionTex
    * @param time
@@ -537,7 +512,7 @@ class MultiCallback
     FlxTween.tween(screenWipeShit, {daAlphaShit: 1}, time,
       {
         ease: FlxEase.quadInOut,
-        onComplete: function(twn) {
+        onComplete: (twn) -> {
           screenShit.destroy();
           FlxG.switchState(state);
         }

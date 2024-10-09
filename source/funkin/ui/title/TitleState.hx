@@ -39,8 +39,8 @@ import funkin.mobile.util.TouchUtil;
 import funkin.mobile.util.SwipeUtil;
 #end
 
-#if desktop
-#end
+using StringTools;
+
 class TitleState extends MusicBeatState
 {
   /**
@@ -60,6 +60,8 @@ class TitleState extends MusicBeatState
   var video:Video;
   var netStream:NetStream;
   var overlay:Sprite;
+
+  var gfThingy:Bool = false;
 
   override public function create():Void
   {
@@ -197,10 +199,20 @@ class TitleState extends MusicBeatState
 
     outlineShaderShit = new TitleOutline();
 
-    gfDance = new FlxSpriteOverlay(FlxG.width * 0.4, FlxG.height * 0.07);
-    gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
-    gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
-    gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+    if (gfThingy)
+    {
+      gfDance = new FlxSpriteOverlay(FlxG.width * 0.4, FlxG.height * 0.07);
+      gfDance.frames = Paths.getSparrowAtlas('gfDanceTitle');
+      gfDance.animation.addByIndices('danceLeft', 'gfDance', [30, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "", 24, false);
+      gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
+    }
+    else
+    {
+      gfDance = new FlxSpriteOverlay(512, 42);
+      gfDance.frames = Paths.getSparrowAtlas('freyaDanceTitle');
+      gfDance.animation.addByPrefix('danceLeft', 'freya rockstar dance left instance 1', 24, false);
+      gfDance.animation.addByPrefix('danceRight', 'freya rockstar dance right instance 1', 24, false);
+    }
 
     // maskShader.swagSprX = gfDance.x;
     // maskShader.swagMaskX = gfDance.x + 200;
@@ -275,6 +287,24 @@ class TitleState extends MusicBeatState
     if (FlxG.sound.music != null) FlxG.sound.music.onComplete = moveToAttract;
   }
 
+  public function offsetDancer(xPos:Float = 0, yPos:Float = 0)
+  {
+    if (gfDance != null)
+    {
+      gfDance.x = xPos;
+      gfDance.y = xPos;
+    }
+  }
+
+  public function offsetTitle(xPos:Float = 0, yPos:Float = 0)
+  {
+    if (logoBl != null)
+    {
+      logoBl.x = xPos;
+      logoBl.y = xPos;
+    }
+  }
+
   /**
    * After sitting on the title screen for a while, transition to the attract screen.
    */
@@ -304,7 +334,7 @@ class TitleState extends MusicBeatState
     var fullText:String = Assets.getText(Paths.txt('introText'));
 
     // Split into lines and remove empty lines
-    var firstArray:Array<String> = fullText.split('\n').filter(function(s:String) return s != '');
+    var firstArray:Array<String> = fullText.split('\n').filter((s:String) -> return s != '');
     var swagGoodArray:Array<Array<String>> = [];
 
     for (i in firstArray)
@@ -517,13 +547,13 @@ class TitleState extends MusicBeatState
           switch (i + 1)
           {
             case 1:
-              createCoolText(['The', 'Funkin Crew Inc']);
+              createCoolText(['charlesisfeline', 'TheAnimateMan', 'TheAnimateMan']);
             case 3:
               addMoreText('presents');
             case 4:
               deleteCoolText();
             case 5:
-              createCoolText(['In association', 'with']);
+              createCoolText(['Totally not', 'associated with']);
             case 7:
               addMoreText('newgrounds');
               if (ngSpr != null) ngSpr.visible = true;

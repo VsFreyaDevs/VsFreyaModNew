@@ -6444,28 +6444,17 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   {
     if (menubarItemSaveChart == null) return;
 
-    if (currentWorkingFilePath == null)
-    {
-      menubarItemSaveChart.disabled = true;
-    }
+    if (currentWorkingFilePath == null) menubarItemSaveChart.disabled = true;
     else
-    {
       menubarItemSaveChart.disabled = false;
-    }
   }
 
   function applyWindowTitle():Void
   {
-    var inner:String = 'New Chart';
+    var inner:String = 'Untitled Chart';
     var cwfp:Null<String> = currentWorkingFilePath;
-    if (cwfp != null)
-    {
-      inner = cwfp;
-    }
-    if (currentWorkingFilePath == null || saveDataDirty)
-    {
-      inner += '*';
-    }
+    if (cwfp != null) inner = cwfp;
+    if (currentWorkingFilePath == null || saveDataDirty) inner += '*';
     WindowUtil.setWindowTitle(openfl.Lib.application.meta["name"] + ' Chart Editor - ${inner}');
   }
 
@@ -6488,14 +6477,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     else
     {
       // Invert player and opponent columns.
-      if (input >= ChartEditorState.STRUMLINE_SIZE)
-      {
-        input -= ChartEditorState.STRUMLINE_SIZE;
-      }
+      if (input >= ChartEditorState.STRUMLINE_SIZE) input -= ChartEditorState.STRUMLINE_SIZE;
       else
-      {
         input += ChartEditorState.STRUMLINE_SIZE;
-      }
     }
     return input;
   }
@@ -6514,14 +6498,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     else
     {
       // Invert player and opponent columns.
-      if (input >= ChartEditorState.STRUMLINE_SIZE)
-      {
-        input -= ChartEditorState.STRUMLINE_SIZE;
-      }
+      if (input >= ChartEditorState.STRUMLINE_SIZE) input -= ChartEditorState.STRUMLINE_SIZE;
       else
-      {
         input += ChartEditorState.STRUMLINE_SIZE;
-      }
     }
     return input;
   }
@@ -6530,9 +6509,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   {
     var params:Array<NoteParamData> = [];
     for (param in paramsToClone)
-    {
       params.push(param.clone());
-    }
     return params;
   }
 }

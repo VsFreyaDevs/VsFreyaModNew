@@ -226,7 +226,7 @@ class PlayState extends MusicBeatSubState
   /**
    * The player's current amount of misses.
    */
-  public var songMisses:Int;
+  public var songMisses:Int = 0;
 
   /**
    * The amount of `SICK`s you have.
@@ -271,6 +271,42 @@ class PlayState extends MusicBeatSubState
    * The maximum amount of notes hit per second.
    */
   public var maxNps:Int = 0;
+
+  /**
+   * The player's current accuracy.
+   */
+  public var ratingPercent:Float;
+
+  /**
+   * The player's current rating.
+   */
+  public var ratingName:String = "?";
+
+  /**
+   * The player's current FC rating.
+   */
+  public var ratingFC:String = "N/A";
+
+  /**
+   * The amount of notes the player has hit.
+   */
+  public var totalNotesHit:Float = 0.0;
+
+  /**
+   * The values for the rating system.
+   */
+  public static var ratingStuff:Array<Dynamic> = [
+    ["skill issue", 0.2], // From 0% to 20%
+    ["its not overcharted, youre just bad", 0.2], // From 20% to 40%
+    ["HA LMAO", 0.4], // From 40% to 60%
+    ["its fine bud", 0.6], // From 60% to 69%
+    ["haha 69 funni number", 0.69], // From 69% to 70%
+    ["git gud", 0.75], // From 70% to 80%
+    ["is that all you got", 0.8], // From 80% to 90%
+    ["SLAY", 0.9], // From 90% to 97%
+    ["BRO IS NOT PFCING :skull:", 0.97], // From 97% to 99%
+    ["PERFECT FC!!!!!!!", 1]
+  ];
 
   /**
    * Start at this point in the song once the countdown is done.
@@ -534,6 +570,11 @@ class PlayState extends MusicBeatSubState
    * RENDER OBJECTS
    */
   /**
+   * IDK...
+   */
+  var funnySexBox:FlxSprite;
+
+  /**
    * The FlxText which displays the current score.
    */
   public var scoreText:FlxText;
@@ -542,11 +583,6 @@ class PlayState extends MusicBeatSubState
    * The FlxText that shows the hit time of your last note in ms.
    */
   public var timingText:FlxText;
-
-  /**
-   * The FlxText which displays the amount of combo breaks the player has.
-   */
-  public var comboBreakText:FlxText;
 
   /**
    * The bar which displays the player's health.
@@ -559,6 +595,11 @@ class PlayState extends MusicBeatSubState
    * Emma says the image is slightly skewed so I'm leaving it as an image instead of a `createGraphic`.
    */
   public var healthBarBG:FunkinSprite;
+
+  /**
+   * The FlxText which displays the judgements, NPS, etc.
+   */
+  var judgementCounter:FlxText;
 
   /**
    * The amount of time played in the song, compared to the max length.
@@ -823,6 +864,15 @@ class PlayState extends MusicBeatSubState
     else
       initMinimalMode();
     initStrumlines();
+    // Initialize the judgements, judgement counter, and combo meter.
+    judgementCounter = new FlxText(20, 0, 0, "", 20);
+    judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    judgementCounter.scrollFactor.set();
+    judgementCounter.screenCenter(Y);
+    judgementCounter.borderSize = 1.25;
+    if (Preferences.judgeCounter) add(judgementCounter);
+    judgementCounter.text = 'NPS: 0 (Max: 0)\n\nSick!! - 0\nGood! - 0\nBad - 0\nShit - 0';
+    judgementCounter.cameras = [camHUD];
     initPopups();
 
     #if mobile
@@ -1042,6 +1092,10 @@ class PlayState extends MusicBeatSubState
       bads = 0;
       shits = 0;
       totalPlayed = 0;
+      totalNotesHit = 0;
+      ratingPercent = 0;
+      ratingName = "?";
+      judgementCounter.text = 'NPS: 0 (Max: 0)\n\nSick!! - 0\nGood! -  0\nBad - 0\nShit - 0';
       Countdown.performCountdown();
 
       needsReset = false;
@@ -1709,9 +1763,9 @@ class PlayState extends MusicBeatSubState
 
     camGame = new FunkinCamera('playStateCamGame');
     camGame.bgColor = BACKGROUND_COLOR; // Show a pink background behind the stage.
-    camHUD = new FlxCamera();
+    camHUD = new FunkinCamera('playStateCamHUD');
     camHUD.bgColor.alpha = 0; // Show the game scene behind the camera.
-    camCutscene = new FlxCamera();
+    camCutscene = new FunkinCamera('playStateCamHUD');
     camCutscene.bgColor.alpha = 0; // Show the game scene behind the camera.
 
     FlxG.cameras.reset(camGame);
@@ -1728,7 +1782,7 @@ class PlayState extends MusicBeatSubState
   }
 
   /**
-   * Initializes the health bar on the HUD.
+   * Initializes the health bar and info displays on the HUD.
    */
   function initHealthBar():Void
   {
@@ -1754,28 +1808,35 @@ class PlayState extends MusicBeatSubState
     healthBar.zIndex = 800;
     add(healthBar);
 
-    // The score text below the health bar.
-    scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
-    if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
-    else
-      scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    scoreText.scrollFactor.set();
-    scoreText.zIndex = 802;
-    add(scoreText);
+    funnySexBox = new FlxSprite(healthBarBG.x + healthBarBG.width - 545, healthBarBG.y + 41).makeGraphic(500, 20, FlxColor.BLACK);
+    funnySexBox.alpha = 0.35;
+    if (Preferences.extraScoreInfo) add(funnySexBox);
 
-    comboBreakText = new FlxText(healthBarBG.x + 30, healthBarBG.y + 30, 0, '', 20);
-    if (isFreyaSong) comboBreakText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
+    // The score text below the health bar.
+    if (Preferences.extraScoreInfo)
+    {
+      scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
+      if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
+      else
+        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTGER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    }
     else
-      comboBreakText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
-    comboBreakText.scrollFactor.set();
-    comboBreakText.zIndex = 802;
-    if (Preferences.comboBreakText) add(comboBreakText);
+    {
+      scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
+      if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
+      else
+        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    }
+    scoreText.scrollFactor.set();
+    scoreText.zIndex = 851;
+    add(scoreText);
+    funnySexBox.scale.x = scoreText.fieldWidth;
 
     // Move the health bar to the HUD camera.
     healthBar.cameras = [camHUD];
     healthBarBG.cameras = [camHUD];
+    funnySexBox.cameras = [camHUD];
     scoreText.cameras = [camHUD];
-    comboBreakText.cameras = [camHUD];
   }
 
   /**
@@ -2338,13 +2399,21 @@ class PlayState extends MusicBeatSubState
    */
   function updateScoreText():Void
   {
-    // TODO: Add functionality for modules to update the score text.
-    // if (isBotPlayMode) scoreText.text = 'BOTPLAY Enabled';
-    // else
-    // {
+    var accuracy:String = "?";
+    if (totalPlayed != 0)
+    {
+      var percent:Float = Math.floor(ratingPercent * 100 * 2);
+      accuracy = percent + '%';
+    }
+
+    // if (isBotPlayMode) scoreText.text = 'BOTPLAY (Scores will NOT be saved!)';
+
     // TODO: Add an option for this maybe?
     var commaSeparated:Bool = true;
-    scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)}';
+    if (Preferences.extraScoreText)
+      scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy ]';
+    else
+      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} ';
     // }
   }
 
@@ -3002,8 +3071,39 @@ class PlayState extends MusicBeatSubState
         Highscore.tallies.missed += 1;
         songMisses++;
     }
+    var ratingMod = switch (daRating)
+    {
+      case 'good':
+        0.67;
+      case 'bad':
+        0.34;
+      case 'shit':
+        0;
+      case 'sick':
+        0.82;
+      default:
+        1; // This should only trigger on "Sick!" judgements.
+    }
     totalPlayed++;
+    totalNotesHit += ratingMod;
     health += healthChange;
+    var sickJudge = Highscore.tallies.sick;
+    var goodJudge = Highscore.tallies.good;
+    var badJudge = Highscore.tallies.bad;
+    var shitJudge = Highscore.tallies.shit;
+    if (songMisses == 0)
+    {
+      if (badJudge > 0 || shitJudge > 0) ratingFC = 'FC';
+      else if (goodJudge > 0) ratingFC = 'GFC';
+      else if (sickJudge > 0) ratingFC = 'SFC';
+    }
+    else
+    {
+      if (songMisses < 10) ratingFC = 'SDCB';
+      else
+        ratingFC = 'Clear';
+    }
+    judgementCounter.text = 'NPS: ${notesPerSecond} (Max: ${maxNps})\n\nSick!! - ${sickJudge}\nGood! - ${goodJudge}\nBad - ${badJudge}\nShit - ${shitJudge}';
     if (isComboBreak)
     {
       // Break the combo, but don't increment tallies.misses.
@@ -3029,6 +3129,27 @@ class PlayState extends MusicBeatSubState
    */
   function popUpScore(daRating:String, ?combo:Int):Void
   {
+    ratingName = '?';
+    if (totalPlayed != 0) // To prevent dividing by 0.
+    {
+      // Rating percent.
+      ratingPercent = Math.min(1, Math.max(0, totalNotesHit / totalPlayed));
+      // Rating name.
+      ratingName = ratingStuff[ratingStuff.length - 1][0]; // Uses last string.
+      if (ratingPercent < 1)
+      {
+        for (i in 0...ratingStuff.length - 1)
+        {
+          if (ratingPercent < ratingStuff[i][1])
+          {
+            ratingName = ratingStuff[i][0];
+            break;
+          }
+        }
+      }
+    }
+    ratingFC = '';
+
     if (daRating == 'miss')
     {
       // If daRating is 'miss', that means we made a mistake and should not continue.

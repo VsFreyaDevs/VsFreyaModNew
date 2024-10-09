@@ -37,6 +37,11 @@ class SustainTrail extends FlxSprite
   public var cover:NoteHoldCover = null;
 
   /**
+   * Set this flag to enable playing strum confirm animation on hit.
+   */
+  public var strumPlayConfirm:Bool = true;
+
+  /**
    * Set this flag to disable playing animations on hit/miss.
    */
   public var noAnimation:Bool = false;
@@ -357,8 +362,7 @@ class SustainTrail extends FlxSprite
     fullSustainLength = 0;
     noteData = null;
 
-    hitNote = false;
-    missedNote = false;
+    strumPlayConfirm = missedNote = hitNote = false;
   }
 
   public override function revive():Void
@@ -371,9 +375,8 @@ class SustainTrail extends FlxSprite
     fullSustainLength = 0;
     noteData = null;
 
-    hitNote = false;
-    missedNote = false;
-    handledMiss = false;
+    strumPlayConfirm = true;
+    handledMiss = missedNote = hitNote = false;
   }
 
   override public function destroy():Void

@@ -62,13 +62,8 @@ class FlxSpriteOverlay extends FlxSprite
 
   override public function isSimpleRender(?camera:FlxCamera):Bool
   {
-    if (FlxG.renderBlit)
-    {
-      return super.isSimpleRender(camera);
-    }
+    if (FlxG.renderBlit) return super.isSimpleRender(camera);
     else
-    {
       return false;
-    }
   }
 }

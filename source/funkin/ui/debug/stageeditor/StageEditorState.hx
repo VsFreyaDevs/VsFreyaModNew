@@ -293,12 +293,12 @@ class StageEditorState extends UIState
     WindowManager.instance.reset();
     instance = this;
     FlxG.sound.music.stop();
-    WindowUtil.setWindowTitle("Friday Night Funkin\' Stage Editor");
+    WindowUtil.setWindowTitle(openfl.Lib.application.meta["name"] + "Stage Editor");
 
     AssetDataHandler.init(this);
 
-    camGame = new FlxCamera();
-    camHUD = new FlxCamera();
+    camGame = new FunkinCamera('stageEditorGameCam');
+    camHUD = new FunkinCamera('stageEditorHUDCam');
     camHUD.bgColor.alpha = 0;
 
     FlxG.cameras.reset(camGame);

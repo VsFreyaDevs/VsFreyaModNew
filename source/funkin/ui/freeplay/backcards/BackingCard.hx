@@ -80,25 +80,15 @@ class BackingCard extends FlxSpriteGroup implements IBPMSyncedScriptedClass
    */
   public function applyExitMovers(?exitMovers:FreeplayState.ExitMoverData, ?exitMoversCharSel:FreeplayState.ExitMoverData):Void
   {
-    if (exitMovers == null)
-    {
-      exitMovers = _exitMovers;
-    }
+    if (exitMovers == null) exitMovers = _exitMovers;
     else
-    {
       _exitMovers = exitMovers;
-    }
 
     if (exitMovers == null) return;
 
-    if (exitMoversCharSel == null)
-    {
-      exitMoversCharSel = _exitMoversCharSel;
-    }
+    if (exitMoversCharSel == null) exitMoversCharSel = _exitMoversCharSel;
     else
-    {
       _exitMoversCharSel = exitMoversCharSel;
-    }
 
     if (exitMoversCharSel == null) return;
 
@@ -202,14 +192,14 @@ class BackingCard extends FlxSpriteGroup implements IBPMSyncedScriptedClass
 
     FlxTween.color(instance.bgDad, 0.5, 0xFFA8A8A8, 0xFF646464,
       {
-        onUpdate: function(_) {
+        onUpdate: (_) -> {
           instance.angleMaskShader.extraColor = instance.bgDad.color;
         }
       });
     FlxTween.tween(confirmGlow2, {alpha: 0.5}, 0.33,
       {
         ease: FlxEase.quadOut,
-        onComplete: function(_) {
+        onComplete: (_) -> {
           confirmGlow2.alpha = 0.6;
           confirmGlow.alpha = 1;
           confirmTextGlow.visible = true;
@@ -219,7 +209,7 @@ class BackingCard extends FlxSpriteGroup implements IBPMSyncedScriptedClass
           FlxTween.color(instance.bgDad, 2, 0xFFCDCDCD, 0xFF555555,
             {
               ease: FlxEase.expoOut,
-              onUpdate: function(_) {
+              onUpdate: (_) -> {
                 instance.angleMaskShader.extraColor = instance.bgDad.color;
               }
             });

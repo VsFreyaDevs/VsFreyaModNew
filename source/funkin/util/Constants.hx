@@ -432,6 +432,7 @@ class Constants
   /**
    * The amount of health the player gains when hitting a note with the KILLER rating.
    */
+  @:deprecated("Deprecated! This judgement was scrapped!")
   public static final HEALTH_KILLER_BONUS:Float = 2.0 / 100.0 * HEALTH_MAX; // +2.0%
 
   /**

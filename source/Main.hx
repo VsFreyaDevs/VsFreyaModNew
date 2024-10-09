@@ -97,9 +97,7 @@ class Main extends Sprite
     // TODO: Replace with loadEnabledMods() once the user can configure the mod list.
     funkin.modding.PolymodHandler.loadAllMods();
 
-    if (stage != null) init();
-    else
-      addEventListener(Event.ADDED_TO_STAGE, init);
+    stage != null ? init() : addEventListener(Event.ADDED_TO_STAGE, init);
   }
 
   function init(?event:Event):Void

@@ -28,7 +28,7 @@ class StageBuilderState extends MusicBeatState
 
   override function create()
   {
-    hudCam = new FlxCamera();
+    hudCam = new FunkinCamera('stageBuilderCam');
     hudCam.bgColor.alpha = 0;
 
     FlxG.cameras.add(hudCam, false);

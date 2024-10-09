@@ -103,7 +103,9 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
-          comboBreakText: true,
+          // timeBar: true,
+          judgeCounter: true,
+          extraScoreText: true,
           coloredHealthBar: true,
           showTimings: true,
           debugDisplay: true,
@@ -1391,7 +1393,7 @@ typedef SaveDataOptions =
 
   /**
    * Whether we want the framerate to be unlocked on HTML5 builds.
-   * @default `false
+   * @default `false`
    */
   var unlockedFramerate:Bool;
 
@@ -1402,10 +1404,16 @@ typedef SaveDataOptions =
   var badsShitsCauseMiss:Bool;
 
   /**
-   * If enabled, there will be a text display showing your combo breaks.
-   * @default `false`
+   * If enabled, there will be a display showing your NPS & judgements that you've gotten during gameplay.
+   * @default `true`
    */
-  var comboBreakText:Bool;
+  var judgementCounter:Bool;
+
+  /**
+   * If enabled, the score display will be centered and extended to show your NPS, combo breaks, and accuracy.
+   * @default `true`
+   */
+  var extraScoreText:Bool;
 
   var controls:
     {

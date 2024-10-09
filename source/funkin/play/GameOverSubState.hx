@@ -226,7 +226,9 @@ class GameOverSubState extends MusicBeatSubState
       }
       else
       {
-        if (boyfriend.hasAnimation('fakeoutDeath') && FlxG.random.bool(0.09)) boyfriend.playAnimation('fakeoutDeath', true, false);
+        var hasChanceOfFakeout:Bool = boyfriend.hasAnimation('fakeoutDeath') && FlxG.random.bool(0.09);
+        var shifting:Bool = boyfriend.hasAnimation('fakeoutDeath') && FlxG.keys.pressed.SHIFT;
+        if (hasChanceOfFakeout || shifting) boyfriend.playAnimation('fakeoutDeath', true, false);
         else
         {
           boyfriend.playAnimation('firstDeath', true, false); // ignoreOther is set to FALSE since you WANT to be able to mash and confirm game over!
@@ -310,7 +312,7 @@ class GameOverSubState extends MusicBeatSubState
           // ...close the GameOverSubState.
           // if (pixel) RetroCameraFade.fadeBlack(FlxG.camera, 10, 1);
           // else
-            FlxG.camera.fade(FlxColor.BLACK, 1, true, null, true);
+          FlxG.camera.fade(FlxColor.BLACK, 1, true, null, true);
           PlayState.instance.needsReset = true;
 
           if (PlayState.instance.isMinimalMode || boyfriend == null) {}
