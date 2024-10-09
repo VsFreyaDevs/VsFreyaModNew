@@ -1609,7 +1609,11 @@ class FreeplayState extends MusicBeatSubState
     }
     #end
 
-    if (controls.BACK) goBack();
+    if (controls.BACK)
+    {
+      trace('is busy?' + busy);
+      goBack();
+    }
 
     // onConfirm() calls functions that set busy to true
     if (accepted && !busy) grpCapsules.members[curSelected].onConfirm();
