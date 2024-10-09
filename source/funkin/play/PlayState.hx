@@ -3032,8 +3032,6 @@ class PlayState extends MusicBeatSubState
 
   public var totalLatency:Float;
 
-  public var totalNotesHit:Int;
-
   /**
    * Handles applying health, score, and ratings.
    */
