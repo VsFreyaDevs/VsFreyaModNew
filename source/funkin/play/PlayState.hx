@@ -801,6 +801,13 @@ class PlayState extends MusicBeatSubState
     Conductor.instance.mapTimeChanges(currentChart.timeChanges);
     Conductor.instance.update((Conductor.instance.beatLengthMs * -5) + startTimestamp);
 
+    var uhSongId:String = (currentSong?.id ?? '').toLowerCase();
+    switch (uhSongId)
+    {
+      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones":
+        isFreyaSong = true;
+    }
+
     // The song is now loaded. We can continue to initialize the play state.
     initCameras();
     initHealthBar();
@@ -841,8 +848,6 @@ class PlayState extends MusicBeatSubState
     var coolSongId:String = (currentSong?.id ?? '').toLowerCase();
     switch (coolSongId)
     {
-      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones":
-        isFreyaSong = true;
       case 'winter-horrorland': // VanillaCutscenes will call startCountdown later.
         VanillaCutscenes.playHorrorStartCutscene();
       default:
@@ -1057,7 +1062,7 @@ class PlayState extends MusicBeatSubState
       Conductor.instance.update(); // Normal conductor update.
 
       // FlxG.sound.music.onComplete may sometimes not get fired up lol.
-      if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
+      // if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
     }
 
     /*
