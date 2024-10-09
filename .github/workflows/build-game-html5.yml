@@ -40,13 +40,13 @@ jobs:
         with:
           name: html5Build-onlyJS
           path: export/release/html5/bin/*.js
-      # - name: Upload To Website
-        # run: |
-          # cd ..
-          # git clone https://github.com/FunkinDroidTeam/funkin-0.3-html5
-          # cd funkin-0.3-html5
-          # rm -rf *
-          # mv ${{ github.workspace }}/export/release/html5/bin/* .
-          # git add .
-          # git commit -m "Uploaded via actions."
-          # git push -u origin main
+      - name: Upload to Static Repo
+        run: |
+           cd ..
+           git clone https://github.com/VsPlanktonLegacyDevs/vsfreya-static.git
+           cd vsfreya-static
+           rm -rf *
+           mv ${{ github.workspace }}/export/release/html5/bin/* .
+           git add .
+           git commit -m "deploying the freya"
+           git push -u origin main
