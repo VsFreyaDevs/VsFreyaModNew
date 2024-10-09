@@ -1068,19 +1068,21 @@ class PlayState extends MusicBeatSubState
       if (Conductor.instance.songPosition >= FlxG.sound.music.length) endSong(false);
     }
 
-    if (!setTotalTime) songLength = currentSongLengthMs;
-    // For soft modding reasons, this only needs to be done until songLength no longer equals 0.
-    if (songLength > 0) setTotalTime = true;
-    songPercent = Math.max(0, Conductor.instance.songPosition) / songLength;
-    var conductorPos:Float = Conductor.instance.songPosition < 0 ? 0 : Conductor.instance.songPosition;
-    var songPos:Float = conductorPos;
+    /*
+      if (!setTotalTime) songLength = currentSongLengthMs;
+      // For soft modding reasons, this only needs to be done until songLength no longer equals 0.
+      if (songLength > 0) setTotalTime = true;
+      songPercent = Math.max(0, Conductor.instance.songPosition) / songLength;
+      var conductorPos:Float = Conductor.instance.songPosition < 0 ? 0 : Conductor.instance.songPosition;
+      var songPos:Float = conductorPos;
 
-    var songPosString:String = '';
-    if (songPos > 0) songPosString = FlxStringUtil.formatTime(songPos / 1000) + ' / ';
+      var songPosString:String = '';
+      if (songPos > 0) songPosString = FlxStringUtil.formatTime(songPos / 1000) + ' / ';
 
-    var songL:String = '';
-    songL = songLength > 0 ? FlxStringUtil.formatTime(songLength / 1000) : '';
-    // songPosString + ' / ' + songLength;
+      var songL:String = '';
+      songL = songLength > 0 ? FlxStringUtil.formatTime(songLength / 1000) : '';
+      // songPosString + ' / ' + songLength;
+     */
 
     var pauseButtonCheck:Bool = false;
     var androidPause:Bool = false;
