@@ -308,8 +308,8 @@ class GameOverSubState extends MusicBeatSubState
 
         var resetPlaying = (pixel:Bool = false) -> {
           // ...close the GameOverSubState.
-          if (pixel) RetroCameraFade.fadeBlack(FlxG.camera, 10, 1);
-          else
+          // if (pixel) RetroCameraFade.fadeBlack(FlxG.camera, 10, 1);
+          // else
             FlxG.camera.fade(FlxColor.BLACK, 1, true, null, true);
           PlayState.instance.needsReset = true;
 
