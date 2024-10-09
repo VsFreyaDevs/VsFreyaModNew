@@ -14,6 +14,7 @@ import flixel.util.FlxColor;
 import flixel.util.FlxSort;
 import funkin.util.MouseUtil;
 import flixel.util.FlxTimer;
+import funkin.graphics.FunkinCamera;
 
 class StageBuilderState extends MusicBeatState
 {

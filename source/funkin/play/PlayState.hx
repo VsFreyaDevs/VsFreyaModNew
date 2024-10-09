@@ -1007,7 +1007,6 @@ class PlayState extends MusicBeatSubState
     var list = FlxG.sound.list;
     updateHealthBar();
     updateScoreText();
-    updateComboBreakText();
 
     // Handle restarting the song when needed (player death or pressing Retry)
     if (needsReset)
@@ -2415,19 +2414,6 @@ class PlayState extends MusicBeatSubState
     else
       scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} ';
     // }
-  }
-
-  /**
-   * Updates the position and contents of the combo break display.
-   */
-  function updateComboBreakText():Void
-  {
-    // TODO: Add functionality for modules to update the combo break text.
-    // if (isBotPlayMode) comboBreakText.text = '';
-    // else
-    if (Preferences.badsShitsCauseMiss) comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.bad + Highscore.tallies.shit + Highscore.tallies.missed;
-    else
-      comboBreakText.text = 'Combo Breaks: ' + Highscore.tallies.missed;
   }
 
   /**
