@@ -68,6 +68,7 @@ class TitleState extends MusicBeatState
     super.create();
     swagShader = new ColorSwap();
 
+    #if !html5
     if (true)
     {
       var paths = [
@@ -120,6 +121,7 @@ class TitleState extends MusicBeatState
         trace('async load took ${end - start}s');
       }
     }
+    #end
 
     curWacky = FlxG.random.getObject(getIntroTextShit());
     FlxG.sound.cache(Paths.music('freakyMenu/freakyMenu'));

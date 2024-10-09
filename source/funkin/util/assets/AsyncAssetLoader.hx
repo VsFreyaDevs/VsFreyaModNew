@@ -1,5 +1,6 @@
 package funkin.util.assets;
 
+#if !html5
 import sys.thread.Thread;
 import sys.thread.Mutex;
 import openfl.media.Sound;
@@ -94,3 +95,22 @@ class AsyncAssetLoader
     return value;
   }
 }
+#else
+class AsyncAssetLoader
+{
+  public static function loadGraphic(path:String):Void
+  {
+    // nothing
+  }
+
+  public static function loadSound(path:String):Void
+  {
+    // nothing
+  }
+
+  public static function waitForAssets():Void
+  {
+    // nothing
+  }
+}
+#end
