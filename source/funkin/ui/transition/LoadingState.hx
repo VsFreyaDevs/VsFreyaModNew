@@ -234,7 +234,7 @@ class LoadingState extends MusicBeatSubState
       };
     }
 
-    #if FEATURE_LOADING_SCREEN
+    #if NO_PRELOAD_ALL
     // Switch to loading state while we load assets (default on HTML5 target).
     var loadStateCtor = () -> {
       var result = new LoadingState(playStateCtor, shouldStopMusic, params);
@@ -267,7 +267,7 @@ class LoadingState extends MusicBeatSubState
     #end
   }
 
-  #if FEATURE_LOADING_SCREEN
+  #if NO_PRELOAD_ALL
   static function isSoundLoaded(path:String):Bool
   {
     return Assets.cache.hasSound(path);
