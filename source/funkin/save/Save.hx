@@ -31,6 +31,8 @@ class Save
   public static var instance(get, never):Save;
   static var _instance:Null<Save> = null;
 
+  public static var _saveSlot:Int = 2;
+
   static function get_instance():Save
   {
     if (_instance == null) return _instance = load();
@@ -45,7 +47,7 @@ class Save
     trace("[SAVE] Loading save...");
 
     // Bind save data.
-    return loadFromSlot(1);
+    return loadFromSlot(_saveSlot);
   }
 
   /**
