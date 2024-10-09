@@ -59,6 +59,8 @@
 				</data>
 			</tableview>
 		</box>
-		<box width="100%" text="Even More Details\nWow!" />
+		<box width="100%" text="Discord Server">
+			<label text="https://discord.gg/qXpD55skD5" />
+		</box>
 	</tabview>
 </dialog>
