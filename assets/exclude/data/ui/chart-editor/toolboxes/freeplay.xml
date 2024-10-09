@@ -30,7 +30,7 @@
             </absolute>
             <waveform-player id="waveformMusic" style="cursor: pointer; pointer-events: true" />
           </vbox>
-          <sprite-wrapper id="previewSelectionSprite" height="100" width="300" style="background-color: #3EE2F4; opacity: 0.5;" top="40" left="0" />
+          <sprite-wrapper id="previewSelectionSprite" height="100" width="300" style="background-color: #F4AE3E; opacity: 0.5;" top="40" left="0" />
           <sprite-wrapper id="playheadSprite" height="100%" width="2" style="background-color: #FF0000" top="0" left="0" />
         </absolute>
       </scrollview>
