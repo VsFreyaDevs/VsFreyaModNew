@@ -100,7 +100,7 @@ class FreyaCreditsState extends MusicBeatState
     add(descBox);
 
     descText = new FlxText(0, descBox.getGraphicMidpoint().y, descBox.width, "wiener", 30);
-    descText.setFormat(Paths.font("arial.ttf"), 30, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    descText.setFormat(Paths.font('roboto/robotoMe.ttf'), 30, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     descText.screenCenter(X);
     descText.visible = false;
     descText.cameras = [camDesc];

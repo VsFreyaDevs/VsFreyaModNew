@@ -95,7 +95,7 @@ class PreferencesMenu extends Page
     descTextBG.active = false;
     descText = new FlxText(0, 0, 0, "what the fuck", 26);
     descText.scrollFactor.set();
-    descText.font = Paths.font("arial.ttf");
+    descText.font = Paths.font('roboto/robotoMe.ttf');
     descText.alignment = CENTER;
     descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
     descTextBG.x = descText.x - DESC_BG_OFFSET_X;

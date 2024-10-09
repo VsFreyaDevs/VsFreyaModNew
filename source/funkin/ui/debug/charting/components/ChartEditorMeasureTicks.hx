@@ -33,7 +33,7 @@ class ChartEditorMeasureTicks extends FlxTypedSpriteGroup<FlxSprite>
     add(tickTiledSprite);
 
     measureNumber = new FlxText(0, 0, ChartEditorState.GRID_SIZE, "1");
-    measureNumber.setFormat(Paths.font('consola.ttf'), 20, FlxColor.WHITE);
+    measureNumber.setFormat(Paths.font('roboto/robotoBo.ttf'), 20, FlxColor.WHITE);
     measureNumber.borderStyle = FlxTextBorderStyle.OUTLINE;
     measureNumber.borderColor = FlxColor.BLACK;
     add(measureNumber);

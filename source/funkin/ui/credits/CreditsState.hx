@@ -38,7 +38,7 @@ class CreditsState extends MusicBeatState
    * Choose something that will render Unicode properly.
    */
   #if windows
-  static final CREDITS_FONT = 'Arial';
+  static final CREDITS_FONT = 'Roboto';
   #elseif mac
   static final CREDITS_FONT = 'Menlo';
   #else

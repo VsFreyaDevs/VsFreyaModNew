@@ -1733,7 +1733,7 @@ class PlayState extends MusicBeatSubState
   function initHealthBar():Void
   {
     timingText = new FlxText(0, 0, 0, "You hit your note at: ", 28);
-    timingText.setFormat(Paths.font('arial.ttf'), 28, FlxColor.RED, CENTER, OUTLINE, FlxColor.BLACK);
+    timingText.setFormat(Paths.font('roboto/roboto.ttf'), 28, FlxColor.RED, CENTER, OUTLINE, FlxColor.BLACK);
     timingText.cameras = [camHUD];
     timingText.screenCenter();
     timingText.alpha = 0;
@@ -1756,7 +1756,7 @@ class PlayState extends MusicBeatSubState
 
     // The score text below the health bar.
     scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
-    if (isFreyaSong) scoreText.setFormat(Paths.font('arial.ttf'), 20, FlxColor.RED, RIGHT);
+    if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
     else
       scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     scoreText.scrollFactor.set();
@@ -1764,7 +1764,7 @@ class PlayState extends MusicBeatSubState
     add(scoreText);
 
     comboBreakText = new FlxText(healthBarBG.x + 30, healthBarBG.y + 30, 0, '', 20);
-    if (isFreyaSong) comboBreakText.setFormat(Paths.font('arial.ttf'), 20, FlxColor.RED, RIGHT);
+    if (isFreyaSong) comboBreakText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
     else
       comboBreakText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     comboBreakText.scrollFactor.set();

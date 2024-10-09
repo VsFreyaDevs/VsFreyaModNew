@@ -3,17 +3,17 @@
 	<style>
 		body, .label, .link {
 		font-size: 14px;
-		font-family: 'Arial';
+		font-family: 'Roboto';
 		font-bold: true;
 		}
 		.button, .menu, .menuitem, .menuLabel, .menuitem-checkbox {
 		font-size: 12px;
-		font-family: 'Arial';
+		font-family: 'Roboto';
 		font-bold: true;
 		}
 		.menuHeader {
 		font-size: 16px;
-		font-family: 'Arial';
+		font-family: 'Roboto';
 		font-bold: true;
 		}
 		.textfield {
@@ -49,7 +49,7 @@
 		}
 		.playbarButton {
 		font-size: 16px;
-		font-family: 'Arial';
+		font-family: 'Roboto';
 		font-bold: true;
 		width: 56px;
 		}

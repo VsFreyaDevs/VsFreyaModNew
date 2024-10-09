@@ -2754,7 +2754,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
     // Little text that shows up when you copy something.
     txtCopyNotif = new FlxText(0, 0, 0, '', 24);
-    txtCopyNotif.setFormat(Paths.font("comic_normal.ttf"), 24, 0xFF09FF00, CENTER);
+    txtCopyNotif.setFormat(Paths.font('roboto/robotoBl.ttf'), 24, 0xFF09FF00, CENTER);
     txtCopyNotif.setBorderStyle(OUTLINE, 0xFF050505, 1);
     txtCopyNotif.color = 0xFF09FF00;
     txtCopyNotif.zIndex = 120;

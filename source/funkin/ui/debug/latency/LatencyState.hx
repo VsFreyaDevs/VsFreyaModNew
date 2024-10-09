@@ -152,22 +152,22 @@ class LatencyState extends MusicBeatSubState
     strumlineBG.alpha = 0.1;
 
     visualOffsetText = new FlxText();
-    visualOffsetText.setFormat(Paths.font("vcr.ttf"), 20);
+    visualOffsetText.setFormat(Paths.font('roboto/roboto.ttf'), 20);
     visualOffsetText.x = (FlxG.height / 8) + 10;
     visualOffsetText.y = 10;
     visualOffsetText.fieldWidth = strumLine.x - visualOffsetText.x - 10;
     add(visualOffsetText);
 
     offsetText = new FlxText();
-    offsetText.setFormat(Paths.font("vcr.ttf"), 20);
+    offsetText.setFormat(Paths.font('roboto/roboto.ttf'), 20);
     offsetText.x = strumLine.x + strumLine.width + 10;
     offsetText.y = 10;
     offsetText.fieldWidth = FlxG.width - offsetText.x - 10;
     add(offsetText);
 
     var helpText:FlxText = new FlxText();
-    helpText.setFormat(Paths.font("vcr.ttf"), 20);
-    helpText.text = "Press BACK to return to main menu";
+    helpText.setFormat(Paths.font('roboto/roboto.ttf'), 20);
+    helpText.text = "Press BACK to return to the main menu.";
     helpText.x = FlxG.width - helpText.width;
     helpText.y = FlxG.height - (helpText.height * 2) - 2;
     add(helpText);
@@ -241,12 +241,12 @@ class LatencyState extends MusicBeatSubState
     songVisFollowAudio.x = songPosToX(localConductor.songPosition - localConductor.audioVisualOffset);
     songVisFollowVideo.x = songPosToX(localConductor.songPosition - localConductor.inputOffset);
 
-    visualOffsetText.text = "Visual Offset: " + localConductor.audioVisualOffset + "ms";
-    visualOffsetText.text += "\n\nYou can press SPACE+Left/Right to change this value.";
-    visualOffsetText.text += "\n\nYou can hold SHIFT to step 1ms at a time";
+    visualOffsetText.text = "VISUAL Offset: " + localConductor.audioVisualOffset + "ms";
+    visualOffsetText.text += "\n\nYou can press SPACE + Left/Right to change this value.";
+    visualOffsetText.text += "\n\nYou can hold SHIFT to step 1ms at a time.";
 
     offsetText.text = "INPUT Offset (Left/Right to change): " + localConductor.inputOffset + "ms";
-    offsetText.text += "\n\nYou can hold SHIFT to step 1ms at a time";
+    offsetText.text += "\n\nYou can hold SHIFT to step 1ms at a time.";
 
     var avgOffsetInput:Float = 0;
 

@@ -61,7 +61,7 @@ class MainCreditsState extends MusicBeatState
       if (pos == 2) pos2 = 1;
 
       var text:FlxText = new FlxText(50, 150 * pos2, FlxG.width - 50, option, 30);
-      text.setFormat(Paths.font('arial.ttf'), 50, 0xFFFF0000, CENTER, OUTLINE, 0xFF000000);
+      text.setFormat(Paths.font('roboto/robotoBl.ttf'), 50, 0xFFFF0000, CENTER, OUTLINE, 0xFF000000);
       grpOptions.add(text);
     }
 
