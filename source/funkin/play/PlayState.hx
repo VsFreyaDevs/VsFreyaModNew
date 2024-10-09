@@ -799,11 +799,7 @@ class PlayState extends MusicBeatSubState
     if (currentChart.offsets != null) Conductor.instance.instrumentalOffset = currentChart.offsets.getInstrumentalOffset(currentInstrumental);
 
     Conductor.instance.mapTimeChanges(currentChart.timeChanges);
-    var pre:Float = (Conductor.instance.beatLengthMs * -5) + startTimestamp;
-
-    trace('Attempting to start at ' + pre);
-
-    Conductor.instance.update(pre);
+    Conductor.instance.update((Conductor.instance.beatLengthMs * -5) + startTimestamp);
 
     // The song is now loaded. We can continue to initialize the play state.
     initCameras();
@@ -1049,11 +1045,7 @@ class PlayState extends MusicBeatSubState
       {
         // Do NOT apply offsets at this point, because they already got applied the previous frame!
         Conductor.instance.update(Conductor.instance.songPosition + elapsed * 1000, false);
-        if (Conductor.instance.songPosition >= (startTimestamp + Conductor.instance.instrumentalOffset))
-        {
-          trace("started song at " + Conductor.instance.songPosition);
-          startSong();
-        }
+        if (Conductor.instance.songPosition >= (startTimestamp)) startSong();
       }
     }
     else
@@ -1612,18 +1604,16 @@ class PlayState extends MusicBeatSubState
       // activeNotes.sort(SortUtil.byStrumtime, FlxSort.DESCENDING);
     }
 
-    if (FlxG.sound.music != null)
+    if (!startingSong
+      && FlxG.sound.music != null
+      && (Math.abs(FlxG.sound.music.time - (Conductor.instance.songPosition + Conductor.instance.instrumentalOffset)) > 100
+        || Math.abs(vocals.checkSyncError(Conductor.instance.songPosition + Conductor.instance.instrumentalOffset)) > 100))
     {
-      var correctSync:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.instrumentalOffset));
-
-      if (!startingSong && (Math.abs(FlxG.sound.music.time - correctSync) > 5 || Math.abs(vocals.checkSyncError(correctSync)) > 5))
-      {
-        #if debug trace("VOCALS NEED RESYNC"); #end
-        #if debug if (vocals != null) trace(vocals.checkSyncError(correctSync)); #end
-        #if debug trace(FlxG.sound.music.time); #end
-        #if debug trace(correctSync); #end
-        resyncVocals();
-      }
+      #if debug trace("VOCALS NEED RESYNC"); #end
+      #if debug if (vocals != null) trace(vocals.checkSyncError(correctSync)); #end
+      #if debug trace(FlxG.sound.music.time); #end
+      #if debug trace(correctSync); #end
+      resyncVocals();
     }
 
     // Only bop camera if zoom level is below 135%
@@ -2280,7 +2270,6 @@ class PlayState extends MusicBeatSubState
     vocals.play();
     vocals.volume = 1.0;
     vocals.pitch = playbackRate;
-    vocals.time = startTimestamp;
     resyncVocals();
 
     #if FEATURE_DISCORD_RPC
@@ -2314,7 +2303,7 @@ class PlayState extends MusicBeatSubState
     // Skip this if the music is paused (GameOver, Pause menu, start-of-song offset, etc.)
     if (!(FlxG.sound.music?.playing ?? false)) return;
 
-    var timeToPlayAt:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.instrumentalOffset));
+    var timeToPlayAt:Float = Conductor.instance.songPosition - Conductor.instance.instrumentalOffset;
     #if debug trace('Resyncing vocals to ${timeToPlayAt}'); #end
     FlxG.sound.music.pause();
     vocals.pause();
