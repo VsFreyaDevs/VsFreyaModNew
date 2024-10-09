@@ -1407,7 +1407,7 @@ typedef SaveDataOptions =
    * If enabled, there will be a display showing your NPS & judgements that you've gotten during gameplay.
    * @default `true`
    */
-  var judgementCounter:Bool;
+  var judgeCounter:Bool;
 
   /**
    * If enabled, the score display will be centered and extended to show your NPS, combo breaks, and accuracy.
