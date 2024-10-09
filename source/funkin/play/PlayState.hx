@@ -1056,7 +1056,7 @@ class PlayState extends MusicBeatSubState
         Conductor.instance.update(Conductor.instance.songPosition + elapsed * 1000, false);
         if (Conductor.instance.songPosition >= (startTimestamp + Conductor.instance.instrumentalOffset))
         {
-          trace("started song at " + Conductor.instance.songPosition);
+          // trace("started song at " + Conductor.instance.songPosition);
           startSong();
         }
       }
