@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<dialog width="500" title="About">
+<dialog width="500" title="About Chart Editor">
 	<vbox width="100%">
-		<label text="Friday Night Funkin'" horizontalAlign="center" />
-		<label text="Chart Editor v1.0" horizontalAlign="center" />
-		<label text="Built by EliteMasterEric" horizontalAlign="center" />
-		<label text="HaxeUI by Ian Harrigan" horizontalAlign="center" />
+		<label text="Friday Night Funkin'" horizontalAlign="left" />
+		<label text="Chart Editor v1.0-Freya" horizontalAlign="center" />
+		<label text="Built by EliteMasterEric" horizontalAlign="right" />
+		<label text="Modified by charlesisfeline" horizontalAlign="center" />
+		<label text="HaxeUI by Ian Harrigan" horizontalAlign="left" />
 	</vbox>
 </dialog>

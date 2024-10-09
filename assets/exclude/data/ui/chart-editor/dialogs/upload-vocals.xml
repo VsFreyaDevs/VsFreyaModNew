@@ -5,7 +5,7 @@
 		<hbox width="100%" horizontalAlign="right">
 			<button text="Cancel" id="dialogCancel" />
 			<spacer width="100%" />
-			<button text="Skip (No Vocals)" id="dialogNoVocals" />
+			<button text="Skip w/o Vocals" id="dialogNoVocals" />
 			<button text="Continue" id="dialogContinue" />
 		</hbox>
 	</vbox>
