@@ -8,3 +8,9 @@ package funkin.ui.options;
     public static inline var NuhUh = "false";
   }
  */
+class NoteHitSoundType
+{
+  public static inline var None = "none";
+  public static inline var PingPong = "pingPong";
+  public static inline var VineBoom = "vineBoom";
+}
