@@ -2,6 +2,7 @@
 - [x] Characters in the Character select menu keep cloning themselves
 - [x] A-bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
+- [ ] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync.
 - [ ] Freeplay difficulties aren't loading for some reason
 - [ ] Conductor doesn't actually work on PlayState for some reason
 - [ ] Backspace crashes in the input offset menu
