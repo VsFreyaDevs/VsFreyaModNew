@@ -219,15 +219,8 @@ class TitleState extends MusicBeatState
 
     gfDance.loadOffsetFile("data/gfDanceOffsets");
 
-    trace("danceLeft "
-      + gfDance.animOffsets.get("danceLeft")[0]
-      + " "
-      + gfDance.animOffsets.get("danceLeft")[1]
-      + "\n"
-      "danceRight "
-      + gfDance.animOffsets.get("danceRight")[0]
-      + " "
-      + gfDance.animOffsets.get("danceRight")[1]);
+    trace("danceLeft " + gfDance.animOffsets.get("danceLeft")[0] + " " + gfDance.animOffsets.get("danceLeft")[1] + "\ndanceRight "
+      + gfDance.animOffsets.get("danceRight")[0] + " " + gfDance.animOffsets.get("danceRight")[1]);
 
     // maskShader.swagSprX = gfDance.x;
     // maskShader.swagMaskX = gfDance.x + 200;
