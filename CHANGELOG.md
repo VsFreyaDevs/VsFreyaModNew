@@ -3,7 +3,123 @@
 All notable changes will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+and this project (mostly) adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [0.1.0] - 2024-??-??
+### Added
+- 3 COOL WEEKS - FreyaFennec_foxes, Milky Lactose, and Killer Animate CC!!!!
+- Added `setAnonymousField()` to `ReflectUtil`. Basically just a shortcut to `Reflect.setField()`.
+- Added the `albumTitleOffsets` parameter to Album data.
+- Added a way to prevent stacked/overlapping notes in the Chart Editor, which being a highlight effect around those notes.
+- Implemented support for scripted Backing Cards.
+- Added scriptable blank `Object` class for custom objects. (More convenient than having a module to set up anonymous objects!)
+- Added scriptable `FlxBasic` and `FlxObject` classes.
+- Added a script event that gets called when a BPM change triggers.
+- Added a script event dedicated to adding custom logic before the music and animation starts. Softcoded the Tankman/Jeff voicelines (also for conveniency) so modders can do their own!
+- Added the ability to flip the character in the Animation Editor (by pressing G). Helps a lot when setting offsets for playable characters!
+- Added a new event field type, Color!
+![EXAMPLE](https://private-user-images.githubusercontent.com/69017727/342115283-fcf0e5f5-5163-46b1-baec-27ff0106b114.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1MzQ0NDAsIm5iZiI6MTcyODUzNDE0MCwicGF0aCI6Ii82OTAxNzcyNy8zNDIxMTUyODMtZmNmMGU1ZjUtNTE2My00NmIxLWJhZWMtMjdmZjAxMDZiMTE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDEwVDA0MjIyMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNjZTdkMzU2NjkxMTA3YWZkM2RlNjY2ZWUyNjlmMDNhYzNkNDcyZDE3ODg5MmI3YmVlYjQ4M2UwMzcyMTZmYjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.jUjvvcEsf_-kI3cBOUqqiHe64b0n9f9fTvGfWXPNmIM)
+### Changed
+- Improved the input offset menu a bit to make it easier to use.
+  - Pressing TAB applies the average offset (as well as resetting it)
+  - Pressing R resets the average offset.
+  - Pressing Left and Right no longer reset the average offset.
+- The character in the Freeplay menu now syncs with the BPM of whatever song is selected. (You can toggle this in the player data, BTW.)
+- In the Freeplay menu, favorites are now sorted by week order, as opposed to alphabetical order.
+- Reordered the UI controls list from `UP`, `LEFT`, `RIGHT`, `DOWN` to `LEFT`, `DOWN`, `UP`, `RIGHT`.
+- Note rendering is now based on frames AND song position. (A little janky, but it sorta did the job)
+### Fixed
+- Fixed an issue where the animation of Darnell kicking a can forward wouldn't play like it did in older versions of the game.
+- Fixed an issue where enum and int preferences could be flickered/selected.
+- Fixed an issue where Pico wouldn't burp at the beginning of Guns (Pico Mix) (Easy & Normal).
+### Removed
+- Removed the unnecessary muting on player vocals when missing. (Helps for songs that do not have split vocals!)
+
+# FOR FNF BASE GAME
+## [0.5.2] - 2024-10-??
+### Fixed
+- Fixed an issue where exiting the Chart Editor would sometimes crash the game.
+- Fixed an issue where holding down a direction key then selecting a character would select the locked character and crash the game.(community fix by ACrazyTown)
+- Fixed an issue where the player and girlfriend would disappear or overlap themselves in Character Select. (community fix by gamerbross)
+- Fixed an issue where the game would show the wrong girlfriend in Character Select. (community fix by gamerbross)
+- Fixed an issue where the cursor wouldn't update properly in Character Select. (community fix by gamerbross)
+- Fixed an issue where the player would display double after entering character select or when spamming buttons. (community fix by gamerbross)
+
+## [0.5.1] - 2024-09-30
+### Added
+- Readded the Merch button to the main menu.
+  - Click it to check out our Makeship campaign!
+- Added Discord Rich Presence support. People can now see what song you are playing from Discord!
+  - We'll get mod support working for this eventually.
+- Added an FPS limit option to the Preferences menu.
+  - You can now change how high the game tries to push your frame rate, from as little as 30 to as high as 300.
+- Playable Character data now defines an asset location for an Animate Atlas to display Girlfriend.
+  - This includes the option to display a visualizer, if configured correctly.
+- Separated the Perfect and Perfect (Gold) animations in the Playable Character data.
+  - Base game just uses the same animation for both, but modders can split the animations up on their custom characters now.
+- Added a bunch of Flash project files from the Weekend 1 and Playable Pico updates to the `Funkin.art` repository.
+- Added the `flipX` and `flipY` parameters to props in the Stage data. (community feature by abnormalpoof)
+### Changed
+- The game's mod API version check is now more dynamic.
+  - The update accepts mods with API version `0.5.0` as well as `0.5.1`.
+- ~~Pico is no longer unlocked for all players automatically.~~ (Later!)
+  - ~~You need to beat Weekend 1 in Story Mode in order to unlock him in Character Select.~~
+- Removed some of the more spammy `trace()` calls to improve debugging a bit.
+- Improved some of the compilation and modding documentation.
+- The game now complains if you create a song variation with symbols in the name.
+- Switched the force crash keybind from Ctrl-Shift-L to Ctrl-Alt-Shift-L.
+- Added some additional functions to `funkin.Assets` after `openfl.utils.Assets` had to get blacklisted from scripts.
+### Fixed
+- Fixed an issue where DadBattle (Pico Mix) was not properly credited to `TeraVex (ft. Saruky)`.
+- Fixed an issue where DadBattle (Pico Mix) was missing charts on the Normal and Easy difficulty.
+- Fixed an issue where Spookeez (Pico Mix) was not properly credited to `Six Impala (ft. Saster)`.
+- Fixed an issue where the "Shit!" judgement would display with anti-aliasing in Week 6.
+- Fixed an issue where Pico Erect could be played with different instrumentals.
+- Fixed an issue where Pico would not play his shooting animations in Stress.
+- Fixed an issue where Freeplay would display no custom songs when switching characters.
+- Fixed an issue where Freeplay would sometimes display the wrong text on the capsules.
+- Fixed an issue where duplicate difficulties from custom variations wouldn't display properly in Freeplay.
+- Fixed an issue where custom note styles would sometimes just use default values rather than using the fallback note style.
+- Fixed an issue where custom note styles would randomly fail to fetch information about their fallback note style.
+- Fixed an issue where the Screenshots and Chart Editor binds displayed in the controls menu on Web builds (where they are disabled).
+- Fixed an issue where the Stage Editor bind displayed in the controls menu even when the feature was disabled.
+- Fixed an issue where the Freeplay Character Select keybind displayed weird in the keybinds menu.
+- ~~Fixed an issue where setting the input offset or visual offset too high would cause the song to skip.~~ (Later!)
+- Fixed an issue where video cutscenes would not scale their volume properly.
+- Fixed an issue where Cocoa Erect (Erect difficulty) had a tap note stacked on top of a hold note,
+- Fixed an issue where the game would stutter when playing on the Week 5 Remix stage.
+- Fixed an issue where the save data version number wouldn't get written to save data properly.
+- Fixed an issue where the example mod could not be loaded.
+- Fixed an issue where a script error would display when entering Blazin'.
+- Fixed an issue where pressing F5 to force reload a song would sometimes cause the game to crash.
+- Fixed an issue where animations on Animate Atlas characters would throw a bunch of warnings in the console.
+- Fixed an issue where characters with high offsets would shift over after the player dies or restarts.
+- Fixed an issue where Pico wouldn't play out his full burp animation in South (Pico Mix).
+- Fixed an issue where Results screen audio could continue into Freeplay or even gameplay.
+- Fixed an issue where some audio tracks would get destroyed even if they were flagged as persistent.
+- Fixed an issue where the audio track would stay muted if you missed a note just before Pico burps.
+- Fixed an issue where the curtains in Week 1 would display in front of larger characters.
+- Fixed an issue where Boyfriend wouldn't play his death animation properly on Week 2's Remix stage.
+- Fixed an issue in Freeplay where the clear % would not display after switching characters.
+- Fixed an issue in Freeplay where character remixes would display the base song's highscore.
+- ~~Fixed an issue where Pico would become locked every time the game starts, and you would have to watch the unlock animation each game boot. ~~ (Later!)
+  - ~~The animation should now play only once per save file.~~
+- Fixed an issue where Spirit's trail in Week 6 would not display correctly.
+- Fixed an issue where the Input Offsets menu would crash when entering it before playing a song on web builds.
+- Fixed an issue where the Results screen would spam the percentage tick noise instead of playing when the value changes.
+- Fixed an issue where parts of the Chart Editor could not be interacted with. (community fix by KadeDeveloper)
+- Fixed an issue where classic `FocusCamera` song events could cause the camera to snap in place. (community fix by NebulaZorua)
+- Fixed an issue where achieving the same rank on a song (but a different clear %) would override your clear %, even if it was lower. (community fix by lemz1)
+- Fixed an issue where the FPS counter would display even if Debug Display was turned off. (community fix by Lethrial)
+- Fixed an issue where selecting the area to the left of the Chart Editor would select some of the player's notes. (community fix by NotHyper474)
+- Fixed an issue where pixel icons in the Chart Editor would not display correctly. (community fix by Techniktil)
+- Fixed an issue where `Stage.addCharacter` would not properly assign the `characterType`. (community fix by KadeDeveloper)
+- Fixed an issue where players should interact with Character Select during the unlock sequence, causing a crash. (community fix by actualmandm)
+- Fixed an issue where hold notes in Week 6 were not scaled/positioned correctly. (community fix by dombomb64)
+- Fixed an issue where audio offsets would not interact with the Chart Editor properly. (community fix by KadeDev)
+- Fixed an issue where fetching Modules during the `onDestroy` event would fail at random. (community fix by cyn0x8)
+- Fixed an issue where `onSubStateOpenEnd` and `onSubStateCloseEnd` script events would not always get called. (community fix by lemz1)
+
 
 ## [0.5.0] - 2024-09-12
 ### Added
