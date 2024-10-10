@@ -43,7 +43,7 @@ jobs:
       # - name: Upload to Static Repo
         # run: |
            # cd ..
-           # git clone https://github.com/VsPlanktonLegacyDevs/vsfreya-static.git
+           # git clone https://github.com/VsFreyaDevs/vsfreya-static.git
            # cd vsfreya-static
            # rm -rf *
            # mv ${{ github.workspace }}/export/release/html5/bin/* .

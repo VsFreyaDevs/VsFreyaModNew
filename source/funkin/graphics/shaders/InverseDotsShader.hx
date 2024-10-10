@@ -1,7 +1,5 @@
 package funkin.graphics.shaders;
 
-package funkin.graphics.shaders;
-
 import flixel.addons.display.FlxRuntimeShader;
 
 /**
