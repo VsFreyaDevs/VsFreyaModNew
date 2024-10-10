@@ -1,6 +1,8 @@
 package source; // Yeah, I know...
 
 import sys.io.File;
+import sys.io.Process;
+import sys.io.FileOutput;
 
 /**
  * A script which executes before the game is built.
@@ -46,7 +48,7 @@ class Prebuild extends CommandLine
 
   static function saveBuildTime():Void
   {
-    var fo:sys.io.FileOutput = File.write(BUILD_TIME_FILE);
+    var fo:FileOutput = File.write(BUILD_TIME_FILE);
     var now:Float = Sys.time();
     fo.writeDouble(now);
     fo.close();

@@ -30,7 +30,7 @@ class Project extends HXProject {
 	/**
 	 * The game's name. Used as the default window title.
 	 */
-	static final TITLE:String = "Friday Night Funkin': Vs. Freya Crew";
+	static final TITLE:String = "FreyaFennec_Funkers";
   static final TITLEIOS:String = "FunkinVsFreya";
 
 	/**
@@ -53,7 +53,7 @@ class Project extends HXProject {
 	/**
 	 * A package name used for identifying the app on various app stores.
 	 */
-	static final PACKAGE_NAME:String = "me.funkin.fnf";
+	static final PACKAGE_NAME:String = "me.funkin.fnffreya";
 
 	/**
 	 * The fully qualified class path for the entry point class to execute when launching the game.

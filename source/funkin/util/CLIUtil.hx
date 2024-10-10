@@ -69,6 +69,7 @@ class CLIUtil
             printUsage();
           case '-v' | '--version':
             trace(Constants.GENERATED_BY);
+            trace("[ --- WORK IN PROGRESS !!!!! --- ]")
           case '--chart':
             if (args.length == 0)
             {
