@@ -219,11 +219,11 @@ class PreferencesMenu extends Page
     createPrefItemEnum('Hitsound Style', 'Choose a hitsound that would play whenever you hit a note', [
       NoteHitSoundType.None => "None",
       NoteHitSoundType.OsuMania => "osu!Mania",
-      NoteHitSoundType.Adofai => "ADOFAI"
+      NoteHitSoundType.Adofai => "ADOFAI",
       NoteHitSoundType.Snap => "Finger Snap",
-      NoteHitSoundType.Clap => "Hand Clap"
+      NoteHitSoundType.Clap => "Hand Clap",
       NoteHitSoundType.DaveBambi => "Dave & Bambi",
-      NoteHitSoundType.Keyboard => "Keyboard"
+      NoteHitSoundType.Keyboard => "Keyboard",
       NoteHitSoundType.Scream => "Rem-ix Screaming", // lol
       NoteHitSoundType.DiscordPing => "Discord Ping",
       NoteHitSoundType.IndieCross => "Indie Cross",
