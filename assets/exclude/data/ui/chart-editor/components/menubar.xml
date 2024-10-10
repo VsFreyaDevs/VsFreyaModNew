@@ -51,6 +51,7 @@
   </menu>
   <menu text="View">
     <menu-checkbox id="menubarItemDownscroll" text="Downscroll" disabled="true" />
+    <menu-checkbox id="menubarItemShowHints" text="Show Hints" disabled="false" />
     <menu text="Theme">
       <menu-option-box id="menuBarItemThemeLight" text="Light" group="menubarItemThemeGroup" selected="true" />
       <menu-option-box id="menuBarItemThemeDark" text="Dark" group="menubarItemThemeGroup" />
@@ -108,6 +109,10 @@
     </vbox>
     <menu-separator />
     <menu-checkbox id="menubarItemThemeMusic" text="Play Theme Music" />
+  </menu>
+  <menu text="Chart">
+    <menu-item id="menubarItemGenerateChart" text="Generate Chart" tooltip="Generate the Chart from a .mid(i) file.\nYou can let it just generate Hints or Notes as well." />
+    <menu-item id="menubarItemGenerateDifficulty" text="Generate Difficulty" tooltip="Generate easier difficulties for the current difficulty." />
   </menu>
   <menu text="Test">
     <menu-item id="menubarItemPlaytestFull" text="Playtest Chart" shortcutText="Enter" />

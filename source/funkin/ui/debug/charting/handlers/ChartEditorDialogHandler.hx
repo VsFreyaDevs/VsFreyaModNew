@@ -20,6 +20,8 @@ import funkin.ui.debug.charting.dialogs.ChartEditorCharacterIconSelectorMenu;
 import funkin.ui.debug.charting.dialogs.ChartEditorUploadChartDialog;
 import funkin.ui.debug.charting.dialogs.ChartEditorWelcomeDialog;
 import funkin.ui.debug.charting.dialogs.ChartEditorUploadVocalsDialog;
+import funkin.ui.debug.charting.dialogs.ChartEditorGenerateChartDialog;
+import funkin.ui.debug.charting.dialogs.ChartEditorGenerateDifficultyDialog;
 import funkin.ui.debug.charting.util.ChartEditorDropdowns;
 import funkin.util.Constants;
 import funkin.util.DateUtil;
@@ -142,6 +144,34 @@ class ChartEditorDialogHandler
   }
 
   /**
+   * Builds and opens a dialog where the user generates a chart.
+   * @param state The current chart editor state.
+   * @param closable Whether the dialog can be closed by the user.
+   * @return The dialog that was opened.
+   */
+  public static function openGenerateChartDialog(state:ChartEditorState, closable:Bool = true):Dialog
+  {
+    var dialog = ChartEditorGenerateChartDialog.build(state, closable);
+    dialog.zIndex = 1000;
+    state.isHaxeUIDialogOpen = true;
+    return dialog;
+  }
+
+  /**
+   * Builds and opens a dialog where the user generates difficulties.
+   * @param state The current chart editor state.
+   * @param closable Whether the dialog can be closed by the user.
+   * @return The dialog that was opened.
+   */
+  public static function openGenerateDifficultyDialog(state:ChartEditorState, closable:Bool = true):Dialog
+  {
+    var dialog = ChartEditorGenerateDifficultyDialog.build(state, closable);
+    dialog.zIndex = 1000;
+    state.isHaxeUIDialogOpen = true;
+    return dialog;
+  }
+
+  /**
    * Builds and opens the dialog for selecting a character.
    */
   public static function openCharacterDropdown(state:ChartEditorState, charType:CharacterType, lockPosition:Bool = false):Null<Menu>
@@ -257,7 +287,7 @@ class ChartEditorDialogHandler
             // Step 3. Upload Vocals
             // NOTE: Uploading vocals is optional, so we don't need to check if the user cancelled the wizard.
             var uploadVocalsDialog:Dialog = openUploadVocalsDialog(state, closable); // var uploadVocalsDialog:Dialog
-            uploadVocalsDialog.onDialogClosed = function(event) {
+            uploadVocalsDialog.onDialogClosed = function(_) {
               state.isHaxeUIDialogOpen = false;
               state.currentWorkingFilePath = null; // Built from parts, so no .fnfc to save to.
               state.switchToCurrentInstrumental();

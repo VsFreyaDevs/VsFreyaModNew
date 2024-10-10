@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog id="difficultyDialog" width="600" height="400" title="Generate Difficulties">
+	<vbox width="100%" height="100%">
+		<vbox width="100%" height="100%" horizontalAlign="center">
+			<frame text="Difficulties" width="100%" height="100%">
+				<scrollview id="difficultyView" contentWidth="100%" width="100%" height="100%"/>
+			</frame>
+		</vbox>
+		<hbox width="100%" horizontalAlign="right">
+			<button text="Cancel" id="dialogCancel" />
+			<spacer width="100%" />
+			<button text="Generate Hints" id="dialogHints" disabled="true" />
+			<button text="Generate Notes" id="dialogNotes" disabled="true" />
+		</hbox>
+	</vbox>
+</dialog>

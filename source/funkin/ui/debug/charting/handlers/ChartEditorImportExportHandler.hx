@@ -246,7 +246,7 @@ class ChartEditorImportExportHandler
     ChartEditorAudioHandler.wipeInstrumentalData(state);
     ChartEditorAudioHandler.wipeVocalData(state);
 
-    // Load instrumentals
+    // Load instrumentals.
     for (variation in [Constants.DEFAULT_VARIATION].concat(variationList))
     {
       var variMetadata:Null<SongMetadata> = songMetadatas.get(variation);
@@ -260,31 +260,20 @@ class ChartEditorImportExportHandler
       var instFileBytes:Null<Bytes> = mappedFileEntries.get(instFileName)?.data;
       if (instFileBytes != null)
       {
-        if (!ChartEditorAudioHandler.loadInstFromBytes(state, instFileBytes, instId))
-        {
-          throw 'Could not load instrumental ($instFileName).';
-        }
+        if (!ChartEditorAudioHandler.loadInstFromBytes(state, instFileBytes, instId)) throw 'Could not load instrumental ($instFileName).';
       }
       else
-      {
         throw 'Could not find instrumental ($instFileName).';
-      }
 
       var playerVocalsFileName:String = manifest.getVocalsFileName(playerCharId);
       var playerVocalsFileBytes:Null<Bytes> = mappedFileEntries.get(playerVocalsFileName)?.data;
       if (playerVocalsFileBytes != null)
       {
-        if (!ChartEditorAudioHandler.loadVocalsFromBytes(state, playerVocalsFileBytes, playerCharId, instId))
-        {
-          warnings.push('Could not parse vocals ($playerCharId).');
-          // throw 'Could not parse vocals ($playerCharId).';
-        }
+        if (!ChartEditorAudioHandler.loadVocalsFromBytes(state, playerVocalsFileBytes, playerCharId,
+          instId)) warnings.push('Could not parse vocals ($playerCharId).');
       }
       else
-      {
         warnings.push('Could not find vocals ($playerVocalsFileName).');
-        // throw 'Could not find vocals ($playerVocalsFileName).';
-      }
 
       if (opponentCharId != null)
       {
@@ -292,18 +281,18 @@ class ChartEditorImportExportHandler
         var opponentVocalsFileBytes:Null<Bytes> = mappedFileEntries.get(opponentVocalsFileName)?.data;
         if (opponentVocalsFileBytes != null)
         {
-          if (!ChartEditorAudioHandler.loadVocalsFromBytes(state, opponentVocalsFileBytes, opponentCharId, instId))
-          {
-            warnings.push('Could not parse vocals ($opponentCharId).');
-            // throw 'Could not parse vocals ($opponentCharId).';
-          }
+          if (!ChartEditorAudioHandler.loadVocalsFromBytes(state, opponentVocalsFileBytes, opponentCharId,
+            instId)) warnings.push('Could not parse vocals ($opponentCharId).');
         }
         else
-        {
           warnings.push('Could not find vocals ($opponentVocalsFileName).');
-          // throw 'Could not find vocals ($opponentVocalsFileName).';
-        }
       }
+    }
+
+    if (manifest.midiFile != null)
+    {
+      state.midiData = mappedFileEntries.get(manifest.midiFile)?.data;
+      state.midiFile = manifest.midiFile;
     }
 
     // Apply chart data.
@@ -417,8 +406,9 @@ class ChartEditorImportExportHandler
 
     if (state.audioInstTrackData != null) zipEntries = zipEntries.concat(state.makeZIPEntriesFromInstrumentals());
     if (state.audioVocalTrackData != null) zipEntries = zipEntries.concat(state.makeZIPEntriesFromVocals());
+    if (state.midiData != null) zipEntries.push(state.makeZIPEntryFromMidi());
 
-    var manifest:ChartManifestData = new ChartManifestData(state.currentSongId);
+    var manifest:ChartManifestData = new ChartManifestData(state.currentSongId, state.midiFile);
     zipEntries.push(FileUtil.makeZIPEntry('manifest.json', manifest.serialize()));
 
     trace('Exporting ${zipEntries.length} files to ZIP...');

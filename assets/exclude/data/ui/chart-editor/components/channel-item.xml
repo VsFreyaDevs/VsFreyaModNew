@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hbox width="100%" horizontalAlign="right">
+  <hbox id="plusBox" width="100%" horizontalAlign="right" >
+    <button id="createButton" width="20" height="20" horizontalAlign="center" verticalAlign="center">
+      <image resource="assets/images/chartEditor/plus-symbol.png" verticalAlign="center" horizontalAlign="center"/>
+    </button>
+  </hbox>
+  <hbox id="channelBox" width="100%" horizontalAlign="right" hidden="true">
+    <label text="Channel Name" verticalAlign="center"/>
+    <dropdown id="channelDropdown" value="" width="200" height="25" dropdownSize="10" dropdownWidth="200" searchable="true" verticalAlign="center"/>
+    <spacer width="100%" verticalAlign="center"/>
+    <checkbox id="isPlayerCheckBox" text="Is Player Track" selected="false" verticalAlign="center"/>
+	  <button id="destroyButton" width="20" height="20" horizontalAlign="center" verticalAlign="center">
+      <image resource="assets/images/chartEditor/minus-symbol.png" verticalAlign="center" horizontalAlign="center"/>
+    </button>
+  </hbox>
+</hbox>
