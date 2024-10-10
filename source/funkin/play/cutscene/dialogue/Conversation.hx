@@ -55,9 +55,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   var currentDialogueEntryCount(get, never):Int;
 
   function get_currentDialogueEntryCount():Int
-  {
     return _data.dialogue.length;
-  }
 
   /**
    * The current line in the current entry in the dialogue.
@@ -67,9 +65,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   var currentDialogueLineCount(get, never):Int;
 
   function get_currentDialogueLineCount():Int
-  {
     return currentDialogueEntryData.text.length;
-  }
 
   var currentDialogueEntryData(get, never):DialogueEntryData;
 
@@ -84,9 +80,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   var currentDialogueLineString(get, never):String;
 
   function get_currentDialogueLineString():String
-  {
     return currentDialogueEntryData?.text[currentDialogueLine];
-  }
 
   /**
    * AUDIO
@@ -109,10 +103,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     this.id = id;
     this._data = _fetchData(id);
 
-    if (_data == null)
-    {
-      throw 'Could not parse conversation data for id: $id';
-    }
+    if (_data == null) throw 'Could not parse conversation data for id: $id';
   }
 
   public function onCreate(event:ScriptEvent):Void
@@ -132,30 +123,19 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
     music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
 
-    if (_data.music.fadeTime > 0.0)
-    {
-      FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
-    }
+    if (_data.music.fadeTime > 0.0) FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
     else
-    {
       music.volume = 1.0;
-    }
   }
 
   public function pauseMusic():Void
   {
-    if (music != null)
-    {
-      music.pause();
-    }
+    if (music != null) music.pause();
   }
 
   public function resumeMusic():Void
   {
-    if (music != null)
-    {
-      music.resume();
-    }
+    if (music != null) music.resume();
   }
 
   function setupBackdrop():Void
@@ -183,9 +163,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
           FlxTween.tween(backdrop, {alpha: 1.0}, backdropData.fadeTime, {ease: EaseUtil.stepped(10)});
         }
         else
-        {
           backdrop.alpha = 1.0;
-        }
       default:
         return;
     }
@@ -220,14 +198,9 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
     if (nextSpeaker == null)
     {
-      if (nextSpeakerId == null)
-      {
-        trace('Dialogue entry has no speaker.');
-      }
+      if (nextSpeakerId == null) trace('Dialogue entry has no speaker.');
       else
-      {
         trace('Speaker could not be retrieved.');
-      }
       return;
     }
     if (!nextSpeaker.alive) nextSpeaker.revive();
@@ -299,10 +272,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
 
   function onTypingComplete():Void
   {
-    if (this.state == ConversationState.Speaking)
-    {
-      this.state = ConversationState.Idle;
-    }
+    if (this.state == ConversationState.Speaking) this.state = ConversationState.Idle;
     else
     {
       trace('[WARNING] Unexpected state transition from ${this.state}');
@@ -357,10 +327,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
     currentDialogueEntry = 0;
     this.state = ConversationState.Start;
 
-    if (outroTween != null)
-    {
-      outroTween.cancel();
-    }
+    if (outroTween != null) outroTween.cancel();
     outroTween = null;
 
     if (this.music != null) this.music.stop();
@@ -458,10 +425,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
       currentDialogueLine = 0;
       currentDialogueEntry += 1;
 
-      if (currentDialogueEntry >= currentDialogueEntryCount)
-      {
-        dispatchEvent(new DialogueScriptEvent(DIALOGUE_END, this, false));
-      }
+      if (currentDialogueEntry >= currentDialogueEntryCount) dispatchEvent(new DialogueScriptEvent(DIALOGUE_END, this, false));
       else
       {
         if (state == Idle)
@@ -555,10 +519,7 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   {
     propagateEvent(event);
 
-    if (outroTween != null)
-    {
-      outroTween.cancel();
-    }
+    if (outroTween != null) outroTween.cancel();
     outroTween = null;
 
     if (this.music != null) this.music.stop();
@@ -592,14 +553,8 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
    */
   function propagateEvent(event:ScriptEvent):Void
   {
-    if (this.currentDialogueBox != null && this.currentDialogueBox.exists)
-    {
-      ScriptEventDispatcher.callEvent(this.currentDialogueBox, event);
-    }
-    if (this.currentSpeaker != null && this.currentSpeaker.exists)
-    {
-      ScriptEventDispatcher.callEvent(this.currentSpeaker, event);
-    }
+    if (this.currentDialogueBox != null && this.currentDialogueBox.exists) ScriptEventDispatcher.callEvent(this.currentDialogueBox, event);
+    if (this.currentSpeaker != null && this.currentSpeaker.exists) ScriptEventDispatcher.callEvent(this.currentSpeaker, event);
   }
 
   /**
