@@ -1,5 +1,3 @@
-package funkin.ui.debug.charting.util;
-
 package funkin.util;
 
 import funkin.Conductor;
