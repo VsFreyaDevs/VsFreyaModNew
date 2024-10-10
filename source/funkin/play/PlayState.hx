@@ -2822,16 +2822,17 @@ class PlayState extends MusicBeatSubState
 
     // Send the note hit event.
     var event:HitNoteScriptEvent = new HitNoteScriptEvent(note, healthChange, score, daRating, isComboBreak, Highscore.tallies.combo + 1, noteDiff,
-      daRating == 'sick');
+      daRating == 'sick', true);
     dispatchEvent(event);
 
     // Calling event.cancelEvent() skips all the other logic! Neat!
     if (event.eventCanceled) return;
 
     Highscore.tallies.totalNotesHit++;
-    // Display the hit on the strums
+    // Display the hit on the strums.
     playerStrumline.hitNote(note, !isComboBreak);
     if (event.doesNotesplash) playerStrumline.playNoteSplash(note.noteData.getDirection());
+    if (event.doesHitsounds) playerStrumline.playNoteHitSound();
     if (note.isHoldNote && note.holdNoteSprite != null) playerStrumline.playNoteHoldCover(note.holdNoteSprite);
     vocals.playerVolume = 1;
 

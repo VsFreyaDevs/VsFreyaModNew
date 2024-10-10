@@ -46,7 +46,45 @@ class Preferences
   }
 
   /**
-   * If enabled, hides the opponent notes and puts the player strums to the middle.
+   * The sound that plays whenever a note gets hit.
+   * @default `"none"`
+   */
+  public static var noteHitSound(get, set):String;
+
+  static function get_noteHitSound():String
+  {
+    return Save?.instance?.options?.noteHitSound;
+  }
+
+  static function set_noteHitSound(value:String):String
+  {
+    var save:Save = Save.instance;
+    save.options.noteHitSound = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * The volume of the click sound that would play whenever a note gets hit.
+   * @default `100`
+   */
+  public static var noteHitSoundVolume(get, set):Int;
+
+  static function get_noteHitSoundVolume():Int
+  {
+    return Save?.instance?.options?.noteHitSoundVolume;
+  }
+
+  static function set_noteHitSoundVolume(value:Int):Int
+  {
+    var save:Save = Save.instance;
+    save.options.noteHitSoundVolume = value;
+    save.flush();
+    return value;
+  }
+
+  /**
+   * If enabled, it will hide the opponent notes and put the player strums to the middle.
    * @default `false`
    */
   public static var middlescroll(get, set):Bool;

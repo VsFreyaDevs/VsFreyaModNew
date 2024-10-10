@@ -213,6 +213,26 @@ class PreferencesMenu extends Page
       Preferences.strumAlpha = Std.int(value);
       yeahBf(false);
     }, null, Preferences.strumAlpha, 0, 100, 1, 0);
+    createPrefItemPercentage('Hitsound Volume', 'Set the volume of your hitsound that plays when hitting notes', function(value:Int):Void {
+      Preferences.noteHitSoundVolume = value;
+    }, Preferences.noteHitSoundVolume);
+    createPrefItemEnum('Hitsound Style', 'Choose a hitsound that would play whenever you hit a note', [
+      NoteHitSoundType.None => "None",
+      NoteHitSoundType.OsuMania => "osu!Mania",
+      NoteHitSoundType.Adofai => "ADOFAI"
+      NoteHitSoundType.Snap => "Finger Snap",
+      NoteHitSoundType.Clap => "Hand Clap"
+      NoteHitSoundType.DaveBambi => "Dave & Bambi",
+      NoteHitSoundType.Keyboard => "Keyboard"
+      NoteHitSoundType.Scream => "Rem-ix Screaming", // lol
+      NoteHitSoundType.DiscordPing => "Discord Ping",
+      NoteHitSoundType.IndieCross => "Indie Cross",
+      NoteHitSoundType.VineBoom => "Vine Boom"
+    ], function(value:String):Void {
+      Preferences.noteHitSound = value;
+      var hitSound:String = value + "Hit";
+      FunkinSound.playOnce(Paths.sound('noteHitSounds/${hitSound}') ?? Paths.sound('noteHitSounds/pingPongHit'));
+    }, Preferences.noteHitSound);
     createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
       Preferences.zoomCamera = value;
       yeahBf(value);

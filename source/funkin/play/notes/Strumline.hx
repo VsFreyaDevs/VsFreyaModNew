@@ -16,6 +16,8 @@ import funkin.data.song.SongData.SongNoteData;
 import funkin.ui.options.PreferencesMenu;
 import funkin.util.SortUtil;
 import funkin.modding.events.ScriptEvent;
+import funkin.audio.FunkinSound;
+import funkin.ui.options.MenuItemEnums;
 import funkin.play.notes.notekind.NoteKindManager;
 
 /**
@@ -639,9 +641,17 @@ class Strumline extends FlxSpriteGroup
     return getByDirection(direction).isConfirm();
   }
 
+  public function playNoteHitSound():Void
+  {
+    if (Preferences.noteHitSoundVolume <= 0 || Preferences.noteHitSound == NoteHitSoundType.None) return;
+
+    var hitSound:String = Preferences.noteHitSound;
+    var path:String = Paths.sound('hitsounds/${hitSound}') ?? Paths.sound('hitsounds/daveBambi');
+    FunkinSound.playOnce(path, Preferences.noteHitSoundVolume / 100);
+  }
+
   public function playNoteSplash(direction:NoteDirection):Void
   {
-    // TODO: Add a setting to disable note splashes.
     if (!Preferences.noteSplash) return;
     if (!noteStyle.isNoteSplashEnabled()) return;
 
@@ -658,7 +668,6 @@ class Strumline extends FlxSpriteGroup
 
   public function playNoteHoldCover(holdNote:SustainTrail):Void
   {
-    // TODO: Add a setting to disable note splashes.
     if (!Preferences.noteSplash) return;
     if (!noteStyle.isHoldNoteCoverEnabled()) return;
 

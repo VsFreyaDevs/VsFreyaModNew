@@ -10,24 +10,16 @@ class FreeplayScore extends FlxTypedSpriteGroup<ScoreNum>
   function set_scoreShit(val):Int
   {
     if (group == null || group.members == null) return val;
+
     var loopNum:Int = group.members.length - 1;
     var dumbNumb = Std.parseInt(Std.string(val));
     var prevNum:ScoreNum;
 
+    dumbNumb = Std.int(Math.min(dumbNumb, Math.pow(10, group.members.length) - 1));
+
     while (dumbNumb > 0)
     {
       group.members[loopNum].digit = dumbNumb % 10;
-
-      // var funnyNum = group.members[loopNum];
-      // prevNum = group.members[loopNum + 1];
-
-      // if (prevNum != null)
-      // {
-      // funnyNum.x = prevNum.x - (funnyNum.width * 0.7);
-      // }
-
-      // funnyNum.y = (funnyNum.baseY - (funnyNum.height / 2)) + 73;
-      // funnyNum.x = (funnyNum.baseX - (funnyNum.width / 2)) + 450; // this plus value is hand picked lol!
 
       dumbNumb = Math.floor(dumbNumb / 10);
       loopNum--;
@@ -48,23 +40,16 @@ class FreeplayScore extends FlxTypedSpriteGroup<ScoreNum>
 
     for (i in 0...digitCount)
     {
-      if (styleData == null)
-      {
-        add(new ScoreNum(x + (45 * i), y, 0));
-      }
+      if (styleData == null) add(new ScoreNum(x + (45 * i), y, 0));
       else
-      {
         add(new ScoreNum(x + (45 * i), y, 0, styleData));
-      }
     }
 
     this.scoreShit = scoreShit;
   }
 
   public function updateScore(scoreNew:Int)
-  {
     scoreShit = scoreNew;
-  }
 }
 
 class ScoreNum extends FlxSprite
@@ -82,17 +67,6 @@ class ScoreNum extends FlxSprite
       {
         case 1:
           offset.x -= 15;
-        case 5:
-          // set offsets
-          // offset.x += 0;
-          // offset.y += 10;
-
-        case 7:
-          // offset.y += 6;
-        case 4:
-          // offset.y += 5;
-        case 9:
-          // offset.y += 5;
         default:
           centerOffsets(false);
       }
@@ -110,17 +84,12 @@ class ScoreNum extends FlxSprite
   {
     super(x, y);
 
-    baseY = y;
     baseX = x;
+    baseY = y;
 
-    if (styleData == null)
-    {
-      frames = Paths.getSparrowAtlas('digital_numbers');
-    }
+    if (styleData == null) frames = Paths.getSparrowAtlas('digital_numbers');
     else
-    {
       frames = Paths.getSparrowAtlas(styleData.getNumbersAssetKey());
-    }
 
     for (i in 0...10)
     {
