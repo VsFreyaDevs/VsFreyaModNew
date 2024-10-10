@@ -18,7 +18,6 @@ import openfl.events.Event;
 import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
-import sys.io.Process;
 
 // Adds support for FeralGamemode on Linux
 #if (linux && !DISABLE_GAMEMODE)
