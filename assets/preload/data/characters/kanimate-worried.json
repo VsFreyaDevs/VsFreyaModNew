@@ -4,7 +4,7 @@
   "renderType": "sparrow",
   "danceEvery": 1,
   "scale": 1,
-  "name": "Killer Animate (Pissed)",
+  "name": "Killer Animate (Worried)",
   "cameraOffsets": [0, 0],
   "flipX": false,
   "singTime": 8,
@@ -14,7 +14,7 @@
     "isPixel": false,
     "offsets": [0, 0],
     "scale": 1,
-    "id": "kanimate-pissed",
+    "id": "kanimate-worried",
     "flipX": false
   },
   "assetPath": "characters/KillerAnimateSprite",
