@@ -214,10 +214,20 @@ class TitleState extends MusicBeatState
       gfDance.frames = Paths.getSparrowAtlas('freyaDanceTitle');
       gfDance.animation.addByPrefix('danceLeft', 'freya rockstar dance left instance 1', 24, false);
       gfDance.animation.addByPrefix('danceRight', 'freya rockstar dance right instance 1', 24, false);
-      gfDance.scale.set(0.8, 0.8);
+      gfDance.scale.set(0.5, 0.5);
     }
 
     gfDance.loadOffsetFile("data/gfDanceOffsets");
+
+    trace("danceLeft "
+      + gfDance.animOffsets.get("danceLeft")[0]
+      + " "
+      + gfDance.animOffsets.get("danceLeft")[1]
+      + "\n"
+      "danceRight "
+      + gfDance.animOffsets.get("danceRight")[0]
+      + " "
+      + gfDance.animOffsets.get("danceRight")[1]);
 
     // maskShader.swagSprX = gfDance.x;
     // maskShader.swagMaskX = gfDance.x + 200;
@@ -440,6 +450,8 @@ class TitleState extends MusicBeatState
     if (controls.UI_LEFT #if mobile || SwipeUtil.swipeLeft #end) swagShader.update(-elapsed * 0.1);
     if (controls.UI_RIGHT #if mobile || SwipeUtil.swipeRight #end) swagShader.update(elapsed * 0.1);
     if (!cheatActive && skippedIntro) cheatCodeShit();
+
+    if (FlxG.keys.justPressed.SEVEN) FlxG.switchState(() -> new funkin.ui.title.GFDebugState()); // OFFSETTING GF MOMENT
     super.update(elapsed);
   }
 
