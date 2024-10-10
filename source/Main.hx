@@ -52,7 +52,6 @@ class Main extends Sprite
   var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
   // You can pretty much ignore everything from here on - your code should go in your states.
-
   public static var lightMode:Bool = Sys.args().contains("-lightui");
 
   public static function main():Void
@@ -177,7 +176,6 @@ class Main extends Sprite
     #end
   }
 
-  public var
   function initHaxeUI():Void
   {
     // Calling this before any HaxeUI components get used is important:
@@ -185,7 +183,8 @@ class Main extends Sprite
     // - It scans the class path and registers any HaxeUI components.
     Toolkit.init();
     if (lightMode) Toolkit.theme = 'light'; // embrace cringe
-    else Toolkit.theme = 'dark'; // don't be cringe
+    else
+      Toolkit.theme = 'dark'; // don't be cringe
     Toolkit.autoScale = false;
     // Don't focus on UI elements when they first appear.
     haxe.ui.focus.FocusManager.instance.autoFocus = false;
