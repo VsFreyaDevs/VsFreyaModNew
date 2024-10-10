@@ -6,7 +6,7 @@ import sys.io.File;
 /**
  * A script which executes after the game is built.
  */
-class Postbuild
+class Postbuild extends CommandLine
 {
   static inline final BUILD_TIME_FILE:String = '.build_time';
 
@@ -29,7 +29,7 @@ class Postbuild
 
       var buildTime:Float = roundToTwoDecimals(end - start);
 
-      trace('[ Build took: ${buildTime} seconds! ]');
+      haxe.Log.trace('[ - Build took: ${buildTime} seconds! - ]', null);
     }
   }
 

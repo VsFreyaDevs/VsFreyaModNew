@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "offsets": [60, 0],
+  "offsets": [30, -250],
   "renderType": "sparrow",
   "danceEvery": 1,
   "scale": 1,
