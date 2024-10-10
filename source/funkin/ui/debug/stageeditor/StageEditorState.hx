@@ -144,9 +144,11 @@ class StageEditorState extends UIState
 
     if (selectedSprite != null)
     {
-      spriteMarker.setGraphicSize(Std.int(selectedSprite.width), Std.int(selectedSprite.height));
-      spriteMarker.updateHitbox();
+      // spriteMarker.setGraphicSize(Std.int(selectedSprite.width), Std.int(selectedSprite.height));
+      // spriteMarker.updateHitbox();
     }
+
+    selectedSprite?.selectedShader.setAmount(1);
 
     return selectedSprite;
   }
@@ -182,20 +184,15 @@ class StageEditorState extends UIState
   public var saved(default, set):Bool = true;
   public var currentFile(default, set):String = "";
 
-  function set_saved(value:Bool)
+  function set_saved(value:Bool):Bool
   {
     saved = value;
 
     updateWindowTitle();
 
-    if (!autoSaveTimer.finished)
+    if (!autoSaveTimer.finished) if (!saved)
     {
-      autoSaveTimer.cancel();
-    }
-
-    if (!saved)
-    {
-      autoSaveTimer.start(Constants.AUTOSAVE_TIMER_DELAY_SEC, function(tmr:FlxTimer) {
+      autoSaveTimer.start(Constants.AUTOSAVE_TIMER_DELAY_SEC, (tmr:FlxTimer) -> {
         FileUtil.createDirIfNotExists(BACKUPS_PATH);
 
         var data = this.packShitToZip();
@@ -217,7 +214,7 @@ class StageEditorState extends UIState
     return value;
   }
 
-  function set_currentFile(value:String)
+  function set_currentFile(value:String):String
   {
     currentFile = value;
 
@@ -279,7 +276,7 @@ class StageEditorState extends UIState
 
   var showChars(default, set):Bool = true;
 
-  function set_showChars(value:Bool)
+  function set_showChars(value:Bool):Bool
   {
     this.showChars = value;
 
@@ -289,11 +286,11 @@ class StageEditorState extends UIState
     return value;
   }
 
-  override public function create()
+  override public function create():Void
   {
     WindowManager.instance.reset();
     instance = this;
-    FlxG.sound.music.stop();
+    FlxG.sound.music?.stop();
     WindowUtil.setWindowTitle(openfl.Lib.application.meta["name"] + "Stage Editor");
 
     AssetDataHandler.init(this);
@@ -371,10 +368,12 @@ class StageEditorState extends UIState
     add(charGroups[CharacterType.BF]);
 
     // ui
-    spriteMarker = new FlxSprite().makeGraphic(1, 1, FlxColor.CYAN);
-    spriteMarker.alpha = 0.3;
-    spriteMarker.zIndex = MAX_Z_INDEX + CHARACTER_COLORS.length + 3; // PLEASE
-    add(spriteMarker);
+    /*
+      spriteMarker = new FlxSprite().makeGraphic(1, 1, FlxColor.CYAN);
+      spriteMarker.alpha = 0.3;
+      spriteMarker.zIndex = MAX_Z_INDEX + CHARACTER_COLORS.length + 3; // PLEASE
+      add(spriteMarker);
+     */
 
     camFields = new FlxTypedGroup<FlxSprite>();
     camFields.visible = false;
@@ -438,9 +437,7 @@ class StageEditorState extends UIState
         objNameDialog = new NewObjDialog(this, data);
         objNameDialog.showDialog();
 
-        objNameDialog.onDialogClosed = function(_) {
-          objNameDialog = null;
-        }
+        objNameDialog.onDialogClosed = (_) -> objNameDialog = null;
 
         return;
       }
@@ -494,9 +491,7 @@ class StageEditorState extends UIState
       }
 
       for (asset in spriteArray)
-      {
         if (asset.danceEvery > 0 && conductorInUse.currentBeat % asset.danceEvery == 0) asset.dance(true);
-      }
 
       if (conductorInUse.currentBeat % 8 == 0 && !FlxG.keys.pressed.SHIFT) curTestChar++;
     }
@@ -504,7 +499,7 @@ class StageEditorState extends UIState
     return super.beatHit();
   }
 
-  override public function update(elapsed:Float)
+  override public function update(elapsed:Float):Void
   {
     updateBGSize();
     conductorInUse.update();
@@ -523,7 +518,7 @@ class StageEditorState extends UIState
       for (char in getCharacters())
         char.alpha = 1;
 
-      spriteMarker.visible = camMarker.visible = false;
+      // spriteMarker.visible = camMarker.visible = false;
       findObjDialog.hideDialog(DialogButton.CANCEL);
 
       // cam
@@ -564,7 +559,8 @@ class StageEditorState extends UIState
     // key shortcuts and inputs
     if (allowInput)
     {
-      if (FlxG.keys.pressed.CONTROL)
+      // "WINDOWS" key code is the same keycode as COMMAND on mac
+      if (FlxG.keys.pressed.CONTROL || FlxG.keys.pressed.WINDOWS)
       {
         if (FlxG.keys.justPressed.Z) onMenuItemClick("undo");
         if (FlxG.keys.justPressed.Y) onMenuItemClick("redo");
@@ -601,14 +597,10 @@ class StageEditorState extends UIState
           camFollow.velocity.x = 0;
       }
       else
-      {
         camFollow.velocity.set();
-      }
     }
     else
-    {
       camFollow.velocity.set();
-    }
 
     // movement handling
     if (FlxG.mouse.justReleased && moveOffset.length > 0) moveOffset = [];
@@ -619,12 +611,13 @@ class StageEditorState extends UIState
       {
         spr.active = spr.isOnScreen();
 
-        if (FlxG.mouse.overlaps(spr))
+        if (spr.pixelsOverlapPoint(FlxG.mouse.getWorldPosition()))
         {
           if (spr.visible && !FlxG.keys.pressed.SHIFT) nameTxt.text = spr.name;
 
           if (FlxG.mouse.justPressed && allowInput && spr.visible && !FlxG.keys.pressed.SHIFT && !isCursorOverHaxeUI)
           {
+            selectedSprite.selectedShader.setAmount(0);
             selectedSprite = spr;
             updateDialog(StageEditorDialogType.OBJECT);
           }
@@ -734,12 +727,14 @@ class StageEditorState extends UIState
     nameTxt.x = FlxG.mouse.getScreenPosition(camHUD).x;
     nameTxt.y = FlxG.mouse.getScreenPosition(camHUD).y - nameTxt.height;
 
-    spriteMarker.visible = (moveMode == "assets" && selectedSprite != null);
+    // spriteMarker.visible = (moveMode == "assets" && selectedSprite != null);
     camMarker.visible = moveMode == "chars";
-    if (selectedSprite != null) spriteMarker.setPosition(selectedSprite.x, selectedSprite.y);
+    // if (selectedSprite != null) spriteMarker.setPosition(selectedSprite.x, selectedSprite.y);
 
-    for (item in sprDependant)
-      item.disabled = !spriteMarker.visible;
+    /*
+      for (item in sprDependant)
+        item.disabled = !spriteMarker.visible;
+     */
 
     menubarItemPaste.disabled = copiedSprite == null;
     menubarItemFindObj.disabled = !(moveMode == "assets");
@@ -923,7 +918,7 @@ class StageEditorState extends UIState
     WindowUtil.setWindowTitle(openfl.Lib.application.meta["name"]);
   }
 
-  function updateBGColors()
+  function updateBGColors():Void
   {
     var colArray = Save.instance.stageEditorTheme == StageEditorTheme.Dark ? DARK_MODE_COLORS : LIGHT_MODE_COLORS;
 
@@ -937,14 +932,14 @@ class StageEditorState extends UIState
     members.insert(index, bg);
   }
 
-  function updateBGSize()
+  function updateBGSize():Void
   {
     bg.scale.set(1 / FlxG.camera.zoom, 1 / FlxG.camera.zoom);
     bg.updateHitbox();
     bg.screenCenter();
   }
 
-  function checkOverlaps(spr:FlxSprite)
+  function checkOverlaps(spr:FlxSprite):Bool
   {
     if (FlxG.mouse.overlaps(spr) /*spr.overlapsPoint(FlxG.mouse.getWorldPosition(spr.camera), true, spr.camera) */
       && Screen.instance != null
@@ -957,7 +952,7 @@ class StageEditorState extends UIState
 
   var sprDependant:Array<MenuItem> = [];
 
-  function addUI()
+  function addUI():Void
   {
     menubarItemNewStage.onClick = function(_) onMenuItemClick("new stage");
     menubarItemOpenStage.onClick = function(_) onMenuItemClick("open stage");
@@ -1065,7 +1060,7 @@ class StageEditorState extends UIState
     reloadRecentFiles();
   }
 
-  function reloadRecentFiles()
+  function reloadRecentFiles():Void
   {
     for (a in menubarItemOpenRecent.childComponents)
       menubarItemOpenRecent.removeComponent(a);
@@ -1114,7 +1109,7 @@ class StageEditorState extends UIState
   public var aboutDialog:AboutDialog;
   public var loadUrlDialog:LoadFromUrlDialog;
 
-  public function onMenuItemClick(item:String)
+  public function onMenuItemClick(item:String):Void
   {
     switch (item.toLowerCase())
     {

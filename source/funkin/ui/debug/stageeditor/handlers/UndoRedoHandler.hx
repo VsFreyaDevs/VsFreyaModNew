@@ -6,7 +6,7 @@ import funkin.ui.debug.stageeditor.StageEditorState.StageEditorDialogType;
 
 class UndoRedoHandler
 {
-  public static function performLastAction(state:StageEditorState, redo:Bool = false)
+  public static function performLastAction(state:StageEditorState, redo:Bool = false):Void
   {
     if (state == null || (state.undoArray.length <= 0 && !redo) || (state.redoArray.length <= 0 && redo)) return;
     var actionToDo = redo ? state.redoArray.pop() : state.undoArray.pop();
@@ -20,9 +20,7 @@ class UndoRedoHandler
         var pos = actionToDo.data.pos == null ? [0, 0] : actionToDo.data.pos;
 
         for (char in state.getCharacters())
-        {
           if (char.characterType == type) state.selectedChar = char;
-        }
 
         state.selectedChar.x = pos[0] - state.selectedChar.characterOrigin.x + state.selectedChar.globalOffsets[0];
         state.selectedChar.y = pos[1] - state.selectedChar.characterOrigin.y + state.selectedChar.globalOffsets[1];
@@ -35,9 +33,7 @@ class UndoRedoHandler
         var pos = actionToDo.data.pos ?? [0, 0];
 
         for (obj in state.spriteArray)
-        {
           if (obj.ID == id) state.selectedSprite = obj;
-        }
 
         if (state.selectedSprite != null)
         {
