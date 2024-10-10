@@ -21,7 +21,7 @@
       "opponentVocals": [],
       "playerVocals": ["bf-kit"]
     },
-    "stage": "mainStage",
+    "stage": "void",
     "noteStyle": "kit",
     "ratings": {
       "easy": 6,
@@ -31,7 +31,7 @@
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.1 FREYA",
+  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.2 FREYA",
   "timeFormat": "ms",
   "timeChanges": [
     {

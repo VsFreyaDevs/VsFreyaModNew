@@ -1,37 +1,29 @@
 {
   "version": "2.2.4",
   "songName": "Twisted Knife",
-  "artist": "charlesisfeline (ft. TheAnimateMan",
+  "artist": "charlesisfeline (ft. TheAnimateMan)",
   "charter": "charlesisfeline",
   "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
-    "altInstrumentals": {    },
-    "vocals": {    },
-    "altVocals": {    }
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
   },
   "playData": {
-    "songVariations": [    ],
-    "difficulties": [
-      "easy",
-      "normal",
-      "hard"
-    ],
+    "songVariations": [],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-kit",
       "girlfriend": "gf",
       "opponent": "kanimate",
       "instrumental": "",
-      "altInstrumentals": [      ],
-      "opponentVocals": [
-        "kanimate"
-      ],
-      "playerVocals": [
-        "bf-kit"
-      ]
+      "altInstrumentals": [],
+      "opponentVocals": ["kanimate"],
+      "playerVocals": ["bf-kit"]
     },
-    "stage": "mainStage",
+    "stage": "void",
     "noteStyle": "kit",
     "ratings": {
       "easy": 7,
@@ -41,7 +33,7 @@
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.1 FREYA",
+  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.2 FREYA",
   "timeFormat": "ms",
   "timeChanges": [
     {
@@ -50,12 +42,7 @@
       "bpm": 182,
       "n": 4,
       "d": 4,
-      "bt": [
-        4,
-        4,
-        4,
-        4
-      ]
+      "bt": [4, 4, 4, 4]
     }
   ]
 }

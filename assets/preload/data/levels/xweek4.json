@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "rocky",
+  "name": "freeplay",
   "titleAsset": "storymenu/titles/rocky",
   "props": [
     {
@@ -16,12 +16,13 @@
       ]
     }
   ],
+  "visible": false,
   "background": "#413CAE",
   "songs": [
-    "samsung",
     "colorful-clones",
     "inversion",
     "all-stars",
+    "hornstromp",
     "twiddlefinger"
   ]
 }
