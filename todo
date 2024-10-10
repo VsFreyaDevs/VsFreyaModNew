@@ -3,8 +3,8 @@
 - [x] A-bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
 - [ ] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync.
-- [ ] Freeplay difficulties aren't loading for some reason
-- [ ] Conductor doesn't actually work on PlayState for some reason
+- [x] Freeplay difficulties aren't loading for some reason
+- [x] Conductor doesn't actually work on PlayState for some reason
 - [ ] Backspace crashes in the input offset menu
 - [ ] DJ Boyfriend/Pico flickering, for some reason
 - [x] You can die during the cutscenes in Week 3's Pico mixes
