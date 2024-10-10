@@ -1,0 +1,33 @@
+{
+  "props": [
+    {
+      "danceEvery": 0,
+      "zIndex": 7,
+      "position": [99999, -200],
+      "scale": [1, 1],
+      "animType": "sparrow",
+      "name": "stageBack",
+      "isPixel": false,
+      "assetPath": "stageback",
+      "scroll": [0.9, 0.9],
+      "animations": []
+    }
+  ],
+  "cameraZoom": 0.9,
+  "version": "1.0.0",
+  "characters": {
+    "bf": {
+      "zIndex": 300,
+      "position": [977.5, 865],
+      "cameraOffsets": [-170, -140]
+    },
+    "dad": {
+      "zIndex": 200,
+      "position": [40, 850],
+      "cameraOffsets": [270, -100]
+    },
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [501.5, 810] }
+  },
+  "name": "The White Void",
+  "directory": "week1"
+}
