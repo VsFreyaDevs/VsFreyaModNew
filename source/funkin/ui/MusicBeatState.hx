@@ -28,7 +28,7 @@ import funkin.mobile.ui.FunkinBackspace;
  */
 class MusicBeatState extends FlxTransitionableState implements IEventHandler
 {
-  public var windowTitle:String = "Friday Night Funkin': Vs. Freya Crew";
+  public var windowTitle:String = "FreyaFennec_Funker";
 
   var controls(get, never):Controls;
 

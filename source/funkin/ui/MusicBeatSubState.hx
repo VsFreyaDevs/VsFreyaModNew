@@ -26,7 +26,7 @@ import funkin.mobile.ui.FunkinBackspace;
  */
 class MusicBeatSubState extends FlxSubState implements IEventHandler
 {
-  public var windowTitle:String = "Friday Night Funkin': Vs. Freya Crew";
+  public var windowTitle:String = "FreyaFennec_Funkers";
 
   public var leftWatermarkText:FlxText = null;
   public var rightWatermarkText:FlxText = null;

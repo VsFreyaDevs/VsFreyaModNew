@@ -272,7 +272,7 @@ class Project extends HXProject {
 	 */
 	function flair() {
 		// TODO: Implement this.
-		info("Friday Night Funkin': Vs. Freya Crew");
+		info("FreyaFennec_Funkers");
 		info("Initializing build...");
 
 		info("Target Version: " + VERSION);

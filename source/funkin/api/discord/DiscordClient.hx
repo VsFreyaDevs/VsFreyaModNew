@@ -75,7 +75,7 @@ class DiscordClient
     // Presence should always be playing the game.
     presence.type = DiscordActivityType_Playing;
     // Text when hovering over the large image. We just leave this as the game name.
-    presence.largeImageText = "Friday Night Funkin': Vs. Freya Crew";
+    presence.largeImageText = "FreyaFennec_Funkers";
     // State should be generally what the person is doing, like "In the Menus" or "Pico (Pico Mix) [Freeplay Hard]"
     presence.state = cast(params.state, Null<String>);
     // Details should be what the person is specifically doing, including stuff like timestamps (maybe something like "03:24 elapsed").
