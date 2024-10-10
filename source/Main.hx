@@ -18,6 +18,7 @@ import openfl.events.Event;
 import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
+import sys.io.Process;
 
 // Adds support for FeralGamemode on Linux
 #if (linux && !DISABLE_GAMEMODE)
@@ -51,6 +52,8 @@ class Main extends Sprite
   var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
   // You can pretty much ignore everything from here on - your code should go in your states.
+
+  public static var lightMode:Bool = Sys.args().contains("-lightui");
 
   public static function main():Void
   {
@@ -174,19 +177,20 @@ class Main extends Sprite
     #end
   }
 
+  public var
   function initHaxeUI():Void
   {
     // Calling this before any HaxeUI components get used is important:
     // - It initializes the theme styles.
     // - It scans the class path and registers any HaxeUI components.
     Toolkit.init();
-    Toolkit.theme = 'dark'; // don't be cringe
-    // Toolkit.theme = 'light'; // embrace cringe
+    if (lightMode) Toolkit.theme = 'light'; // embrace cringe
+    else Toolkit.theme = 'dark'; // don't be cringe
     Toolkit.autoScale = false;
     // Don't focus on UI elements when they first appear.
     haxe.ui.focus.FocusManager.instance.autoFocus = false;
     funkin.input.Cursor.registerHaxeUICursors();
-    haxe.ui.tooltips.ToolTipManager.defaultDelay = 200;
+    haxe.ui.tooltips.ToolTipManager.defaultDelay = 175;
   }
 
   function resizeGame(width:Int, height:Int):Void
