@@ -1,5 +1,7 @@
 # Compiling Friday Night Funkin'
 
+*btw for windows users, you'll need windows 7 to do this shit*
+
 0. Setup
     - Download Haxe from [Haxe.org](https://haxe.org)
     - Download Git from [git-scm.com](https://www.git-scm.com)
