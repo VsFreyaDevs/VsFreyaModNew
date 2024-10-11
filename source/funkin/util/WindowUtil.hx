@@ -14,7 +14,7 @@ using StringTools;
 #include <psapi.h>
 ')
 #end
-class WindowUtil
+@:keep class WindowUtil
 {
   /**
    * Runs platform-specific code to open a URL in a web browser.

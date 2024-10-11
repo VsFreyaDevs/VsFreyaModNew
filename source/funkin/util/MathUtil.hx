@@ -3,7 +3,7 @@ package funkin.util;
 /**
  * Utilities for performing mathematical operations.
  */
-class MathUtil
+@:keep class MathUtil
 {
   /**
    * Euler's constant and the base of the natural logarithm.
@@ -62,7 +62,7 @@ class MathUtil
     return Math.pow(2, x);
   }
 
- /**
+  /**
    * Helper function to get the fractional part of a value.
    * @param x value
    * @return `x - floor(x)`

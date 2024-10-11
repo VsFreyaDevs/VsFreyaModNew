@@ -4,7 +4,7 @@ import flixel.util.FlxColor;
 
 using StringTools;
 
-class MiscUtil
+@:keep class MiscUtil
 {
   /**
     Formats hours, minutes and seconds to just seconds.
