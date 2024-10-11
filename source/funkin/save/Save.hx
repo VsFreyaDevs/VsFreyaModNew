@@ -892,23 +892,13 @@ class Save
     switch (inputType)
     {
       case Keys:
-        if (playerId == 0)
-        {
-          data.options.controls.p1.keyboard = controls;
-        }
+        if (playerId == 0) data.options.controls.p1.keyboard = controls;
         else
-        {
           data.options.controls.p2.keyboard = controls;
-        }
       case Gamepad(_):
-        if (playerId == 0)
-        {
-          data.options.controls.p1.gamepad = controls;
-        }
+        if (playerId == 0) data.options.controls.p1.gamepad = controls;
         else
-        {
           data.options.controls.p2.gamepad = controls;
-        }
     }
 
     flush();
@@ -976,6 +966,15 @@ class Save
 
     // Prevent crashes if the save data is corrupted.
     SerializerUtil.initSerializer();
+
+    try
+    {
+      trace(SAVE_NAME + " - SLOT: " slot + " - PATH: " + SAVE_PATH);
+    }
+    catch (e)
+    {
+      trace("AUGH I CANT EVEN CHECK WHHHYYYYY");
+    }
 
     FlxG.save.bind('$SAVE_NAME${slot}', SAVE_PATH);
 
@@ -1080,10 +1079,7 @@ class Save
   {
     for (i in start...end)
     {
-      if (querySlot(i))
-      {
-        return i;
-      }
+      if (querySlot(i)) return i;
     }
     return -1;
   }
