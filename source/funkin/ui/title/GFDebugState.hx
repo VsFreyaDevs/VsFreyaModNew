@@ -49,6 +49,10 @@ class GFDebugState extends MusicBeatState
     gfDance.animation.addByPrefix('danceRight', 'freya rockstar dance right instance 1', 24, false);
     gfDance.scale.set(0.5, 0.5);
 
+    add(gfDance);
+
+    if (gfDance != null && gfDance.animation != null) gfDance.animation.play('danceRight');
+
     dumbTexts = new FlxTypedGroup<FlxText>();
     add(dumbTexts);
 
@@ -64,6 +68,8 @@ class GFDebugState extends MusicBeatState
     add(camFollow);
 
     FlxG.camera.follow(camFollow);
+
+    FlxG.mouse.visible = true;
 
     super.create();
   }
@@ -95,7 +101,7 @@ class GFDebugState extends MusicBeatState
 
   override function update(elapsed:Float)
   {
-    textAnim.text = gfDance.animation.curAnim.name;
+    if (gfDance != null && gfDance.animation != null) textAnim.text = gfDance.animation.curAnim.name;
 
     if (FlxG.keys.justPressed.F4) FlxG.switchState(() -> new TitleState());
 
