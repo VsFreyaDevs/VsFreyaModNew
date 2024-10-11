@@ -72,7 +72,7 @@ class GFDebugState extends MusicBeatState
   {
     var daLoop:Int = 0;
 
-    for (anim => offsets in char.animOffsets)
+    for (anim => offsets in gfDance.animOffsets)
     {
       var text:FlxText = new FlxText(10, 20 + (18 * daLoop), 0, anim + ": " + offsets, 15);
       text.scrollFactor.set();
