@@ -339,7 +339,7 @@ class FreeplayDJ extends FlxAtlasSprite
     // loadCartoon();
   }
 
-  function loadCartoon()
+  public function loadCartoon()
   {
     playingCartoon = true;
 
@@ -462,7 +462,7 @@ class FreeplayDJ extends FlxAtlasSprite
     applyAnimOffset();
   }
 
-  function applyAnimOffset()
+  public function applyAnimOffset()
   {
     var AnimName = getCurrentAnimation();
     var daOffset = playableCharData.getAnimationOffsetsByPrefix(AnimName);

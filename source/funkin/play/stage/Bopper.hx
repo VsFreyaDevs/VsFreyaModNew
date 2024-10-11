@@ -118,13 +118,10 @@ class Bopper extends StageProp implements IPlayStateScriptedClass
    * Called when an animation finishes.
    * @param name The name of the animation that just finished.
    */
-  function onAnimationFinished(name:String)
+  public function onAnimationFinished(name:String)
   {
     // TODO: Can we make a system of like, animation priority or something?
-    if (!canPlayOtherAnims)
-    {
-      canPlayOtherAnims = true;
-    }
+    if (!canPlayOtherAnims) canPlayOtherAnims = true;
   }
 
   /**
@@ -136,7 +133,7 @@ class Bopper extends StageProp implements IPlayStateScriptedClass
    * For example, if an animation was defined as having the indexes [3, 0, 1, 2],
    * then the first callback would have frameNumber = 0 and frameIndex = 3.
    */
-  function onAnimationFrame(name:String = "", frameNumber:Int = -1, frameIndex:Int = -1)
+  public function onAnimationFrame(name:String = "", frameNumber:Int = -1, frameIndex:Int = -1)
   {
     // Do nothing by default.
     // This can be overridden by, for example, scripted characters,

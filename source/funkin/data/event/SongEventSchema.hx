@@ -79,7 +79,7 @@ abstract SongEventSchema(SongEventSchemaRaw)
     }
   }
 
-  function addUnitsToString(value:String, field:SongEventSchemaField)
+  public function addUnitsToString(value:String, field:SongEventSchemaField)
   {
     if (field.units == null || field.units == '') return value;
 

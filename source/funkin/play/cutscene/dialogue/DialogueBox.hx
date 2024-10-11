@@ -250,7 +250,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
    * Called when an animation finishes.
    * @param name The name of the animation that just finished.
    */
-  function onAnimationFinished(name:String):Void {}
+  public function onAnimationFinished(name:String):Void {}
 
   /**
    * Called when the current animation's frame changes.
@@ -261,7 +261,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
    * For example, if an animation was defined as having the indexes [3, 0, 1, 2],
    * then the first callback would have frameNumber = 0 and frameIndex = 3.
    */
-  function onAnimationFrame(name:String = "", frameNumber:Int = -1, frameIndex:Int = -1):Void
+  public function onAnimationFrame(name:String = "", frameNumber:Int = -1, frameIndex:Int = -1):Void
   {
     // Do nothing by default.
     // This can be overridden by, for example, scripts,

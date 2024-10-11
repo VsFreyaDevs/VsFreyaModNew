@@ -37,7 +37,7 @@ class LoadingState extends MusicBeatSubState
   var loadBar:FlxSprite;
   var funkay:FlxSprite;
 
-  function new(target:NextState, stopMusic:Bool, playParams:Null<PlayStateParams> = null)
+  public function new(target:NextState, stopMusic:Bool, playParams:Null<PlayStateParams> = null)
   {
     super();
     this.target = target;

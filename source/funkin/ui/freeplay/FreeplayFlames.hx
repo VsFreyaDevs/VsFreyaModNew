@@ -96,7 +96,7 @@ class FreeplayFlames extends FlxSpriteGroup
     return this.flameCount;
   }
 
-  function setFlamePositions()
+  public function setFlamePositions()
   {
     for (i in 0...5)
     {

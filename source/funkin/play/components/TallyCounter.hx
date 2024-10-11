@@ -43,7 +43,7 @@ class TallyCounter extends FlxTypedSpriteGroup<FlxSprite>
     if (curNumber < neededNumber) drawNumbers();
   }
 
-  function drawNumbers()
+  public function drawNumbers()
   {
     var seperatedScore:Array<Int> = [];
     var tempCombo:Int = Math.round(curNumber);

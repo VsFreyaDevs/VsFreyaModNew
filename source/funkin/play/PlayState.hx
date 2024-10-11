@@ -3022,7 +3022,7 @@ class PlayState extends MusicBeatSubState
   /**
    * Handles applying health, score, and ratings.
    */
-  function applyScore(score:Int, daRating:String, healthChange:Float, isComboBreak:Bool, ?latency:Float = 0):Void
+  public function applyScore(score:Int, daRating:String, healthChange:Float, isComboBreak:Bool, ?latency:Float = 0):Void
   {
     switch (daRating)
     {

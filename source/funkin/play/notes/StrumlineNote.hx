@@ -60,12 +60,12 @@ class StrumlineNote extends FunkinSprite
     this.active = true;
   }
 
-  function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int):Void
+  public function onAnimationFrame(name:String, frameNumber:Int, frameIndex:Int):Void
   {
     // Do nothing.
   }
 
-  function onAnimationFinished(name:String):Void
+  public function onAnimationFinished(name:String):Void
   {
     // Run a timer before we stop playing the confirm animation.
     // On opponent, this prevent issues with hold notes.

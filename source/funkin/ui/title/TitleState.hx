@@ -473,7 +473,7 @@ class TitleState extends MusicBeatState
     if (controls.NOTE_RIGHT_P || controls.UI_RIGHT_P #if mobile || SwipeUtil.swipeRight #end) codePress(FlxDirectionFlags.RIGHT);
   }
 
-  function codePress(input:Int)
+  public function codePress(input:Int)
   {
     if (input == cheatArray[curCheatPos])
     {
@@ -505,7 +505,7 @@ class TitleState extends MusicBeatState
     FunkinSound.playOnce(Paths.sound('confirmMenu'), 0.7);
   }
 
-  function createCoolText(textArray:Array<String>)
+  public function createCoolText(textArray:Array<String>)
   {
     if (credGroup == null || textGroup == null) return;
 
@@ -519,7 +519,7 @@ class TitleState extends MusicBeatState
     }
   }
 
-  function addMoreText(text:String)
+  public function addMoreText(text:String)
   {
     if (credGroup == null || textGroup == null) return;
 
@@ -533,7 +533,7 @@ class TitleState extends MusicBeatState
     textGroup.add(coolText);
   }
 
-  function deleteCoolText()
+  public function deleteCoolText()
   {
     if (credGroup == null || textGroup == null) return;
 

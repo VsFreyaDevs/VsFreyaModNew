@@ -56,10 +56,7 @@ class MultiSparrowCharacter extends BaseCharacter
     var assetList = [];
     for (anim in _data.animations)
     {
-      if (anim.assetPath != null && !assetList.contains(anim.assetPath))
-      {
-        assetList.push(anim.assetPath);
-      }
+      if (anim.assetPath != null && !assetList.contains(anim.assetPath)) assetList.push(anim.assetPath);
     }
 
     var texture:FlxAtlasFrames = Paths.getSparrowAtlas(_data.assetPath);
@@ -81,10 +78,7 @@ class MultiSparrowCharacter extends BaseCharacter
       var subTexture:FlxAtlasFrames = Paths.getSparrowAtlas(asset);
       // If we don't do this, the unused textures will be removed as soon as they're loaded.
 
-      if (subTexture == null)
-      {
-        trace('Multi-Sparrow atlas could not load subtexture: ${asset}');
-      }
+      if (subTexture == null) trace('Multi-Sparrow atlas could not load subtexture: ${asset}');
       else
       {
         trace('Concatenating multi-sparrow atlas: ${asset}');
@@ -98,7 +92,7 @@ class MultiSparrowCharacter extends BaseCharacter
     this.setScale(_data.scale);
   }
 
-  function buildAnimations()
+  public function buildAnimations()
   {
     trace('[MULTISPARROWCHAR] Loading ${_data.animations.length} animations for ${characterId}');
 
@@ -107,14 +101,9 @@ class MultiSparrowCharacter extends BaseCharacter
     {
       FlxAnimationUtil.addAtlasAnimation(this, anim);
 
-      if (anim.offsets == null)
-      {
-        setAnimationOffsets(anim.name, 0, 0);
-      }
+      if (anim.offsets == null) setAnimationOffsets(anim.name, 0, 0);
       else
-      {
         setAnimationOffsets(anim.name, anim.offsets[0], anim.offsets[1]);
-      }
     }
 
     var animNames = this.animation.getNameList();
