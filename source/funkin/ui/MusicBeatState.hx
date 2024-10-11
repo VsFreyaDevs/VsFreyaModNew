@@ -28,7 +28,7 @@ import funkin.mobile.ui.FunkinBackspace;
  */
 class MusicBeatState extends FlxTransitionableState implements IEventHandler
 {
-  public var windowTitle:String = "FreyaFennec_Funker";
+  public var windowTitle:String = "FreyaFennec_Funkers";
 
   var controls(get, never):Controls;
 

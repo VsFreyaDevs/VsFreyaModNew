@@ -32,7 +32,7 @@ It’s pretty complicated to explain, but mobile porting is pretty easy once you
 
 # Contributing
 
-Please check out our [Contributor's guide](./CONTRIBUTORS.md) on how you can actively participate in the development of Friday Night Funkin'.
+Please check out our [Contributor's guide](/docs/CONTRIBUTING.md) on how you can actively participate in the development of Friday Night Funkin'.
 
 # Modding
 
