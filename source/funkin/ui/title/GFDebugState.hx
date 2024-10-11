@@ -101,9 +101,17 @@ class GFDebugState extends MusicBeatState
 
   override function update(elapsed:Float)
   {
-    if (gfDance != null && gfDance.animation != null) textAnim.text = gfDance.animation.curAnim.name;
+    try
+    {
+      textAnim.text = gfDance.animation.curAnim.name;
+    }
+    catch (e:Any) {}
 
-    if (FlxG.keys.justPressed.F4) FlxG.switchState(() -> new TitleState());
+    if (FlxG.keys.justPressed.F4)
+    {
+      funkin.ui.title.TitleState.initialized = false;
+      FlxG.switchState(() -> new TitleState());
+    }
 
     if (FlxG.keys.justPressed.E) FlxG.camera.zoom += 0.25;
     if (FlxG.keys.justPressed.Q) FlxG.camera.zoom -= 0.25;

@@ -26,7 +26,11 @@ class ReloadAssetsDebugPlugin extends FlxBasic
     super.update(elapsed);
 
     // for the funni
-    if (FlxG.keys.justPressed.F7) FlxG.resetGame();
+    if (FlxG.keys.justPressed.F7)
+    {
+      funkin.ui.title.TitleState.initialized = false;
+      FlxG.resetGame();
+    }
 
     #if html5
     if (FlxG.keys.justPressed.FIVE && FlxG.keys.pressed.SHIFT)
