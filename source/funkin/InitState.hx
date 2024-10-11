@@ -89,7 +89,9 @@ class InitState extends FlxState
     FlxG.fixedTimestep = false;
 
     // Set the game to a lower frame rate while it is in the background.
-    FlxG.game.focusLostFramerate = 30;
+    if (Preferences.framerate >= 30) FlxG.game.focusLostFramerate = 30;
+    else
+      FlxG.game.focusLostFramerate = Preferences.framerate;
 
     @:privateAccess
     FlxG.game.getTimer = () -> openfl.Lib.getTimer();

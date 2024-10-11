@@ -657,6 +657,8 @@ class Project extends HXProject {
 		addHaxelib('grig.midi'); // Midi utilities
 		addHaxelib('grig.pitch'); // Needed for grig.midi
 
+		addHaxelib('moonchart'); // Funny chart support
+
 		if (isDebug()) {
 			addHaxelib('hxcpp-debug-server'); // VSCode debug support
 		}

@@ -1,3 +1,6 @@
+# ADDITIONS AND WHATEVER
+- [ ] CNE/Psych/LD/Stepmania/FPS+/Kade/GH/Quaver/Osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
+
 # FIX KNOWN BUGS
 - [x] Characters in the Character select menu keep cloning themselves
 - [x] A-bot Visualizer doesn't react to volume

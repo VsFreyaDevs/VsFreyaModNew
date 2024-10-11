@@ -194,6 +194,13 @@
       "url": "https://github.com/FunkinCrew/MassiveUnit"
     },
     {
+      "name": "moonchart",
+      "type": "git",
+      "dir": null,
+      "ref": null,
+      "url": "https://github.com/MaybeMaru/moonchart"
+    },
+    {
       "name": "openfl",
       "type": "git",
       "dir": null,

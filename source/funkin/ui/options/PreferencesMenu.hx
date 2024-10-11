@@ -249,6 +249,9 @@ class PreferencesMenu extends Page
     #else
     createPrefItemNumber('FPS Cap', 'Set the maximum framerate that the game targets', function(value:Float) {
       Preferences.framerate = Std.int(value);
+      if (Preferences.framerate >= 30) FlxG.game.focusLostFramerate = 30;
+      else
+        FlxG.game.focusLostFramerate = Preferences.framerate;
       yeahBf(false);
     }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 960, 1, 0);
     #end
