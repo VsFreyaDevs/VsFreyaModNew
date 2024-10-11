@@ -167,6 +167,8 @@ class GFDebugState extends MusicBeatState
     super.update(elapsed);
   }
 
+  var _file:FileReference;
+
   private function saveOffsets(saveString:String)
   {
     if ((saveString != null) && (saveString.length > 0))
