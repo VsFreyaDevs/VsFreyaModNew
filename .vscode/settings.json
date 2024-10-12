@@ -269,5 +269,10 @@
     "coverage.xml",
     "jacoco.xml",
     "coverage.cobertura.xml"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBarBadge.background": "#ff3a3a",
+    "activityBarBadge.foreground": "#ffffff"
+  },
+  "peacock.color": "#1857a4"
 }

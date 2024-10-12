@@ -280,10 +280,11 @@ class Project extends HXProject {
 	 */
 	function flair() {
 		// TODO: Implement this.
-		info("FreyaFennec_Funkers");
+		info("([---------------FreyaFennec_Funkers---------------])");
+		info("([------Built off of Friday Night Funkin'-----])");
 		info("Initializing build...");
 
-		info("Target Version: " + VERSION);
+		info("Target Version (BASE): " + VERSION);
 		info("Current Git Branch:     " + getGitBranch());
 		info("Current Git Commit:     " + getGitCommit());
 		info("Any File Modified to Git?   " + getGitModified());

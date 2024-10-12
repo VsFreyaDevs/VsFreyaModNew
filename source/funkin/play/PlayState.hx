@@ -1825,7 +1825,7 @@ class PlayState extends MusicBeatSubState
     // The score text below the health bar.
     if (Preferences.extraScoreText)
     {
-      scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
+      scoreText = new FlxText(0, healthBarBG.y + 45, FlxG.width, '', 16);
       if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
       else
         scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
