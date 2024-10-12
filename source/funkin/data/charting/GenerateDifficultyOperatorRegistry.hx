@@ -1,7 +1,5 @@
 package funkin.data.charting;
 
-package funkin.data.charting;
-
 import funkin.data.BaseClassRegistry;
 import funkin.ui.debug.charting.util.GenerateDifficultyOperator;
 
