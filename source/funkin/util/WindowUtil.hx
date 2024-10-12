@@ -155,17 +155,44 @@ using StringTools;
   /**
    * Shows a message box if supported and logs message to the console
    */
-  public static function showMessageBox(message:Null<String>, title:Null<String>):Void
+  @:keep public static function showMessageBox(message:Null<String>, title:Null<String>):Void
   {
     trace('[$title] $message');
 
     lime.app.Application.current.window.alert(message, title);
   }
 
-  public static function setDarkMode(enable:Bool)
+  @:keep public static function setDarkMode(enable:Bool = false)
   {
     #if windows
     funkin.api.windows.WinAPI.setDarkMode(enable);
+    #else
+    trace("wait wtf this aint windows... eh whatever");
+    #end
+  }
+
+  @:keep public static function setWindowIcon(pahty:String)
+  {
+    #if windows
+    funkin.api.windows.WinAPI.setWindowIcon(pahty);
+    #else
+    trace("wait wtf this aint windows... eh whatever");
+    #end
+  }
+
+  @:keep public static function enableVisualStyles()
+  {
+    #if windows
+    funkin.api.windows.WinAPI.enableVisualStyles();
+    #else
+    trace("wait wtf this aint windows... eh whatever");
+    #end
+  }
+
+  @:keep public static function clearScreen()
+  {
+    #if windows
+    funkin.api.windows.WinAPI.clearScreen();
     #else
     trace("wait wtf this aint windows... eh whatever");
     #end

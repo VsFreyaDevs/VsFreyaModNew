@@ -69,6 +69,8 @@ class Main extends Sprite
     CrashHandler.initialize();
     CrashHandler.queryStatus();
 
+    funkin.api.windows.WinAPI.enableVisualStyles();
+
     Lib.current.addChild(new Main());
   }
 

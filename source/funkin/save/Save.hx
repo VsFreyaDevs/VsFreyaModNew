@@ -969,7 +969,7 @@ class Save
 
     try
     {
-      trace(SAVE_NAME + " - SLOT: " slot + " - PATH: " + SAVE_PATH);
+      trace(SAVE_NAME + " - SLOT: " + slot + " - PATH: " + SAVE_PATH);
     }
     catch (e)
     {

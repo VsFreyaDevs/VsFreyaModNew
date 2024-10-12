@@ -30,6 +30,8 @@ package funkin.api.windows;
 ')
 class WinAPI
 {
+  // i have now learned the power of the windows api, FEAR ME!!!
+  #if windows
   @:functionCode('
         int darkMode = enable ? 1 : 0;
         HWND window = GetActiveWindow();
@@ -37,14 +39,28 @@ class WinAPI
             DwmSetWindowAttribute(window, 20, &darkMode, sizeof(darkMode));
         }
     ')
+  #end
   public static function setDarkMode(enable:Bool) {}
 
+  #if windows
+  @:functionCode('
+    HWND window = GetActiveWindow();
+    HICON smallIcon = (HICON) LoadImage(NULL, path, IMAGE_ICON, 16, 16, LR_LOADFROMFILE);
+    HICON icon = (HICON) LoadImage(NULL, path, IMAGE_ICON, 0, 0, LR_LOADFROMFILE | LR_DEFAULTSIZE);
+    SendMessage(window, WM_SETICON, ICON_SMALL, (LPARAM)smallIcon);
+    SendMessage(window, WM_SETICON, ICON_BIG, (LPARAM)icon);
+    ')
+  #end
+  public static function setWindowIcon(path:String) {}
+
+  #if windows
   @:functionCode("
 		// simple but effective code
 		unsigned long long allocatedRAM = 0;
 		GetPhysicallyInstalledSystemMemory(&allocatedRAM);
 		return (allocatedRAM / 1024);
 	")
+  #end
   public static function getTotalRam():Float
   {
     return 0;
@@ -80,5 +96,58 @@ class WinAPI
   {
     return enable;
   }
+
+  #if windows
+  @:functionCode('
+        system("CLS");
+        std::cout<< "" <<std::flush;
+    ')
+  #end
+  public static function clearScreen() {}
+
+  #if windows
+  @:functionCode('
+        return MessageBox(GetActiveWindow(), text, title, icon | MB_SETFOREGROUND);
+    ')
+  #end
+  public static function showMessagePopup(title:String, text:String, icon:MessageBoxIcon):Int
+  {
+    lime.app.Application.current.window.alert(title, text);
+    return 0;
+  }
+
+  #if windows
+  @:functionCode('
+        // https://stackoverflow.com/questions/4308503/how-to-enable-visual-styles-without-a-manifest
+        // dumbass windows
+        TCHAR dir[MAX_PATH];
+        ULONG_PTR ulpActivationCookie = FALSE;
+        ACTCTX actCtx =
+        {
+            sizeof(actCtx),
+            ACTCTX_FLAG_RESOURCE_NAME_VALID
+                | ACTCTX_FLAG_SET_PROCESS_DEFAULT
+                | ACTCTX_FLAG_ASSEMBLY_DIRECTORY_VALID,
+            TEXT("shell32.dll"), 0, 0, dir, (LPCTSTR)124
+        };
+        UINT cch = GetSystemDirectory(dir, sizeof(dir) / sizeof(*dir));
+        if (cch >= sizeof(dir) / sizeof(*dir)) { return FALSE; /*shouldn\'t happen*/ }
+        dir[cch] = TEXT(\'\\0\');
+        ActivateActCtx(CreateActCtx(&actCtx), &ulpActivationCookie);
+        return ulpActivationCookie;
+    ')
+  #end
+  public static function enableVisualStyles()
+  {
+    return false;
+  }
+}
+
+@:enum abstract MessageBoxIcon(Int)
+{
+  var MSG_ERROR = 0x00000010;
+  var MSG_QUESTION = 0x00000020;
+  var MSG_WARNING = 0x00000030;
+  var MSG_INFORMATION = 0x00000040;
 }
 #end

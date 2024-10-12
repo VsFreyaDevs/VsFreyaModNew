@@ -1,7 +1,9 @@
 # ADDITIONS AND WHATEVER
+some stuff i finna add eventually/soon lol
 - [ ] CNE/Psych/LD/Stepmania/FPS+/Kade/GH/Quaver/Osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
 
 # FIX KNOWN BUGS
+yeah vslice has more bugs than the fucking floor so im accounting whatever issues pop up on the base funkin repo lol
 - [x] Characters in the Character select menu keep cloning themselves
 - [x] A-bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
