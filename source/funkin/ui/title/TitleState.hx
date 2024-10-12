@@ -215,6 +215,7 @@ class TitleState extends MusicBeatState
       gfDance.animation.addByPrefix('danceLeft', 'freya rockstar dance left instance 1', 24, false);
       gfDance.animation.addByPrefix('danceRight', 'freya rockstar dance right instance 1', 24, false);
       gfDance.scale.set(0.5, 0.5);
+      gfDance.screenCenter(Y);
     }
 
     gfDance.loadOffsetFile("data/gfDanceOffsets");

@@ -96,7 +96,10 @@ class InitState extends FlxState
     @:privateAccess
     FlxG.game.getTimer = () -> openfl.Lib.getTimer();
 
-    // FlxGraphic.defaultPersist = true;
+    FlxGraphic.defaultPersist = true;
+
+    FlxG.mouse.enabled = true;
+    FlxG.mouse.visible = true;
 
     setupFlixelDebug();
 
@@ -118,6 +121,11 @@ class InitState extends FlxState
       new FlxRect(-200, -200, FlxG.width * 1.4, FlxG.height * 1.4));
     // Don't play transition in when entering the title state.
     FlxTransitionableState.skipNextTransIn = true;
+
+    #if cpp
+    cpp.NativeGc.enable(true);
+    cpp.NativeGc.run(true);
+    #end
 
     //
     // NEWGROUNDS API SETUP
