@@ -45,7 +45,7 @@ using StringTools;
    */
   public static function crash()
   {
-    throw new Exception("no bitches error (690)");
+    throw new haxe.Exception("no bitches error (690)");
   }
 
   public static function isLibrary(lib:String)
@@ -82,24 +82,6 @@ using StringTools;
 
   inline public static function scale(x:Float, l1:Float, h1:Float, l2:Float, h2:Float):Float
     return ((x - l1) * (h2 - l2) / (h1 - l1) + l2);
-
-  public static function stringToOgType(s:String):Dynamic
-  {
-    // if is integer or float
-    if (isStringInt(s))
-    {
-      if (s.contains(".")) return Std.parseFloat(s);
-      else
-        return Std.parseInt(s);
-    }
-    // if is a bool
-    if (s == "true") return true;
-    if (s == "false") return false;
-    // if it is null
-    if (s == "null") return null;
-    // else return the original string
-    return s;
-  }
 
   public static function toBool(d):Dynamic
   {
