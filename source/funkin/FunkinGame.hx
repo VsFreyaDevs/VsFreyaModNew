@@ -5,7 +5,7 @@ import flixel.FlxGame;
 import flixel.FlxState;
 import openfl.events.Event;
 
-class FunkinGame extends FlxGame
+@:keep class FunkinGame extends FlxGame
 {
   public function new(gameWidth:Int = 0, gameHeight:Int = 0, ?initialState:Class<FlxState>, updateFramerate:Int = 60, drawFramerate:Int = 60,
       skipSplash:Bool = false, startFullscreen:Bool = false)

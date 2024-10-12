@@ -3,10 +3,14 @@ package funkin.ui.debug.charting.dialogs;
 import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog.DialogParams;
 import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog.DialogDropTarget;
 import funkin.ui.debug.charting.components.ChartEditorChannelItem;
+import funkin.ui.debug.charting.util.ChartEditorDropdowns;
+import funkin.ui.debug.charting.util.GenerateChartOperator;
+import funkin.data.charting.GenerateChartOperatorRegistry;
 import funkin.input.Cursor;
 import haxe.ui.containers.dialogs.Dialogs;
 import haxe.ui.containers.dialogs.Dialog.DialogButton;
 import haxe.ui.containers.dialogs.Dialog.DialogEvent;
+import haxe.ui.containers.VBox;
 import haxe.ui.containers.Box;
 import haxe.ui.containers.ScrollView;
 import haxe.io.Path;
@@ -22,13 +26,23 @@ class ChartEditorGenerateChartDialog extends ChartEditorBaseDialog
 {
   var dropHandler:DialogDropTarget;
   var midiEntry:ChartEditorGenerateChartMidiEntry;
+  var algorithm(default, set):GenerateChartOperator;
+
+  function set_algorithm(value:GenerateChartOperator):GenerateChartOperator
+  {
+    this.algorithm = value;
+    dialogHints.disabled = this.algorithm == null || this.midi == null;
+    dialogNotes.disabled = this.algorithm == null || this.midi == null;
+    return value;
+  }
+
   var midi(default, set):Null<MidiFile>;
 
   function set_midi(value:Null<MidiFile>):Null<MidiFile>
   {
     this.midi = value;
-    dialogHints.disabled = this.midi == null;
-    dialogNotes.disabled = this.midi == null;
+    dialogHints.disabled = this.algorithm == null || this.midi == null;
+    dialogNotes.disabled = this.algorithm == null || this.midi == null;
 
     if (this.midi != null)
     {
@@ -65,6 +79,13 @@ class ChartEditorGenerateChartDialog extends ChartEditorBaseDialog
     };
 
     channelView.addComponent(new ChartEditorChannelItem(channelView));
+
+    ChartEditorDropdowns.populateDropdownWithGenerateChartOperators(algorithmDropdown, 'defaultOperator');
+    algorithmDropdown.onChange = function(_) {
+      paramView.removeComponentAt(0);
+      buildAlgorithmParams();
+    }
+    buildAlgorithmParams();
 
     buildDropHandler();
 
@@ -182,7 +203,13 @@ class ChartEditorGenerateChartDialog extends ChartEditorBaseDialog
       }
     }
 
-    chartEditorState.generateChartFromMidi({midi: midi, channels: channels, onlyHints: onlyHints});
+    chartEditorState.generateChartFromMidi(
+      {
+        algorithm: algorithm,
+        midi: midi,
+        channels: channels,
+        onlyHints: onlyHints
+      });
   }
 
   public override function onClose(event:DialogEvent):Void
@@ -203,6 +230,18 @@ class ChartEditorGenerateChartDialog extends ChartEditorBaseDialog
   {
     super.unlock();
     this.dialogCancel.disabled = false;
+  }
+
+  function buildAlgorithmParams():Void
+  {
+    var vbox:VBox = new VBox();
+    vbox.percentWidth = 100;
+
+    algorithm?.destroy();
+    algorithm = GenerateChartOperatorRegistry.instance.createInstanceOf(algorithmDropdown.value.id);
+    algorithm?.buildUI(vbox);
+
+    paramView.addComponent(vbox);
   }
 
   public static function build(state:ChartEditorState, ?closable:Bool, ?modal:Bool):ChartEditorGenerateChartDialog

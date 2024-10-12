@@ -1812,6 +1812,10 @@ class PlayState extends MusicBeatSubState
     healthBar.scrollFactor.set();
     healthBar.createFilledBar(Constants.COLOR_HEALTH_BAR_RED, Constants.COLOR_HEALTH_BAR_GREEN);
     healthBar.zIndex = 800;
+    // One division for each pixel of the bar's width ensures maximum bar smoothness.
+    // This is better looking, and syncs with the lerped icon movement better.
+    // This can be slightly more heavy on the CPU, though, so if lower end device performance options are added, maybe make them affect this?
+    healthBar.numDivisions = Std.int(healthBarBG.width - 8);
     add(healthBar);
 
     funnySexBox = new FlxSprite(healthBarBG.x + healthBarBG.width - 545, healthBarBG.y + 41).makeGraphic(500, 20, FlxColor.BLACK);
@@ -1824,14 +1828,14 @@ class PlayState extends MusicBeatSubState
       scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
       if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
       else
-        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     }
     else
     {
       scoreText = new FlxText(healthBarBG.x + healthBarBG.width - 110, healthBarBG.y + 30, 0, '', 20);
       if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, RIGHT);
       else
-        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+        scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     }
     scoreText.scrollFactor.set();
     scoreText.zIndex = 851;

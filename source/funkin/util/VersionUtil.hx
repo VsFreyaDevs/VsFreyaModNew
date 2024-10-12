@@ -10,7 +10,7 @@ import thx.semver.VersionRule;
  * increment the minor version (1.x.0) if you make a new feature (but previous content is still compatible),
  * and increment the major version (x.0.0) if you make a breaking change (e.g. new API or reorganized file format).
  */
-class VersionUtil
+@:keep class VersionUtil
 {
   /**
    * Checks that a given verison number satisisfies a given version rule.

@@ -64,6 +64,32 @@ class ClassMacro
     return macro funkin.util.macro.CompiledClassList.getTyped($v{request}, ${targetClassExpr});
   }
 
+  /**
+   * Get a list of `Class<Dynamic>` for all classes extending a specified class.
+   *
+   * Example: `var list:Array<Class<Dynamic>> = listSubclassesOf(FlxSprite);`
+   *
+   * @param targetClass The class to query for subclasses.
+   * @return A list of classes matching the specified criteria.
+   */
+  public static macro function listSubclassesFromClassType(targetClass:ClassType):ExprOf<List<Class<Dynamic>>>
+  {
+    if (!onGenerateCallbackRegistered)
+    {
+      onGenerateCallbackRegistered = true;
+      Context.onGenerate(onGenerate);
+    }
+
+    var targetClassPath:String = null;
+    if (targetClass != null) targetClassPath = targetClass.pack.join('.') + '.' + targetClass.name;
+
+    var request:String = 'extend~${targetClassPath}';
+
+    classListsToGenerate.push(request);
+
+    return macro CompiledClassList.get(request);
+  }
+
   #if macro
   /**
    * Callback executed after the typing phase but before the generation phase.

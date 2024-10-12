@@ -1,10 +1,12 @@
 package funkin.ui.debug.charting.components;
 
 import funkin.ui.debug.charting.ChartEditorState;
+import funkin.ui.debug.charting.util.ChartEditorDropdowns;
+import funkin.ui.debug.charting.util.GenerateDifficultyOperator;
+import funkin.data.charting.GenerateDifficultyOperatorRegistry;
 import haxe.ui.containers.HBox;
+import haxe.ui.containers.VBox;
 import haxe.ui.containers.ScrollView;
-import haxe.ui.components.TextField;
-import haxe.ui.components.NumberStepper;
 
 /**
  * The component which contains the difficulty data item for the difficulty generator.
@@ -14,6 +16,8 @@ import haxe.ui.components.NumberStepper;
 @:access(funkin.ui.debug.charting.ChartEditorState)
 class ChartEditorDifficultyItem extends HBox
 {
+  public var algorithm(default, null):GenerateDifficultyOperator;
+
   var view:ScrollView;
 
   public function new(state:ChartEditorState, view:ScrollView)
@@ -44,6 +48,13 @@ class ChartEditorDifficultyItem extends HBox
       difficultyDropdown.dataSource.add({text: difficulty.toTitleCase(), value: difficulty});
     }
     difficultyDropdown.value = difficultyDropdown.dataSource.get(0);
+
+    ChartEditorDropdowns.populateDropdownWithGenerateDifficultyOperators(algorithmDropdown, 'defaultOperator');
+    algorithmDropdown.onChange = function(_) {
+      algorithmBox.removeComponentAt(0);
+      buildAlgorithmParams();
+    }
+    buildAlgorithmParams();
   }
 
   override function update(elapsed:Float):Void
@@ -58,5 +69,17 @@ class ChartEditorDifficultyItem extends HBox
     {
       difficultyFrame.text = "Difficulty";
     }
+  }
+
+  function buildAlgorithmParams():Void
+  {
+    var vbox:VBox = new VBox();
+    vbox.percentWidth = 100;
+
+    algorithm?.destroy();
+    algorithm = GenerateDifficultyOperatorRegistry.instance.createInstanceOf(algorithmDropdown.value.id);
+    algorithm?.buildUI(vbox);
+
+    algorithmBox.addComponent(vbox);
   }
 }

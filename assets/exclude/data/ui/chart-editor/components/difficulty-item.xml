@@ -12,13 +12,14 @@
           <label text="Difficulty" verticalAlign="center"/>
           <dropdown id="difficultyDropdown" value="" width="100" height="25" dropdownSize="10" dropdownWidth="100" searchable="true" verticalAlign="center"/>
           <spacer width="100%" verticalAlign="center"/>
+        </hbox>
+        <hbox width="100%">
           <label text="Algorithm" verticalAlign="center"/>
-          <dropdown id="algorithmDropdown" value="" width="200" height="25" dropdownSize="10" dropdownWidth="200" searchable="true" verticalAlign="center" disabled="true"/>
+          <dropdown id="algorithmDropdown" value="" width="200" height="25" dropdownSize="10" dropdownWidth="200" searchable="true" verticalAlign="center"/>
         </hbox>
-        <hbox id="algorithmBox" width="100%">
-          <label text="Remove Every Nth Note" verticalAlign="center"/>
-          <numberstepper id="nStepper" value ="2" step="1" min="1" max="5" verticalAlign="center"/>
-        </hbox>
+        <frame text="Algorithm Params" width="100%">
+          <vbox id="algorithmBox" width="100%"/>
+        </frame>
       </vbox>
       <button id="destroyButton" width="20" height="20" horizontalAlign="center" verticalAlign="center">
         <image resource="assets/images/chartEditor/minus-symbol.png" verticalAlign="center" horizontalAlign="center"/>

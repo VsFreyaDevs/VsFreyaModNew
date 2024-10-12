@@ -140,7 +140,6 @@ class StageEditorState extends UIState
   function set_selectedSprite(value:StageEditorObject)
   {
     selectedSprite?.selectedShader.setAmount(0);
-
     this.selectedSprite = value;
     updateDialog(StageEditorDialogType.OBJECT);
 
@@ -620,7 +619,6 @@ class StageEditorState extends UIState
 
           if (FlxG.mouse.justPressed && allowInput && spr.visible && !FlxG.keys.pressed.SHIFT && !isCursorOverHaxeUI)
           {
-            // selectedSprite.selectedShader.setAmount(0);
             selectedSprite = spr;
             updateDialog(StageEditorDialogType.OBJECT);
           }
@@ -1153,8 +1151,7 @@ class StageEditorState extends UIState
         FileUtil.writeBytesToPath(currentFile, bytes, Force); // mhm
 
         saved = true;
-
-        updateRecentFiles();
+        reloadRecentFiles();
       // bitmaps.clear();
 
       case "open stage":
@@ -1203,17 +1200,17 @@ class StageEditorState extends UIState
         CrashHandler.criticalErrorSignal.remove(autosavePerCrash);
 
         Cursor.hide();
-        FlxG.switchState(() -> new DebugMenuSubState());
+        FlxG.switchState(() -> new MainMenuState());
         FlxG.sound.music.stop();
 
       case "switch mode":
-        if (!testingMode) moveMode = (moveMode == "assets" ? "chars" : "assets");
+        if (testingMode) return;
+        moveMode = (moveMode == "assets" ? "chars" : "assets");
+
+        selectedSprite?.selectedShader.setAmount((moveMode == "assets" ? 1 : 0));
 
       case "switch focus":
-        if (testingMode)
-        {
-          curTestChar++;
-        }
+        if (testingMode) curTestChar++;
         else
         {
           if (moveMode == "chars")
@@ -1283,6 +1280,7 @@ class StageEditorState extends UIState
 
         if (!testingMode) menubarItemWindowObject.selected = menubarItemWindowCharacter.selected = menubarItemWindowStage.selected = false;
 
+        selectedSprite?.selectedShader.setAmount((testingMode ? (moveMode == "assets" ? 1 : 0) : 0));
         testingMode = !testingMode;
 
       case "clear assets":

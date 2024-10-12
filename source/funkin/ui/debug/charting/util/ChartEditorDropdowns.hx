@@ -10,6 +10,8 @@ import haxe.ui.components.DropDown;
 import funkin.play.stage.Stage;
 import funkin.play.character.BaseCharacter.CharacterType;
 import funkin.data.event.SongEventRegistry;
+import funkin.data.charting.GenerateChartOperatorRegistry;
+import funkin.data.charting.GenerateDifficultyOperatorRegistry;
 import funkin.play.character.CharacterData.CharacterDataParser;
 
 /**
@@ -244,6 +246,44 @@ class ChartEditorDropdowns
     dropDown.dataSource.sort('text', ASCENDING);
 
     return returnValue;
+  }
+
+  public static function populateDropdownWithGenerateChartOperators(dropDown:DropDown, startingOperatorId:String):DropDownEntry
+  {
+    var data:Null<DropDownEntry> = null;
+    dropDown.dataSource.clear();
+    for (op in GenerateChartOperatorRegistry.instance.fetchEntries())
+    {
+      var value:DropDownEntry = {id: op.id, text: op.name};
+      dropDown.dataSource.add(value);
+      if (op.id == startingOperatorId)
+      {
+        data = value;
+      }
+    }
+    dropDown.dataSource.sort('text', ASCENDING);
+    data = data ?? dropDown.dataSource.get(0);
+    dropDown.value = data;
+    return data;
+  }
+
+  public static function populateDropdownWithGenerateDifficultyOperators(dropDown:DropDown, startingOperatorId:String):DropDownEntry
+  {
+    var data:Null<DropDownEntry> = null;
+    dropDown.dataSource.clear();
+    for (op in GenerateDifficultyOperatorRegistry.instance.fetchEntries())
+    {
+      var value:DropDownEntry = {id: op.id, text: op.name};
+      dropDown.dataSource.add(value);
+      if (op.id == startingOperatorId)
+      {
+        data = value;
+      }
+    }
+    dropDown.dataSource.sort('text', ASCENDING);
+    data = data ?? dropDown.dataSource.get(0);
+    dropDown.value = data;
+    return data;
   }
 }
 

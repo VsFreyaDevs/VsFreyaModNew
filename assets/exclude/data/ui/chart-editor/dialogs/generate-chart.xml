@@ -7,6 +7,15 @@
 				<scrollview id="channelView" contentWidth="100%" width="100%" height="100%"/>
 			</frame>
 		</vbox>
+		<vbox width="100%" height="100%" horizontalAlign="center">
+			<hbox width="100%">
+				<label text="Algorithm" verticalAlign="center"/>
+				<dropdown id="algorithmDropdown" value="" width="200" height="25" dropdownSize="10" dropdownWidth="200" searchable="true" verticalAlign="center"/>
+			</hbox>
+			<frame text="Algorithm Params" width="100%" height="100%">
+				<scrollview id="paramView" contentWidth="100%" width="100%" height="100%"/>
+			</frame>
+		</vbox>
 		<hbox width="100%" horizontalAlign="right">
 			<button text="Cancel" id="dialogCancel" />
 			<spacer width="100%" />

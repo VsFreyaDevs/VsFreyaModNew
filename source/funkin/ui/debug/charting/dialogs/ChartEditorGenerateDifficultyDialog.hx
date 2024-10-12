@@ -2,6 +2,7 @@ package funkin.ui.debug.charting.dialogs;
 
 import funkin.ui.debug.charting.dialogs.ChartEditorBaseDialog.DialogParams;
 import funkin.ui.debug.charting.components.ChartEditorDifficultyItem;
+import funkin.data.charting.GenerateDifficultyOperatorRegistry;
 import haxe.ui.containers.dialogs.Dialog.DialogButton;
 import haxe.ui.containers.dialogs.Dialog.DialogEvent;
 
@@ -41,8 +42,8 @@ class ChartEditorGenerateDifficultyDialog extends ChartEditorBaseDialog
       {
         chartEditorState.generateChartDifficulty(
           {
+            algorithm: item.algorithm,
             difficultyId: item.difficultyDropdown.value.value,
-            algorithm: RemoveNthTooClose(item.nStepper.value),
             onlyHints: onlyHints
           });
       }

@@ -20,7 +20,7 @@ using StringTools;
 /**
  * @see https://github.com/lr1999dev/VsMarcello/blob/main/source/CoolSystemStuff.hx
  */
-class CoolSystemStuff
+@:keep class CoolSystemStuff
 {
   public static function getUsername():String
   {
