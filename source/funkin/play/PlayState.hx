@@ -1032,7 +1032,7 @@ class PlayState extends MusicBeatSubState
       // Reset music properly.
       if (FlxG.sound.music != null)
       {
-        FlxG.sound.music.time = startTimestamp - Conductor.instance.instrumentalOffset;
+        FlxG.sound.music.time = startTimestamp - Conductor.instance.combinedOffset;
         FlxG.sound.music.pitch = playbackRate;
         FlxG.sound.music.pause();
       }
@@ -1046,7 +1046,7 @@ class PlayState extends MusicBeatSubState
         if (vocals.members.length == 0) trace('WARNING: No vocals found for this song.');
       }
       vocals.pause();
-      vocals.time = 0;
+      vocals.time = 0 - Conductor.instance.combinedOffset;
 
       if (FlxG.sound.music != null) FlxG.sound.music.volume = 1;
       vocals.volume = 1;
@@ -1107,7 +1107,7 @@ class PlayState extends MusicBeatSubState
       {
         // Do NOT apply offsets at this point, because they already got applied the previous frame!
         Conductor.instance.update(Conductor.instance.songPosition + elapsed * 1000, false);
-        if (Conductor.instance.songPosition >= (startTimestamp + Conductor.instance.instrumentalOffset))
+        if (Conductor.instance.songPosition >= (startTimestamp + Conductor.instance.combinedOffset))
         {
           // trace("started song at " + Conductor.instance.songPosition);
           startSong();
@@ -1672,15 +1672,22 @@ class PlayState extends MusicBeatSubState
 
     if (FlxG.sound.music != null)
     {
-      var correctSync:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.instrumentalOffset));
+      var correctSync:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.combinedOffset));
 
-      if (!startingSong && (Math.abs(FlxG.sound.music.time - correctSync) > 5 || Math.abs(vocals.checkSyncError(correctSync)) > 5))
+      if (!startingSong && (Math.abs(FlxG.sound.music.time - correctSync) > 100 || Math.abs(vocals.checkSyncError(correctSync)) > 100))
       {
         #if debug trace("VOCALS NEED RESYNC"); #end
         #if debug if (vocals != null) trace(vocals.checkSyncError(correctSync)); #end
         #if debug trace(FlxG.sound.music.time); #end
         #if debug trace(correctSync); #end
         resyncVocals();
+      }
+      else
+      {
+        #if debug trace("NO VOCAL SYNC NEEDED"); #end
+        #if debug if (vocals != null) trace(vocals.checkSyncError(correctSync)); #end
+        #if debug trace(FlxG.sound.music.time); #end
+        #if debug trace(correctSync); #end
       }
     }
 
@@ -2319,10 +2326,7 @@ class PlayState extends MusicBeatSubState
     hitbox.visible = true;
     #end
 
-    if (!overrideMusic && !isGamePaused && currentChart != null)
-    {
-      currentChart.playInst(1.0, currentInstrumental, false);
-    }
+    if (!overrideMusic && !isGamePaused && currentChart != null) currentChart.playInst(1.0, currentInstrumental, false);
 
     if (FlxG.sound.music == null)
     {
@@ -2330,12 +2334,10 @@ class PlayState extends MusicBeatSubState
       return;
     }
 
-    FlxG.sound.music.onComplete = function() {
-      endSong(skipEndingTransition);
-    };
+    FlxG.sound.music.onComplete = () -> endSong(skipEndingTransition);
     // A negative instrumental offset means the song skips the first few milliseconds of the track.
     // This just gets added into the startTimestamp behavior so we don't need to do anything extra.
-    FlxG.sound.music.play(true, startTimestamp - Conductor.instance.instrumentalOffset);
+    FlxG.sound.music.play(true, Math.max(0, startTimestamp - Conductor.instance.combinedOffset));
     FlxG.sound.music.pitch = playbackRate;
 
     // Prevent the volume from being wrong.
@@ -2347,7 +2349,10 @@ class PlayState extends MusicBeatSubState
     vocals.play();
     vocals.volume = 1.0;
     vocals.pitch = playbackRate;
-    vocals.time = startTimestamp;
+    // vocals.time = startTimestamp;
+    vocals.time = FlxG.sound.music.time;
+    // trace('${FlxG.sound.music.time}');
+    // trace('${vocals.time}');
     resyncVocals();
 
     #if FEATURE_DISCORD_RPC
@@ -2381,7 +2386,7 @@ class PlayState extends MusicBeatSubState
     // Skip this if the music is paused (GameOver, Pause menu, start-of-song offset, etc.)
     if (!(FlxG.sound.music?.playing ?? false)) return;
 
-    var timeToPlayAt:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.instrumentalOffset));
+    var timeToPlayAt:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.combinedOffset));
     #if debug trace('Resyncing vocals to ${timeToPlayAt}'); #end
     FlxG.sound.music.pause();
     vocals.pause();

@@ -235,7 +235,14 @@ class OptionsMenu extends Page
     if (FlxG.gamepads.numActiveGamepads > 0)
     {
       createItem("CONTROLS", () -> switchPage(Controls));
-      createItem("INPUT OFFSETS", () -> FlxG.state.openSubState(new LatencyState()));
+      createItem("INPUT OFFSETS", () ->
+        {
+          #if web
+          LoadingState.transitionToState(() -> new LatencyState());
+          #else
+          FlxG.state.openSubState(new LatencyState());
+          #end
+        });
     }
     #else
     createItem("CONTROLS", () -> switchPage(Controls));

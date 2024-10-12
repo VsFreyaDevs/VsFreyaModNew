@@ -12,7 +12,7 @@ vec4 dots(vec4 color) {
   int x = int(mod(xPix, 6.0));
   int y = int(mod(yPix, 4.0));
 
-  if (color.a > 0.0 && ((x == 0.0 && y == 0.0) || (x == 3.0 && y == 2.0)))
+  if (color.a > 0.0 && ((x == 0 && y == 0) || (x == 3 && y == 2)))
   {
     color.rgb = 1.0 - color.rgb;
   }
