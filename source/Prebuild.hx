@@ -14,7 +14,7 @@ class Prebuild extends CommandLine
   static function main():Void
   {
     saveBuildTime();
-    CommandLine.prettyPrint('Building Funkin\'++ (on ${Sys.systemName})'); // Check if your Haxe version is outdated.
+    CommandLine.prettyPrint('Building Vs. Freya (on ${Sys.systemName})'); // Check if your Haxe version is outdated.
 
     #if !macro
     haxe.Log.trace('You are not in macro mode, ok.', null);
