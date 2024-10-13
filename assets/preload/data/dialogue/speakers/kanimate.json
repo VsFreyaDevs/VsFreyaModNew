@@ -4,8 +4,8 @@
   "assetPath": "dialogue/kanimPortrait",
   "flipX": false,
   "isPixel": false,
-  "scale": 1,
-  "offsets": [0, 0],
+  "scale": 0.85,
+  "offsets": [35, 108],
   "animations": [
     {
       "name": "talk",

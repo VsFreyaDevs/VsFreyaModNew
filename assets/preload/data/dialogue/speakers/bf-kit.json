@@ -4,8 +4,8 @@
   "assetPath": "dialogue/bfKitPortrait",
   "flipX": false,
   "isPixel": false,
-  "scale": 1,
-  "offsets": [0, 0],
+  "scale": 0.845,
+  "offsets": [365, 125],
   "animations": [
     {
       "name": "talk",
