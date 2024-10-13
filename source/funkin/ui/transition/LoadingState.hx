@@ -57,7 +57,7 @@ class LoadingState extends MusicBeatSubState
     funkay.scrollFactor.set();
     funkay.screenCenter();
 
-    loadBar = new FunkinSprite(0, FlxG.height - 20).makeSolidColor(0, 10, 0xFFff16d2);
+    loadBar = new FunkinSprite(0, FlxG.height - 20).makeSolidColor(0, 10, 0xffff2516);
     add(loadBar);
 
     initSongsManifest().onComplete(function(lib) {
@@ -81,9 +81,7 @@ class LoadingState extends MusicBeatSubState
 
         checkLoadSong(instPath);
         for (voicePath in voicesPaths)
-        {
           checkLoadSong(voicePath);
-        }
       }
 
       checkLibrary('shared');
