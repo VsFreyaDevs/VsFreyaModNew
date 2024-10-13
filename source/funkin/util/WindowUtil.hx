@@ -195,6 +195,15 @@ using StringTools;
     #end
   }
 
+  @:keep public static function allocConsole()
+  {
+    #if windows
+    funkin.api.windows.WinAPI.allocConsole();
+    #else
+    trace("wait wtf this aint windows... eh whatever");
+    #end
+  }
+
   @:keep public static function clearScreen()
   {
     #if windows

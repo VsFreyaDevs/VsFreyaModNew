@@ -107,6 +107,18 @@ class WinAPI
 
   #if windows
   @:functionCode('
+	// https://stackoverflow.com/questions/15543571/allocconsole-not-displaying-cout
+	if (!AllocConsole())
+		return;
+	freopen("CONIN$", "r", stdin);
+	freopen("CONOUT$", "w", stdout);
+	freopen("CONOUT$", "w", stderr);
+	')
+  #end
+  public static function allocConsole() {}
+
+  #if windows
+  @:functionCode('
         return MessageBox(GetActiveWindow(), text, title, icon | MB_SETFOREGROUND);
     ')
   #end
