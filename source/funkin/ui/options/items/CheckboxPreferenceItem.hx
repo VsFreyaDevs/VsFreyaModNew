@@ -14,7 +14,7 @@ class CheckboxPreferenceItem extends FlxSprite
     animation.addByPrefix('static', 'Check Box unselected', 24, false);
     animation.addByPrefix('checked', 'Check Box selecting animation', 24, false);
 
-    setGraphicSize(Std.int(width * 0.7));
+    setGraphicSize(width * 0.7);
     updateHitbox();
 
     this.currentValue = defaultValue;
@@ -35,14 +35,9 @@ class CheckboxPreferenceItem extends FlxSprite
 
   function set_currentValue(value:Bool):Bool
   {
-    if (value)
-    {
-      animation.play('checked', true);
-    }
+    if (value) animation.play('checked', true);
     else
-    {
       animation.play('static');
-    }
 
     return currentValue = value;
   }

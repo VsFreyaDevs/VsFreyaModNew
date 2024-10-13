@@ -42,7 +42,7 @@ class Constants
    * A suffix to add to the game version.
    * Add a suffix to prototype builds and remove it for releases.
    */
-  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #else ' FREYA' #end;
+  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #else ' ' #end;
 
   #if FEATURE_DEBUG_FUNCTIONS
   static function get_VERSION():String
@@ -172,9 +172,9 @@ class Constants
    * LANGUAGE
    */
   // ==============================
-  public static final SITE_LOCK_TITLE:String = "You Loser!";
+  public static final SITE_LOCK_TITLE:String = "WRONG SITE";
 
-  public static final SITE_LOCK_DESC:String = "This isn't Newgrounds!\nGo play Friday Night Funkin' on Newgrounds:";
+  public static final SITE_LOCK_DESC:String = "dont we have a gamejolt page bitch";
 
   /**
    * GAME DEFAULTS

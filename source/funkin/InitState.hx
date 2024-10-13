@@ -88,6 +88,7 @@ class InitState extends FlxState
     FlxG.sound.volumeDownKeys = [];
     FlxG.sound.muteKeys = [];
 
+    // Reduce physics accuracy (who cares!!!) to improve animation quality.
     FlxG.fixedTimestep = false;
 
     // Set the game to a lower frame rate while it is in the background.

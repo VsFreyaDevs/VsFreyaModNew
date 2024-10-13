@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="menu_discord.png">
+	<SubTexture name="discord idle0000" x="1" y="1" width="499" height="123"/>
+	<SubTexture name="discord idle0001" x="1" y="1" width="499" height="123"/>
+	<SubTexture name="discord idle0003" x="501" y="1" width="499" height="123"/>
+	<SubTexture name="discord idle0004" x="501" y="1" width="499" height="123"/>
+	<SubTexture name="discord idle0005" x="501" y="1" width="499" height="123"/>
+	<SubTexture name="discord idle0006" x="1" y="125" width="499" height="123"/>
+	<SubTexture name="discord idle0007" x="1" y="125" width="499" height="123"/>
+	<SubTexture name="discord idle0008" x="1" y="125" width="499" height="123"/>
+	<SubTexture name="discord selected0000" x="1" y="249" width="600" height="156" frameX="0" frameY="0" frameWidth="601" frameHeight="156"/>
+	<SubTexture name="discord selected0001" x="1" y="406" width="601" height="155" frameX="0" frameY="0" frameWidth="601" frameHeight="156"/>
+	<SubTexture name="discord selected0002" x="1" y="562" width="600" height="153" frameX="0" frameY="-1" frameWidth="601" frameHeight="156"/>
+</TextureAtlas>

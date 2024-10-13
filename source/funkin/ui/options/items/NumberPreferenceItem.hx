@@ -117,14 +117,9 @@ class NumberPreferenceItem extends TextMenuItem
   function formatted(value:Float):String
   {
     var float:Float = toFixed(value);
-    if (valueFormatter != null)
-    {
-      return valueFormatter(float);
-    }
+    if (valueFormatter != null) return valueFormatter(float);
     else
-    {
       return '${float}';
-    }
   }
 
   function toFixed(value:Float):Float

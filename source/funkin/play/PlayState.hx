@@ -817,7 +817,7 @@ class PlayState extends MusicBeatSubState
     #end
 
     // Reduce physics accuracy (who cares!!!) to improve animation quality.
-    FlxG.fixedTimestep = false;
+    // FlxG.fixedTimestep = false;
 
     // This state receives update() even when a substate is active.
     this.persistentUpdate = true;
@@ -938,7 +938,7 @@ class PlayState extends MusicBeatSubState
     rightWatermarkText.cameras = [camHUD];
 
     // Display the version number (and git commit hash) in the bottom right corner.
-    this.rightWatermarkText.text = Constants.VERSION;
+    this.rightWatermarkText.text = 'Kitsune Engine v1.0 | FNF ${Constants.VERSION}';
 
     // Initialize some debug stuff.
 

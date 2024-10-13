@@ -132,7 +132,8 @@ class MainMenuState extends MusicBeatState
     // we need to open the link as an immediate result of a keypress event,
     // so we can't wait for the flicker animation to complete.
     var hasPopupBlocker = #if web true #else false #end;
-    createMenuItem('merch', 'mainmenu/merch', selectMerch, hasPopupBlocker);
+    // createMenuItem('merch', 'mainmenu/merch', selectMerch, hasPopupBlocker);
+    createMenuItem('discord', 'mainmenu/discord', selectDiscord, hasPopupBlocker);
     #end
 
     createMenuItem('credits', 'mainmenu/credits', () -> startExitState(() -> new funkin.ui.credits.MainCreditsState()));
@@ -178,7 +179,7 @@ class MainMenuState extends MusicBeatState
     super.create();
 
     // This has to come AFTER!
-    this.leftWatermarkText.text = Constants.VERSION;
+    this.rightWatermarkText.text = 'Kitsune Engine v1.0 | FNF ${Constants.VERSION}';
     this.rightWatermarkText.text = "FreyaFennec_Funkers v1.0 ALPHA";
 
     // NG.core.calls.event.logEvent('swag').send();
