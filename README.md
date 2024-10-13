@@ -2,6 +2,14 @@
 
 ![](https://media.discordapp.net/attachments/1263192822282981422/1263595615678627860/Untitled705_20240718163734.png?ex=6706e99f&is=6705981f&hm=72c026ab5d6d26cfd4394a90829f44f1368c89122e9e9449f6b4ca92e3eb3373&=&quality=lossless)
 
+A kitsune version of BF was walking in the kit world when he stumbles upon [FreyaFennec_foxes](https://www.youtube.com/@Freyafennec_foxes1.0) and her crew. Turns out this version of BF is actually a Freya hater and simps for [Mika_kit](https://www.youtube.com/@Mika_Kit162). He rap battles them under one condition: if he wins, he kills her.
+
+## Kitsune Engine
+Kitsune Engine is a fork of [Friday Night Funkin'](https://github.com/FunkinCrew/Funkin) made to fix some problems the base game had while keeping the casual aspect of said game.
+
+Kitsune Engine is an engine that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
+
+By the way, Kitsune Engine also supports mobile devices, too!
 
 # Friday Night Funkin'
 
@@ -12,23 +20,11 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 * [Playable web demo on Newgrounds!](https://www.newgrounds.com/portal/view/770371)
 * [Demo download builds for Windows, Mac, and Linux from Itch.io!](https://ninja-muffin24.itch.io/funkin)
 
-## Holy shit, FNF on mobile?
-
-With this fan port we try and make it so FNF runs on mobile as if it was made FOR mobile gameplay. Coming toe-to-toe with what would be an official Friday Night Funkin’ mobile build! Little to no new features will be added unless it really really REALLY enhances the mobile experience.
-
-Currently speaking, this mobile port can: Load videos, mods, visualize sounds, basically everything else the base game does!
-
 # Getting Started
 
 **PLEASE USE THE LINKS ABOVE IF YOU JUST WANT TO PLAY THE GAME**
 
-To learn how to install the necessary dependencies and compile the game from source, please check out our [building the game](/docs/COMPILING.md) guide. (THIS ALSO INCLUDES BUILDING INTO MOBILE)
-
-## About Mobile Controls
-
-It’s pretty complicated to explain, but mobile porting is pretty easy once you get used to it! Hit me up on discord and I’ll explain everything to ya! Be sure to remind me to not overwhelm you with big words, I’m a big dummy lol.
-
-`moondroid.` (WITH THE DOT)
+To learn how to install the necessary dependencies and compile the game from source, please check out our [building the game](/docs/COMPILING.md) guide.
 
 # Contributing
 
