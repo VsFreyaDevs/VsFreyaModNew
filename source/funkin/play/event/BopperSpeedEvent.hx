@@ -48,7 +48,7 @@ class BopperSpeedEvent extends SongEvent
       if ((Std.isOfType(bopperProp, Bopper)) || (Std.isOfType(bopperProp, BaseCharacter)))
       {
         var bopper = cast(bopperProp, Bopper);
-        trace('Setting $bopperName speed to $speed.');
+        // trace('Setting $bopperName speed to $speed.');
         bopper.danceEvery = speed;
       }
     }

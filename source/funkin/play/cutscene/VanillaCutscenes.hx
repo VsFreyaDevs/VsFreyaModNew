@@ -43,13 +43,13 @@ class VanillaCutscenes
       // Play the Sound effect.
       FunkinSound.playOnce(Paths.sound('Lights_Turn_On'), function() {
         // Fade in the HUD.
-        trace('SFX done...');
+        // trace('SFX done...');
         PlayState.instance.camHUD.visible = true;
         PlayState.instance.camHUD.alpha = 0.0; // Use alpha rather than visible to let us fade it in.
         FlxTween.tween(PlayState.instance.camHUD, {alpha: 1.0}, TWEEN_DURATION, {ease: FlxEase.quadInOut});
 
         // Start the countdown.
-        trace('Zoom out done...');
+        // trace('Zoom out done...');
         trace('Begin countdown (ends cutscene)');
         PlayState.instance.startCountdown();
       });

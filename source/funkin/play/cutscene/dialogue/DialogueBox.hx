@@ -128,7 +128,7 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
     this.boxSprite = new FunkinSprite(0, 0);
 
-    trace('[DIALOGUE BOX] Loading spritesheet ${_data.assetPath} for ${id}');
+    // trace('[DIALOGUE BOX] Loading spritesheet ${_data.assetPath} for ${id}');
 
     var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPath);
     if (tex == null)
@@ -223,24 +223,19 @@ class DialogueBox extends FlxSpriteGroup implements IDialogueScriptedClass imple
 
   function loadAnimations():Void
   {
-    trace('[DIALOGUE BOX] Loading ${_data.animations.length} animations for ${id}');
+    // trace('[DIALOGUE BOX] Loading ${_data.animations.length} animations for ${id}');
 
     FlxAnimationUtil.addAtlasAnimations(this.boxSprite, _data.animations);
 
     for (anim in _data.animations)
     {
-      if (anim.offsets == null)
-      {
-        setAnimationOffsets(anim.name, 0, 0);
-      }
+      if (anim.offsets == null) setAnimationOffsets(anim.name, 0, 0);
       else
-      {
         setAnimationOffsets(anim.name, anim.offsets[0], anim.offsets[1]);
-      }
     }
 
     var animNames:Array<String> = this.boxSprite?.animation?.getNameList() ?? [];
-    trace('[DIALOGUE BOX] Successfully loaded ${animNames.length} animations for ${id}');
+    // trace('[DIALOGUE BOX] Successfully loaded ${animNames.length} animations for ${id}');
 
     boxSprite.animation.callback = this.onAnimationFrame;
     boxSprite.animation.finishCallback = this.onAnimationFinished;

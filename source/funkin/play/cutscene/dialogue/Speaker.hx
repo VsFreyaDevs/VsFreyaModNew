@@ -128,7 +128,7 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   function loadSpritesheet():Void
   {
-    trace('[SPEAKER] Loading spritesheet ${_data.assetPath} for ${id}');
+    // trace('[SPEAKER] Loading spritesheet ${_data.assetPath} for ${id}');
 
     var tex:FlxFramesCollection = Paths.getSparrowAtlas(_data.assetPath);
     if (tex == null)
@@ -163,24 +163,19 @@ class Speaker extends FlxSprite implements IDialogueScriptedClass implements IRe
 
   function loadAnimations():Void
   {
-    trace('[SPEAKER] Loading ${_data.animations.length} animations for ${id}');
+    // trace('[SPEAKER] Loading ${_data.animations.length} animations for ${id}');
 
     FlxAnimationUtil.addAtlasAnimations(this, _data.animations);
 
     for (anim in _data.animations)
     {
-      if (anim.offsets == null)
-      {
-        setAnimationOffsets(anim.name, 0, 0);
-      }
+      if (anim.offsets == null) setAnimationOffsets(anim.name, 0, 0);
       else
-      {
         setAnimationOffsets(anim.name, anim.offsets[0], anim.offsets[1]);
-      }
     }
 
     var animNames:Array<String> = this.animation.getNameList();
-    trace('[SPEAKER] Successfully loaded ${animNames.length} animations for ${id}');
+    // trace('[SPEAKER] Successfully loaded ${animNames.length} animations for ${id}');
   }
 
   /**
