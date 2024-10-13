@@ -12,6 +12,8 @@ class Postbuild extends CommandLine
 
   static function main():Void
   {
+    CommandLine.prettyPrint('Finished building Vs. Freya!');
+
     printBuildTime();
   }
 
