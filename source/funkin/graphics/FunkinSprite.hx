@@ -182,10 +182,7 @@ class FunkinSprite extends FlxSprite
 
     // Else, texture is currently uncached.
     var graphic:FlxGraphic = FlxGraphic.fromAssetKey(key, false, null, true);
-    if (graphic == null)
-    {
-      FlxG.log.warn('Failed to cache graphic: $key');
-    }
+    if (graphic == null) FlxG.log.warn('Failed to cache graphic: $key');
     else
     {
       trace('Successfully cached graphic: $key');
