@@ -20,49 +20,49 @@
   "assetPath": "characters/KillerAnimateSprite",
   "animations": [
     {
+      "offsets": [123, -202],
       "flipY": false,
-      "offsets": [225, 327],
       "frameRate": 24,
       "prefix": "ka idle",
-      "flipX": false,
+      "name": "idle",
       "looped": false,
-      "name": "idle"
+      "flipX": false
     },
     {
+      "offsets": [319, -259],
       "flipY": false,
-      "offsets": [427, 268],
       "frameRate": 24,
       "prefix": "ka sing left",
-      "flipX": false,
+      "name": "singLEFT",
       "looped": false,
-      "name": "singLEFT"
+      "flipX": false
     },
     {
+      "offsets": [180, -264],
       "flipY": false,
-      "offsets": [321, 268],
       "frameRate": 24,
       "prefix": "ka sing down",
-      "flipX": false,
+      "name": "singDOWN",
       "looped": false,
-      "name": "singDOWN"
+      "flipX": false
     },
     {
+      "offsets": [97, -150],
       "flipY": false,
-      "offsets": [193, 381],
       "frameRate": 24,
       "prefix": "ka sing up",
-      "flipX": false,
+      "name": "singUP",
       "looped": false,
-      "name": "singUP"
+      "flipX": false
     },
     {
+      "offsets": [100, -134],
       "flipY": false,
-      "offsets": [220, 390],
       "frameRate": 24,
       "prefix": "ka sing right",
-      "flipX": false,
+      "name": "singRIGHT",
       "looped": false,
-      "name": "singRIGHT"
+      "flipX": false
     }
   ]
 }
