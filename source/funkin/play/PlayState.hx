@@ -911,7 +911,7 @@ class PlayState extends MusicBeatSubState
         startCountdown();
     }
 
-    randImage = FlxG.random.int(1, 20);
+    randImage = FlxG.random.int(1, 21);
 
     // Create the pause button.
     #if mobile
