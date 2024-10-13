@@ -11,6 +11,8 @@ Kitsune Engine is an engine that's basically like those old engines from 2021-20
 
 By the way, Kitsune Engine also supports mobile devices, too!
 
+* [Download builds for Windows, Mac, Linux, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
+
 # Friday Night Funkin'
 
 Friday Night Funkin' is a rhythm game. Built using HaxeFlixel for Ludum Dare 47.

@@ -20,6 +20,7 @@ and this project (mostly) adheres to [Semantic Versioning](https://semver.org/sp
 - Added a new event field type, Color!
 ![EXAMPLE](https://private-user-images.githubusercontent.com/69017727/342115283-fcf0e5f5-5163-46b1-baec-27ff0106b114.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1MzQ0NDAsIm5iZiI6MTcyODUzNDE0MCwicGF0aCI6Ii82OTAxNzcyNy8zNDIxMTUyODMtZmNmMGU1ZjUtNTE2My00NmIxLWJhZWMtMjdmZjAxMDZiMTE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDEwVDA0MjIyMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNjZTdkMzU2NjkxMTA3YWZkM2RlNjY2ZWUyNjlmMDNhYzNkNDcyZDE3ODg5MmI3YmVlYjQ4M2UwMzcyMTZmYjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.jUjvvcEsf_-kI3cBOUqqiHe64b0n9f9fTvGfWXPNmIM)
 ### Changed
+- Merch button has been replaced with a Discord button, because yes.
 - Improved the input offset menu a bit to make it easier to use.
   - Pressing TAB applies the average offset (as well as resetting it)
   - Pressing R resets the average offset.
