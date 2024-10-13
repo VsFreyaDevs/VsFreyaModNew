@@ -20,7 +20,6 @@ import funkin.ui.options.items.NumberPreferenceItem;
 import funkin.ui.options.items.EnumPreferenceItem;
 import funkin.graphics.FunkinSprite;
 import funkin.mobile.ui.FunkinBackspace;
-import funkin.save.Save;
 #if mobile
 import funkin.mobile.util.TouchUtil;
 import funkin.mobile.util.SwipeUtil;
@@ -269,8 +268,6 @@ class PreferencesMenu extends Page
       Preferences.autoPause = value;
       yeahBf(value);
     }, Preferences.autoPause);
-    // TODO: Make this work
-    // createPrefItemButton('Sync Data with Base Game', 'Tap to transfer save data from Base Game to Freya/KSE');
     #if mobile
     createPrefItemCheckbox('Allow Screen Timeout', "Enable to let the device sleep on its own while\nin the game", function(value:Bool):Void {
       Preferences.screenTimeout = value;
@@ -370,18 +367,6 @@ class PreferencesMenu extends Page
 
     preferenceItems.add(checkbox);
     preferenceDesc.push(prefDesc);
-  }
-
-  /**
-   * Creates a button that calls a function
-   * @param onChange Gets called every time the player selects the item;
-   */
-  function createPrefItemButton(prefName:String, prefDesc:String):Void
-  {
-    items.createItem(0, (120 * items.length) + 30, prefName, AtlasFont.BOLD, function() {
-      Save.mergeBaseSaveData(funkin.save.Save._saveSlot);
-      FlxG.resetState();
-    });
   }
 
   /**
