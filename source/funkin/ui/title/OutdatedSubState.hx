@@ -7,7 +7,6 @@ import flixel.util.FlxColor;
 import funkin.ui.MusicBeatState;
 import lime.app.Application;
 
-#if newgrounds
 class OutdatedSubState extends MusicBeatState
 {
   public static var leftState:Bool = false;
@@ -15,28 +14,21 @@ class OutdatedSubState extends MusicBeatState
   override function create()
   {
     super.create();
+
     var bg:FunkinSprite = new FunkinSprite().makeSolidColor(FlxG.width, FlxG.height, FlxColor.BLACK);
     add(bg);
-    var ver = "v" + Application.current.meta.get('version');
+
     var txt:FlxText = new FlxText(0, 0, FlxG.width,
-      "HEY! You're running an outdated version of the game!\nCurrent version is "
-      + ver
-      + " while the most recent version is "
-      + NGio.GAME_VER
-      + "! Press Space to go to itch.io, or ESCAPE to ignore this!!",
+      "HEY! This mod is currently work in progress! \nSome things may be unfinished for now, \nand yeah, beware of some bugs & glitches that will be \nfixed in the future.\nPress SPACE or ESCAPE to continue.",
       32);
-    txt.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, CENTER);
+    txt.setFormat("Arial", 32, FlxColor.WHITE, CENTER);
     txt.screenCenter();
     add(txt);
   }
 
   override function update(elapsed:Float)
   {
-    if (controls.ACCEPT)
-    {
-      FlxG.openURL("https://ninja-muffin24.itch.io/funkin");
-    }
-    if (controls.BACK)
+    if (controls.ACCEPT || controls.BACK)
     {
       leftState = true;
       FlxG.switchState(() -> new MainMenuState());
@@ -44,4 +36,3 @@ class OutdatedSubState extends MusicBeatState
     super.update(elapsed);
   }
 }
-#end
