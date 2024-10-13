@@ -23,11 +23,14 @@ class Save
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = "2.0.x";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
-  static final SAVE_PATH:String = 'charlesisfeline';
-  static final SAVE_NAME:String = 'FreyaFennecMod';
+  static final SAVE_PATH:String = 'VsFreyaDevs';
+  static final SAVE_NAME:String = 'VsFreya';
 
   static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
   static final SAVE_NAME_LEGACY:String = 'funkin';
+
+  static final SAVE_PATH_BASE:String = 'FunkinCrew';
+  static final SAVE_NAME_BASE:String = 'Funkin';
 
   public static var instance(get, never):Save;
   static var _instance:Null<Save> = null;
@@ -980,20 +983,30 @@ class Save
 
     if (FlxG.save.isEmpty())
     {
-      trace('[SAVE] Save data is empty, checking for legacy save data...');
-      var legacySaveData = fetchLegacySaveData();
-      if (legacySaveData != null)
+      trace('[SAVE] Save data is empty, checking for base save data...');
+      var baseSaveData = fetchBaseSaveData(slot);
+      if (baseSaveData != null)
       {
-        trace('[SAVE] Found legacy save data, converting...');
-        var gameSave = SaveDataMigrator.migrateFromLegacy(legacySaveData);
-        return gameSave;
+        trace('[SAVE] Found base save data, transferring...');
+        var gameSave = SaveDataMigrator.migrate(baseSaveData);
+        FlxG.save.mergeData(gameSave.data, true); // Is this needed?
       }
       else
       {
-        trace('[SAVE] No legacy save data found.');
-        var gameSave = new Save();
-        FlxG.save.mergeData(gameSave.data, true);
-        return gameSave;
+        trace('[SAVE] Base save data is empty, checking for legacy save data...');
+        var legacySaveData = fetchLegacySaveData();
+        if (legacySaveData != null)
+        {
+          trace('[SAVE] Found legacy save data, converting...');
+          var gameSave = SaveDataMigrator.migrateFromLegacy(legacySaveData);
+          FlxG.save.mergeData(gameSave.data, true);
+        }
+        else
+        {
+          trace('[SAVE] No legacy save data found.');
+          var gameSave = new Save();
+          FlxG.save.mergeData(gameSave.data, true);
+        }
       }
     }
     else
@@ -1078,9 +1091,7 @@ class Save
   static function querySlotRange(start:Int, end:Int):Int
   {
     for (i in start...end)
-    {
       if (querySlot(i)) return i;
-    }
     return -1;
   }
 
@@ -1100,6 +1111,37 @@ class Save
       trace(legacySave.data);
       return cast legacySave.data;
     }
+  }
+
+  static function fetchBaseSaveData(slot:Int):Null<RawSaveData>
+  {
+    trace("[SAVE] Checking for base save data...");
+    var baseSave:FlxSave = new FlxSave();
+    baseSave.bind('$SAVE_NAME_BASE${slot}', SAVE_PATH_BASE);
+    if (baseSave.isEmpty())
+    {
+      trace("[SAVE] No base save data found.");
+      return null;
+    }
+    else
+    {
+      trace("[SAVE] Base save data found.");
+      trace(baseSave.data);
+      return cast baseSave.data;
+    }
+  }
+
+  static public function mergeBaseSaveData(slot:Int):Void
+  {
+    var baseSaveData = fetchBaseSaveData(slot);
+    if (baseSaveData != null)
+    {
+      trace('[SAVE] Found base save data, transferring...');
+      var gameSave = SaveDataMigrator.migrate(baseSaveData);
+      FlxG.save.mergeData(gameSave.data, true); // Is this needed?
+    }
+    else
+      trace('[SAVE] No base save data to transfer.');
   }
 
   /**

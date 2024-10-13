@@ -1160,14 +1160,9 @@ class Controls extends FlxActionSet
       var inputs = getInputsFor(control, device);
       isEmpty = isEmpty && inputs.length == 0;
 
-      if (inputs.length == 0)
-      {
-        inputs = [FlxKey.NONE];
-      }
+      if (inputs.length == 0) inputs = [FlxKey.NONE];
       else
-      {
         inputs = inputs.distinct();
-      }
 
       Reflect.setField(data, control.getName(), inputs);
     }

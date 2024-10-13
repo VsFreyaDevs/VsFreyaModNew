@@ -17,9 +17,11 @@ and this project (mostly) adheres to [Semantic Versioning](https://semver.org/sp
 - Added a script event that gets called when a BPM change triggers.
 - Added a script event dedicated to adding custom logic before the music and animation starts. Softcoded the Tankman/Jeff voicelines (also for conveniency) so modders can do their own!
 - Added the ability to flip the character in the Animation Editor (by pressing G). Helps a lot when setting offsets for playable characters!
+- [An independent Save File](#info-about-new-save-data)
 - Added a new event field type, Color!
 ![EXAMPLE](https://private-user-images.githubusercontent.com/69017727/342115283-fcf0e5f5-5163-46b1-baec-27ff0106b114.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1MzQ0NDAsIm5iZiI6MTcyODUzNDE0MCwicGF0aCI6Ii82OTAxNzcyNy8zNDIxMTUyODMtZmNmMGU1ZjUtNTE2My00NmIxLWJhZWMtMjdmZjAxMDZiMTE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDEwVDA0MjIyMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNjZTdkMzU2NjkxMTA3YWZkM2RlNjY2ZWUyNjlmMDNhYzNkNDcyZDE3ODg5MmI3YmVlYjQ4M2UwMzcyMTZmYjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.jUjvvcEsf_-kI3cBOUqqiHe64b0n9f9fTvGfWXPNmIM)
 ### Changed
+- Merch button has been replaced with a Discord button, because yes.
 - Improved the input offset menu a bit to make it easier to use.
   - Pressing TAB applies the average offset (as well as resetting it)
   - Pressing R resets the average offset.
@@ -34,6 +36,11 @@ and this project (mostly) adheres to [Semantic Versioning](https://semver.org/sp
 - Fixed an issue where Pico wouldn't burp at the beginning of Guns (Pico Mix) (Easy & Normal).
 ### Removed
 - Removed the unnecessary muting on player vocals when missing. (Helps for songs that do not have split vocals!)
+
+### Info about New Save Data
+All Save Data is being migrated to its own folder, `VsFreyaDevs`.
+To make this work, instead of transferring from Legacy Funkin', the game first checks if you have a Save from the base game, and transfers all data to the new file. If you somehow don't have any Save Data, it then returns to checking Legacy Funkin'.
+There is also a new shiny button in Options that lets you transfer any new data from base game. In theory.
 
 # FOR FNF BASE GAME
 ## [0.5.2] - 2024-10-11
