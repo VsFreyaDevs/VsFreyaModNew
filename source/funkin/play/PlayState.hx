@@ -850,7 +850,7 @@ class PlayState extends MusicBeatSubState
     switch (uhSongId)
     {
       case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones" |
-        "samsung" | "topp" | "doublyon" | "soft-n-yummy" | "twiddlefinger" | "nuggit":
+        "samsung" | "topp" | "doublyon" | "soft-n-yummy" | "flash" | "twiddlefinger" | "nuggit":
         isFreyaSong = true;
     }
 
