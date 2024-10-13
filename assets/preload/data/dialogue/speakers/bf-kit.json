@@ -5,7 +5,7 @@
   "flipX": false,
   "isPixel": false,
   "scale": 0.845,
-  "offsets": [365, 125],
+  "offsets": [650, 125],
   "animations": [
     {
       "name": "talk",
