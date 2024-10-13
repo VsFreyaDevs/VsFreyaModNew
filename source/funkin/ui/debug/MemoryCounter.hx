@@ -152,6 +152,7 @@ class MemoryCounter extends TextField
       if (showMiscText)
       {
         text += '\nSTATE: $currentState';
+        if (FlxG.state.subState != null) text += ' • SUBSTATE: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
         text += '\nOBJ: ${FlxG.state.members.length} • CAM: ${FlxG.cameras.list.length}';
       }
 
