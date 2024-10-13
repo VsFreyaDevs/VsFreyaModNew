@@ -849,7 +849,8 @@ class PlayState extends MusicBeatSubState
     var uhSongId:String = (currentSong?.id ?? '').toLowerCase();
     switch (uhSongId)
     {
-      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones":
+      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones" |
+        "samsung" | "topp" | "doublyon" | "soft-n-yummy" | "twiddlefinger" | "nuggit":
         isFreyaSong = true;
     }
 
