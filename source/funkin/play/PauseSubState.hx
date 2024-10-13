@@ -696,8 +696,9 @@ class PauseSubState extends MusicBeatSubState
   {
     if (PlayState.instance == null) return;
 
+    PlayState.instance.needsReset = true;
     PlayState.instance.isBotPlayMode = true;
-    state.regenerateMenu();
+    state.close();
   }
 
   /**
