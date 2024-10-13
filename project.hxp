@@ -773,9 +773,14 @@ class Project extends HXProject {
    * Configure the application's favicon and executable icon.
    */
   function configureIcons() {
+		addIcon("art/icon8.png", 8);
 		addIcon("art/icon16.png", 16);
+		addIcon("art/icon24.png", 24);
 		addIcon("art/icon32.png", 32);
+		addIcon("art/icon48.png", 48);
 		addIcon("art/icon64.png", 64);
+		addIcon("art/icon128.png", 128);
+		addIcon("art/icon256.png", 256);
 		addIcon("art/iconOG.png");
   }
 
