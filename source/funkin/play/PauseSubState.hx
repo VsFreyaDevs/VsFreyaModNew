@@ -53,6 +53,7 @@ class PauseSubState extends MusicBeatSubState
     {text: 'Restart Song', callback: restartPlayState},
     {text: 'Change Difficulty', callback: switchMode.bind(_, Difficulty)},
     {text: 'Enable Practice Mode', callback: enablePracticeMode, filter: () -> !(PlayState.instance?.isPracticeMode ?? false)},
+    {text: 'Enable Botplay Mode', callback: enableBotPlayMode, filter: () -> !(PlayState.instance?.isBotPlayMode ?? false)},
     {text: 'Options', callback: optionsMenu},
     {text: 'Exit to Menu', callback: quitToMenu},
   ];
@@ -601,6 +602,7 @@ class PauseSubState extends MusicBeatSubState
   function updateMetadataText():Void
   {
     metadataPractice.visible = PlayState.instance?.isPracticeMode ?? false;
+    metadataBot.visible = PlayState.instance?.isBotPlayMode ?? false;
 
     switch (this.currentMode)
     {
@@ -683,6 +685,18 @@ class PauseSubState extends MusicBeatSubState
     if (PlayState.instance == null) return;
 
     PlayState.instance.isPracticeMode = true;
+    state.regenerateMenu();
+  }
+
+  /**
+   * Force the game into botplay mode, then update the pause menu.
+   * @param state The current PauseSubState.
+   */
+  static function enableBotPlayMode(state:PauseSubState):Void
+  {
+    if (PlayState.instance == null) return;
+
+    PlayState.instance.isBotPlayMode = true;
     state.regenerateMenu();
   }
 
