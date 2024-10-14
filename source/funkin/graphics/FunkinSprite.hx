@@ -12,6 +12,8 @@ import flixel.math.FlxPoint;
 import flixel.graphics.frames.FlxFrame;
 import flixel.FlxCamera;
 import openfl.system.System;
+import openfl.Assets;
+import funkin.util.MemoryUtil;
 
 /**
  * An FlxSprite with additional functionality.
@@ -218,10 +220,14 @@ class FunkinSprite extends FlxSprite
       var graphic = previousCachedTextures.get(graphicKey);
       if (graphic == null) continue;
       FlxG.bitmap.remove(graphic);
+      Assets.cache.removeBitmapData(graphicKey);
+      graphic.persist = false; // so the gc remembers to clear it
+      graphic.destroyOnNoUse = true;
       graphic.destroy();
       previousCachedTextures.remove(graphicKey);
     }
 
+    #if cpp MemoryUtil.collect(true); #end
     System.gc();
   }
 

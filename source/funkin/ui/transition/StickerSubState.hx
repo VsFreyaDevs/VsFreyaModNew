@@ -141,6 +141,8 @@ class StickerSubState extends MusicBeatSubState
 
   function regenStickers():Void
   {
+    FunkinSprite.preparePurgeCache();
+
     if (grpStickers.members.length > 0) grpStickers.clear();
 
     var stickerInfo:StickerInfo = new StickerInfo('stickers-set-1');
