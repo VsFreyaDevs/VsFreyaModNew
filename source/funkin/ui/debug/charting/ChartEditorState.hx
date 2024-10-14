@@ -3710,24 +3710,15 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
           && noteSprite.noteData != currentPlaceNoteData)
         {
           var holdNoteSprite:ChartEditorHoldNoteSprite = renderedHoldNotes.recycle(() -> new ChartEditorHoldNoteSprite(this));
-          // trace('Creating new HoldNote... (${renderedHoldNotes.members.length})');
 
           var noteLengthPixels:Float = noteSprite.noteData.getStepLength() * GRID_SIZE;
-
           holdNoteSprite.noteData = noteSprite.noteData;
           holdNoteSprite.noteDirection = noteSprite.noteData.getDirection();
-
           holdNoteSprite.setHeightDirectly(noteLengthPixels);
-
           holdNoteSprite.noteStyle = NoteKindManager.getNoteStyleId(noteSprite.noteData.kind, currentSongNoteStyle) ?? currentSongNoteStyle;
-
           holdNoteSprite.updateHoldNotePosition(renderedHoldNotes);
-
-          // trace(holdNoteSprite.x + ', ' + holdNoteSprite.y + ', ' + holdNoteSprite.width + ', ' + holdNoteSprite.height);
         }
       }
-
-      var stackedNotes = NoteDataFilter.listStackedNotes(currentSongChartNoteData, STACK_NOTE_THRESHOLD);
 
       // Add events that are now visible.
       for (eventData in currentSongChartEventData)
@@ -3795,6 +3786,9 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         member.kill();
       }
 
+      // Gather stacked notes to render later
+      var stackedNotes = NoteDataFilter.listStackedNotes(currentSongChartNoteData, STACK_NOTE_THRESHOLD);
+
       // Readd selection squares for selected notes.
       // Recycle selection squares if possible.
       for (noteSprite in renderedNotes.members)
@@ -3854,22 +3848,19 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
           var stepLength = noteSprite.noteData.getStepLength();
           selectionSquare.height = (stepLength <= 0) ? GRID_SIZE : ((stepLength + 1) * GRID_SIZE);
         }
-        else
+        // TODO: Move this to a function like isNoteSelected does
+        else if (doesNoteOverlap(noteSprite.noteData, stackedNotes))
         {
-          // TODO: Move this to a function like isNoteSelected does
-          if (noteSprite.noteData != null && stackedNotes.contains(noteSprite.noteData))
-          {
-            // TODO: Maybe use another way to display these notes
-            var selectionSquare:ChartEditorSelectionSquareSprite = renderedSelectionSquares.recycle(buildSelectionSquare);
+          // TODO: Maybe use another way to display these notes
+          var selectionSquare:ChartEditorSelectionSquareSprite = renderedSelectionSquares.recycle(buildSelectionSquare);
 
-            // Set the position and size (because we might be recycling one with bad values).
-            selectionSquare.noteData = noteSprite.noteData;
-            selectionSquare.eventData = null;
-            selectionSquare.x = noteSprite.x;
-            selectionSquare.y = noteSprite.y;
-            selectionSquare.width = selectionSquare.height = GRID_SIZE;
-            selectionSquare.color = FlxColor.RED;
-          }
+          // Set the position and size (because we might be recycling one with bad values).
+          selectionSquare.noteData = noteSprite.noteData;
+          selectionSquare.eventData = null;
+          selectionSquare.x = noteSprite.x;
+          selectionSquare.y = noteSprite.y;
+          selectionSquare.width = selectionSquare.height = GRID_SIZE;
+          selectionSquare.color = FlxColor.RED;
         }
       }
 
@@ -6519,6 +6510,11 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
   function isNoteSelected(note:Null<SongNoteData>):Bool
   {
     return note != null && currentNoteSelection.indexOf(note) != -1;
+  }
+
+  function doesNoteOverlap(note:Null<SongNoteData>, curStackedNotes:Array<SongNoteData>):Bool
+  {
+    return note != null && curStackedNotes.contains(note);
   }
 
   override function destroy():Void
