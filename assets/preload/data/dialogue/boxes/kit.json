@@ -31,6 +31,13 @@
       "offsets": [0, 0],
       "frameRate": 24,
       "looped": true
+    },
+    {
+      "name": "speaking",
+      "prefix": "speech bubble normal0",
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "looped": true
     }
   ]
 }
