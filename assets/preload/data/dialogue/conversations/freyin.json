@@ -262,10 +262,15 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": [
-        "u win, i will let u kill me",
-        "i win, oughta bring out le knife mic and kill u"
-      ]
+      "text": ["u win, i will let u kill me"]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["i win, oughta bring out le knife mic and kill u"]
     },
     {
       "speaker": "milky",

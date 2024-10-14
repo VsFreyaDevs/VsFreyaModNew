@@ -4,7 +4,7 @@
   "assetPath": "dialogue/freyaPortrait",
   "flipX": false,
   "isPixel": false,
-  "scale": 0.7,
+  "scale": 0.75,
   "offsets": [0, -50],
   "animations": [
     {

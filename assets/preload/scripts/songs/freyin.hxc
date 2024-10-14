@@ -22,7 +22,7 @@ class FreyinSong extends Song
   {
     super.onCountdownStart(event);
 
-    /* if (!PlayStatePlaylist.isStoryMode) */ hasPlayedCutscene = true;
+    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene)
     {
