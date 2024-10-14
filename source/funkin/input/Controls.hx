@@ -790,10 +790,10 @@ class Controls extends FlxActionSet
           case Control.UI_LEFT: return [A, FlxKey.LEFT];
           case Control.UI_RIGHT:
             return [D, FlxKey.RIGHT];
-          case Control.NOTE_UP: #if wtfbro return [J, FlxKey.UP]; #else return [W, FlxKey.UP]; #end
-          case Control.NOTE_DOWN: #if wtfbro return [F, FlxKey.DOWN]; #else return [S, FlxKey.DOWN]; #end
-          case Control.NOTE_LEFT: #if wtfbro return [D, FlxKey.LEFT]; #else return [A, FlxKey.LEFT]; #end
-          case Control.NOTE_RIGHT: #if wtfbro return [K, FlxKey.RIGHT]; #else return [D, FlxKey.RIGHT]; #end
+          case Control.NOTE_UP: #if DAMNWTF return [J, FlxKey.UP]; #else return [W, FlxKey.UP]; #end
+          case Control.NOTE_DOWN: #if DAMNWTF return [F, FlxKey.DOWN]; #else return [S, FlxKey.DOWN]; #end
+          case Control.NOTE_LEFT: #if DAMNWTF return [D, FlxKey.LEFT]; #else return [A, FlxKey.LEFT]; #end
+          case Control.NOTE_RIGHT: #if DAMNWTF return [K, FlxKey.RIGHT]; #else return [D, FlxKey.RIGHT]; #end
           case Control.ACCEPT: return [Z, SPACE, ENTER];
           case Control.BACK: return [X, BACKSPACE, ESCAPE];
           case Control.PAUSE: return [P, ENTER, ESCAPE];
