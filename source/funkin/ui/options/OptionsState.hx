@@ -75,6 +75,7 @@ class OptionsState extends MusicBeatState
 
     var options = addPage(Options, new OptionsMenu());
     var preferences = addPage(Preferences, new PreferencesMenu());
+    var mods = addPage(Mods, new ModMenu());
     var controls = addPage(Controls, new ControlsMenu());
 
     if (options.hasMultipleOptions())
@@ -231,6 +232,7 @@ class OptionsMenu extends Page
 
     add(items = new TextMenuList());
     createItem("PREFERENCES", () -> switchPage(Preferences));
+    createItem("MODS", () -> switchPage(Mods));
     #if mobile
     if (FlxG.gamepads.numActiveGamepads > 0)
     {
