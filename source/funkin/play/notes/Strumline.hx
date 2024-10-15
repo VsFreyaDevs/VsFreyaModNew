@@ -432,7 +432,7 @@ class Strumline extends FlxSpriteGroup
         if (holdNote.strumPlayConfirm) playConfirmHold(holdNote.noteDirection);
         holdNote.visible = true;
 
-        holdNote.sustainLength = (holdNote.strumTime + holdNote.fullSustainLength) - conductorInUse.songPosition;
+        holdNote.sustainLength = (holdNote.strumTime + holdNote.fullSustainLength) - conductorInUse.songPosition + conductorInUse.inputOffset;
 
         if (holdNote.sustainLength <= 10) holdNote.visible = false;
 
@@ -580,7 +580,8 @@ class Strumline extends FlxSpriteGroup
       note.holdNoteSprite.missedNote = false;
       note.holdNoteSprite.alpha = 0.6;
 
-      note.holdNoteSprite.sustainLength = (note.holdNoteSprite.strumTime + note.holdNoteSprite.fullSustainLength) - conductorInUse.songPosition;
+      note.holdNoteSprite.sustainLength = (note.holdNoteSprite.strumTime + note.holdNoteSprite.fullSustainLength)
+        - (conductorInUse.songPosition - conductorInUse.inputOffset);
     }
 
     #if FEATURE_GHOST_TAPPING
