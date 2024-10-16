@@ -19,13 +19,15 @@ jobs:
         with:
           haxe-version: 4.3.6
 
-      - name: Installing Dependencies
-        run: sudo apt-get install libvlc-dev libvlccore-dev vlc-bin vlc
+      # apparently the `pool` folder in the ubuntu azure archive is empty???? just gonna disable videos for linux until i figure out to circumvent this shit
+      # - name: Installing Dependencies
+        # run: sudo apt-get install libvlc-dev libvlccore-dev vlc-bin vlc
 
       - name: Install Libraries
         run: |
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
+          haxelib remove hxvlc
           haxelib run lime rebuild hxcpp
 
       - name: Compile
