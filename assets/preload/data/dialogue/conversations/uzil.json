@@ -29,23 +29,25 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "scared",
       "box": "kit",
-      "boxAnimation": "scared",
+      "boxAnimation": "talk",
 
       "text": [
-        " WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH"
-      ]
+        " WAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHHHH"
+      ],
+      "speed": 0.6
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "scared",
       "box": "kit",
-      "boxAnimation": "scared",
+      "boxAnimation": "talk",
 
       "text": [
         "I WANT ME MOMMY MIKA!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"
-      ]
+      ],
+      "speed": 0.75
     },
     {
       "speaker": "kanimate",
@@ -53,7 +55,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["YO WHAT??"]
+      "text": ["YO WHAT??"],
+      "speed": 0.8
     },
     {
       "speaker": "milky",
@@ -61,7 +64,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["WHAT LE FUCK?!?!?!?"]
+      "text": ["WHAT LE FUCK?!?!?!?"],
+      "speed": 0.8
     },
     {
       "speaker": "freya",
@@ -77,7 +81,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*dials Mika's number on his phone*"]
+      "text": ["*dials Mika's number on his phone*"],
+      "speed": 0.01
     },
     {
       "speaker": "nothing",
@@ -85,7 +90,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*that one waiting call sound lol*"]
+      "text": ["*that one waiting call sound lol*"],
+      "speed": 0.01
     },
     {
       "speaker": "nothing",
@@ -97,11 +103,12 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "scared",
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["MIKA MOOMY YA NEEDA HELP ME BEAT THESE H8RS!!!"]
+      "text": ["MIKA MOOMY YA NEEDA HELP ME BEAT THESE H8RS!!!"],
+      "speed": 0.8
     },
     {
       "speaker": "nothing",
@@ -129,7 +136,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*sniffles*", "yes mika ...."]
+      "text": ["*sniffles*", "yes mika ...."],
+      "speed": 1.4
     },
     {
       "speaker": "nothing",
@@ -147,7 +155,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*hang up*"]
+      "text": ["*hang up*"],
+      "speed": 0.01
     },
     {
       "speaker": "freya",
@@ -155,7 +164,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["..."]
+      "text": ["..."],
+      "speed": 3
     },
     {
       "speaker": "kanimate",
@@ -171,7 +181,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Just like every other Mika fan I shot and bitten..."]
+      "text": ["Just like every other Mika fan I shot and bitten..."],
+      "speed": 1.1
     },
     {
       "speaker": "freya",
@@ -179,7 +190,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Aughh, I better make this quick before Mika comes in..."]
+      "text": ["Aughh, I better make this quick before Mika comes in..."],
+      "speed": 0.9
     },
     {
       "speaker": "bf-kit",
@@ -195,7 +207,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*along w/ Milky* SIMP!!"]
+      "text": ["*along w/ Milky* SIMP!!"],
+      "speed": 0.8
     },
     {
       "speaker": "bf-kit",
@@ -203,7 +216,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["SHUT FUCK UP"]
+      "text": ["SHUT FUCK UP"],
+      "speed": 0.8
     }
   ]
 }

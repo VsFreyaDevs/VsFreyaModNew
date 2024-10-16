@@ -75,7 +75,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*BF_kit just walking in, whistling*"]
+      "text": ["*BF_kit just walking in, whistling*"],
+      "speed": 0.01
     },
     {
       "speaker": "freya",
@@ -99,7 +100,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["BF_kit heard Milky and Freya and was like:"]
+      "text": ["BF_kit heard Milky and Freya and was like:"],
+      "speed": 0.01
     },
     {
       "speaker": "bf-kit",
@@ -107,7 +109,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["what tf was that"]
+      "text": ["what tf was that"],
+      "speed": 1.1
     },
     {
       "speaker": "bf-kit",
@@ -123,7 +126,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["It's you're, not your-"]
+      "text": ["It's you're, not your-"],
+      "speed": 0.95
     },
     {
       "speaker": "freya",
@@ -148,7 +152,7 @@
       "boxAnimation": "speaking",
 
       "text": ["..."],
-      "speed": 0.5
+      "speed": 3
     },
     {
       "speaker": "milky",
@@ -158,7 +162,8 @@
 
       "text": [
         "Aughh, like goddamn! Every time and momento of when we encounter a hater, she go be acting like this!!!"
-      ]
+      ],
+      "speed": 0.89
     },
     {
       "speaker": "bf-kit",
@@ -182,7 +187,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["*drooling* uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"]
+      "text": ["*drooling* uhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh"],
+      "speed": 2
     },
     {
       "speaker": "bf-kit",
@@ -206,7 +212,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["...Who.. the hell... is that?"]
+      "text": ["...Who.. the hell... is that?"],
+      "speed": 2.2
     },
     {
       "speaker": "bf-kit",
@@ -222,7 +229,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["...I have a shotgun, and I am NOT afraid to use it."]
+      "text": ["...I have a shotgun, and I am NOT afraid to use it."],
+      "speed": 1.2
     },
     {
       "speaker": "bf-kit",
@@ -230,7 +238,8 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["yeah rightt"]
+      "text": ["yeah rightt"],
+      "speed": 0.9
     },
     {
       "speaker": "bf-kit",
@@ -238,7 +247,7 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["u know wha fuck it", "i challenge..."]
+      "text": ["u know wha fuck it", "\ni challenge..."]
     },
     {
       "speaker": "bf-kit",
@@ -280,7 +289,7 @@
 
       "text": [
         "Erm, maybe you shouldn't go and take the offer...",
-        "Because I know this might be a bad i-"
+        "\nBecause I know this might be a bad i-"
       ]
     },
     {
