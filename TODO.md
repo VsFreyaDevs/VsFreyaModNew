@@ -6,6 +6,8 @@ some stuff i finna add eventually/soon lol
   - [ ] Unhardcode offsets for TitleState
   - [ ] Unhardcode more of the intro besides `introText.txt`
 - [ ] Finish credits list menu
+- [ ] Improve caching for sprites and audio
+  - [ ] Make `LoadingState` work outside of the `html5` target
 - [ ] LO-FI & HI-FI mode (kinda like Mic'd Up's implementation but cooler)
 - [ ] .GIF & .SVG support via `flxgif` and some SVG library for `flixel` idk
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
