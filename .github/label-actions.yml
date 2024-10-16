@@ -1,0 +1,50 @@
+# Configuration for Label Actions - https://github.com/dessant/label-actions
+
+# Automatically close issues and pull requests when the `status: duplicate` label is applied
+'status: duplicate':
+  issues:
+    # Post a comment
+    comment: >
+      yo this issue's a duple, please direct all discussion to the original issue
+    # Close the issue
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'pending triage'
+    # Set a close reason
+    close-reason: 'not planned'
+  prs:
+    # Post a comment
+    comment: >
+      yo this PR's a duple, please direct all discussion to the original PR
+    # Remove other status labels
+    unlabel:
+      - 'pending triage'
+    # Close the pull request
+    close: true
+    # Set a close reason
+    close-reason: 'not planned'
+
+'status: rejected':
+  issues:
+    # Post a comment
+    comment: >
+      one of the devs rejected this issue, well somebody in this issue discussion might know the reason...
+    # Close the issue
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'pending triage'
+    # Set a close reason
+    close-reason: 'not planned'
+  prs:
+    # Post a comment
+    comment: >
+      one of the devs rejected this PR, well somebody in this PR discussion might know the reason...
+    # Close the pull request
+    close: true
+    # Remove other status labels
+    unlabel:
+      - 'pending triage'
+    # Set a close reason
+    close-reason: 'not planned'

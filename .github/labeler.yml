@@ -1,4 +1,4 @@
-# Add Documentation tag to PR's changing markdown files, or anyhting in the docs folder
+# Add Documentation tag to PR's changing markdown files, or anything in the docs folder
 Documentation:
 - changed-files:
   - any-glob-to-any-file:
