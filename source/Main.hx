@@ -18,6 +18,7 @@ import openfl.events.Event;
 import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
+import funkin.audio.AudioSwitchFix;
 
 // Adds support for FeralGamemode on Linux
 #if (linux && !DISABLE_GAMEMODE)
@@ -46,12 +47,16 @@ class Main extends Sprite
     #else
     var framerate:Int = 144; // How many frames per second the game should run at.
     #end
-   */
-  var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
+   */ / var skipSplash:Bool = true; // Whether to skip the flixel splash screen that appears in release mode.
   var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
   // You can pretty much ignore everything from here on - your code should go in your states.
   public static var lightMode:Bool = Sys.args().contains("-lightui");
+
+  // You can pretty much ignore everything from here on - your code should go in your states.
+  // [ * -- INTERNAL VARIABLES - PLS DONT TOUCH THEM! -- * ] //
+  @:dox(hide)
+  public static var audioDisconnected:Bool = false; // Used for checking for audio device errors.
 
   public static function main():Void
   {
@@ -99,6 +104,8 @@ class Main extends Sprite
     // Load mods to override assets.
     // TODO: Replace with loadEnabledMods() once the user can configure the mod list.
     funkin.modding.PolymodHandler.loadAllMods();
+
+    AudioSwitchFix.init();
 
     stage != null ? init() : addEventListener(Event.ADDED_TO_STAGE, init);
   }
@@ -200,4 +207,12 @@ class Main extends Sprite
 
     if (fpsCounter != null) fpsCounter.scaleX = fpsCounter.scaleY = (scale > 1 ? scale : 1);
   }
+
+  #if windows
+  private override function __update(transformOnly:Bool, updateChildren:Bool):Void
+  {
+    super.__update(transformOnly, updateChildren);
+    if (Main.audioDisconnected) AudioSwitchFix.reloadAudioDevice();
+  }
+  #end
 }
