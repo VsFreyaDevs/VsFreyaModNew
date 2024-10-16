@@ -232,6 +232,7 @@ class LoadingState extends MusicBeatSubState
       };
     }
 
+    // TODO: When we finally finish improving the caching system, remove the NO_PRELOAD_ALL define.
     #if NO_PRELOAD_ALL
     // Switch to loading state while we load assets (default on HTML5 target).
     var loadStateCtor = () -> {
@@ -265,6 +266,7 @@ class LoadingState extends MusicBeatSubState
     #end
   }
 
+  // TODO: When we finally finish improving the caching system, remove the NO_PRELOAD_ALL define.
   #if NO_PRELOAD_ALL
   static function isSoundLoaded(path:String):Bool
   {
