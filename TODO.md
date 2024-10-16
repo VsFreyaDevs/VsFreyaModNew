@@ -19,7 +19,7 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [x] Characters in the Character Select menu keep cloning themselves
 - [x] A-Bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
-- [ ] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync
+- [x] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync
 - [x] Freeplay difficulties aren't loading for some reason
 - [x] `Conductor` doesn't actually work on PlayState for some reason
 - [ ] Backspace crashes in the input offset menu
