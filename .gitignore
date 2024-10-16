@@ -1,6 +1,4 @@
-*/.DS_Store
-.DS_Store
-.DS_Store?
+.DS_STORE
 .haxelib/
 libs/
 lib/
@@ -11,8 +9,7 @@ export/
 RECOVER_*.fla
 shitAudio/
 .build_time
-*.swp
-.idea/
+.swp
 oxipng.exe
 
 # Exclude JS stuff

@@ -12,7 +12,7 @@ import funkin.audio.FunkinSound;
 import funkin.save.Save;
 
 /**
- * When you first enter the character select state, it will play an introductory video opening up the lights.
+ * When you first enter the character select state, it will play an introductory video opening up the lights
  */
 class IntroSubState extends MusicBeatSubState
 {
