@@ -16,12 +16,13 @@ some stuff i finna add eventually/soon lol
 # FIX KNOWN BUGS
 yeah vslice has more bugs than the fucking floor so im accounting whatever issues pop up on the base funkin repo lol
 
-- [x] Characters in the Character select menu keep cloning themselves
-- [x] A-bot Visualizer doesn't react to volume
+- [x] Characters in the Character Select menu keep cloning themselves
+- [x] A-Bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
-- [ ] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync.
+- [ ] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync
 - [x] Freeplay difficulties aren't loading for some reason
-- [x] Conductor doesn't actually work on PlayState for some reason
+- [x] `Conductor` doesn't actually work on PlayState for some reason
 - [ ] Backspace crashes in the input offset menu
 - [ ] DJ Boyfriend/Pico flickering, for some reason
 - [x] You can die during the cutscenes in Week 3's Pico mixes
+- [ ] `Save` doesn't detect any data in the save file; causing it to not load
