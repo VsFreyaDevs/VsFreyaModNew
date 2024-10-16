@@ -11,7 +11,7 @@ Kitsune Engine is an *engine* that's basically like those old engines from 2021-
 
 By the way, Kitsune Engine also supports mobile devices, too!
 
-* [Download builds for Windows, Mac, Linux, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
+* [Download builds for Windows, Mac, iOS, and Android here! (Linux & HTML5 builds don't really work rn, might fix those later)](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
 
 # Friday Night Funkin'
 
