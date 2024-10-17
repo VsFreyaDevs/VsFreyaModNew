@@ -485,6 +485,8 @@ class Preferences
     if (show) #if mobile FlxG.game.addChild(Main.fpsCounter); #else FlxG.stage.addChild(Main.fpsCounter); #end // Enable the debug display.
     else
       #if mobile FlxG.game.removeChild(Main.fpsCounter); #else FlxG.stage.removeChild(Main.fpsCounter); #end // Disable the debug display.
+
+    if (Main.fpsCounter.alpha == 0) Main.tweenFPS();
   }
 
   #if mobile

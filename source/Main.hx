@@ -185,6 +185,14 @@ class Main extends Sprite
     #end
   }
 
+  // kinda like Sanic's Psych Engine 0.3.2h fork
+  public static function tweenFPS(visible:Bool = true, duration:Float = 1.5)
+  {
+    if (Preferences.debugDisplay && fpsCounter != null) if (visible) FlxTween.tween(fpsCounter, {alpha: 1}, duration);
+    else
+      FlxTween.tween(fpsCounter, {alpha: 0}, duration);
+  }
+
   function initHaxeUI():Void
   {
     // Calling this before any HaxeUI components get used is important:

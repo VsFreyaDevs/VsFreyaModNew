@@ -96,6 +96,12 @@ class InitState extends FlxState
     else
       FlxG.game.focusLostFramerate = Preferences.framerate;
 
+    if (Main.fpsCounter != null)
+    {
+      Main.fpsCounter.visible = Preferences.debugDisplay;
+      Main.fpsCounter.alpha = 0;
+    }
+
     @:privateAccess
     FlxG.game.getTimer = () -> openfl.Lib.getTimer();
 

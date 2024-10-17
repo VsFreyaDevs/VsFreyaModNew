@@ -121,11 +121,14 @@ class Conversation extends FlxSpriteGroup implements IDialogueScriptedClass impl
   {
     if (_data.music == null) return;
 
-    music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
+    if (_data.music.asset != "" && _data.music.asset != null)
+    {
+      music = FunkinSound.load(Paths.music(_data.music.asset), 0.0, true, true, true);
 
-    if (_data.music.fadeTime > 0.0) FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
-    else
-      music.volume = 1.0;
+      if (_data.music.fadeTime > 0.0) FlxTween.tween(music, {volume: 1.0}, _data.music.fadeTime, {ease: FlxEase.linear});
+      else
+        music.volume = 1.0;
+    }
   }
 
   public function pauseMusic():Void

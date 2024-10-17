@@ -1,5 +1,9 @@
 import funkin.play.character.MultiSparrowCharacter;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.Paths;
+import flixel.FlxG;
 import funkin.play.PlayState;
+import funkin.audio.FunkinSound;
 import funkin.play.GameOverSubState;
 import funkin.play.PauseSubState;
 
@@ -15,7 +19,6 @@ class BfKitCharacter extends MultiSparrowCharacter {
 		// NOTE: this.x and this.y are not properly set here.
 
 		GameOverSubState.musicSuffix = '-kit';
-		// GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
 	}
@@ -29,10 +32,38 @@ class BfKitCharacter extends MultiSparrowCharacter {
 
 		// Reset to standard death animation.
 		GameOverSubState.musicSuffix = '-kit';
-		// GameOverSubState.blueBallSuffix = '-pico';
 
 		PauseSubState.musicSuffix = '-pico';
 
 		this.visible = true;
+	}
+
+	override function playAnimation(name:String, restart:Bool, ignoreOther:Bool) {
+		if (name == "fakeoutDeath" && !this.debug) {
+			doFakeoutDeath();
+		} else {
+			super.playAnimation(name, restart, ignoreOther);
+		}
+	}
+
+	function doFakeoutDeath():Void {
+		FunkinSound.playOnce(Paths.sound("gameplay/gameover/fakeout_death"), 1.0);
+
+		var bfFakeout:FlxAtlasSprite = new FlxAtlasSprite(this.x - 440, this.y - 240, Paths.animateAtlas("characters/bfFakeOut", "shared"));
+    FlxG.state.subState.add(bfFakeout);
+		bfFakeout.zIndex = 1000;
+    bfFakeout.playAnimation('');
+		// We don't want people to miss this.
+		FlxG.state.subState.mustNotExit = true;
+    bfFakeout.onAnimationComplete.add(() -> {
+      bfFakeout.visible = false;
+      this.visible = true;
+			FlxG.state.subState.mustNotExit = false;
+      this.playAnimation('firstDeath', true, true);
+      // Play the "blue balled" sound. May play a variant if one has been assigned.
+      GameOverSubState.playBlueBalledSFX();
+    });
+    bfFakeout.visible = true;
+		this.visible = false;
 	}
 }

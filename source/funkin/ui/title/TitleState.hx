@@ -132,11 +132,15 @@ class TitleState extends MusicBeatState
     // DEBUG BULLSHIT
 
     // netConnection.addEventListener(MouseEvent.MOUSE_DOWN, overlay_onMouseDown);
-    if (!initialized) new FlxTimer().start(1, function(tmr:FlxTimer) {
+    if (!initialized) new FlxTimer().start(1, (tmr:FlxTimer) -> {
       startIntro();
+      Main.tweenFPS();
     });
     else
+    {
       startIntro();
+      Main.tweenFPS();
+    }
   }
 
   function client_onMetaData(metaData:Dynamic)
@@ -170,7 +174,7 @@ class TitleState extends MusicBeatState
   {
     netStream.soundTransform.volume = 0.2;
     netStream.soundTransform.pan = -1;
-    // netStream.play(Paths.file('music/kickstarterTrailer.mp4'));
+    // netStream.play(Paths.file('videos/videos/kickstarterTrailer.mp4'));
 
     FlxG.stage.removeChild(overlay);
   }
@@ -589,6 +593,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('WHAT');
               else if (curWacky[0] == "trending") addMoreText('Friday');
+              else if (curWacky[0] == "yo yo yo") addMoreText('PLEASE');
               else
                 addMoreText('Freya');
             case 14:
@@ -596,6 +601,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('THE');
               else if (curWacky[0] == "trending") addMoreText('Nigth');
+              else if (curWacky[0] == "yo yo yo") addMoreText('DONATE TO');
               else
                 addMoreText('Fennec');
             case 15:
@@ -603,6 +609,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('FUCK');
               else if (curWacky[0] == "trending") addMoreText('Funkin');
+              else if (curWacky[0] == "yo yo yo") addMoreText('KENWARD03');
               else
                 addMoreText('Funkers');
             case 16:
