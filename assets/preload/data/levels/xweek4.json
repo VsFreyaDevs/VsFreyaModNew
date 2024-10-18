@@ -4,5 +4,6 @@
   "titleAsset": "storymenu/titles/chainz",
   "props": [],
   "background": "#413CAE",
+  "visible": false,
   "songs": ["topp", "azure", "doublyon"]
 }
