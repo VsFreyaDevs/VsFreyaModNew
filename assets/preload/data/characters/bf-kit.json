@@ -93,17 +93,20 @@
     {
       "name": "firstDeath",
       "prefix": "BF dies",
+      "assetPath": "characters/BOYFRIEND_DEAD",
       "offsets": [26, 7]
     },
     {
       "name": "deathLoop",
       "prefix": "BF Dead Loop",
+      "assetPath": "characters/BOYFRIEND_DEAD",
       "looped": true,
       "offsets": [26, 1]
     },
     {
       "name": "deathConfirm",
       "prefix": "BF Dead confirm",
+      "assetPath": "characters/BOYFRIEND_DEAD",
       "offsets": [26, 65]
     },
     {
