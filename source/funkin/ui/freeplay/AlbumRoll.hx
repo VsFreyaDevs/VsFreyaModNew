@@ -182,7 +182,7 @@ class AlbumRoll extends FlxSpriteGroup
   public function showTitle():Void
     albumTitle.visible = true;
 
-  public function buildAlbumTitle(assetKey:String, ?titleOffsets:Array<Float>):Void
+  public function buildAlbumTitle(assetKey:String, ?titleOffsets:Null<Array<Float>>):Void
   {
     if (albumTitle != null)
     {
@@ -234,7 +234,7 @@ class AlbumRoll extends FlxSpriteGroup
    */
   public function showStars():Void
   {
-    difficultyStars.visible = true; // true;
+    difficultyStars.visible = true;
     difficultyStars.flameCheck();
   }
 }
