@@ -108,8 +108,8 @@
       "name": "hxcpp",
       "type": "git",
       "dir": null,
-      "ref": "e0e32442a67dfaf77bb5680315f53c7ae0a35841",
-      "url": "https://github.com/VsFreyaDevs/hxcpp"
+      "ref": "c6bac3d6c7d683f25104296b2f4c50f8c90b8349",
+      "url": "https://github.com/cortex-engine/hxcpp"
     },
     {
       "name": "hxcpp-debug-server",
