@@ -161,7 +161,7 @@ class SustainTrail extends FlxSprite
 
     flipY = Preferences.downscroll;
 
-    alpha = 0.8;
+    alpha = 0.6;
     // alpha = 1.0;
     // calls updateColorTransform(), which initializes processedGraphic!
     updateColorTransform();
