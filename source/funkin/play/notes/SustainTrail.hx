@@ -16,7 +16,8 @@ import funkin.ui.options.PreferencesMenu;
  * The whole `FlxGraphic` is used as a texture map. See the `NOTE_hold_assets.fla` file for specifics
  * on how it should be constructed.
  *
- * TODO: Rework the whole code to not use `drawTriangles()` cuz apparently it doesn't like that function. :/
+ * ! TODO: Rework the whole code to not use `drawTriangles()` cuz apparently it doesn't like that function no matter what I do. :/
+ * ! Or maybe just go in `FlxCamera` and rewrite that function, IDK.
  *
  * @author MtH
  */
