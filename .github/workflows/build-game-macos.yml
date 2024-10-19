@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-${{matrix.version}}
     strategy:
       matrix:
-        version: [11, 12, 13]
+        version: [12, 13] # macOS 11 does not have a runner available ;_;
     steps:
       - name: Checkout
         uses: actions/checkout@main
