@@ -6,11 +6,12 @@ some stuff i finna add eventually/soon lol
   - [x] Note generation
   - [x] Automatic difficulty generation
   - [x] Store `.MIDI` file in `.FNFC` files
-- [x] Unhardcoded backing cards
+- [x] Unhardcode backing cards
 - [ ] Softcode TitleState & MainMenuState
   - [ ] Unhardcode offsets for TitleState
   - [ ] Unhardcode more of the intro besides `introText.txt`
 - [ ] Finish credits list menu
+- [ ] Extra key support
 - [ ] Improve caching for sprites and audio
   - [ ] Make `LoadingState` work outside of the `html5` target
 - [ ] LO-FI & HI-FI mode (kinda like Mic'd Up's implementation but cooler)

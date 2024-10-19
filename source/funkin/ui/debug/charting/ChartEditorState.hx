@@ -2539,7 +2539,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     gridGhostNote.zIndex = 12;
 
     gridGhostHoldNote = new ChartEditorHoldNoteSprite(this);
-    gridGhostHoldNote.alpha = 0.6;
+    gridGhostHoldNote.alpha = 0.4;
     gridGhostHoldNote.noteData = null;
     gridGhostHoldNote.visible = false;
     add(gridGhostHoldNote);
@@ -5394,7 +5394,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         ghostHold.noteData = targetNoteData.clone();
         ghostHold.noteDirection = ghostHold.noteData.getDirection();
         ghostHold.visible = true;
-        ghostHold.alpha = 0.6;
+        ghostHold.alpha = 0.4;
         ghostHold.setHeightDirectly(0);
         ghostHold.noteStyle = NoteKindManager.getNoteStyleId(ghostHold.noteData.kind, currentSongNoteStyle) ?? currentSongNoteStyle;
         ghostHold.updateHoldNotePosition(renderedHoldNotes);
@@ -5430,7 +5430,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
           playheadDragLengthCurrent[column] = targetNoteLengthStepsInt;
         }
         ghostHold.visible = true;
-        ghostHold.alpha = 0.6;
+        ghostHold.alpha = 0.4;
         ghostHold.setHeightDirectly(targetNoteLengthPixels, true);
         ghostHold.updateHoldNotePosition(renderedHoldNotes);
         trace('lerpLength: ${ghostHold.fullSustainLength}');

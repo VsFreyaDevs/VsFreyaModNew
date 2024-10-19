@@ -88,7 +88,7 @@ class ChartEditorHoldNoteSprite extends SustainTrail
 
     flipY = false;
 
-    alpha = 0.6;
+    alpha = 0.8;
 
     updateColorTransform();
 
@@ -152,7 +152,7 @@ class ChartEditorHoldNoteSprite extends SustainTrail
     hitNote = false;
     active = true;
     visible = true;
-    alpha = 0.6;
+    alpha = 0.8;
     graphicWidth = graphic.width / 8 * zoom; // amount of notes * 2
 
     updateHitbox();
