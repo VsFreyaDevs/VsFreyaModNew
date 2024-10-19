@@ -19,10 +19,11 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [x] Characters in the Character Select menu keep cloning themselves
 - [x] A-Bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
-- [x] Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync
+- [x] [Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync](https://github.com/FunkinCrew/Funkin/issues/3495)
 - [x] Freeplay difficulties aren't loading for some reason
-- [x] `Conductor` doesn't actually work on PlayState for some reason
+- [x] `Conductor` doesn't update during gameplay
 - [ ] Backspace crashes in the input offset menu
 - [ ] DJ Boyfriend/Pico flickering, for some reason
-- [x] You can die during the cutscenes in Week 3's Pico mixes
+- [x] [You can die during the cutscenes in Week 3's Pico mixes](https://github.com/FunkinCrew/Funkin/issues/3146)
 - [ ] `Save` doesn't detect any data in the save file; causing it to not load
+- [ ] [Characters in the Character Select menu don't play their confirm animations if you select mid-transition too fast](https://github.com/FunkinCrew/Funkin/issues/3730)
