@@ -1112,7 +1112,7 @@ class FreeplayState extends MusicBeatSubState
 
     FlxTween.tween(grpCapsules.members[curSelected], {"targetPos.x": originalPos.x, "targetPos.y": originalPos.y}, 0.5, {ease: FlxEase.expoOut});
     new FlxTimer().start(0.5, _ -> {
-      funnyCam.shake(0.0045, 0.35);
+      funnyCam.shake(0.00475, 0.35);
 
       if (fromResultsParams?.newRank == SHIT)
       {
@@ -1600,6 +1600,8 @@ class FreeplayState extends MusicBeatSubState
     }
     #end
 
+    if (FlxG.keys.justPressed.TAB) bopCamera = !bopCamera;
+
     if (controls.BACK)
     {
       trace('is busy?' + busy);
@@ -1610,10 +1612,21 @@ class FreeplayState extends MusicBeatSubState
     if (accepted && !busy) grpCapsules.members[curSelected].onConfirm();
   }
 
+  public static var bopCamera:Bool = true;
+
+  public var bopCameraTween:FlxTween = null;
+
   override function beatHit():Bool
   {
     dj?.beatHit();
     backingCard?.beatHit();
+
+    if (bopCamera && !prepForNewRank && !busy && Conductor.instance.currentBeat > 0)
+    {
+      if (bopCameraTween != null) bopCameraTween.cancel();
+      funnyCam.zoom += (Conductor.instance.currentBeat % 2 == 0 ? 0.004 : 0.002);
+      bopCameraTween = FlxTween.tween(funnyCam, {zoom: 1}, (Conductor.instance.beatLengthMs / 1000) / 1.25, {ease: FlxEase.cubeOut});
+    }
 
     return super.beatHit();
   }

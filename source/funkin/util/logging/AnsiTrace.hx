@@ -68,7 +68,7 @@ class AnsiTrace
 
   public static function traceBF()
   {
-    #if (sys && debug)
+    #if (sys)
     if (colorSupported)
     {
       for (line in ansiBF)

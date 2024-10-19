@@ -2,6 +2,8 @@
 
 ![](https://media.discordapp.net/attachments/1263192822282981422/1263595615678627860/Untitled705_20240718163734.png?ex=6706e99f&is=6705981f&hm=72c026ab5d6d26cfd4394a90829f44f1368c89122e9e9449f6b4ca92e3eb3373&=&quality=lossless)
 
+![](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![](https://badgen.net/github/open-issues/VsFreyaDevs/VsFreyaModNew)
+
 A kitsune version of BF was walking in the kit world when he stumbles upon [FreyaFennec_foxes](https://www.youtube.com/@Freyafennec_foxes1.0) and her crew. Turns out this version of BF is actually a Freya hater and simps for [Mika_kit](https://www.youtube.com/@Mika_Kit162). He rap battles them under one condition: if he wins, he kills her.
 
 ## Kitsune Engine
@@ -9,9 +11,17 @@ Kitsune Engine is a fork of [Friday Night Funkin'](https://github.com/FunkinCrew
 
 Kitsune Engine is an *engine* that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
 
-By the way, Kitsune Engine also supports mobile devices, too!
-
 * [Download builds for Windows, Mac, iOS, and Android here! (Linux & HTML5 builds don't really work rn, might fix those later)](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
+
+### Supported Platforms
+
+- **Windows** (32-bit & 64-bit!)
+- **MacOS** (x86_64 and arm64 only)
+- ~~**Linux**~~
+- ~~**HTML5**~~
+- **Android** (arm64, armv7a, x86, and x86_64 only)
+- **iOS** (arm64 and simulator only)
+- ~~**Hashlink(?)**~~
 
 # Friday Night Funkin'
 
