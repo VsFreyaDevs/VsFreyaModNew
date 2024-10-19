@@ -35,6 +35,7 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [x] [Input offsets don't apply to hit windows, only rating windows](https://github.com/FunkinCrew/Funkin/issues/3692)
 - [x] `Conductor` doesn't update during gameplay
 - [ ] Backspace crashes in the input offset menu
+- [ ] Sustains don't render, likely because of that one commit in the VsFreyaDevs `flixel` fork
 - [ ] DJ Boyfriend/Pico flickering, for some reason
 - [x] [You can die during the cutscenes in Week 3's Pico mixes](https://github.com/FunkinCrew/Funkin/issues/3146)
 - [ ] `Save` doesn't detect any data in the save file; causing it to not load
