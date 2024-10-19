@@ -23,10 +23,11 @@ jobs:
         run: |
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
+          haxelib run lime rebuild cpp
           haxelib run lime rebuild hxcpp
 
       - name: Compile
-        run: haxelib run lime build windows -32 -release -D 32bits 
+        run: haxelib run lime build windows -32 -release -D 32bits
 
       - name: Upload Artifact
         uses: actions/upload-artifact@main
