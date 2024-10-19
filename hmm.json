@@ -4,7 +4,7 @@
       "name": "FlxPartialSound",
       "type": "git",
       "dir": null,
-      "ref": "a1eab7b9bf507b87200a3341719054fe427f3b15",
+      "ref": "41f35ddb1eb9d10bc742e6f8b5bcc62f9ef8ad84",
       "url": "https://github.com/FunkinCrew/FlxPartialSound.git"
     },
     {
@@ -26,7 +26,7 @@
       "type": "git",
       "dir": null,
       "ref": "951a0103a17bfa55eed86703ce50b4fb0d7590bc",
-      "url": "https://github.com/FunkinCrew/flixel-text-input"
+      "url": "https://github.com/VsFreyaDevs/flixel-text-input"
     },
     {
       "name": "flxanimate",
@@ -44,8 +44,8 @@
       "name": "funkin.vis",
       "type": "git",
       "dir": null,
-      "ref": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6",
-      "url": "https://github.com/FunkinCrew/funkVis"
+      "ref": "5496ee803381951ef7c1f1bc1e6d65b83cd3daf9",
+      "url": "https://github.com/VsFreyaDevs/funkVis"
     },
     {
       "name": "grig.audio",
@@ -108,15 +108,15 @@
       "name": "hxcpp",
       "type": "git",
       "dir": null,
-      "ref": "c6bac3d6c7d683f25104296b2f4c50f8c90b8349",
-      "url": "https://github.com/cortex-engine/hxcpp"
+      "ref": "e0e32442a67dfaf77bb5680315f53c7ae0a35841",
+      "url": "https://github.com/VsFreyaDevs/hxcpp"
     },
     {
       "name": "hxcpp-debug-server",
       "type": "git",
       "dir": "hxcpp-debug-server",
-      "ref": "147294123f983e35f50a966741474438069a7a8f",
-      "url": "https://github.com/FunkinCrew/hxcpp-debugger"
+      "ref": "12db011048df50647578d9e5d2ca686c341b3ced",
+      "url": "https://github.com/charlesisfeline/hxcpp-debugger"
     },
     {
       "name": "hxdiscord_rpc",
@@ -211,7 +211,7 @@
       "name": "polymod",
       "type": "git",
       "dir": null,
-      "ref": "0fbdf27fe124549730accd540cec8a183f8652c0",
+      "ref": "d9ba2ecfd7217ea814b4586fcb3ba09e2143856e",
       "url": "https://github.com/larsiusprime/polymod"
     },
     {
