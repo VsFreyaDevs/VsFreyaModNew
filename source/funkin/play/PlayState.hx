@@ -1675,7 +1675,9 @@ class PlayState extends MusicBeatSubState
     {
       var correctSync:Float = Math.min(FlxG.sound.music.length, Math.max(0, Conductor.instance.songPosition - Conductor.instance.combinedOffset));
 
-      if (!startingSong && (Math.abs(FlxG.sound.music.time - correctSync) > 100 || Math.abs(vocals.checkSyncError(correctSync)) > 100))
+      if (!startingSong
+        && (Math.abs(FlxG.sound.music.time - correctSync) > 100 * playbackRate
+          || Math.abs(vocals.checkSyncError(correctSync)) > 100 * playbackRate))
       {
         #if debug trace("VOCALS NEED RESYNC"); #end
         #if debug if (vocals != null) trace(vocals.checkSyncError(correctSync)); #end
