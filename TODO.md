@@ -17,6 +17,7 @@ some stuff i finna add eventually/soon lol
   - [ ] Make `LoadingState` work outside of the `html5` target
 - [ ] LO-FI & HI-FI mode (kinda like Mic'd Up's implementation but cooler)
 - [ ] .GIF & .SVG support via `flxgif` and some SVG library for `flixel` idk
+- [ ] Haxe 4.2.x support (and maybe 5.0.0 support??)
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
 - [ ] EXPERIMENTAL Lua support (will be barebones and specifically for modcharting, since it isn't the main focus of the engine like Psych's)
 
