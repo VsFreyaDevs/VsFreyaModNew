@@ -111,6 +111,7 @@ class Save
           showTimings: true,
           debugDisplay: true,
           autoPause: true,
+          autoFullscreen: false,
           laneAlpha: 0,
           strumAlpha: 100,
           badsShitsCauseMiss: false,
@@ -1395,6 +1396,14 @@ typedef SaveDataOptions =
    * @default `true`
    */
   var autoPause:Bool;
+
+  /**
+   * If enabled, the game will automatically launch in fullscreen on startup.
+   *
+   * This does not apply to mobile devices, obviously, hence why it only shows up on `desktop` and `web` platforms.
+   * @default `false`
+   */
+  var autoFullscreen:Bool;
 
   /**
    * How transparent should the black underlay be under the lanes?

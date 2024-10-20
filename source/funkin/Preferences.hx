@@ -330,6 +330,27 @@ class Preferences
     return value;
   }
 
+  /**
+   * If enabled, the game will automatically launch in fullscreen on startup.
+   *
+   * This does not apply on mobile devices.
+   * @default `false`
+   */
+  public static var autoFullscreen(get, set):Bool;
+
+  static function get_autoFullscreen():Bool
+  {
+    return Save?.instance?.options?.autoFullscreen ?? false;
+  }
+
+  static function set_autoFullscreen(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.autoFullscreen = value;
+    save.flush();
+    return value;
+  }
+
   public static var unlockedFramerate(get, set):Bool;
 
   static function get_unlockedFramerate():Bool
@@ -458,7 +479,7 @@ class Preferences
    */
   public static function init():Void
   {
-    // Apply the autoPause setting (enables automatic pausing on focus lost).
+    // Apply the autoPause setting (enables automatic pausing when losing focus).
     FlxG.autoPause = Preferences.autoPause;
     flixel.FlxSprite.defaultAntialiasing = Preferences.antialiasing;
     // Apply the debugDisplay setting (enables the FPS and RAM display).
@@ -466,6 +487,8 @@ class Preferences
     #if web
     toggleFramerateCap(Preferences.unlockedFramerate);
     #end
+    // Apply the autoFullscreen setting (launches the game in fullscreen automatically)
+    FlxG.fullscreen = Preferences.autoFullscreen;
     #if mobile
     // Apply the allowScreenTimeout setting (enables screen timeout).
     lime.system.System.allowScreenTimeout = Preferences.screenTimeout;

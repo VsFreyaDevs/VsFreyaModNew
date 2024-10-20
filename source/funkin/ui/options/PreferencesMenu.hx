@@ -241,6 +241,11 @@ class PreferencesMenu extends Page
       Preferences.judgeCounter = value;
       yeahBf(value);
     }, Preferences.judgeCounter);
+    #if (desktop || web)
+    createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
+      Preferences.autoFullscreen = value;
+    }, Preferences.autoFullscreen);
+    #end
     #if web
     createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
       Preferences.unlockedFramerate = value;
@@ -253,7 +258,7 @@ class PreferencesMenu extends Page
       else
         FlxG.game.focusLostFramerate = Preferences.framerate;
       yeahBf(false);
-    }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 960, 1, 0);
+    }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 360, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'t do much', function(value:Bool):Void {
