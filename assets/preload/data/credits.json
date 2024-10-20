@@ -18,7 +18,7 @@
       ]
     },
     {
-      "header": "Artists",
+      "header": "Artists & Animators",
       "body": [
         { "line": "charlesisfeline" },
         { "line": "TheAnimateMan" },
@@ -36,6 +36,10 @@
       ]
     },
     {
+      "header": "Programming",
+      "body": [{ "line": "charlesisfeline" }, { "line": "Moxie-Coder" }]
+    },
+    {
       "header": "Charting",
       "body": [{ "line": "charlesisfeline" }, { "line": "Vencerist" }]
     },
@@ -51,7 +55,7 @@
         { "line": "FreyaFennec_Foxes" },
         { "line": "Ren/Kasper" },
         { "line": "Isaiah Mods" },
-        { "line": "DerpMage" }
+        { "line": "Rem_ix / DerpMage" }
       ]
     },
     {
@@ -65,12 +69,10 @@
         { "line": "bennyk" },
         { "line": "richTrash21" },
         { "line": "Redar13" },
+        { "line": "CATZALONG" },
+        { "line": "Kenward03" },
         { "line": "And the Freya/Flispy Discord servers" }
       ]
-    },
-    {
-      "header": "Programming",
-      "body": [{ "line": "charlesisfeline" }, { "line": "Moxie-Coder" }]
     },
     {
       "header": "Friday Night Funkin'",
@@ -90,7 +92,7 @@
     },
     {
       "header": "Direction and Art Lead",
-      "body": [{ "line": "PhantomArcade" }]
+      "body": [{ "line": "David “PhantomArcade” Brown" }]
     },
     {
       "header": "Music Lead",
@@ -98,7 +100,7 @@
     },
     {
       "header": "Co-Direction and Programming Lead",
-      "body": [{ "line": "ninjamuffin99" }]
+      "body": [{ "line": "Cameron “ninjamuffin99” Taylor" }]
     },
     {
       "header": "Producer",

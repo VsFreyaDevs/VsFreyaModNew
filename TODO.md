@@ -12,6 +12,7 @@ some stuff i finna add eventually/soon lol
   - [ ] Unhardcode more of the intro besides `introText.txt`
 - [ ] Finish credits list menu
 - [ ] Extra key support
+- [ ] WEGA NOTETYPE!!!!!!!!
 - [ ] Improve caching for sprites and audio
   - [ ] Make `LoadingState` work outside of the `html5` target
 - [ ] LO-FI & HI-FI mode (kinda like Mic'd Up's implementation but cooler)

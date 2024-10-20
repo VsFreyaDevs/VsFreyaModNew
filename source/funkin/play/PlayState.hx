@@ -302,7 +302,7 @@ class PlayState extends MusicBeatSubState
     ["its fine bud", 0.6], // From 60% to 69%
     ["haha 69 funni number", 0.69], // From 69% to 70%
     ["git gud", 0.75], // From 70% to 80%
-    ["is that all you got", 0.8], // From 80% to 90%
+    ["HELP", 0.8], // From 80% to 90%
     ["SLAY", 0.9], // From 90% to 97%
     ["BRO IS NOT PFCING :skull:", 0.97], // From 97% to 99%
     ["PERFECT FC!!!!!!!", 1]
@@ -668,11 +668,13 @@ class PlayState extends MusicBeatSubState
    * Returns true if game is compiled for mobile.
    * It is needed for mobile checks in HScript.
    */
-  var isMobilePlatform:Bool = #if mobile true #else false #end;
+  public var isMobilePlatform:Bool = #if mobile true #else false #end;
 
   public var isFreyaSong:Bool = false;
 
   var randImage:Int = 1;
+
+  public var centerStrums:Bool = false;
 
   /**
    * PROPERTIES
@@ -755,19 +757,14 @@ class PlayState extends MusicBeatSubState
     super();
 
     // Validate parameters.
-    if (params == null && lastParams == null)
-    {
-      throw 'PlayState constructor called with no available parameters.';
-    }
+    if (params == null && lastParams == null) throw 'PlayState constructor called with no available parameters.';
     else if (params == null)
     {
       trace('WARNING: PlayState constructor called with no parameters. Reusing previous parameters.');
       params = lastParams;
     }
     else
-    {
       lastParams = params;
-    }
 
     // Apply parameters.
     currentSong = params.targetSong;
@@ -793,7 +790,7 @@ class PlayState extends MusicBeatSubState
    */
   public override function create():Void
   {
-    if (instance != null) trace('WARNING: PlayState instance already exists. This should not happen.'); // TODO: Do something in this case? IDK.
+    if (instance != null) trace('WARNING: THERES ALREADY AN INSTANCE OF PLAYSTATE, THIS AINT ON PURPOSE HELP'); // TODO: Do something in this case? IDK.
     instance = this;
 
     if (!assertChartExists()) return;
@@ -1828,7 +1825,7 @@ class PlayState extends MusicBeatSubState
     // The score text below the health bar.
     if (Preferences.extraScoreText)
     {
-      scoreText = new FlxText(0, healthBarBG.y + 45, FlxG.width, '', 16);
+      scoreText = new FlxText(0, healthBarBG.y + 30, FlxG.width, '', 16);
       if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
       else
         scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
@@ -2079,9 +2076,9 @@ class PlayState extends MusicBeatSubState
 
     // Position the player strumline on the right half of the screen
     if (Preferences.middlescroll) playerStrumline.x = FlxG.width / 2 - playerStrumline.width / 2;
+    else if (centerStrums) playerStrumline.x = FlxG.width - playerStrumline.width - Constants.STRUMLINE_X_OFFSET; // Centered style
     else
       playerStrumline.x = FlxG.width / 2 + Constants.STRUMLINE_X_OFFSET; // Classic style
-    // playerStrumline.x = FlxG.width - playerStrumline.width - Constants.STRUMLINE_X_OFFSET; // Centered style
     playerStrumline.y = Preferences.downscroll ? FlxG.height - playerStrumline.height - Constants.STRUMLINE_Y_OFFSET : Constants.STRUMLINE_Y_OFFSET;
     playerStrumline.zIndex = 1001;
     playerStrumline.cameras = [camHUD];
@@ -2425,7 +2422,7 @@ class PlayState extends MusicBeatSubState
     // TODO: Add an option for this maybe?
     var commaSeparated:Bool = true;
     if (Preferences.extraScoreText)
-      scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy ]';
+      scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy • $ratingName]';
     else
       scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScore, false, commaSeparated)} ';
     // }

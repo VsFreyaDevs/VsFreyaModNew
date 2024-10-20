@@ -1,0 +1,5 @@
+- secret wega song, can only be found through a prompt substate like Updike
+- wega difficulty???
+- the secret code will be randomized per session (WEGA00000 - WEGA99999, and it wont work unless you have beaten story mode
+- hitting/missing a PATENTED wega note will blast your speakers with a wega jumpscare
+  - 100x worse when trying to press the charting keybind
