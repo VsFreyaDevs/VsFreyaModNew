@@ -33,7 +33,7 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [x] Characters in the Character Select menu keep cloning themselves
 - [x] A-Bot Visualizer doesn't react to volume
 - [x] The HaxeUI part of the Character Offset Editor isn't showing up
-- [x] [Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync](https://github.com/FunkinCrew/Funkin/issues/3495)
+- [x] [Lag spikes (and freezes) occur a lot during gameplay; causing the game's song audio to desync](https://github.com/FunkinCrew/Funkin/issues/3495) (i set the vocal resync tolerance back to 100 since stutters varied from song to song)
 - [x] [Inability to pan the camera in the Animation Debug](https://github.com/FunkinCrew/Funkin/issues/3690)
 - [x] Freeplay difficulties aren't loading for some reason
 - [x] [Input offsets don't apply to hit windows, only rating windows](https://github.com/FunkinCrew/Funkin/issues/3692)
