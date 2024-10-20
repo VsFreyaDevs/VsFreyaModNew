@@ -24,6 +24,8 @@ some stuff i finna add eventually/soon lol
 # ENHANCEMENTS FROM ISSUES
 - [x] [Add parallax/scrolling properties to CharacterData](https://github.com/FunkinCrew/Funkin/issues/3719)
 - [ ] [Expand the Character/Animation Debug to let you add animations and misc. data](https://github.com/FunkinCrew/Funkin/issues/3726)
+- [ ] [Let animated health icons bop like legacy ones do](https://github.com/FunkinCrew/Funkin/issues/3725)
+- [ ] [Change the traffic light in Blazin's BG to be stuck on a red light](https://github.com/FunkinCrew/Funkin/issues/3743)
 
 # FIX KNOWN BUGS
 yeah vslice has more bugs than the fucking floor so im accounting whatever issues pop up on the base funkin repo lol
@@ -36,8 +38,9 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [x] Freeplay difficulties aren't loading for some reason
 - [x] [Input offsets don't apply to hit windows, only rating windows](https://github.com/FunkinCrew/Funkin/issues/3692)
 - [x] `Conductor` doesn't update during gameplay
-- [ ] Backspace crashes in the input offset menu
-- [ ] DJ Boyfriend/Pico flickering, for some reason
 - [x] [You can die during the cutscenes in Week 3's Pico mixes](https://github.com/FunkinCrew/Funkin/issues/3146)
+- [ ] Backspace crashes in the input offset menu
+- [ ] [Some menus open in a very weird way when opening the debug selection menu](https://github.com/FunkinCrew/Funkin/issues/2438)
+- [ ] DJ Boyfriend/Pico flickering, for some reason
 - [ ] `Save` doesn't detect any data in the save file; causing it to not load
 - [ ] [Characters in the Character Select menu don't play their confirm animations if you select mid-transition too fast](https://github.com/FunkinCrew/Funkin/issues/3730)
