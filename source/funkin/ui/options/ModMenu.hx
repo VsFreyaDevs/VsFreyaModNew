@@ -37,7 +37,8 @@ class ModMenu extends Page
 
   override function update(elapsed:Float)
   {
-    if (FlxG.keys.justPressed.R) {
+    if (FlxG.keys.justPressed.R)
+    {
       refreshModList();
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
       trace('Refreshed Mod List!');
@@ -46,29 +47,36 @@ class ModMenu extends Page
 
     selections();
 
-    if (controls.UI_UP_P) {
+    if (controls.UI_UP_P)
+    {
       selections(-1);
       FunkinSound.playOnce(Paths.sound('scrollMenu'));
     }
-    
-    if (controls.UI_DOWN_P) {
+
+    if (controls.UI_DOWN_P)
+    {
       selections(1);
       FunkinSound.playOnce(Paths.sound('scrollMenu'));
     }
-   
-    if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.ENTER) {
+
+    if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.ENTER)
+    {
       grpMods.members[curSelected].modEnabled = !grpMods.members[curSelected].modEnabled;
-      if (grpMods.members[curSelected].modEnabled) {
+      if (grpMods.members[curSelected].modEnabled)
+      {
         FlxFlicker.flicker(grpMods.members[curSelected], 1.1, 0.0625, true, true);
         FunkinSound.playOnce(Paths.sound('confirmMenu'));
         trace('Enabled a mod!');
-      } else if (!grpMods.members[curSelected].modEnabled) {
+      }
+      else if (!grpMods.members[curSelected].modEnabled)
+      {
         FunkinSound.playOnce(Paths.sound('cancelMenu'));
         trace('Disabled a mod!');
       }
     }
 
-    if (controls.BACK) {
+    if (controls.BACK)
+    {
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
       FlxG.switchState(() -> new OptionsState());
     }
@@ -130,7 +138,7 @@ class ModMenu extends Page
       var modMetadata:ModMetadata = detectedMods[index];
       var modName:String = modMetadata.title;
       var txt:ModMenuItem = new ModMenuItem(0, 10 + (40 * index), 0, modName, 48);
-      txt.setFormat(Paths.font('vcr.ttf'), 48, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+      txt.setFormat(Paths.font('arial.ttf'), 48, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
       txt.text = modName;
       grpMods.add(txt);
     }
@@ -158,9 +166,12 @@ class ModMenuItem extends FlxText
 
   override function update(elapsed:Float)
   {
-    if (modEnabled) {
+    if (modEnabled)
+    {
       alpha = 1;
-    } else {
+    }
+    else
+    {
       alpha = 0.5;
     }
     super.update(elapsed);
