@@ -24,9 +24,16 @@ class Constants
 
   /**
    * The current version number of the game.
-   * Modify this in the `project.xml` file.
+   * Modify this in the `project.hxp` file.
    */
   public static var VERSION(get, never):String;
+
+  /**
+   * The engine's version number, as a Semantic Versioning string with no prefix.
+   * This has to be here and can't be in the `project.hxp` file.
+   * The Lime Metadata does not have any apparent way as to how to add a custom value.
+   */
+  public static final ENGINE_VERSION:String = "0.1.0";
 
   /**
    * The generatedBy string embedded in the chart files made by this application.

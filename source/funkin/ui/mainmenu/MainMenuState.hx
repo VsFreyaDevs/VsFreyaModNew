@@ -164,9 +164,7 @@ class MainMenuState extends MusicBeatState
     subStateOpened.add(sub -> {
       if (Type.getClass(sub) == FreeplayState)
       {
-        new FlxTimer().start(0.5, _ -> {
-          magenta.visible = false;
-        });
+        new FlxTimer().start(0.5, _ -> magenta.visible = false);
       }
     });
 
@@ -179,7 +177,7 @@ class MainMenuState extends MusicBeatState
     super.create();
 
     // This has to come AFTER!
-    this.rightWatermarkText.text = 'Kitsune Engine v1.0 | FNF ${Constants.VERSION}';
+    this.leftWatermarkText.text = 'Kitsune Engine v${Constants.ENGINE_VERSION} | FNF ${Constants.VERSION}';
     this.rightWatermarkText.text = "FreyaFennec_Funkers v1.0 ALPHA";
 
     // NG.core.calls.event.logEvent('swag').send();
