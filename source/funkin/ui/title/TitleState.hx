@@ -414,7 +414,21 @@ class TitleState extends MusicBeatState
     if (pressedEnter && transitioning && skippedIntro)
     {
       // FlxG.switchState(() -> new MainMenuState());
-      FlxG.switchState(() -> new funkin.ui.title.OutdatedSubState());
+      try
+      {
+        FlxG.switchState(() -> new funkin.ui.title.OutdatedSubState());
+      }
+      catch (e)
+      {
+        try
+        {
+          FlxG.switchState(() -> new MainMenuState());
+        }
+        catch (e)
+        {
+          throw "I CAN NOT SWITCH STATES HELP :sob:";
+        }
+      }
     }
 
     if (pressedEnter && !transitioning && skippedIntro)

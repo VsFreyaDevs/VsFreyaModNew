@@ -124,9 +124,9 @@ class InitState extends FlxState
     // NOTE: tileData is ignored if TransitionData.type is FADE / DITHER instead of TILES.
     var tileData:TransitionTileData = {asset: diamond, width: 32, height: 32};
 
-    FlxTransitionableState.defaultTransIn = new TransitionData(DITHER, FlxColor.BLACK, 1, new FlxPoint(0, -1), tileData,
+    FlxTransitionableState.defaultTransIn = new TransitionData(TILES, FlxColor.BLACK, 1, new FlxPoint(0, -1), tileData,
       new FlxRect(-200, -200, FlxG.width * 1.4, FlxG.height * 1.4));
-    FlxTransitionableState.defaultTransOut = new TransitionData(DITHER, FlxColor.BLACK, 0.7, new FlxPoint(0, 1), tileData,
+    FlxTransitionableState.defaultTransOut = new TransitionData(TILES, FlxColor.BLACK, 0.7, new FlxPoint(0, 1), tileData,
       new FlxRect(-200, -200, FlxG.width * 1.4, FlxG.height * 1.4));
     // Don't play transition in when entering the title state.
     FlxTransitionableState.skipNextTransIn = true;
