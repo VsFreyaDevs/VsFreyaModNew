@@ -92,10 +92,11 @@ class FocusCameraSongEvent extends SongEvent
           trace('No BF to focus on.');
           return;
         }
-        // trace('Focusing camera on player.');
+        trace('Focusing camera on player. ');
         var bfPoint = currentStage.getBoyfriend().cameraFocusPoint;
         targetX += bfPoint.x;
         targetY += bfPoint.y;
+        trace('bf x - $targetX | ' + 'y - $targetY');
 
       case 1: // Dad (focus on opponent)
         if (currentStage.getDad() == null)
@@ -103,10 +104,11 @@ class FocusCameraSongEvent extends SongEvent
           trace('No dad to focus on.');
           return;
         }
-        // trace('Focusing camera on opponent.');
+        trace('Focusing camera on opponent.');
         var dadPoint = currentStage.getDad().cameraFocusPoint;
         targetX += dadPoint.x;
         targetY += dadPoint.y;
+        trace('dad x - $targetX | ' + 'y - $targetY');
 
       case 2: // Girlfriend (focus on girlfriend)
         if (currentStage.getGirlfriend() == null)
@@ -114,10 +116,11 @@ class FocusCameraSongEvent extends SongEvent
           trace('No GF to focus on.');
           return;
         }
-        // trace('Focusing camera on girlfriend.');
+        trace('Focusing camera on girlfriend.');
         var gfPoint = currentStage.getGirlfriend().cameraFocusPoint;
         targetX += gfPoint.x;
         targetY += gfPoint.y;
+        trace('gf x - $targetX | ' + 'y - $targetY');
 
       default:
         trace('Unknown camera focus: ' + data);
