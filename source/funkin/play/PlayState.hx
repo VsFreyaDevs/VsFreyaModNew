@@ -2003,6 +2003,8 @@ class PlayState extends MusicBeatSubState
       {
         currentStage.addCharacter(girlfriend, GF);
 
+        if (girlfriend != null) girlfriend.cameras = [camGame];
+
         #if FEATURE_DEBUG_FUNCTIONS
         FlxG.console.registerObject('gf', girlfriend);
         #end
@@ -2011,6 +2013,8 @@ class PlayState extends MusicBeatSubState
       if (boyfriend != null)
       {
         currentStage.addCharacter(boyfriend, BF);
+
+        if (boyfriend != null) boyfriend.cameras = [camGame];
 
         #if FEATURE_DEBUG_FUNCTIONS
         FlxG.console.registerObject('bf', boyfriend);
@@ -2022,6 +2026,8 @@ class PlayState extends MusicBeatSubState
         currentStage.addCharacter(dad, DAD);
         // Camera starts at dad.
         cameraFollowPoint.setPosition(dad.cameraFocusPoint.x, dad.cameraFocusPoint.y);
+
+        if (dad != null) dad.cameras = [camGame];
 
         #if FEATURE_DEBUG_FUNCTIONS
         FlxG.console.registerObject('dad', dad);
