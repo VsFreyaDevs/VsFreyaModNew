@@ -310,7 +310,7 @@ class VideoCutscene
     FlxTween.tween(blackScreen, {alpha: 0}, transitionTime,
       {
         ease: FlxEase.quadInOut,
-        onComplete: function(twn:FlxTween) {
+        onComplete: (twn:FlxTween) -> {
           PlayState.instance.remove(blackScreen);
           blackScreen = null;
         }
@@ -318,7 +318,7 @@ class VideoCutscene
     FlxTween.tween(FlxG.camera, {zoom: PlayState.instance.stageZoom}, transitionTime,
       {
         ease: FlxEase.quadInOut,
-        onComplete: function(twn:FlxTween) {
+        onComplete: (twn:FlxTween) -> {
           onVideoEnded.dispatch();
           onCutsceneFinish(cutsceneType);
         }

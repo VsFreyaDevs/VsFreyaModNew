@@ -173,9 +173,7 @@ class FlxAtlasSprite extends FlxAnimate
 
     this.currentAnimation = id;
     anim.onComplete.removeAll();
-    anim.onComplete.add(function() {
-      _onAnimationComplete();
-    });
+    anim.onComplete.add(() -> _onAnimationComplete());
 
     looping = loop;
 

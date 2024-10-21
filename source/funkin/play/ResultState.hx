@@ -841,28 +841,18 @@ class ResultState extends MusicBeatSubState
         FlxTween.tween(rankBg, {alpha: 1}, 0.5,
           {
             ease: FlxEase.expoOut,
-            onComplete: function(_) {
-              if (shouldUseSubstate && targetState is FlxSubState)
-              {
-                openSubState(cast targetState);
-              }
+            onComplete: (_) -> {
+              if (shouldUseSubstate && targetState is FlxSubState) openSubState(cast targetState);
               else
-              {
                 FlxG.switchState(targetState);
-              }
             }
           });
       }
       else
       {
-        if (shouldUseSubstate && targetState is FlxSubState)
-        {
-          openSubState(cast targetState);
-        }
+        if (shouldUseSubstate && targetState is FlxSubState) openSubState(cast targetState);
         else
-        {
           FlxG.switchState(targetState);
-        }
       }
     }
 

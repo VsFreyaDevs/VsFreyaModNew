@@ -106,6 +106,7 @@ class Save
           zoomCamera: true,
           // timeBar: true,
           judgeCounter: true,
+          comboHUD: true,
           extraScoreText: true,
           coloredHealthBar: true,
           showTimings: true,
@@ -1372,6 +1373,12 @@ typedef SaveDataOptions =
    * @default `true`
    */
   var zoomCamera:Bool;
+
+  /**
+   * If enable, the judgements and combo will be rendered on top of `camHUD`.
+   * @default `true`
+   */
+  var comboHUD:Bool;
 
   /**
    * If enabled, the health bar colors will be based off the characters' icons. Otherwise, go with the default red & green colors.

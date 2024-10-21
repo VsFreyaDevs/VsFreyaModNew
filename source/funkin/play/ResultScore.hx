@@ -120,7 +120,7 @@ class ScoreNum extends FlxSprite
 
   function finishShuffleTween():Void
   {
-    var tweenFunction = function(x) {
+    var tweenFunction = (x) -> {
       var digitRounded = Math.floor(x);
       digit = digitRounded;
     };

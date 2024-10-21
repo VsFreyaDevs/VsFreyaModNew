@@ -141,7 +141,7 @@ class CharSelectSubState extends MusicBeatSubState
 
     var crowd:FlxAtlasSprite = new FlxAtlasSprite(0, 0, Paths.animateAtlas("charSelect/crowd"));
     crowd.anim.play();
-    crowd.anim.onComplete.add(function() {
+    crowd.anim.onComplete.add(() -> {
       crowd.anim.play();
     });
     crowd.scrollFactor.set(0.3, 0.3);
@@ -160,9 +160,7 @@ class CharSelectSubState extends MusicBeatSubState
 
     barthing = new FlxAtlasSprite(0, 0, Paths.animateAtlas("charSelect/barThing"));
     barthing.anim.play("");
-    barthing.anim.onComplete.add(function() {
-      barthing.anim.play("");
-    });
+    barthing.anim.onComplete.add(() -> barthing.anim.play(""));
     barthing.blend = BlendMode.MULTIPLY;
     barthing.scrollFactor.set(0, 0);
     add(barthing);
@@ -498,7 +496,10 @@ class CharSelectSubState extends MusicBeatSubState
       }
       else
       {
-        if (availableChars.exists(i)) nonLocks.push(i);
+        var playableCharacterId:String = availableChars.get(i);
+        var player:Null<PlayableCharacter> = PlayerRegistry.instance.fetchEntry(playableCharacterId);
+        var isPlayerUnlocked:Bool = player?.isUnlocked() ?? false;
+        if (availableChars.exists(i) && isPlayerUnlocked) nonLocks.push(i);
 
         var temp:Lock = new Lock(0, 0, i);
         temp.ID = 1;

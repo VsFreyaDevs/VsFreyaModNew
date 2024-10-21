@@ -33,10 +33,7 @@ class Level implements IRegistryEntry<LevelData>
     this.id = id;
     _data = _fetchData(id);
 
-    if (_data == null)
-    {
-      throw 'Could not parse level data for id: $id';
-    }
+    if (_data == null) throw 'Could not parse level data for id: $id';
   }
 
   /**
@@ -78,9 +75,7 @@ class Level implements IRegistryEntry<LevelData>
   public function getSongDisplayNames(difficulty:String):Array<String>
   {
     var songList:Array<String> = getSongs() ?? [];
-    var songNameList:Array<String> = songList.map(function(songId:String) {
-      return getSongDisplayName(songId, difficulty);
-    });
+    var songNameList:Array<String> = songList.map((songId:String) -> return getSongDisplayName(songId, difficulty));
     return songNameList;
   }
 
@@ -121,11 +116,7 @@ class Level implements IRegistryEntry<LevelData>
    */
   public function buildBackground():FlxSprite
   {
-    if (!_data.background.startsWith('#'))
-    {
-      // Image specified
-      return new FlxSprite().loadGraphic(Paths.image(_data.background));
-    }
+    if (!_data.background.startsWith('#')) return new FlxSprite().loadGraphic(Paths.image(_data.background)); // Image specified
 
     // Color specified
     var result:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 400, FlxColor.WHITE);
@@ -139,9 +130,7 @@ class Level implements IRegistryEntry<LevelData>
    * @return Whether the background is a simple color
    */
   public function isBackgroundSimple():Bool
-  {
     return _data.background.startsWith('#');
-  }
 
   /**
    * Returns true if the background is a solid color.
@@ -149,9 +138,7 @@ class Level implements IRegistryEntry<LevelData>
    * @return The background as a simple color. May not be valid if `isBackgroundSimple` returns false.
    */
   public function getBackgroundColor():FlxColor
-  {
     return FlxColor.fromString(_data.background);
-  }
 
   /**
    * The list of difficulties the player can select from for this level.
@@ -170,9 +157,7 @@ class Level implements IRegistryEntry<LevelData>
     {
       // Don't display alternate characters in Story Mode. Only show `default` and `erect` variations.
       for (difficulty in firstSong.listDifficulties([Constants.DEFAULT_VARIATION, 'erect'], false, false))
-      {
         difficulties.push(difficulty);
-      }
     }
 
     // Sort in a specific order! Fall back to alphabetical.
@@ -187,12 +172,7 @@ class Level implements IRegistryEntry<LevelData>
       if (song == null) continue;
 
       for (difficulty in difficulties)
-      {
-        if (!song.hasDifficulty(difficulty, [Constants.DEFAULT_VARIATION, 'erect']))
-        {
-          difficulties.remove(difficulty);
-        }
-      }
+        if (!song.hasDifficulty(difficulty, [Constants.DEFAULT_VARIATION, 'erect'])) difficulties.remove(difficulty);
     }
 
     if (difficulties.length == 0) difficulties = ['normal'];
@@ -213,9 +193,7 @@ class Level implements IRegistryEntry<LevelData>
 
     var hiddenProps:Array<LevelProp> = props.splice(_data.props.length - 1, props.length - 1);
     for (hiddenProp in hiddenProps)
-    {
       hiddenProp.visible = false;
-    }
 
     for (propIndex in 0..._data.props.length)
     {
@@ -227,10 +205,7 @@ class Level implements IRegistryEntry<LevelData>
       if (existingProp != null)
       {
         existingProp.propData = propData;
-        if (existingProp.propData == null)
-        {
-          existingProp.visible = false;
-        }
+        if (existingProp.propData == null) existingProp.visible = false;
         else
         {
           existingProp.visible = true;
@@ -257,9 +232,7 @@ class Level implements IRegistryEntry<LevelData>
   public function destroy():Void {}
 
   public function toString():String
-  {
     return 'Level($id)';
-  }
 
   /**
    * Retrieve and parse the JSON data for a level by ID.
@@ -267,7 +240,5 @@ class Level implements IRegistryEntry<LevelData>
    * @return The parsed level data, or null if not found or invalid
    */
   static function _fetchData(id:String):Null<LevelData>
-  {
     return LevelRegistry.instance.parseEntryDataWithMigration(id, LevelRegistry.instance.fetchEntryVersion(id));
-  }
 }

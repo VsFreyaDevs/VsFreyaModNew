@@ -58,14 +58,9 @@ class FileUtil
       ?onCancel:Void->Void)
   {
     var onComplete = function(button, selectedFiles) {
-      if (button == DialogButton.OK && selectedFiles.length > 0)
-      {
-        onSelect(selectedFiles[0]);
-      }
+      if (button == DialogButton.OK && selectedFiles.length > 0) onSelect(selectedFiles[0]);
       else
-      {
         onCancel();
-      }
     };
 
     Dialogs.openFile(onComplete,

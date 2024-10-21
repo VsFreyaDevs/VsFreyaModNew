@@ -286,6 +286,25 @@ class Preferences
   }
 
   /**
+   * If enable, the judgements and combo will be rendered on top of `camHUD`.
+   * @default `true`
+   */
+  public static var comboHUD(get, set):Bool;
+
+  static function get_comboHUD():Bool
+  {
+    return Save?.instance?.options?.comboHUD;
+  }
+
+  static function set_comboHUD(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.comboHUD = value;
+    save.flush();
+    return value;
+  }
+
+  /**
    * If enabled, an FPS and memory counter will be displayed even if this is not a debug build.
    * @default `true`
    */
@@ -298,12 +317,9 @@ class Preferences
 
   static function set_debugDisplay(value:Bool):Bool
   {
-    if (value != Save.instance.options.debugDisplay)
-    {
-      toggleDebugDisplay(value);
-    }
-
     var save = Save.instance;
+    if (value != save.options.debugDisplay) toggleDebugDisplay(value);
+
     save.options.debugDisplay = value;
     save.flush();
     return value;
@@ -322,9 +338,9 @@ class Preferences
 
   static function set_autoPause(value:Bool):Bool
   {
+    var save:Save = Save.instance;
     if (value != Save.instance.options.autoPause) FlxG.autoPause = value;
 
-    var save:Save = Save.instance;
     save.options.autoPause = value;
     save.flush();
     return value;

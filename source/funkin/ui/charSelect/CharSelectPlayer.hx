@@ -12,15 +12,13 @@ class CharSelectPlayer extends FlxAtlasSprite implements IBPMSyncedScriptedClass
   {
     super(x, y, Paths.animateAtlas("charSelect/lockedChill"));
 
-    onAnimationComplete.add(function(animLabel:String) {
+    onAnimationComplete.add((animLabel:String) -> {
       switch (animLabel)
       {
         case "slideout":
           visible = false;
         case "slidein":
-          if (hasAnimation("slidein idle point")) playAnimation("slidein idle point", true, false, false);
-          else
-            playAnimation("idle", true, false, false);
+          if (hasAnimation("slidein idle point")) playAnimation("slidein idle point", true, false, false); else playAnimation("idle", true, false, false);
         case "deselect":
           playAnimation("deselect loop start", true, false, true);
         case "slidein idle point", "cannot select Label", "unlock":

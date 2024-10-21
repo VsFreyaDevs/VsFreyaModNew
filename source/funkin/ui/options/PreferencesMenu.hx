@@ -201,6 +201,10 @@ class PreferencesMenu extends Page
       Preferences.showTimings = value;
       yeahBf(value);
     }, Preferences.showTimings);
+    createPrefItemCheckbox('Render Combo on HUD',
+      'Enable to show your ratings & combo in the HUD camera instead\nof the main camera like in legacy versions of the game', function(value:Bool):Void {
+        Preferences.comboHUD = value;
+    }, Preferences.comboHUD);
     createPrefItemNumber('Lane Underlay', 'Set the transparency of the lane underlay\nbehind the player\'s strums', function(value:Float) {
       Preferences.laneAlpha = Std.int(value);
       yeahBf(false);

@@ -1735,9 +1735,7 @@ class PlayState extends MusicBeatSubState
 
       var frameShit:Float = (1 / 24) * 2; // equals 2 frames in the animation
 
-      new FlxTimer().start(((Conductor.instance.beatLengthMs / 1000) * 1.25) - frameShit, function(tmr) {
-        animShit.forceFinish();
-      });
+      new FlxTimer().start(((Conductor.instance.beatLengthMs / 1000) * 1.25) - frameShit, (tmr) -> animShit.forceFinish());
     }
 
     if (playerStrumline != null) playerStrumline.onBeatHit();
@@ -2127,7 +2125,7 @@ class PlayState extends MusicBeatSubState
     comboPopUps = new PopUpStuff(noteStyle);
     comboPopUps.zIndex = 900;
     add(comboPopUps);
-    comboPopUps.cameras = [camHUD];
+    if (Preferences.comboHUD) comboPopUps.cameras = [camHUD];
   }
 
   /**

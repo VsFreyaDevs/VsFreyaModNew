@@ -357,9 +357,7 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
 
   public function setShader(shader:FlxShader)
   {
-    forEachAlive(function(prop:FlxSprite) {
-      prop.shader = shader;
-    });
+    forEachAlive((prop:FlxSprite) -> prop.shader = shader);
   }
 
   /**
@@ -623,9 +621,7 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
    */
   public function pause():Void
   {
-    forEachAlive(function(prop:FlxSprite) {
-      if (prop.animation != null) prop.animation.pause();
-    });
+    forEachAlive((prop:FlxSprite) -> if (prop.animation != null) prop.animation.pause());
   }
 
   /**
@@ -633,9 +629,7 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
    */
   public function resume():Void
   {
-    forEachAlive(function(prop:FlxSprite) {
-      if (prop.animation != null) prop.animation.resume();
-    });
+    forEachAlive((prop:FlxSprite) -> if (prop.animation != null) prop.animation.resume());
   }
 
   /**
@@ -647,10 +641,10 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
   public function fetchAssetPaths():Array<String>
   {
     var result:Array<String> = [];
+
     for (dataProp in _data.props)
-    {
       result.push(Paths.image(dataProp.assetPath));
-    }
+
     return result;
   }
 
@@ -684,9 +678,7 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
 
     // Then the rest of the characters, if any.
     for (characterId in charList)
-    {
       dispatchToCharacter(characterId, event);
-    }
   }
 
   /**
@@ -697,10 +689,7 @@ class Stage extends FlxSpriteGroup implements IPlayStateScriptedClass implements
   public function dispatchToCharacter(characterId:String, event:ScriptEvent):Void
   {
     var character:BaseCharacter = getCharacter(characterId);
-    if (character != null)
-    {
-      ScriptEventDispatcher.callEvent(character, event);
-    }
+    if (character != null) ScriptEventDispatcher.callEvent(character, event);
   }
 
   /**
