@@ -179,7 +179,7 @@ class PreferencesMenu extends Page
         Preferences.badsShitsCauseMiss = value;
         yeahBf(value);
     }, Preferences.badsShitsCauseMiss);
-    createPrefHeader('Visuals and Graphics');
+    createPrefHeader('Visuals and UI');
     createPrefItemCheckbox('Note Splashes', 'Disable to remove splash animations when hitting notes', function(value:Bool):Void {
       Preferences.noteSplash = value;
       yeahBf(value);
@@ -188,11 +188,6 @@ class PreferencesMenu extends Page
       Preferences.flashingLights = value;
       yeahBf(value);
     }, Preferences.flashingLights);
-    createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals', function(value:Bool):Void {
-      Preferences.antialiasing = value;
-      boyFriend.antialiasing = value;
-      yeahBf(value);
-    }, Preferences.antialiasing);
     createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
       yeahBf(value);
@@ -237,19 +232,24 @@ class PreferencesMenu extends Page
       var hitSound:String = value + "Hit";
       FunkinSound.playOnce(Paths.sound('noteHitSounds/${hitSound}') ?? Paths.sound('noteHitSounds/pingPongHit'));
     }, Preferences.noteHitSound);
-    createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
-      Preferences.zoomCamera = value;
-      yeahBf(value);
-    }, Preferences.zoomCamera);
     createPrefItemCheckbox('Judgement Counter', 'Enable to show your NPS and judgements at the left side\nduring gameplay', function(value:Bool):Void {
       Preferences.judgeCounter = value;
       yeahBf(value);
     }, Preferences.judgeCounter);
-    #if (desktop || web)
-    createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
-      Preferences.autoFullscreen = value;
-    }, Preferences.autoFullscreen);
-    #end
+    createPrefItemCheckbox('Camera Zooming on Beat', 'Disable to stop the camera from bouncing to the song', function(value:Bool):Void {
+      Preferences.zoomCamera = value;
+      yeahBf(value);
+    }, Preferences.zoomCamera);
+    createPrefHeader('Performance');
+    createPrefItemCheckbox('Antialiasing', 'Disable to increase performance at the cost of sharper visuals', function(value:Bool):Void {
+      Preferences.antialiasing = value;
+      boyFriend.antialiasing = value;
+      yeahBf(value);
+    }, Preferences.antialiasing);
+    createPrefItemCheckbox('Stats Counter', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
+      Preferences.debugDisplay = value;
+      yeahBf(value);
+    }, Preferences.debugDisplay);
     #if web
     createPrefItemCheckbox('Unlocked Framerate', 'Enable to unlock the framerate', function(value:Bool):Void {
       Preferences.unlockedFramerate = value;
@@ -269,14 +269,15 @@ class PreferencesMenu extends Page
       Preferences.naughtyness = value;
       yeahBf(value);
     }, Preferences.naughtyness);
-    createPrefItemCheckbox('Stats Counter', 'Enable to show FPS and other debug stats', function(value:Bool):Void {
-      Preferences.debugDisplay = value;
-      yeahBf(value);
-    }, Preferences.debugDisplay);
     createPrefItemCheckbox('Auto Pause', 'Enable so it automatically pauses the game when it loses focus', function(value:Bool):Void {
       Preferences.autoPause = value;
       yeahBf(value);
     }, Preferences.autoPause);
+    #if (desktop || web)
+    createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
+      Preferences.autoFullscreen = value;
+    }, Preferences.autoFullscreen);
+    #end
     #if mobile
     createPrefItemCheckbox('Allow Screen Timeout', "Enable to let the device sleep on its own while\nin the game", function(value:Bool):Void {
       Preferences.screenTimeout = value;
