@@ -261,7 +261,7 @@ class DebugBoundingState extends FlxState
       @:privateAccess
       if (!LimeAssets.libraryPaths.exists(library)) throw "Missing library: " + library;
 
-      var callback = callbacks.add("library:" + library);
+      // var callback = callbacks.add("library:" + library);
       Assets.loadLibrary(library).onComplete((_) -> {
         trace('LOADED... awesomeness...');
         // callback();
