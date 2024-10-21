@@ -13,20 +13,20 @@
       "animations": []
     }
   ],
-  "cameraZoom": 0.9,
+  "cameraZoom": 0.75,
   "version": "1.0.0",
   "characters": {
     "bf": {
       "zIndex": 300,
       "position": [977.5, 865],
-      "cameraOffsets": [-170, -140]
+      "cameraOffsets": [-190, -140]
     },
     "dad": {
       "zIndex": 200,
       "position": [40, 850],
-      "cameraOffsets": [270, -100]
+      "cameraOffsets": [250, -100]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [501.5, 800] }
+    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [475, 800] }
   },
   "name": "The White Void",
   "directory": "week1"
