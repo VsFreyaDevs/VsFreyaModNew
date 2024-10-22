@@ -43,5 +43,6 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [ ] Backspace crashes in the input offset menu
 - [ ] [Some menus open in a very weird way when opening the debug selection menu](https://github.com/FunkinCrew/Funkin/issues/2438)
 - [ ] DJ Boyfriend/Pico flickering, for some reason
+- [ ] Characters don't apply to camera movement, for some reason
 - [ ] `Save` doesn't detect any data in the save file; causing it to not load
 - [ ] [Characters in the Character Select menu don't play their confirm animations if you select mid-transition too fast](https://github.com/FunkinCrew/Funkin/issues/3730)
