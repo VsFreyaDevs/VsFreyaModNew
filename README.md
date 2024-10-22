@@ -7,7 +7,7 @@
 A kitsune version of BF was walking in the kit world when he stumbles upon [FreyaFennec_foxes](https://www.youtube.com/@Freyafennec_foxes1.0) and her crew. Turns out this version of BF is actually a Freya hater and simps for [Mika_kit](https://www.youtube.com/@Mika_Kit162). He rap battles them under one condition: if he wins, he kills her.
 
 ## Kitsune Engine
-Kitsune Engine is a fork of [Friday Night Funkin'](https://github.com/FunkinCrew/Funkin) made to fix some problems the base game had while keeping the casual aspect of said game.
+Kitsune Engine is a fork of [Friday Night Funkin' (v0.5.x+)](https://github.com/FunkinCrew/Funkin) made to fix some problems the base game had while keeping the casual aspect of said game.
 
 Kitsune Engine is an *engine* that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
 

@@ -485,9 +485,9 @@ which would remove their rank if they had a lower one.
 * New visually enhanced Freeplay menu.
   * Sorting, favorites, and more.
 * New Results screen upon completing any song or story level.
-* New refactored Chart Editor prototype (accessible via `~` in the main menu or `7` in the Play State, rebindable). (VERY EARLY PROTOTYPE. EXPECT BUGS AND CRASHES)
+* New refactored Chart Editor prototype (accessible via `3` in the main menu or `7` in the `PlayState`, rebindable). (VERY EARLY PROTOTYPE. EXPECT BUGS AND CRASHES)
 * Implemented a new scripting system using HScript (an interpreted language with Haxe-like syntax) for incredible flexibility.
-  * All character-specific, stage-specific, or song-specific behaviors have been moved to HScript.
+  * All character-specific, stage-specific, or song-specific behaviors have been moved to HScript (TODO: add lua???).
 * New song events system allows for simple customization of camera behavior.
   * Mods can implement custom song events via HScript, and new built-in song events will come in the future.
 * New credits menu to list all the dozens of people who contributed.
@@ -500,8 +500,8 @@ which would remove their rank if they had a lower one.
 * Dedicated gamepad support with the ability to rebind buttons.
 * Improvements to video cutscenes and dialogue, allowing them to be easily skipped or restarted.
 * Updated Polymod by several major versions, allowing for fully dynamic asset replacement and support for scripted classes.
-* Completely refactored almost every part of the game's code for performance, stability, and extensibility.
-  * This is not the Ludem Dare game held together with sticks and glue you played three years ago.
+* Completely refactored almost every part of the game's code for performance, stability, (*cough cough* its not as much perfomant as what older versions got, hopefully the final build of the freya mod will fix it all :D) and extensibility.
+  * This is not the Ludum Dare game held together with sticks and glue you played three years ago.
 * Characters, stages, songs, story levels, and dialogue are now built from JSON data registries rather than being hardcoded.
   * All of these also support attaching scripts for custom behavior, more documentation on this soon.
   * You can forcibly reload the game's JSON data and scripts by pressing F5.

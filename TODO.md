@@ -11,6 +11,7 @@ some stuff i finna add eventually/soon lol
   - [ ] Unhardcode offsets for TitleState
   - [ ] Unhardcode more of the intro besides `introText.txt`
 - [ ] Finish credits list menu
+- [ ] MODCHARTING!!!! (cuz yes)
 - [ ] Extra key support
 - [ ] WEGA NOTETYPE!!!!!!!!
 - [ ] Improve caching for sprites and audio
@@ -19,7 +20,7 @@ some stuff i finna add eventually/soon lol
 - [ ] .GIF & .SVG support via `flxgif` and some SVG library for `flixel` idk
 - [ ] Haxe 4.2.x support (and maybe 5.0.0 support??)
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
-- [ ] EXPERIMENTAL Lua support (will be barebones and specifically for modcharting, since it isn't the main focus of the engine like Psych's)
+- [ ] EXPERIMENTAL Lua support (for modcharting only, since it isn't the main focus of the engine like Psych's)
 
 # ENHANCEMENTS FROM ISSUES
 - [x] [Add parallax/scrolling properties to CharacterData](https://github.com/FunkinCrew/Funkin/issues/3719)

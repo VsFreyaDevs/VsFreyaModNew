@@ -211,7 +211,7 @@
       "name": "polymod",
       "type": "git",
       "dir": null,
-      "ref": "0fbdf27fe124549730accd540cec8a183f8652c0",
+      "ref": "experiment/static-fields",
       "url": "https://github.com/larsiusprime/polymod"
     },
     {
