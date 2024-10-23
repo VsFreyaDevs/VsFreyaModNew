@@ -7,6 +7,7 @@ body:
     attributes:
       label: Issue Checklist
       options:
+        - label: Have you got the issue title right?
         - label: Have you checked the Issues/Discussions to see if this hasn't been reported yet?
         - label: Have you tried redownloading the mod/engine?
         - label: Have you tried disabling every mod?

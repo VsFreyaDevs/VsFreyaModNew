@@ -7,8 +7,11 @@ body:
     attributes:
       label: Issue Checklist
       options:
-        - label: I have properly named the issue
-        - label: I have checked the issues pages to see if the issue has been previously reported
+        - label: Have you got the issue title right?
+        - label: Have you checked the Issues/Discussions to see if this hasn't been reported yet?
+        - label: Have you tried redownloading the mod/engine?
+        - label: Have you tried disabling every mod?
+        - label: Have you tried reproducing this issue on a fresh install of Vs. Freya?
 
   - type: dropdown
     attributes:

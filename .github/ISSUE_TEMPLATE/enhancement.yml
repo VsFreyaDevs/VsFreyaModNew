@@ -7,8 +7,8 @@ body:
     attributes:
       label: Issue Checklist
       options:
-        - label: I have properly named the enhancement
-        - label: I have checked the issues pages to see if the enhancement has been previously suggested
+        - label: Have you got the issue title right?
+        - label: Have you checked the Issues/Discussions to see if this hasn't been previously suggested yet?
 
   - type: textarea
     attributes:
