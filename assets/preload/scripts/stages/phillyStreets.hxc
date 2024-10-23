@@ -34,8 +34,8 @@ class PhillyStreetsStage extends Stage
 	var rainShaderStartIntensity:Float;
 	var rainShaderEndIntensity:Float;
 
-	// var rainSndAmbience:FunkinSound;
-	// var carSndAmbience:FunkinSound;
+	var rainSndAmbience:FunkinSound;
+	var carSndAmbience:FunkinSound;
 
 	var lightsStop:Bool = false; // state of the traffic lights
 	var lastChange:Int = 0;
@@ -109,22 +109,22 @@ class PhillyStreetsStage extends Stage
 
 	override function onCountdownEnd(event:ScriptEvent) {
 		super.onCountdownEnd(event);
-		// carSndAmbience.volume = 0.1;
+		carSndAmbience.volume = 0.1;
 	}
 
 	override function onCreate(event:ScriptEvent):Void
 	{
 		super.onCreate(event);
 
-		// rainSndAmbience = FunkinSound.load(Paths.sound("rainAmbience", "weekend1"), true, false, true);
-		// rainSndAmbience.volume = 0;
-		// rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
+		rainSndAmbience = FunkinSound.load(Paths.sound("rainAmbience", "weekend1"), true, false, true);
+		rainSndAmbience.volume = 0;
+		rainSndAmbience.play(false, FlxG.random.float(0, rainSndAmbience.length));
 
-		// carSndAmbience = FunkinSound.load(Paths.sound("carAmbience", "weekend1"), true, false, true);
-		// carSndAmbience.volume = 0;
-		// carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
+		carSndAmbience = FunkinSound.load(Paths.sound("carAmbience", "weekend1"), true, false, true);
+		carSndAmbience.volume = 0;
+		carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
 
-		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 
 		FlxG.console.registerObject("rainShader", rainShader);
@@ -178,8 +178,8 @@ class PhillyStreetsStage extends Stage
 		if (cars2 != null) FlxTween.cancelTweensOf(cars2);
 
 		// Fully stop ambiance.
-		// if (rainSndAmbience != null) rainSndAmbience.stop();
-		// if (carSndAmbience != null) carSndAmbience.stop();
+		if (rainSndAmbience != null) rainSndAmbience.stop();
+		if (carSndAmbience != null) carSndAmbience.stop();
 	}
 
 	/**
@@ -204,7 +204,7 @@ class PhillyStreetsStage extends Stage
     {
       ease: FlxEase.sineIn,
 			startDelay: startdelay,
-			onComplete: function(_) {
+			onComplete: (_) -> {
             carInterruptable = true;
       }
     });
@@ -377,6 +377,19 @@ class PhillyStreetsStage extends Stage
 	{
 		super.onUpdate(event);
 
+		// Only do raindrop sound effects on the first song, darnell, for light droplet sounds
+		if (PlayState.instance.currentSong.id == "darnell" && rainCanPlay)
+		{
+			rainDropTimer += event.elapsed;
+			if (rainDropTimer > rainDropWait)
+			{
+				rainDropTimer = 0;
+				FlxG.sound.play(Paths.sound("raindrops/raindrop" + FlxG.random.int(1, 16), "weekend1"), FlxG.random.float(0.3, 0.6));
+				var dropVolIntensity:Float = rainShader != null ? rainShader.intensity : 0;
+				rainDropWait = FlxG.random.float(0.5 * (dropVolIntensity * 10), 10 * (dropVolIntensity * 10));
+			}
+		}
+
 		var remappedIntensityValue:Float = rainShaderStartIntensity;
 		if (FlxG.sound.music != null)
 			remappedIntensityValue = FlxMath.remapToRange(Conductor.instance.songPosition, 0, FlxG.sound.music.length, rainShaderStartIntensity, rainShaderEndIntensity);
@@ -386,9 +399,7 @@ class PhillyStreetsStage extends Stage
 
 		if(scrollingSky != null) scrollingSky.scrollX -= FlxG.elapsed * 22;
 
-		// if (rainSndAmbience != null) {
-		// 	rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
-		// }
+		if (rainSndAmbience != null) rainSndAmbience.volume = Math.min(0.3, remappedIntensityValue * 2);
 	}
 
 	function onBeatHit(event:SongTimeScriptEvent)
@@ -434,12 +445,8 @@ class PhillyStreetsStage extends Stage
 		pauseCars();
 
 		// Temporarily stop ambiance.
-		// if (rainSndAmbience != null) {
-		// 	rainSndAmbience.pause();
-		// }
-		// if (carSndAmbience != null) {
-		// 	carSndAmbience.pause();
-		// }
+		if (rainSndAmbience != null) rainSndAmbience.pause();
+		if (carSndAmbience != null) carSndAmbience.pause();
 	}
 
 	public override function onResume(event:ScriptEvent) {
@@ -448,8 +455,8 @@ class PhillyStreetsStage extends Stage
 		resumeCars();
 
 		// Temporarily stop ambiance.
-		// if (rainSndAmbience != null) rainSndAmbience.resume();
-		// if (carSndAmbience != null) carSndAmbience.resume();
+		if (rainSndAmbience != null) rainSndAmbience.resume();
+		if (carSndAmbience != null) carSndAmbience.resume();
 	}
 
 	function pauseCars():Void {
