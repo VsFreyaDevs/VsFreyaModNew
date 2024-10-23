@@ -67,10 +67,7 @@ class LoadingState extends MusicBeatSubState
       if (playParams != null)
       {
         // Load and cache the song's charts.
-        if (playParams.targetSong != null)
-        {
-          playParams.targetSong.cacheCharts(true);
-        }
+        if (playParams.targetSong != null) playParams.targetSong.cacheCharts(true);
 
         // Preload the song for the play state.
         var difficulty:String = playParams.targetDifficulty ?? Constants.DEFAULT_DIFFICULTY;
@@ -144,15 +141,11 @@ class LoadingState extends MusicBeatSubState
 
     funkay.setGraphicSize(Std.int(FlxMath.lerp(FlxG.width * 0.88, funkay.width, 0.9)));
     funkay.updateHitbox();
-    // funkay.updateHitbox();
 
     if (controls.ACCEPT)
     {
       funkay.setGraphicSize(Std.int(funkay.width + 60));
       funkay.updateHitbox();
-      // funkay.setGraphicSize(0, Std.int(funkay.height + 50));
-      // funkay.updateHitbox();
-      // funkay.screenCenter();
     }
 
     if (callbacks != null)
@@ -193,15 +186,11 @@ class LoadingState extends MusicBeatSubState
       FlxG.state.openSubState(cast target);
     }
     else
-    {
       FlxG.switchState(target);
-    }
   }
 
   static function getSongPath():String
-  {
     return Paths.inst(PlayState.instance.currentSong.id);
-  }
 
   static var stageDirectory:String = "shared";
 
