@@ -226,14 +226,21 @@
     "bf": {
       "zIndex": 100,
       "position": [1090.5, 885],
-      "cameraOffsets": [-220, -100]
+      "cameraOffsets": [-220, -100],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 100,
       "position": [230.5, 996],
-      "cameraOffsets": [250, -100]
+      "cameraOffsets": [250, -100],
+      "scroll": [1, 1]
     },
-    "gf": { "zIndex": 100, "position": [660.5, 715], "cameraOffsets": [0, 0] }
+    "gf": {
+      "zIndex": 100,
+      "position": [660.5, 715],
+      "cameraOffsets": [0, 0],
+      "scroll": [1, 1]
+    }
   },
   "directory": "week7"
 }

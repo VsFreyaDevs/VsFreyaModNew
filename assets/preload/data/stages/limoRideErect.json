@@ -350,17 +350,20 @@
     "bf": {
       "zIndex": 300,
       "position": [1217.5, 592],
-      "cameraOffsets": [-300, -100]
+      "cameraOffsets": [-300, -100],
+      "scroll": [1, 1]
     },
     "gf": {
       "zIndex": 100,
       "position": [787, 779],
-      "cameraOffsets": [0, 0]
+      "cameraOffsets": [0, 0],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 200,
       "position": [329.5, 913],
-      "cameraOffsets": [150, 0]
+      "cameraOffsets": [150, 0],
+      "scroll": [1, 1]
     }
   },
   "name": "Limo Ride [Erect]",

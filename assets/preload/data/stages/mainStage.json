@@ -43,17 +43,20 @@
     "bf": {
       "zIndex": 300,
       "position": [989.5, 885],
-      "cameraOffsets": [-100, -100]
+      "cameraOffsets": [-100, -100],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 200,
       "position": [335, 885],
-      "cameraOffsets": [150, -100]
+      "cameraOffsets": [150, -100],
+      "scroll": [1, 1]
     },
     "gf": {
       "zIndex": 100,
       "cameraOffsets": [0, 0],
-      "position": [751.5, 787]
+      "position": [751.5, 787],
+      "scroll": [1, 1]
     }
   },
   "name": "Main Stage",

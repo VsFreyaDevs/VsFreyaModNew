@@ -105,13 +105,20 @@
     "bf": {
       "zIndex": 300,
       "position": [1177.5, 871],
-      "cameraOffsets": [-300, -200]
+      "cameraOffsets": [-300, -200],
+      "scroll": [1, 1]
     },
-    "gf": { "zIndex": 100, "position": [808.5, 854], "cameraOffsets": [0, 0] },
+    "gf": {
+      "zIndex": 100,
+      "position": [808.5, 854],
+      "cameraOffsets": [0, 0],
+      "scroll": [1, 1]
+    },
     "dad": {
       "zIndex": 200,
       "position": [42, 882],
-      "cameraOffsets": [150, -100]
+      "cameraOffsets": [150, -100],
+      "scroll": [1, 1]
     }
   },
   "directory": "week5"

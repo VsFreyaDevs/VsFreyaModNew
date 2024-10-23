@@ -289,7 +289,8 @@
     "dad": {
       "zIndex": 350,
       "position": [920, 1310],
-      "cameraOffsets": [500, -100]
+      "cameraOffsets": [500, -100],
+      "scroll": [1, 1]
     }
   },
   "name": "Philly (Streets) [Erect]",

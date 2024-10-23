@@ -144,14 +144,21 @@
     "bf": {
       "zIndex": 300,
       "position": [977.5, 865],
-      "cameraOffsets": [-170, -140]
+      "cameraOffsets": [-170, -140],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 200,
       "position": [40, 850],
-      "cameraOffsets": [270, -100]
+      "cameraOffsets": [270, -100],
+      "scroll": [1, 1]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [501.5, 825] }
+    "gf": {
+      "zIndex": 100,
+      "cameraOffsets": [0, 0],
+      "position": [501.5, 825],
+      "scroll": [1, 1]
+    }
   },
   "name": "Main Stage [Erect]",
   "directory": "week1"

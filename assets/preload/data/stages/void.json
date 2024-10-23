@@ -19,14 +19,21 @@
     "bf": {
       "zIndex": 300,
       "position": [977.5, 865],
-      "cameraOffsets": [-190, -140]
+      "cameraOffsets": [-190, -140],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 200,
       "position": [40, 850],
-      "cameraOffsets": [250, -100]
+      "cameraOffsets": [250, -100],
+      "scroll": [1, 1]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [475, 800] }
+    "gf": {
+      "zIndex": 100,
+      "cameraOffsets": [0, 0],
+      "position": [475, 800],
+      "scroll": [1, 1]
+    }
   },
   "name": "The White Void",
   "directory": "week1"

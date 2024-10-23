@@ -161,14 +161,21 @@
     "bf": {
       "zIndex": 300,
       "cameraOffsets": [-200, -100],
-      "position": [1139, 908]
+      "position": [1139, 908],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 200,
       "cameraOffsets": [160, 0],
-      "position": [525, 1044]
+      "position": [525, 1044],
+      "scroll": [1, 1]
     },
-    "gf": { "zIndex": 100, "cameraOffsets": [0, 0], "position": [840, 866] }
+    "gf": {
+      "zIndex": 100,
+      "cameraOffsets": [0, 0],
+      "position": [840, 866],
+      "scroll": [1, 1]
+    }
   },
   "name": "School (Date)",
   "directory": "week6"

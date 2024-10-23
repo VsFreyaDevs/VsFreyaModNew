@@ -257,17 +257,20 @@
     "bf": {
       "zIndex": 400,
       "position": [2151, 1228],
-      "cameraOffsets": [-350, -100]
+      "cameraOffsets": [-350, -100],
+      "scroll": [1, 1]
     },
     "gf": {
       "zIndex": 300,
       "position": [1453, 1100],
-      "cameraOffsets": [0, 0]
+      "cameraOffsets": [0, 0],
+      "scroll": [1, 1]
     },
     "dad": {
       "zIndex": 350,
       "position": [920, 1310],
-      "cameraOffsets": [500, -100]
+      "cameraOffsets": [500, -100],
+      "scroll": [1, 1]
     }
   },
   "name": "Philly (Streets)",
