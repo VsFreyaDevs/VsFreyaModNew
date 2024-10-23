@@ -14,11 +14,15 @@ body:
     attributes:
       label: What platform are you using?
       options:
-        - GitHub Actions - Windows
-        - GitHub Actions - HTML5
-        - GitHub Actions - Linux
-        - GitHub Actions - Android
-        - GitHub Actions - iOS
+        - Windows (x64)
+        - Windows (x86)
+        - MacOS
+        - Linux
+        - Android
+        - iOS
+        - HTML5
+        - HashLink
+        - Other
     validations:
       required: true
 
@@ -27,31 +31,29 @@ body:
       label: If you are playing on a browser, which one are you using?
       options:
         - Google Chrome
+        - Chromium (Vanilla)
         - Microsoft Edge
         - Firefox
         - Opera
+        - Opera GX
+        - Brave
         - Safari
         - Other (Specify below)
-
-  - type: input
-    attributes:
-      label: Version
-      description: What version are you using?
-      placeholder: ex. 0.4.1
+        - BUT I AM PLAYING ON DESKTOP/PHONE, REALLY?????
     validations:
-      required: true
-
- - type: markdown
-    attributes:
-      value: "## Describe the bug."
+      required: false
 
   - type: markdown
     attributes:
-      value: "#### Remember to provide as many details as you can."
+      value: "## Describe the bug in detail."
+
+  - type: markdown
+    attributes:
+      value: "#### Remember to provide as many details as you can, we ain't no mind readers bud."
 
   - type: textarea
     attributes:
-      label: Some context (Provide screenshots or videos of the crash happening)
+      label: Context (Provide screenshots or videos of the crash happening)
 
   - type: textarea
     attributes:
@@ -61,6 +63,6 @@ body:
 
   - type: textarea
     attributes:
-      label: Crash logs (can be found in the logs folder where "Funkin.exe" is)
+      label: Crash logs (can be found in the logs folder where the "Funkin.exe" file is)
     validations:
       required: true

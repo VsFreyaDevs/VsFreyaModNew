@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug or an issue in the game.
+description: Report a bug/issue in the mod/game.
 labels: ["bug", "pending triage"]
 title: "[BUG REPORT] - "
 body:
@@ -7,20 +7,23 @@ body:
     attributes:
       label: Issue Checklist
       options:
-        - label: I have properly named the issue
-        - label: I have checked the issues pages to see if the issue has been previously reported
-
+        - label: Have you checked the Issues/Discussions to see if this hasn't been reported yet?
+        - label: Have you tried redownloading the mod/engine?
+        - label: Have you tried disabling every mod?
+        - label: Have you tried reproducing this issue on a fresh install of Vs. Freya?
   - type: dropdown
     attributes:
       label: What platform are you using?
       options:
-        - Windows
+        - Windows (x64)
+        - Windows (x86)
         - MacOS
         - Linux
         - Android
         - iOS
         - HTML5
-        - Other (Neko, HashLink, Flash, AIR, etc.)
+        - HashLink
+        - Other
     validations:
       required: true
 
@@ -29,9 +32,12 @@ body:
       label: If you are playing on a browser, which one are you using?
       options:
         - Google Chrome
+        - Chromium (Vanilla)
         - Microsoft Edge
         - Firefox
         - Opera
+        - Opera GX
+        - Brave
         - Safari
         - Other (Specify below)
         - BUT I AM PLAYING ON DESKTOP/PHONE, REALLY?????
@@ -40,15 +46,15 @@ body:
 
   - type: markdown
     attributes:
-      value: "## Describe the bug."
+      value: "## Describe the bug in detail."
 
   - type: markdown
     attributes:
-      value: "#### Remember to provide as many details as you can."
+      value: "#### Remember to provide as many details as you can, we ain't no mind readers bud."
 
   - type: textarea
     attributes:
-      label: Some context (Provide images, videos, etc.)
+      label: Context (Provide images, videos, etc.)
     validations:
       required: false
 
