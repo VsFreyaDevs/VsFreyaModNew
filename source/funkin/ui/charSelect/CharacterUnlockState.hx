@@ -107,7 +107,7 @@ class CharacterUnlockState extends MusicBeatState
   function handleMusic():Void
   {
     FlxG.sound.music?.stop();
-    FunkinSound.playOnce(Paths.sound('confirmMenu'));
+    funkin.audio.FunkinSound.playOnce(Paths.sound('confirmMenu'));
   }
 
   override function update(elapsed:Float):Void
