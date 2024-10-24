@@ -830,7 +830,7 @@ class CharSelectSubState extends MusicBeatSubState
 
             grpCursors.visible = false;
 
-            FlxG.sound.play(Paths.sound('CS_confirm'));
+            FunkinSound.playOnce(Paths.sound('CS_confirm'));
 
             FlxTween.tween(FlxG.sound.music, {pitch: 0.1}, 1, {ease: FlxEase.quadInOut});
             FlxTween.tween(FlxG.sound.music, {volume: 0.0}, 1.5, {ease: FlxEase.quadInOut});

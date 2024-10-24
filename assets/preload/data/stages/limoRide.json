@@ -15,6 +15,91 @@
       "animations": []
     },
     {
+      "zIndex": 15,
+      "position": [-750, -20],
+      "scale": [0.9, 0.9],
+      "alpha": 0.8,
+      "name": "bgPole1",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayPoleTall"
+    },
+    {
+      "zIndex": 15,
+      "position": [0, -20],
+      "scale": [0.9, 0.9],
+      "alpha": 0.8,
+      "name": "bgPole2",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayPoleTall"
+    },
+    {
+      "zIndex": 15,
+      "position": [750, -20],
+      "scale": [0.9, 0.9],
+      "alpha": 0.8,
+      "name": "bgPole3",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayPoleTall"
+    },
+    {
+      "zIndex": 15,
+      "position": [1500, -20],
+      "scale": [0.9, 0.9],
+      "alpha": 0.8,
+      "name": "bgPole4",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayPoleTall"
+    },
+    {
+      "zIndex": 15,
+      "position": [-750, -50],
+      "scale": [0.9, 0.9],
+      "name": "bgLight1",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayLight"
+    },
+    {
+      "zIndex": 15,
+      "position": [0, -50],
+      "scale": [0.9, 0.9],
+      "name": "bgLight2",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayLight"
+    },
+    {
+      "zIndex": 15,
+      "position": [750, -50],
+      "scale": [0.9, 0.9],
+      "name": "bgLight3",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayLight"
+    },
+    {
+      "zIndex": 15,
+      "position": [1500, -50],
+      "scale": [0.9, 0.9],
+      "name": "bgLight4",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayLight"
+    },
+    {
+      "zIndex": 15,
+      "position": [-2000, 250],
+      "scale": [1, 1],
+      "name": "boyfriendLightPole",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayPole"
+    },
+    {
       "zIndex": 20,
       "danceEvery": 0,
       "position": [-200, 480],

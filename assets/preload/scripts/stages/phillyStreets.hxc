@@ -384,7 +384,7 @@ class PhillyStreetsStage extends Stage
 			if (rainDropTimer > rainDropWait)
 			{
 				rainDropTimer = 0;
-				FlxG.sound.play(Paths.sound("raindrops/raindrop" + FlxG.random.int(1, 16), "weekend1"), FlxG.random.float(0.3, 0.6));
+				FunkinSound.playOnce(Paths.sound("raindrops/raindrop" + FlxG.random.int(1, 16), "weekend1"), FlxG.random.float(0.3, 0.6));
 				var dropVolIntensity:Float = rainShader != null ? rainShader.intensity : 0;
 				rainDropWait = FlxG.random.float(0.5 * (dropVolIntensity * 10), 10 * (dropVolIntensity * 10));
 			}
