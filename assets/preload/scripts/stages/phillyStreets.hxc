@@ -124,7 +124,7 @@ class PhillyStreetsStage extends Stage
 		carSndAmbience.volume = 0;
 		carSndAmbience.play(false, FlxG.random.float(0, carSndAmbience.length));
 
-		rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
+		// rainShader.puddleMap = Assets.getBitmapData(Paths.image("phillyStreets/puddle"));
 		rainShader.scale = FlxG.height / 200; // adjust this value so that the rain looks nice
 
 		FlxG.console.registerObject("rainShader", rainShader);
