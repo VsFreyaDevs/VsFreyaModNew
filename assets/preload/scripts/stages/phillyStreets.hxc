@@ -372,6 +372,7 @@ class PhillyStreetsStage extends Stage
 
 	var rainDropTimer:Float = 0;
 	var rainDropWait:Float = 6;
+var rainCanPlay:Bool = true;
 
 	override function onUpdate(event:UpdateScriptEvent)
 	{
