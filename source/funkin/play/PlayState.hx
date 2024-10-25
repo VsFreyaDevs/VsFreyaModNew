@@ -2790,6 +2790,9 @@ class PlayState extends MusicBeatSubState
 
   var latencyTween:FlxTween;
 
+  var score:Int;
+  var daRating:String;
+
   function goodNoteHit(note:NoteSprite, input:PreciseInputEvent):Void
   {
     // Calculate the input latency (do this as late as possible).
@@ -2802,8 +2805,27 @@ class PlayState extends MusicBeatSubState
     // Round inward (trim remainder) for consistency.
     var noteDiff:Int = Std.int(Conductor.instance.songPosition - note.noteData.time - inputLatencyMs + Conductor.instance.inputOffset);
     var latency:Float = (Conductor.instance.songPosition - note.noteData.time - inputLatencyMs);
-    var score = Scoring.scoreNote(noteDiff, PBOT1);
-    var daRating = Scoring.judgeNote(noteDiff, PBOT1);
+
+    try
+    {
+      switch (Preferences.inputSystem)
+      {
+        case 'legacy':
+          score = Scoring.scoreNote(noteDiff, LEGACY);
+          daRating = Scoring.judgeNote(noteDiff, LEGACY);
+        case 'tankman':
+          score = Scoring.scoreNote(noteDiff, WEEK7);
+          daRating = Scoring.judgeNote(noteDiff, WEEK7);
+        default:
+          score = Scoring.scoreNote(noteDiff, PBOT1);
+          daRating = Scoring.judgeNote(noteDiff, PBOT1);
+      }
+    }
+    catch (e)
+    {
+      score = Scoring.scoreNote(noteDiff, PBOT1);
+      daRating = Scoring.judgeNote(noteDiff, PBOT1);
+    }
 
     if (Preferences.showTimings)
     {

@@ -174,6 +174,14 @@ class PreferencesMenu extends Page
         yeahBf(value);
       }, Preferences.ghostTapping);
     #end
+    createPrefItemEnum('Input System', 'Choose an input system that would be used when scoring and judging notes', [
+      InputSystemType.Pbot => "P.B.O.T.",
+      InputSystemType.Week7 => "Week 7",
+      InputSystemType.Legacy => "Legacy" // InputSystemType.Psych => "Psych Engine"
+      // InputSystemType.Kade => "Kade Engine"
+    ], function(value:String):Void {
+      Preferences.inputSystem = value;
+    }, Preferences.inputSystem);
     createPrefItemCheckbox('Bad/Shits as Combo Breaks',
       'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
         Preferences.badsShitsCauseMiss = value;

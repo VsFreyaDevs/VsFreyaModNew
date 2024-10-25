@@ -95,6 +95,7 @@ class Save
           noteHitSound: NoteHitSoundType.None,
           noteHitSoundVolume: 100,
           noteSplash: true,
+          inputSystem: InputSystemType.Pbot,
           naughtyness: true,
           downscroll: false,
           middlescroll: false,
@@ -104,7 +105,6 @@ class Save
           antialiasing: true,
           flashingLights: true,
           zoomCamera: true,
-          // timeBar: true,
           judgeCounter: true,
           comboHUD: true,
           extraScoreText: true,
@@ -1347,6 +1347,13 @@ typedef SaveDataOptions =
    * @default `false`
    */
   var middlescroll:Bool;
+
+  /**
+   * The input system, self-explanatory.
+   * Legacy, Week 7, and P.B.O.T. (stands for `Points Based on Timing`)
+   * @default `"pbot"`
+   */
+  var inputSystem:String;
 
   #if FEATURE_GHOST_TAPPING
   /**

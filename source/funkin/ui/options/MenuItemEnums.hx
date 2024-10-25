@@ -1,6 +1,7 @@
 package funkin.ui.options;
 
 // Add enums for use with `EnumPreferenceItem` here!
+
 /* Example:
   class MyOptionEnum
   {
@@ -21,4 +22,11 @@ class NoteHitSoundType
   public static inline var DiscordPing = "discordPing";
   public static inline var IndieCross = "indieCross";
   public static inline var VineBoom = "vineBoom";
+}
+
+class InputSystemType
+{
+  public static inline var Pbot = "pbot";
+  public static inline var Week7 = "tankman";
+  public static inline var Legacy = "Legacy";
 }

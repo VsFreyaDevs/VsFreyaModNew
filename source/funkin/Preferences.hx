@@ -65,6 +65,26 @@ class Preferences
   }
 
   /**
+   * The input system, self-explanatory.
+   * Legacy, Week 7, and P.B.O.T. (stands for `Points Based on Timing`)
+   * @default `"pbot"`
+   */
+  public static var inputSystem(get, set):String;
+
+  static function get_inputSystem():String
+  {
+    return Save?.instance?.options?.inputSystem;
+  }
+
+  static function set_inputSystem(value:String):String
+  {
+    var save:Save = Save.instance;
+    save.options.inputSystem = value;
+    save.flush();
+    return value;
+  }
+
+  /**
    * The volume of the click sound that would play whenever a note gets hit.
    * @default `100`
    */
