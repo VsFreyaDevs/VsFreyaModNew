@@ -53,7 +53,11 @@ class Main extends Sprite
   var startFullscreen:Bool = false; // Whether to start the game in fullscreen on desktop targets
 
   // You can pretty much ignore everything from here on - your code should go in your states.
+  #if !web
   public static var lightMode:Bool = Sys.args().contains("-lightui");
+  #else
+  public static var lightMode:Bool = false;
+  #end
 
   // You can pretty much ignore everything from here on - your code should go in your states.
   // [ * -- INTERNAL VARIABLES - PLS DONT TOUCH THEM! -- * ] //
