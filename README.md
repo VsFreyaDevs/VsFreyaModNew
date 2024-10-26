@@ -11,14 +11,14 @@ Kitsune Engine is a fork of [Friday Night Funkin' (v0.5.x+)](https://github.com/
 
 Kitsune Engine is an *engine* that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
 
-* [Download builds for Windows, Mac, Linux, HTML5, iOS, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
+* [Download builds for Windows, Mac, Linux, iOS, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
 
 ### Supported Platforms
 
 - **Windows** (32-bit & 64-bit!)
 - **MacOS** (x86_64 and arm64 only)
 - **Linux**
-- **HTML5**
+- ~~**HTML5**~~
 - **Android** (arm64, armv7a, x86, and x86_64 only)
 - **iOS** (arm64 and simulator only)
 - ~~**Hashlink(?)**~~
