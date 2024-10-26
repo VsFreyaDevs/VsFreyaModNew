@@ -1,0 +1,142 @@
+{
+  "version": "1.0.0",
+
+  "backdrop": {
+    "type": "solid",
+    "fadeTime": 2.0,
+    "color": "#BFB3DFD8"
+  },
+
+  "music": {
+    "asset": "",
+    "fadeTime": 0,
+    "looped": false
+  },
+
+  "outro": {
+    "type": "fade",
+    "fadeTime": 1.0
+  },
+
+  "dialogue": [
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "enter",
+
+      "text": [
+        "haha i won the offer"
+      ]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "idle",
+
+      "text": [
+        "*pulls out a fucking AK-47*", "\nnow YOU die.."
+      ]
+    },
+    {
+      "speaker": "freya",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "idle",
+
+      "text": [
+        "Oh shi-"
+      ]
+    },
+    {
+      "speaker": "milky",
+      "speakerAnimation": "angy",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["HEY!!!", "\nWhat in the fuck do ya think ya be doing?"]
+    },
+    {
+      "speaker": "kanimate",
+      "speakerAnimation": "kkkkk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["You're not killing Freya, not even on Milky's watch!"]
+    },
+    {
+      "speaker": "milky",
+      "speakerAnimation": "shocked",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["GOD DAMN-"]
+    },
+    {
+      "speaker": "kanimate",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Hey, I mean you guys are TECHNICALLY dating, so I can't blame myself."]
+    },
+    {
+      "speaker": "milky",
+      "speakerAnimation": "bruh",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Fair."]
+    },
+    {
+      "speaker": "milky",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Anyways uhh yeah, rap me, then him.", "\nand we get to decide if you kill her or not."]
+    },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "scared",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["Deal?"]
+    }
+{
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["mf-"]
+    },
+{
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["ugh fine...", "\ndeal"]
+    },
+{
+      "speaker": "bf-kit",
+      "speakerAnimation": "talk",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["yall still gonna be dead meat tho-"]
+    },
+{
+      "speaker": "milky",
+      "speakerAnimation": "realize",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": ["..."],
+"speed": 0.6
+    },
+  ]
+}
