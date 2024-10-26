@@ -272,7 +272,8 @@ class ChartEditorGenerateChartDialog extends ChartEditorBaseDialog
     var bytes:Bytes = sys.io.File.getBytes(path.toString());
     return loadMidiFromBytes(bytes);
     #else
-    throw "stop trying to put midi files onto the chart editor, this platform doesnt support lol, bye" return null;
+    throw "stop trying to put midi files onto the chart editor, this platform doesnt support lol, bye";
+    return null;
     #end
   }
 
