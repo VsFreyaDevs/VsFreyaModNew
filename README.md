@@ -18,7 +18,7 @@ Kitsune Engine is an *engine* that's basically like those old engines from 2021-
 - **Windows** (32-bit & 64-bit!)
 - **MacOS** (x86_64 and arm64 only)
 - **Linux**
-**HTML5**
+- **HTML5**
 - **Android** (arm64, armv7a, x86, and x86_64 only)
 - **iOS** (arm64 and simulator only)
 - ~~**Hashlink(?)**~~
