@@ -22,6 +22,15 @@ class PolymodMacro
     Context.onAfterTyping((types) -> {
       if (alreadyCalled) return;
 
+      var sortedAbstractClasses:Array<String> = [];
+
+      for (abstractCls in abstractClasses)
+      {
+        if (abstractCls.startsWith('!')) sortedAbstractClasses.insert(0, abstractCls);
+        else
+          sortedAbstractClasses.push(abstractCls);
+      }
+
       var aliases:Map<String, String> = new Map<String, String>();
 
       for (type in types)
@@ -32,14 +41,26 @@ class PolymodMacro
             var cls = a.get();
             for (abstractCls in abstractClasses)
             {
-              if (!cls.module.startsWith(abstractCls.replace('.*', ''))
-                && cls.module + cls.name != abstractCls
-                && cls.pack.join('.') + '.' + cls.name != abstractCls) continue;
-              aliases.set('${cls.pack.join('.')}.${cls.name}', 'polymod.abstracts.${cls.pack.join('.')}.${cls.name}');
+              for (abstractCls in sortedAbstractClasses)
+              {
+                var negate:Bool = abstractCls.startsWith('!');
+                var name:String = abstractCls.replace('!', '').replace('.*', '');
+                if (!negate
+                  && !cls.module.startsWith(name)
+                  && cls.module + cls.name != name
+                  && cls.pack.join('.') + '.' + cls.name != name) continue;
+                else if (negate)
+                {
+                  if (cls.module.startsWith(name) || cls.module + cls.name == name || cls.pack.join('.') + '.' + cls.name == name) break;
+                  else
+                    continue;
+                }
+                aliases.set('${cls.pack.join('.')}.${cls.name}', 'polymod.abstracts.${cls.pack.join('.')}.${cls.name}');
 
-              buildAbstract(cls);
+                buildAbstract(cls);
 
-              break;
+                break;
+              }
             }
           default:
             // do nothing
@@ -170,6 +191,7 @@ class PolymodMacro
           ret: (macro :Dynamic),
           expr: macro
           {
+            @:privateAccess
             return ${Context.parse(newExprStr + '(' + funcArgNames.join(', ') + ')', Context.currentPos())};
           },
         }),
