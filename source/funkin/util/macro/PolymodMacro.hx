@@ -10,53 +10,36 @@ using StringTools;
 
 class PolymodMacro
 {
-  public static macro function buildPolymodAbstracts():Void
+  public static macro function buildPolymodAbstracts(abstractClasses:Array<String>):Array<Field>
   {
-    Context.onAfterInitMacros(() -> {
-      var type = Context.getType('flixel.util.FlxColor');
-      switch (type)
-      {
-        case Type.TAbstract(t, _):
-          buildAbstract(t.get());
-        default:
-          throw 'BRUH';
-      }
+    var fields:Array<Field> = Context.getBuildFields();
 
-      var type = Context.getType('funkin.Paths.PathsFunction');
-
-      switch (type)
+    Context.onAfterTyping((types) -> {
+      for (type in types)
       {
-        case Type.TAbstract(t, _):
-          buildAbstract(t.get());
-        default:
-          throw 'abstracts be fucking us';
+        switch (type)
+        {
+          case ModuleType.TAbstract(a):
+            var cls = a.get();
+            for (abstractCls in abstractClasses)
+            {
+              if (!cls.module.startsWith(abstractCls.replace('.*', ''))
+                && cls.module + cls.name != abstractCls
+                && cls.pack.join('.') + '.' + cls.name != abstractCls)
+              {
+                continue;
+              }
+
+              trace(cls.module + '.' + cls.name);
+              break;
+            }
+          default:
+            // do nothing
+        }
       }
     });
-  }
 
-  public static macro function getAbstractAliases():ExprOf<Map<String, String>>
-  {
-    var abstractAliases:Map<String, String> = new Map<String, String>();
-    var abstractTypes = [
-      Context.getType('flixel.util.FlxColor'),
-      Context.getType('funkin.Paths.PathsFunction')
-    ];
-
-    for (abstractType in abstractTypes)
-    {
-      var type = switch (abstractType)
-      {
-        case Type.TAbstract(t, _):
-          t.get();
-        default:
-          throw 'abstracts be fucking us';
-      }
-
-      // should this use `type.module` insead of `type.pack`?
-      abstractAliases.set('${type.pack.join('.')}.${type.name}', 'polymod.abstracts.${type.pack.join('.')}.${type.name}');
-    }
-
-    return macro $v{abstractAliases};
+    return fields;
   }
 
   #if macro
