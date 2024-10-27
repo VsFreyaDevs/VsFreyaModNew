@@ -23,12 +23,10 @@ class PolymodMacro
             {
               if (!cls.module.startsWith(abstractCls.replace('.*', ''))
                 && cls.module + cls.name != abstractCls
-                && cls.pack.join('.') + '.' + cls.name != abstractCls)
-              {
-                continue;
-              }
+                && cls.pack.join('.') + '.' + cls.name != abstractCls) continue;
 
-              trace(cls.module + '.' + cls.name);
+              buildAbstract(cls);
+
               break;
             }
           default:
@@ -144,7 +142,7 @@ class PolymodMacro
           fieldParams.push(
             {
               name: param.name,
-              defaultType: Context.toComplexType(param.defaultType),
+              defaultType: param.defaultType != null ? Context.toComplexType(param.defaultType) : null,
             });
         }
 
@@ -161,6 +159,7 @@ class PolymodMacro
                 ret: Context.toComplexType(ret),
                 expr: macro
                 {
+                  @:privateAccess
                   return ${strExpr};
                 },
                 params: fieldParams
@@ -186,7 +185,7 @@ class PolymodMacro
           fieldParams.push(
             {
               name: param.name,
-              defaultType: Context.toComplexType(param.defaultType),
+              defaultType: param.defaultType != null ? Context.toComplexType(param.defaultType) : null,
             });
         }
 
@@ -203,6 +202,7 @@ class PolymodMacro
                 ret: actualType,
                 expr: macro
                 {
+                  @:privateAccess
                   return ${strExpr};
                 },
                 params: fieldParams
@@ -258,6 +258,7 @@ class PolymodMacro
                 ret: actualType,
                 expr: macro
                 {
+                  @:privateAccess
                   return ${strExpr};
                 },
                 params: []
