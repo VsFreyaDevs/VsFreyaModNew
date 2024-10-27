@@ -243,9 +243,6 @@ class PolymodHandler
     Polymod.addDefaultImport(flixel.text.FlxText);
     Polymod.addDefaultImport(flixel.util.FlxTimer);
 
-    Polymod.addDefaultImport(Type.resolveClass('flixel.util.FlxColor_HSC'), "flixel.util.FlxColor");
-    Polymod.addDefaultImport(Type.resolveClass('flixel.util.FlxColor_HSC'), "FlxColor");
-
     // Add import aliases for certain classes.
     // NOTE: Scripted classes are automatically aliased to their parent class.
     Polymod.addImportAlias('flixel.math.FlxPoint', flixel.math.FlxPoint.FlxBasePoint);
@@ -255,6 +252,9 @@ class PolymodHandler
     // `lime.utils.Assets` literally just has a private `resolveClass` function for some reason? so we replace it with our own.
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
+
+    for (key => value in funkin.util.macro.PolymodMacro.getAbstractAliases())
+      Polymod.addImportAlias(key, Type.resolveClass(value));
 
     // Add blacklisting for prohibited classes and packages.
 
@@ -333,6 +333,7 @@ class PolymodHandler
     output.addType('haxe', TextFileFormat.PLAINTEXT);
     output.addType('hxc', TextFileFormat.PLAINTEXT); // the main script ext lol!
     output.addType('hx', TextFileFormat.PLAINTEXT);
+    output.addType('lua', TextFileFormat.PLAINTEXT); // maybe later
     output.addType('script', TextFileFormat.PLAINTEXT);
 
     // You can specify the format of a specific file, with file extension.
@@ -344,8 +345,19 @@ class PolymodHandler
   {
     return {
       assetLibraryPaths: [
-        'default' => 'preload', 'fonts' => 'fonts', 'shared' => 'shared', 'songs' => 'songs', 'videos' => 'videos', 'tutorial' => 'tutorial',
-        'week1' => 'week1', 'week2' => 'week2', 'week3' => 'week3', 'week4' => 'week4', 'week5' => 'week5', 'week6' => 'week6', 'week7' => 'week7',
+        'default' => 'preload',
+        'fonts' => 'fonts',
+        'shared' => 'shared',
+        'songs' => 'songs',
+        'videos' => 'videos',
+        'tutorial' => 'tutorial',
+        'week1' => 'week1',
+        'week2' => 'week2',
+        'week3' => 'week3',
+        'week4' => 'week4',
+        'week5' => 'week5',
+        'week6' => 'week6',
+        'week7' => 'week7',
         'weekend1' => 'weekend1',
       ],
       coreAssetRedirect: CORE_FOLDER,
