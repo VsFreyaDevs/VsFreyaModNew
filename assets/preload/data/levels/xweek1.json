@@ -2,7 +2,25 @@
   "version": "1.0.0",
   "name": "FREYAFENNEC_FOXES",
   "titleAsset": "storymenu/titles/freya",
-  "props": [],
-  "background": "#413CAE",
+  "props": [
+{
+      "assetPath": "storymenu/props/freyabg",
+      "scale": 1.0,
+      "offsets": [150, 80],
+      "animations": [
+        {
+          "name": "idle",
+          "prefix": "idle0",
+          "frameRate": 24
+        },
+        {
+          "name": "confirm",
+          "prefix": "idle0",
+          "frameRate": 24
+        }
+      ]
+    }
+],
+  "background": "#F9CF51",
   "songs": ["freyin", "furrowed", "uzil"]
 }
