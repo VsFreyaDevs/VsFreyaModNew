@@ -57,9 +57,7 @@ class PlayAnimationSongEvent extends SongEvent
         targetChar.playAnimation(anim, force, force);
       }
       else
-      {
         target.animation.play(anim, force);
-      }
     }
   }
 
@@ -94,7 +92,7 @@ class PlayAnimationSongEvent extends SongEvent
       },
       {
         name: 'force',
-        title: 'Force',
+        title: 'Forced?',
         type: SongEventFieldType.BOOL,
         defaultValue: false
       }

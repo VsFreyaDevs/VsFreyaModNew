@@ -23,10 +23,12 @@ class CharacterSwitchEvent extends SongEvent
   public override function handleEvent(data:SongEventData):Void
   {
     if (PlayState.instance == null || PlayState.instance.currentStage == null) return;
+
     var targetName = data.getString('target');
     var toWho = data.getString('towho');
     var target:FlxSprite = null;
     var type:CharacterType = BF;
+
     switch (targetName)
     {
       case 'bf':
@@ -45,6 +47,7 @@ class CharacterSwitchEvent extends SongEvent
       {
         var targetChar:BaseCharacter = cast target;
         targetChar.destroy();
+
         var newChar = CharacterDataParser.fetchCharacter(toWho);
         if (newChar != null)
         {
@@ -57,10 +60,12 @@ class CharacterSwitchEvent extends SongEvent
               newChar.initHealthIcon(true);
             default:
           }
+
           PlayState.instance.currentStage.addCharacter(newChar, type);
         }
       }
     }
+
     PlayState.instance.currentStage.refresh();
     PlayState.instance.needsCharacterReset = true;
   }
@@ -76,13 +81,14 @@ class CharacterSwitchEvent extends SongEvent
       var charIds:Array<String> = CharacterDataParser.listCharacterIds();
       charIds.sort(SortUtil.alphabetically);
      */
+
     return new SongEventSchema([
       {
         name: 'target',
         title: 'Target',
         defaultValue: 'bf',
         type: SongEventFieldType.ENUM,
-        keys: ['Player' => 'bf', 'Opponent' => 'opp', 'Spectator' => 'gf']
+        keys: ['Player' => 'bf', 'Opponent' => 'opp', 'Girlfriend' => 'gf']
       },
       {
         name: 'towho',

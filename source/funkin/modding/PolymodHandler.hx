@@ -254,6 +254,9 @@ class PolymodHandler
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
 
+    for (key => value in funkin.util.macro.PolymodMacro.aliases)
+      Polymod.addImportAlias(key, Type.resolveClass(value));
+
     // Add blacklisting for prohibited classes and packages.
 
     // `Sys`

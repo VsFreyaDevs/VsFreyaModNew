@@ -138,11 +138,13 @@ class FocusCameraSongEvent extends SongEvent
       default:
         var durSeconds = Conductor.instance.stepLengthMs * duration / 1000;
         var easeFunction:Null<Float->Float> = Reflect.field(FlxEase, ease);
+
         if (easeFunction == null)
         {
           trace('Invalid ease function: $ease');
           return;
         }
+
         PlayState.instance.tweenCameraToPosition(targetX, targetY, durSeconds, easeFunction);
     }
   }
