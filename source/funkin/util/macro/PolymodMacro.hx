@@ -1,7 +1,5 @@
 package funkin.util.macro;
 
-package funkin.util.macro;
-
 import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.Type;
