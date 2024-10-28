@@ -14,7 +14,7 @@ using StringTools;
  * This makes it far easier to organize, reuse, and refactor,
  * and improves management of feature flag logic.
  *
- * Oh, you don't know what HXP is? idk some haxe script stuff used for execution at compile time uhhhhh
+ * **Oh, you don't know what HXP is? idk some haxe script stuff used for execution at compile time uhhhhh**
  */
 @:nullSafety
 class Project extends HXProject {
