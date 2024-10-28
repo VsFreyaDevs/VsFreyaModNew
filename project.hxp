@@ -627,10 +627,10 @@ class Project extends HXProject {
 
 		var abstracts:Array<String> = [
 			'funkin.*',
-			'flixel.*',
-			'haxe.ui.*',
-			'!flixel.graphics.frames.bmfont.BMFont',
-			'!flixel.addons.util.FlxSimplex'
+			// 'funkin.Paths.PathsFunction',
+			'flixel.util.FlxColor',
+			'flixel.util.FlxSignal'
+			// 'flixel.*'
 		];
 		addHaxeMacro("funkin.util.macro.PolymodMacro.buildPolymodAbstracts(['" + abstracts.join("', '") + "'])");
 	}
