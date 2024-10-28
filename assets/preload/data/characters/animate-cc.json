@@ -1,94 +1,70 @@
 {
-	"version": "1.0.0",
-	"renderType": "sparrow",
-	"offsets": [
-		0,
-		0
-	],
-	"danceEvery": 1,
-	"scale": 1,
-	"loopHoldFrame": 3,
-	"name": "Animate CC",
-	"flipX": false,
-	"cameraOffsets": [
-		0,
-		0
-	],
-	"loopHold": false,
-	"singTime": 8,
-	"startingAnimation": "idle",
-	"isPixel": false,
-	"healthIcon": {
-		"isPixel": false,
-		"offsets": [
-			0,
-			0
-		],
-		"scale": 1,
-		"id": "kanimate",
-		"flipX": false
-	},
-	"assetPath": "characters/Animate_CC_NEWER",
-	"animations": [
-		{
-			"flipY": false,
-			"offsets": [
-				0,
-				0
-			],
-			"frameRate": 24,
-			"prefix": "Idle instance 1",
-			"flipX": false,
-			"looped": false,
-			"name": "idle"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				46,
-				13
-			],
-			"frameRate": 24,
-			"prefix": "left instance 1",
-			"flipX": false,
-			"looped": false,
-			"name": "singLEFT"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				0,
-				13
-			],
-			"frameRate": 24,
-			"prefix": "downn instance 1",
-			"flipX": false,
-			"looped": false,
-			"name": "singDOWN"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				88,
-				13
-			],
-			"frameRate": 24,
-			"prefix": "rightn instance 1",
-			"flipX": false,
-			"looped": false,
-			"name": "singRIGHT"
-		},
-		{
-			"flipY": false,
-			"offsets": [
-				0,
-				32
-			],
-			"frameRate": 24,
-			"prefix": "upn instance 1",
-			"flipX": false,
-			"looped": false,
-			"name": "singUP"
-		}
-	]
+  "version": "1.0.0",
+  "renderType": "sparrow",
+  "offsets": [0, 0],
+  "danceEvery": 1,
+  "scale": 1,
+  "loopHoldFrame": 3,
+  "name": "Animate CC",
+  "flipX": false,
+  "cameraOffsets": [0, 0],
+  "loopHold": false,
+  "singTime": 8,
+  "startingAnimation": "idle",
+  "isPixel": false,
+  "healthIcon": {
+    "isPixel": false,
+    "offsets": [0, 0],
+    "scale": 1,
+    "id": "animate-cc",
+    "flipX": false
+  },
+  "assetPath": "characters/Animate_CC_NEWER",
+  "animations": [
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "Idle instance 1",
+      "flipX": false,
+      "looped": false,
+      "name": "idle"
+    },
+    {
+      "flipY": false,
+      "offsets": [46, 13],
+      "frameRate": 24,
+      "prefix": "left instance 1",
+      "flipX": false,
+      "looped": false,
+      "name": "singLEFT"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 13],
+      "frameRate": 24,
+      "prefix": "downn instance 1",
+      "flipX": false,
+      "looped": false,
+      "name": "singDOWN"
+    },
+    {
+      "flipY": false,
+      "offsets": [88, 13],
+      "frameRate": 24,
+      "prefix": "rightn instance 1",
+      "flipX": false,
+      "looped": false,
+      "name": "singRIGHT"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 32],
+      "frameRate": 24,
+      "prefix": "upn instance 1",
+      "flipX": false,
+      "looped": false,
+      "name": "singUP"
+    }
+  ]
 }
