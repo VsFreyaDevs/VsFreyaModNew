@@ -10,11 +10,20 @@ import funkin.modding.base.ScriptedFlxSprite;
 import funkin.modding.base.ScriptedFlxSpriteGroup;
 import funkin.graphics.adobeanimate.FlxAtlasSprite;
 import funkin.audio.visualize.ABotVis;
+import funkin.util.assets.SoundUtil;
+import funkin.vis.dsp.SpectralAnalyzer;
+import funkin.util.PlatformUtil;
+import funkin.util.HostPlatform;
+import Lambda;
+
+// using Lambda;
 
 class NeneCharacter extends SparrowCharacter {
 	function new() {
 		super('nene');
 	}
+
+	 var analyzer:SpectralAnalyzer;
 
 	var pupilState:Int = 0;
 
@@ -22,33 +31,53 @@ class NeneCharacter extends SparrowCharacter {
 	var PUPIL_STATE_LEFT = 1;
 
 	var abot:FlxAtlasSprite;
-	var abotViz:ABotVis;
+	var abotViz:FlxTypedSpriteGroup;
 	var stereoBG:FlxSprite;
 	var eyeWhites:FlxSprite;
 	var pupil:FlxAtlasSprite;
 
 	function onCreate(event:ScriptEvent) {
 		super.onCreate(event);
-
 		stereoBG = new FlxSprite(0, 0, Paths.image('characters/abot/stereoBG'));
-
 		eyeWhites = new FunkinSprite().makeSolidColor(160, 60);
-
 		pupil = new FlxAtlasSprite(0, 0, Paths.animateAtlas("characters/abot/systemEyes", "shared"));
 		pupil.x = this.x;
 		pupil.y = this.y;
-		pupil.zIndex = this.zIndex - 5;
 
 		abot = ScriptedFlxAtlasSprite.init('ABotAtlasSprite', 0, 0);
 		abot.x = this.x;
 		abot.y = this.y;
-		abot.zIndex = this.zIndex - 1;
 
-		abotViz = new ABotVis(FlxG.sound.music);
+    abotViz = new FlxTypedSpriteGroup();
 		abotViz.x = this.x;
 		abotViz.y = this.y;
-		abotViz.zIndex = abot.zIndex + 1;
 		FlxG.debugger.track(abotViz);
+
+    var visFrms:FlxAtlasFrames = Paths.getSparrowAtlas('aBotViz');
+
+    // these are the differences in X position, from left to right
+    var positionX:Array<Float> = [0, 59, 56, 66, 54, 52, 51];
+    var positionY:Array<Float> = [0, -8, -3.5, -0.4, 0.5, 4.7, 7];
+
+    for (lol in 0...7)
+    {
+      // pushes initial value
+      var posX:Float = 0;
+      var posY:Float = 0;
+
+    	for (i in 0...lol+1){
+				posX += positionX[i];
+				posY += positionY[i];
+			}
+
+      var viz:FlxSprite = new FlxSprite(posX, posY);
+      viz.frames = visFrms;
+      abotViz.add(viz);
+
+      var visStr = 'viz';
+      viz.animation.addByPrefix('VIZ', visStr + Std.string(lol+1), 0);
+      viz.animation.play('VIZ', false, false, 6);
+    }
 	}
 
 	/**
@@ -170,7 +199,6 @@ class NeneCharacter extends SparrowCharacter {
 				default:
 			}
 		}
-
 	}
 
 	function movePupilsLeft():Void {
@@ -221,11 +249,7 @@ class NeneCharacter extends SparrowCharacter {
 	function onUpdate(event:UpdateScriptEvent) {
 		super.onUpdate(event);
 
-		// Set the visibility of ABot to match Nene's.
-		abot.visible = this.visible;
-		pupil.visible = this.visible;
-		eyeWhites.visible = this.visible;
-		stereoBG.visible = this.visible;
+		pupil.update(event.elapsed);
 
 		if (pupil?.anim?.isPlaying)
 		{
@@ -252,33 +276,21 @@ class NeneCharacter extends SparrowCharacter {
 		// refreshes just for the zIndex shit!
 		if (!refershedLol)
 		{
-			abot.x = this.x - 100;
-			abot.y = this.y + 216; // 764 - 740
-			abot.zIndex = this.zIndex - 10;
-
-			PlayState.instance.currentStage.add(abot);
+			abot.x = this.x - 132;
+			abot.y = this.y + 310;
 
 			abotViz.x = abot.x + 200;
 			abotViz.y = abot.y + 84;
-			abotViz.zIndex = abot.zIndex - 1;
-			PlayState.instance.currentStage.add(abotViz);
 
 			eyeWhites.x = abot.x + 40;
 			eyeWhites.y = abot.y + 250;
-			eyeWhites.zIndex = abot.zIndex - 10;
-			PlayState.instance.currentStage.add(eyeWhites);
 
 			pupil.x = abot.x - 507;
 			pupil.y = abot.y - 492;
-			pupil.zIndex = eyeWhites.zIndex + 5;
-			PlayState.instance.currentStage.add(pupil);
 
 			stereoBG.x = abot.x + 150;
 			stereoBG.y = abot.y + 30;
-			stereoBG.zIndex = abot.zIndex - 8;
-			PlayState.instance.currentStage.add(stereoBG);
 
-			PlayState.instance.currentStage.refresh();
 			refershedLol = true;
 		}
 
@@ -287,13 +299,66 @@ class NeneCharacter extends SparrowCharacter {
 		}
 	}
 
+	override function draw() {
+		if(!this.visible)
+			return;
+		eyeWhites.draw();
+		stereoBG.draw();
+		pupil.draw();
+    if (analyzer != null) drawFFT();
+		abotViz.draw();
+		if(!(this.animation.curAnim.name == 'lowerKnife' && this.animation.curAnim.curFrame >= 10))
+			abot.draw();
+		super.draw();
+	}
+
+	var songStarted:Bool = false;
+
 	public function onScriptEvent(event:ScriptEvent):Void {
 		if (event.type == "SONG_START")
 		{
-			abotViz.snd = FlxG.sound.music;
-			abotViz.initAnalyzer();
+			initAnalyzer();
+			songStarted = true;
 		}
+		if (event.type == "COUNTDOWN_START")
+			songStarted = false;
 	}
+
+	function drawFFT():Void
+  {
+    var levels = analyzer.getLevels();
+
+    for (i in 0...Math.min(abotViz.members.length, levels.length - 1))
+    {
+      if (!songStarted)
+      {
+        abotViz.members[i].animation.curAnim.curFrame = abotViz.members[i].animation.curAnim.numFrames - 1;
+        continue;
+      }
+
+      var animFrame:Int = Math.round(levels[i+1].value * 5);
+
+      animFrame = Math.floor(Math.min(5, animFrame));
+      animFrame = Math.floor(Math.max(0, animFrame));
+
+      animFrame = Std.int(Math.abs(animFrame - 5)); // shitty dumbass flip, cuz dave got da shit backwards lol!
+
+      abotViz.members[i].animation.curAnim.curFrame = animFrame;
+    }
+  }
+
+  public function initAnalyzer()
+  {
+    analyzer = new SpectralAnalyzer(SoundUtil.getSoundChannelSource(FlxG.sound.music), 8, 0.1, 40);
+
+		var platform:HostPlatform = PlatformUtil.detectHostPlatform();
+
+		if (platform != HostPlatform.HTML5) {
+			// On desktop it uses FFT stuff that isn't as optimized as the direct browser stuff we use on HTML5
+			// So we want to manually change it!
+			analyzer.fftN = 256;
+		}
+  }
 
 	var animationFinished:Bool = false;
 

@@ -406,4 +406,11 @@ class TwoHOTSong extends Song
 
     hasPlayedCutscene = false;
   }
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+		PlayState.instance.currentStage.scriptGet('rainShader').intensity = 0.2;
+		PlayState.instance.currentStage.scriptSet('rainShaderStartIntensity', 0.2);
+		PlayState.instance.currentStage.scriptSet('rainShaderEndIntensity', 0.4);
+	}
 }

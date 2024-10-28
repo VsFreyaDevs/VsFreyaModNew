@@ -19,4 +19,11 @@ class LitUpSong extends Song {
 		// Hide all difficulties if the player has not beaten the week.
 		return [];
 	}
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+		PlayState.instance.currentStage.scriptGet('rainShader').intensity = 0.1;
+		PlayState.instance.currentStage.scriptSet('rainShaderStartIntensity', 0.1);
+		PlayState.instance.currentStage.scriptSet('rainShaderEndIntensity', 0.2);
+	}
 }

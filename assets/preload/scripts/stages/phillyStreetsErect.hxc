@@ -33,8 +33,8 @@ class PhillyStreetsErectStage extends Stage
 
 	// as song goes on, these are used to make the rain more intense throught the song
 	// these values are also used for the rain sound effect volume intensity!
-	var rainShaderStartIntensity:Float;
-	var rainShaderEndIntensity:Float;
+	var rainShaderStartIntensity:Float = 0;
+	var rainShaderEndIntensity:Float = 0.1;
 
 	// var rainSndAmbience:FunkinSound;
 	// var carSndAmbience:FunkinSound;
