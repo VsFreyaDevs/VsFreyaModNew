@@ -1,7 +1,5 @@
 package hscript;
 
-package hscript;
-
 class Config
 {
   // Runs support for custom classes in these.

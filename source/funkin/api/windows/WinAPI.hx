@@ -155,7 +155,7 @@ class WinAPI
   }
 }
 
-@:enum abstract MessageBoxIcon(Int)
+enum abstract MessageBoxIcon(Int)
 {
   var MSG_ERROR = 0x00000010;
   var MSG_QUESTION = 0x00000020;
