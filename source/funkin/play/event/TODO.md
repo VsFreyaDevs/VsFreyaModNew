@@ -1,0 +1,16 @@
+# TODO: Swag Events
+- [x] Switch Character
+- [x] Camera Shake
+- [x] Camera Flash
+- [x] Add Zoom to Camera
+- [x] Set Property
+- [ ] Set Bopper Speed
+- [ ] Subtitles/Lyrics
+- [ ] Switch Stage
+- [ ] Play Sound
+- [ ] Set Bopper Speed
+- [ ] Hide HUD
+- [ ] Set Idle Suffix
+- [ ] Tween/Set Health
+- [ ] Tween Character (basically like moving a characters position or smth)
+- [ ] Cinematic Bars

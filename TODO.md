@@ -14,9 +14,9 @@ some stuff i finna add eventually/soon lol
 - [ ] MODCHARTING!!!! (cuz yes)
 - [ ] Extra key support
 - [ ] WEGA NOTETYPE!!!!!!!!
-- [ ] Improve caching for sprites and audio
+- [ ] Finish improving caching for sprites and audio
   - [ ] Make `LoadingState` work outside of the `html5` target
-- [ ] LO-FI & HI-FI mode (kinda like Mic'd Up's implementation but cooler)
+- [ ] Audio effect support (`reverb`, `chorus`, `distortion`, and `delay`), cuz yes
 - [ ] .GIF & .SVG support via `flxgif` and some SVG library for `flixel` idk
 - [ ] Haxe 4.2.x support (and maybe 5.0.0 support??)
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
