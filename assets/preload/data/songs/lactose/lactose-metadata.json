@@ -1,0 +1,58 @@
+{
+  "version": "2.2.4",
+  "songName": "Lactose",
+  "artist": "charlesisfeline",
+  "divisions": 96,
+  "looped": false,
+  "offsets": {
+    "instrumental": 0,
+    "altInstrumentals": {    },
+    "vocals": {    },
+    "altVocals": {    }
+  },
+  "playData": {
+    "songVariations": [    ],
+    "difficulties": [
+      "easy",
+      "normal",
+      "hard"
+    ],
+    "characters": {
+      "player": "bf-kit",
+      "girlfriend": "gf",
+      "opponent": "milky",
+      "instrumental": "",
+      "altInstrumentals": [      ],
+      "opponentVocals": [
+        "dad"
+      ],
+      "playerVocals": [
+        "bf"
+      ]
+    },
+    "stage": "void",
+    "noteStyle": "kit",
+    "ratings": {
+      "hard": 7
+    },
+    "previewStart": 0,
+    "previewEnd": 0
+  },
+  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.3 ",
+  "timeFormat": "ms",
+  "timeChanges": [
+    {
+      "t": 0,
+      "b": 0,
+      "bpm": 160,
+      "n": 4,
+      "d": 4,
+      "bt": [
+        4,
+        4,
+        4,
+        4
+      ]
+    }
+  ]
+}
