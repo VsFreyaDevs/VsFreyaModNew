@@ -159,18 +159,18 @@ class Conductor
   }
 
   /**
-   * Duration of a beat (quarter note) in milliseconds. Calculated based on bpm.
+   * Duration of a beat in milliseconds. Calculated based on bpm.
    */
   public var beatLengthMs(get, never):Float;
 
   function get_beatLengthMs():Float
   {
     // Tied directly to BPM.
-    return ((Constants.SECS_PER_MIN / bpm) * Constants.MS_PER_SEC);
+    return ((Constants.SECS_PER_MIN / bpm) * Constants.MS_PER_SEC) * (4 / timeSignatureDenominator);
   }
 
   /**
-   * Duration of a step (sixteenth note) in milliseconds. Calculated based on bpm.
+   * Duration of a step in milliseconds. Calculated based on bpm.
    */
   public var stepLengthMs(get, never):Float;
 
@@ -245,7 +245,7 @@ class Conductor
 
   function get_instrumentalOffsetSteps():Float
   {
-    var startingStepLengthMs:Float = ((Constants.SECS_PER_MIN / startingBPM) * Constants.MS_PER_SEC) / Constants.STEPS_PER_BEAT;
+    var startingStepLengthMs:Float = (((Constants.SECS_PER_MIN / startingBPM) * Constants.MS_PER_SEC) * (4 / timeSignatureDenominator)) / Constants.STEPS_PER_BEAT;
 
     return instrumentalOffset / startingStepLengthMs;
   }
@@ -301,26 +301,27 @@ class Conductor
   }
 
   /**
-   * The number of beats in a measure. May be fractional depending on the time signature.
+   * The number of beats in a measure.
    */
   public var beatsPerMeasure(get, never):Float;
 
   function get_beatsPerMeasure():Float
   {
-    // NOTE: Not always an integer, for example 7/8 is 3.5 beats per measure
-    return stepsPerMeasure / Constants.STEPS_PER_BEAT;
+    // NOTE: Not always an integer, for example 7/8 is 3.5 beats per measure-
+    // wrong. wtf do you think the numerator stands for, bud
+    return timeSignatureNumerator;
   }
 
   /**
    * The number of steps in a measure.
-   * TODO: I don't think this can be fractional?
    */
   public var stepsPerMeasure(get, never):Int;
 
   function get_stepsPerMeasure():Int
   {
-    // TODO: Is this always an integer?
-    return Std.int(timeSignatureNumerator / timeSignatureDenominator * Constants.STEPS_PER_BEAT * Constants.STEPS_PER_BEAT);
+    // Eric: Is this always an integer?
+    // Charles: yes
+    return Std.int(timeSignatureNumerator * Constants.STEPS_PER_BEAT);
   }
 
   /**
@@ -610,7 +611,7 @@ class Conductor
         }
       }
 
-      var lastStepLengthMs:Float = ((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) / Constants.STEPS_PER_BEAT;
+      var lastStepLengthMs:Float = (((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) * (4 / timeSignatureDenominator)) / Constants.STEPS_PER_BEAT;
       var resultFractionalStep:Float = (ms - lastTimeChange.timeStamp) / lastStepLengthMs;
       resultStep += resultFractionalStep;
 
@@ -649,7 +650,7 @@ class Conductor
         }
       }
 
-      var lastStepLengthMs:Float = ((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) / Constants.STEPS_PER_BEAT;
+      var lastStepLengthMs:Float = (((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) * (4 / timeSignatureDenominator)) / Constants.STEPS_PER_BEAT;
       resultMs += (stepTime - lastTimeChange.beatTime * Constants.STEPS_PER_BEAT) * lastStepLengthMs;
 
       return resultMs;
@@ -687,7 +688,7 @@ class Conductor
         }
       }
 
-      var lastStepLengthMs:Float = ((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) / Constants.STEPS_PER_BEAT;
+      var lastStepLengthMs:Float = (((Constants.SECS_PER_MIN / lastTimeChange.bpm) * Constants.MS_PER_SEC) * (4 / timeSignatureDenominator)) / Constants.STEPS_PER_BEAT;
       resultMs += (beatTime - lastTimeChange.beatTime) * lastStepLengthMs * Constants.STEPS_PER_BEAT;
 
       return resultMs;

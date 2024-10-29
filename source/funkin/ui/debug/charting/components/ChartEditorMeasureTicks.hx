@@ -13,6 +13,7 @@ class ChartEditorMeasureTicks extends FlxTypedSpriteGroup<FlxSprite>
 
   var tickTiledSprite:FlxTiledSprite;
   var measureNumber:FlxText;
+  var measureNumberArray:Array<FlxText> = [];
 
   override function set_y(value:Float):Float
   {
@@ -32,11 +33,15 @@ class ChartEditorMeasureTicks extends FlxTypedSpriteGroup<FlxSprite>
     tickTiledSprite = new FlxTiledSprite(chartEditorState.measureTickBitmap, chartEditorState.measureTickBitmap.width, 1000, false, true);
     add(tickTiledSprite);
 
-    measureNumber = new FlxText(0, 0, ChartEditorState.GRID_SIZE, "1");
-    measureNumber.setFormat(Paths.font('roboto/robotoBo.ttf'), 20, FlxColor.WHITE);
-    measureNumber.borderStyle = FlxTextBorderStyle.OUTLINE;
-    measureNumber.borderColor = FlxColor.BLACK;
-    add(measureNumber);
+    for (i in 1...6)
+    {
+      measureNumber = new FlxText(0, 0, ChartEditorState.GRID_SIZE, "1");
+      measureNumber.setFormat(Paths.font('roboto/robotoBo.ttf'), 20, FlxColor.WHITE);
+      measureNumber.borderStyle = FlxTextBorderStyle.OUTLINE;
+      measureNumber.borderColor = FlxColor.BLACK;
+      measureNumberArray.push(measureNumber);
+      add(measureNumber);
+    }
   }
 
   public function reloadTickBitmap():Void
@@ -46,6 +51,8 @@ class ChartEditorMeasureTicks extends FlxTypedSpriteGroup<FlxSprite>
 
   /**
    * At time of writing, we only have to manipulate one measure number because we can only see one measure at a time.
+   * Update on this, now we have 5! Beats are always 4 grid spaces long so we won't ever see a 6th number.
+   * You CAN see 5 measures at once if you scroll to the right spot, ooops!
    */
   function updateMeasureNumber()
   {
@@ -55,19 +62,23 @@ class ChartEditorMeasureTicks extends FlxTypedSpriteGroup<FlxSprite>
     var viewHeight = FlxG.height - ChartEditorState.MENU_BAR_HEIGHT - ChartEditorState.PLAYBAR_HEIGHT;
     var viewBottomPosition = viewTopPosition + viewHeight;
 
-    var measureNumberInViewport = Math.floor(viewTopPosition / ChartEditorState.GRID_SIZE / Conductor.instance.stepsPerMeasure) + 1;
-    var measureNumberPosition = measureNumberInViewport * ChartEditorState.GRID_SIZE * Conductor.instance.stepsPerMeasure;
+    for (i in 0...measureNumberArray.length)
+    {
+      var measureNumber:FlxText = measureNumberArray[i];
+      if (measureNumber == null) continue;
 
-    measureNumber.y = measureNumberPosition + this.y;
+      var measureNumberInViewport = Math.floor(viewTopPosition / ChartEditorState.GRID_SIZE / Conductor.instance.stepsPerMeasure) + 1 + i;
+      var measureNumberPosition = measureNumberInViewport * ChartEditorState.GRID_SIZE * Conductor.instance.stepsPerMeasure;
 
-    // Show the measure number only if it isn't beneath the end of the note grid.
-    // Using measureNumber + 1 because the cut-off bar at the bottom is technically a bar, but it looks bad if a measure number shows up there.
-    if ((measureNumberInViewport + 1) < chartEditorState.songLengthInSteps / Conductor.instance.stepsPerMeasure)
-      measureNumber.text = '${measureNumberInViewport + 1}';
-    else
-      measureNumber.text = '';
+      measureNumber.y = measureNumberPosition + this.y;
 
-    // trace(measureNumber.text + ' at ' + measureNumber.y);
+      // Show the measure number only if it isn't beneath the end of the note grid.
+      // Using measureNumber + 1 because the cut-off bar at the bottom is technically a bar, but it looks bad if a measure number shows up there.
+      if ((measureNumberInViewport + 1) < chartEditorState.songLengthInSteps / Conductor.instance.stepsPerMeasure)
+        measureNumber.text = '${measureNumberInViewport + 1}';
+      else
+        measureNumber.text = '';
+    }
   }
 
   public function setHeight(songLengthInPixels:Float):Void

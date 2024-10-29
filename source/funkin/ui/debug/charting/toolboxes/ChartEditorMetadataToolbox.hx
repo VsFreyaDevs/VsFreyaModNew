@@ -127,31 +127,28 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
 
       // Use a command so we can undo/redo this action.
       var startingBPM = chartEditorState.currentSongMetadata.timeChanges[0].bpm;
-      if (event.value != startingBPM)
-      {
-        chartEditorState.performCommand(new ChangeStartingBPMCommand(event.value));
-      }
+      if (event.value != startingBPM) chartEditorState.performCommand(new ChangeStartingBPMCommand(event.value));
     };
 
-    inputTimeSignature.onChange = function(event:UIEvent) {
-      var timeSignatureStr:String = event.data.text;
-      var timeSignature = timeSignatureStr.split('/');
-      if (timeSignature.length != 2) return;
-
-      var timeSignatureNum:Int = Std.parseInt(timeSignature[0]);
-      var timeSignatureDen:Int = Std.parseInt(timeSignature[1]);
-
+    inputTSNum.onChange = (event:UIEvent) -> {
+      var timeSignatureNum:Int = Std.parseInt(event.data.text);
       var previousTimeSignatureNum:Int = chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureNum;
-      var previousTimeSignatureDen:Int = chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen;
-      if (timeSignatureNum == previousTimeSignatureNum && timeSignatureDen == previousTimeSignatureDen) return;
+
+      if (timeSignatureNum == previousTimeSignatureNum) return;
 
       chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureNum = timeSignatureNum;
-      chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen = timeSignatureDen;
-
-      trace('Time signature changed to ${timeSignatureNum}/${timeSignatureDen}');
-
       chartEditorState.updateTimeSignature();
-    };
+    }
+
+    inputTSDen.onChange = (event:UIEvent) -> {
+      var timeSignatureDen:Int = Std.parseInt(event.data.text);
+      var previousTimeSignatureDen:Int = chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen;
+
+      if (timeSignatureDen == previousTimeSignatureDen) return;
+
+      chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen = timeSignatureDen;
+      chartEditorState.updateTimeSignature();
+    }
 
     inputScrollSpeed.onChange = function(event:UIEvent) {
       var valid:Bool = event.target.value != null && event.target.value > 0;
@@ -162,9 +159,8 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
         chartEditorState.currentSongChartScrollSpeed = event.target.value;
       }
       else
-      {
         chartEditorState.currentSongChartScrollSpeed = 1.0;
-      }
+
       labelScrollSpeed.text = 'Scroll Speed: ${chartEditorState.currentSongChartScrollSpeed}x';
     };
 
@@ -205,7 +201,8 @@ class ChartEditorMetadataToolbox extends ChartEditorBaseToolbox
 
     var currentTimeSignature = '${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureNum}/${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen}';
     trace('Setting time signature to ${currentTimeSignature}');
-    inputTimeSignature.value = {id: currentTimeSignature, text: currentTimeSignature};
+    inputTSNum.value = '${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureNum}';
+    inputTSDen.value = '${chartEditorState.currentSongMetadata.timeChanges[0].timeSignatureDen}';
 
     var stageId:String = chartEditorState.currentSongMetadata.playData.stage;
     var stage:Null<Stage> = StageRegistry.instance.fetchEntry(stageId);
