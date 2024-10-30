@@ -1,7 +1,8 @@
 {
   "version": "2.2.4",
   "songName": "Lactose",
-  "artist": "charlesisfeline",
+  "artist": "charlesisfeline ft. Isaiah Mods",
+  "charter": "charlesisfeline",
   "divisions": 96,
   "looped": false,
   "offsets": {
@@ -33,10 +34,12 @@
     "stage": "void",
     "noteStyle": "kit",
     "ratings": {
-      "hard": 7
+      "easy": 4,
+      "normal": 6,
+      "hard": 8
     },
-    "previewStart": 0,
-    "previewEnd": 0
+    "previewStart": 66000,
+    "previewEnd": 89600
   },
   "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.3 ",
   "timeFormat": "ms",
