@@ -60,7 +60,7 @@ class AttractState extends MusicBeatState
   public static function randomizeVideo():String
   {
     var fuckingShit:Int = FlxG.random.int(0, randomVids.length - 1);
-    return randomVid[fuckingShit];
+    return randomVids[fuckingShit];
   }
 
   #if html5
