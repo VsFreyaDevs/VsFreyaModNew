@@ -13,17 +13,22 @@ import funkin.graphics.video.FunkinVideoSprite;
  * After about 2 minutes of inactivity on the title screen,
  * the game will enter the Attract state, as a reference to physical arcade machines.
  *
- * In the current version, this just plays the ~~Kickstarter trailer~~ Erect teaser, but this can be changed to
+ * In the current version (base), this just plays the ~~Kickstarter trailer~~ ~~Erect teaser~~ BF Figure commerical, but this can be changed to
  * gameplay footage, a generic game trailer, or something more elaborate.
+ *
+ *
+ * fuck you i made this shit randomized
  */
 class AttractState extends MusicBeatState
 {
+  public static var randomVids:Array<String> = ["toyCommerical", "eeeee", "iamagummybandu", "caseoh", "car", "googoogaga"];
+
   #if html5
-  static final ATTRACT_VIDEO_PATH:String = Paths.stripLibrary(Paths.videos('toyCommercial'));
+  static var ATTRACT_VIDEO_PATH:String = Paths.stripLibrary(Paths.videos('toyCommercial'));
   #end
 
   #if hxvlc
-  static final ATTRACT_VIDEO_PATH:String = Paths.videos('toyCommercial');
+  static var ATTRACT_VIDEO_PATH:String = Paths.videos('toyCommercial');
   #end
 
   public override function create():Void
@@ -36,6 +41,12 @@ class AttractState extends MusicBeatState
     }
 
     #if html5
+    ATTRACT_VIDEO_PATH = Paths.stripLibrary(Paths.videos(randomizeVideo()));
+    #else
+    ATTRACT_VIDEO_PATH = Paths.videos(randomizeVideo());
+    #end
+
+    #if html5
     trace('Playing web video ${ATTRACT_VIDEO_PATH}');
     playVideoHTML5(ATTRACT_VIDEO_PATH);
     #end
@@ -44,6 +55,12 @@ class AttractState extends MusicBeatState
     trace('Playing native video ${ATTRACT_VIDEO_PATH}');
     playVideoNative(ATTRACT_VIDEO_PATH);
     #end
+  }
+
+  public static function randomizeVideo():String
+  {
+    var fuckingShit:Int = FlxG.random.int(0, randomVids.length - 1);
+    return randomVid[fuckingShit];
   }
 
   #if html5

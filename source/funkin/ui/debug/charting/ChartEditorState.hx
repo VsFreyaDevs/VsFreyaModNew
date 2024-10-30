@@ -2764,8 +2764,13 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
         playbarHeadDraggingWasPlaying = false;
     }
 
-    playbarHeadLayout.playbarHead.onDrag = (d:DragEvent) -> if (playbarHeadDragging)
-      currentScrollEase = d.value; // Update the conductor and audio tracks to match.
+    playbarHeadLayout.playbarHead.onDrag = (d:DragEvent) -> {
+      if (playbarHeadDragging) // Update the conductor and audio tracks to match.
+      {
+        currentScrollEase = d.value;
+        easeSongToScrollPosition(currentScrollEase);
+      }
+    }
 
     playbarHeadLayout.playbarHead.onDragEnd = (_:DragEvent) -> {
       playbarHeadDragging = false;
@@ -2775,7 +2780,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
       {
         playbarHeadDraggingWasPlaying = false;
         // Disabled code to resume song playback on drag.
-        // startAudioPlayback();
+        startAudioPlayback();
       }
     }
 
@@ -3926,7 +3931,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
     }
 
     // Mouse Wheel = Scroll
-    if (FlxG.mouse.wheel != 0 && !FlxG.keys.pressed.CONTROL)
+    if (FlxG.mouse.wheel != 0)
     {
       scrollAmount = -50 * FlxG.mouse.wheel;
       shouldPause = true;
@@ -4522,6 +4527,7 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
           0, songLengthInPixels);
 
         currentScrollEase = clickedPosInPixels;
+        easeSongToScrollPosition(currentScrollEase);
       }
       else if (scrollAnchorScreenPos != null)
       {
