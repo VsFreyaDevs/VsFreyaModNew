@@ -408,7 +408,7 @@ class FunkinSound extends FlxSound implements ICloneable<FunkinSound>
 
     if (autoPlay) sound.play();
     sound.volume = volume;
-    var myGroup:FlxSoundGroup = new FlxSoundGroup();
+    var myGroup:flixel.sound.FlxSoundGroup = new flixel.sound.FlxSoundGroup();
     myGroup.add(FlxG.sound.defaultSoundGroup);
     sound.persist = persist;
 
