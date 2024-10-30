@@ -40,7 +40,7 @@ class FunkinSound extends FlxSound implements ICloneable<FunkinSound>
     if (_onVolumeChanged == null)
     {
       _onVolumeChanged = new FlxTypedSignal<Float->Void>();
-      FlxG.sound.volumeHandler = (volume:Float) -> _onVolumeChanged.dispatch(volume);
+      FlxG.sound.onVolumeChange = (volume:Float) -> _onVolumeChanged.dispatch(volume);
     }
     return _onVolumeChanged;
   }
@@ -408,7 +408,8 @@ class FunkinSound extends FlxSound implements ICloneable<FunkinSound>
 
     if (autoPlay) sound.play();
     sound.volume = volume;
-    sound.group = FlxG.sound.defaultSoundGroup;
+    var myGroup:FlxSoundGroup = new FlxSoundGroup();
+    myGroup.add(FlxG.sound.defaultSoundGroup);
     sound.persist = persist;
 
     // Make sure to add the sound to the list.
