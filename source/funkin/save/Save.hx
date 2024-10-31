@@ -997,9 +997,10 @@ class Save
       case ERROR(_):
         return handleSaveDataError(slot);
       case BOUND(_, _):
-        trace('[SAVE] YOOOOO WE GOT SAVE DATA - SLOT ${slot}!!!!!');
         trace('[SAVE] ' + FlxG.save.data);
-        if (FlxG.save.isEmpty()) trace('[SAVE] wait why tf are you empty, get the fuck out');
+        if (FlxG.save.isEmpty()) trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, RESETTING');
+        else
+          trace('[SAVE] YOOOOO WE GOT SAVE DATA - SLOT ${slot}!!!!!');
         var gameSave = SaveDataMigrator.migrate(FlxG.save.data);
         FlxG.save.mergeData(gameSave.data, true);
 
