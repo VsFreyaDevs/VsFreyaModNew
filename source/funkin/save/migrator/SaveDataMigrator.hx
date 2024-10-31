@@ -15,11 +15,9 @@ class SaveDataMigrator
   {
     var version:Null<thx.semver.Version> = VersionUtil.parseVersion(inputData?.version ?? null);
 
-    trace(inputData);
-
     if (version == null)
     {
-      trace('[SAVE] No version found in save data! Returning blank data.');
+      trace('[SAVE] CANT FIND VERSION CUZ THE SAVE FILE IS BLANK!!! SWITCHING BACK TO DEFAULT SAVE');
       trace(inputData);
       return new Save(Save.getDefault());
     }

@@ -998,6 +998,8 @@ class Save
         return handleSaveDataError(slot);
       case BOUND(_, _):
         trace('[SAVE] YOOOOO WE GOT SAVE DATA - SLOT ${slot}!!!!!');
+        trace('[SAVE] ' + FlxG.save.data);
+        if (FlxG.save.isEmpty()) trace('[SAVE] wait why tf are you empty, get the fuck out');
         var gameSave = SaveDataMigrator.migrate(FlxG.save.data);
         FlxG.save.mergeData(gameSave.data, true);
 
