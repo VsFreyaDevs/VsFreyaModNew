@@ -21,8 +21,10 @@ class Save
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = ">=2.1.0 <2.2.0";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
-  static final SAVE_PATH:String = 'VsFreyaDevs';
-  static final SAVE_NAME:String = 'VsFreyaFennec';
+  // static final SAVE_PATH:String = 'VsFreyaDevs';
+  // static final SAVE_NAME:String = 'VsFreyaFennec';
+  static final SAVE_PATH:String = 'FunkinCrew';
+  static final SAVE_NAME:String = 'Funkin';
 
   static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
   static final SAVE_NAME_LEGACY:String = 'funkin';
@@ -998,7 +1000,8 @@ class Save
         return handleSaveDataError(slot);
       case BOUND(_, _):
         trace('[SAVE] ' + FlxG.save.data);
-        if (FlxG.save.isEmpty()) trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, RESETTING');
+        if (FlxG.save.isEmpty())
+          trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE THIS WHOLE THING IS FUCKING BLANK, RESETTING');
         else
           trace('[SAVE] YOOOOO WE GOT SAVE DATA - SLOT ${slot}!!!!!');
         var gameSave = SaveDataMigrator.migrate(FlxG.save.data);
