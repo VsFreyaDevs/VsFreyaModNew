@@ -1,5 +1,3 @@
-; config file for OpenAL
-; refer to https://github.com/kcat/openal-soft/blob/master/alsoftrc.sample for more info
 [general]
 sample-type=float32
 stereo-mode=auto
