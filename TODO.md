@@ -1,5 +1,5 @@
 # ADDITIONS AND WHATEVER
-some stuff i finna add eventually/soon lol
+some stuff i finna add eventually/soon lol!
 
 - [x] Chart generator via `.MIDI`
   - [x] Hint generation
