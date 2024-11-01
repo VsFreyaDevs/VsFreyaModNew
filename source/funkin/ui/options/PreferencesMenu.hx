@@ -241,10 +241,11 @@ class PreferencesMenu extends Page
       NoteHitSoundType.Hihat => "Hi-hat",
       NoteHitSoundType.Cowbell => "Cowbell",
       NoteHitSoundType.RainDrop => "Raindrop",
+      NoteHitSoundType.Andromeda => "Andromeda",
     ], function(value:String):Void {
       Preferences.noteHitSound = value;
-      var hitSound:String = value + "Hit";
-      FunkinSound.playOnce(Paths.sound('noteHitSounds/${hitSound}') ?? Paths.sound('noteHitSounds/pingPongHit'));
+      var hitSound:String = value;
+      FunkinSound.playOnce(Paths.sound('hitsounds/${hitSound}') ?? Paths.sound('hitsounds/vslice'));
     }, Preferences.noteHitSound);
     createPrefItemCheckbox('Judgement Counter', 'Enable to show your NPS and judgements at the left side\nduring gameplay', function(value:Bool):Void {
       Preferences.judgeCounter = value;

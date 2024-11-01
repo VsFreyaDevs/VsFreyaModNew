@@ -29,6 +29,7 @@ class NoteHitSoundType
   public static inline var Hihat = "hiHat";
   public static inline var Cowbell = "cowbell";
   public static inline var RainDrop = "drop";
+  public static inline var Andromeda = "andromeda";
 }
 
 class InputSystemType
