@@ -17,7 +17,7 @@ class SaveDataMigrator
 
     if (version == null)
     {
-      trace('[SAVE] CANT FIND VERSION CUZ THE SAVE FILE IS BLANK!!! SWITCHING BACK TO DEFAULT SAVE');
+      trace('[SAVE] CANT FIND VERSION CUZ THE SAVE FILE IS BLANK!!!! SWITCHING BACK TO DEFAULT SAVE');
       trace(inputData);
 
       var message:String = 'Cannot find save data! Switching back to default save...';
