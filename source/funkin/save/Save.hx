@@ -997,7 +997,9 @@ class Save
       case ERROR(_):
         return handleSaveDataError(slot);
       case BOUND(_, _):
-        trace('[SAVE] ' + FlxG.save.data);
+        if (FlxG.save.data != "{}" && FlxG.save.data != null) trace('[SAVE] ' + FlxG.save.data);
+        else
+          trace('[SAVE] null'); // get troled bitch
         if (FlxG.save.isEmpty())
           trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE THIS WHOLE THING IS FUCKING BLANK, RESETTING');
         else
