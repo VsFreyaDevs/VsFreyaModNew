@@ -234,7 +234,13 @@ class PreferencesMenu extends Page
       NoteHitSoundType.Scream => "Rem-ix Screaming", // lol
       NoteHitSoundType.DiscordPing => "Discord Ping",
       NoteHitSoundType.IndieCross => "Indie Cross",
-      NoteHitSoundType.VineBoom => "Vine Boom"
+      NoteHitSoundType.VineBoom => "Vine Boom",
+      NoteHitSoundType.VSlice => "V-Slice",
+      NoteHitSoundType.Tsuzumi => "Tsuzumi",
+      NoteHitSoundType.Tick => "Tick",
+      NoteHitSoundType.Hihat => "Hi-hat",
+      NoteHitSoundType.Cowbell => "Cowbell",
+      NoteHitSoundType.RainDrop => "Raindrop",
     ], function(value:String):Void {
       Preferences.noteHitSound = value;
       var hitSound:String = value + "Hit";

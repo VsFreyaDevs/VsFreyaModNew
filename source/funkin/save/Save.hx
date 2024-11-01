@@ -91,34 +91,31 @@ class Save
       options:
         {
           // Reasonable defaults.
-          framerate: 60,
-          noteHitSound: NoteHitSoundType.None,
-          noteHitSoundVolume: 100,
-          noteSplash: true,
-          inputSystem: InputSystemType.Pbot,
-          naughtyness: true,
-          downscroll: false,
-          middlescroll: false,
+
+          // cuz the game doesnt seem to read save data properly (still need help on fixing that pls 😭), i had to make a compiler define (`DAMNWTF`) (do not ask about its label geez) only to store what options i want to keep toggled for my end so uhhhh please ignore that
+          // i occasionally change these defaults with this define enabled whenever i wanna go change an option
+          // kinda defeats the purpose of the options menu but like i dont have as much choices whoops
+          // also this is probly just a band-aid solution specifically for my end, tho if you wanna change the options without losing them every session,
+          // yea just change them here if neccesary. if you dont know how to compile, sorry! gud luck changing your options a bunch lol!!!!
+          #if DAMNWTF
+          framerate: 24, noteHitSound: NoteHitSoundType.Adofai, noteHitSoundVolume: 85, noteSplash: true, inputSystem: InputSystemType.Pbot, naughtyness: true,
+          downscroll: false, middlescroll: false,
           #if FEATURE_GHOST_TAPPING
           ghostTapping: true,
           #end
-          antialiasing: true,
-          flashingLights: true,
-          zoomCamera: true,
-          judgeCounter: true,
-          comboHUD: true,
-          extraScoreText: true,
-          coloredHealthBar: true,
-          showTimings: true,
-          debugDisplay: true,
-          autoPause: true,
-          autoFullscreen: false,
-          laneAlpha: 0,
-          strumAlpha: 100,
-          badsShitsCauseMiss: false,
-          inputOffset: 0,
-          audioVisualOffset: 0,
-          unlockedFramerate: false,
+          antialiasing: false, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
+          showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 15, strumAlpha: 85, badsShitsCauseMiss: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          #else
+          framerate: 60, noteHitSound: NoteHitSoundType.None, noteHitSoundVolume: 100, noteSplash: true, inputSystem: InputSystemType.Pbot, naughtyness: true,
+          downscroll: false, middlescroll: false,
+          #if FEATURE_GHOST_TAPPING
+          ghostTapping: true,
+          #end
+          antialiasing: true, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
+          showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 0, strumAlpha: 100, badsShitsCauseMiss: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          #end
 
           controls:
             {
@@ -162,16 +159,13 @@ class Save
       optionsChartEditor:
         {
           // Reasonable defaults.
-          previousFiles: [],
-          noteQuant: 3,
-          chartEditorLiveInputStyle: ChartEditorLiveInputStyle.None,
-          theme: ChartEditorTheme.Light,
-          playtestStartTime: false,
-          downscroll: false,
-          metronomeVolume: 1.0,
-          hitsoundVolumePlayer: 1.0,
-          hitsoundVolumeOpponent: 1.0,
-          themeMusic: true
+          #if DAMNWTF
+          previousFiles: [], noteQuant: 3, chartEditorLiveInputStyle: ChartEditorLiveInputStyle.None, theme: ChartEditorTheme.Dark, playtestStartTime: false,
+          downscroll: false, metronomeVolume: 0.0, hitsoundVolumePlayer: 0.5, hitsoundVolumeOpponent: 0.5, themeMusic: true
+          #else
+          previousFiles: [], noteQuant: 3, chartEditorLiveInputStyle: ChartEditorLiveInputStyle.None, theme: ChartEditorTheme.Light, playtestStartTime: false,
+          downscroll: false, metronomeVolume: 1.0, hitsoundVolumePlayer: 1.0, hitsoundVolumeOpponent: 1.0, themeMusic: true
+          #end
         },
 
       optionsStageEditor:
@@ -179,7 +173,11 @@ class Save
           previousFiles: [],
           moveStep: "1px",
           angleStep: 5,
+          #if DAMNWTF
           theme: StageEditorTheme.Light
+          #else
+          theme: StageEditorTheme.Dark
+          #end
         }
     };
   }

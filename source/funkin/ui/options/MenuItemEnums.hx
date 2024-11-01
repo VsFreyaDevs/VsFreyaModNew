@@ -22,6 +22,13 @@ class NoteHitSoundType
   public static inline var DiscordPing = "discordPing";
   public static inline var IndieCross = "indieCross";
   public static inline var VineBoom = "vineBoom";
+  public static inline var IndieCross = "indieCross";
+  public static inline var VSlice = "vslice";
+  public static inline var Tsuzumi = "tsuzumi";
+  public static inline var Tick = "tick";
+  public static inline var Hihat = "hiHat";
+  public static inline var Cowbell = "cowbell";
+  public static inline var RainDrop = "drop";
 }
 
 class InputSystemType
