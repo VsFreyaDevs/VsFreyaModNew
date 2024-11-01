@@ -1,17 +1,19 @@
 {
   "name": "stickers-set-1",
-  "artist": "PhantomArcade3K",
+  "artist": "PhantomArcade3K + charlesisfeline",
   "stickers": {
     "bf": ["bfSticker1", "bfSticker2", "bfSticker3"],
     "dad": ["dadSticker1", "dadSticker2", "dadSticker3"],
     "pico": ["picoSticker1", "picoSticker2", "picoSticker3"],
     "mom": ["momSticker1", "momSticker2", "momSticker3"],
     "monster": ["monsterSticker1", "monsterSticker2", "monsterSticker3"],
-    "gf": ["gfSticker1", "gfSticker2", "gfSticker3"]
+    "gf": ["gfSticker1", "gfSticker2", "gfSticker3"],
+    "milky": ["milkySticker1", "milkySticker2", "milkySticker3"]
   },
   "stickerPacks": {
     "bf-gf": ["bf", "gf"],
     "parents": ["dad", "mom"],
-    "all": ["bf", "gf", "dad", "mom", "monster", "pico"]
+    "freya": ["milky", "bf", "gf", "pico"],
+    "all": ["bf", "gf", "milky", "dad", "mom", "monster", "pico"]
   }
 }

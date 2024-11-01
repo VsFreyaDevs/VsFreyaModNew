@@ -46,3 +46,4 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [ ] DJ Boyfriend/Pico flickering, for some reason
 - [ ] `Save` doesn't detect any data in the save file; leaving with a default save every session
 - [ ] [Characters in the Character Select menu don't play their confirm animations if you select mid-transition too fast](https://github.com/FunkinCrew/Funkin/issues/3730)
+- [ ] The character offsets in `blazin` get messed up when dying or restarting, including the death screen
