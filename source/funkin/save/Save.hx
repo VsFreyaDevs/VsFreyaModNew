@@ -95,7 +95,7 @@ class Save
           // cuz the game doesnt seem to read save data properly (still need help on fixing that pls 😭), i had to make a compiler define (`DAMNWTF`) (do not ask about its label geez) only to store what options i want to keep toggled for my end so uhhhh please ignore that
           // i occasionally change these defaults with this define enabled whenever i wanna go change an option
           // kinda defeats the purpose of the options menu but like i dont have as much choices whoops
-          // also this is probly just a band-aid solution specifically for my end, tho if you wanna change the options without losing them every session,
+          // also this is probly just a shitty band-aid solution specifically for my end, tho if you wanna change the options without losing them every session,
           // yea just change them here if neccesary. if you dont know how to compile, sorry! gud luck changing your options a bunch lol!!!!
           #if DAMNWTF
           framerate: 24, noteHitSound: NoteHitSoundType.Adofai, noteHitSoundVolume: 85, noteSplash: true, inputSystem: InputSystemType.Pbot, naughtyness: true,
