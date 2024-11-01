@@ -1,7 +1,7 @@
 name: Build Game for HTML5
 on:
-  push:
-    branches: [ main, develop ]
+  # push:
+    # branches: [ main, develop ]
   workflow_dispatch:
 jobs:
   HTML5:
