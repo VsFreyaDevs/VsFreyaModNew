@@ -49,7 +49,9 @@ class GunsSong extends Song {
   public override function onCountdownStart(event:CountdownScriptEvent):Void {
 		super.onCountdownStart(event);
 
-    if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
+    // will uncomment when i add
+    // if (!PlayStatePlaylist.isStoryMode)
+    if (currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico') hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play a cutscene (`guns`)');
@@ -124,11 +126,11 @@ class GunsSong extends Song {
         startDelay: 0.45
       });
 
-      PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+      PlayState.instance.currentStage.getGirlfriend().playAnimation("drop70");
 
       // Just to make sure she cries until the song starts.
       PlayState.instance.currentStage.getGirlfriend().animation.finishCallback = function (gfCryForever:String) {
-        PlayState.instance.currentStage.getGirlfriend().playAnimation("sad");
+        PlayState.instance.currentStage.getGirlfriend().playAnimation("drop70");
       };
 
       // Make him react to the roast too, that'd be funny.
