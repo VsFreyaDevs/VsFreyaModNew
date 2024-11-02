@@ -11,6 +11,7 @@ some stuff i finna add eventually/soon lol!
   - [ ] Unhardcode offsets for TitleState
   - [ ] Unhardcode more of the intro besides `introText.txt`
 - [ ] Finish credits list menu
+- [ ] Abstract support
 - [ ] MODCHARTING!!!! (cuz yes)
 - [ ] Extra key support
 - [ ] WEGA NOTETYPE!!!!!!!!
@@ -18,7 +19,11 @@ some stuff i finna add eventually/soon lol!
   - [ ] Make `LoadingState` work outside of the `html5` target
 - [ ] Audio effect support (`reverb`, `chorus`, `distortion`, and `delay`), cuz yes
 - [ ] .GIF & .SVG support via `flxgif` and some SVG library for `flixel` idk
-- [ ] Haxe 4.2.x support (and maybe 5.0.0 support??)
+- [ ] Support for older Haxe versions
+  - [ ] 4.2.5
+  - [ ] 4.1.5
+  - [ ] 5.0.0 (git)
+  - [ ] 3.2.x
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
 - [ ] EXPERIMENTAL Lua support (for modcharting only, since it isn't the main focus of the engine like Psych's)
 

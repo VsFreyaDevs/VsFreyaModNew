@@ -23,6 +23,8 @@ using flixel.util.FlxSpriteUtil;
 /**
  * When you want the player to unlock a character, call `CharacterUnlockState.unlock(characterName)`.
  * It handles both the act of unlocking the character and displaying the dialog.
+ *
+ * Likely a reference to Super Mario Galaxy, I suppose...
  */
 class CharacterUnlockState extends MusicBeatState
 {
@@ -36,6 +38,8 @@ class CharacterUnlockState extends MusicBeatState
   static final DIALOG_FONT_COLOR:FlxColor = 0xFFFFFFFF; // Iconic
 
   var busy:Bool = false;
+
+  public var noLonger:Bool = false;
 
   public function new(targetPlayableCharacter:String, ?nextState:FlxState)
   {
@@ -60,8 +64,11 @@ class CharacterUnlockState extends MusicBeatState
     // Build the graphic for the text...
     var charName:String = targetCharacterData != null ? targetCharacterData.getName() : targetCharacterId.toTitleCase();
     // var dialogText:FlxText = new FlxText(0, 0, 0, 'You can now play as     $charName.\n\nCheck it out in Freeplay!');
+    if (noLonger) var messag:String = 'You can no longer play as     $charName.';
+    else
+      var messag:String = 'You can now play as     $charName.';
     var dialogText:FlxText = new FlxText(0, 0, 0, 'You can now play as     $charName.');
-    dialogText.setFormat(Paths.font("vcr.ttf"), 32, DIALOG_FONT_COLOR, LEFT);
+    dialogText.setFormat(Paths.font("conan.ttf"), 32, DIALOG_FONT_COLOR, LEFT);
 
     // THEN we can size the dialog to match...
     var dialogBG:FlxSprite = new FlxSprite(0, 0);

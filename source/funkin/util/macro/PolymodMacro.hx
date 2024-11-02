@@ -7,16 +7,31 @@ import haxe.macro.Type;
 using haxe.macro.ExprTools;
 using StringTools;
 
+/**
+ * This macro extends Polymod's implementation of `hscript`
+ * by creating aliases for abstract classes.
+ */
+@SuppressWarnings(['checkstyle:CodeSimilarity', 'checkstyle:Dynamic'])
 class PolymodMacro
 {
+  /**
+   * The abstracts and their corresponding aliases.
+   * `key` => Original class path.
+   * `value` => The alias class path.
+   */
   public static var aliases(get, never):Map<String, String>;
 
   static function get_aliases():Map<String, String>
   {
-    // truly a sight to behold
+    // Truly a sight to behold.
     return Reflect.callMethod(null, Reflect.field(Type.resolveClass('funkin.util.macro.AbstractAliases'), 'get'), []);
   }
 
+  /**
+   * A function that builds all the alias classes.
+   * @param abstractClasses An array of packages and classes.
+   * (If the class name has `!` infront of it, it will be excluded from being built.)
+   */
   public static macro function buildPolymodAbstracts(abstractClasses:Array<String>):Void
   {
     Context.onAfterTyping((types) -> {
@@ -31,14 +46,14 @@ class PolymodMacro
           sortedAbstractClasses.push(abstractCls);
       }
 
-      var aliases:Map<String, String> = new Map<String, String>();
+      var abstractAliases:Map<String, String> = new Map<String, String>();
 
       for (type in types)
       {
         switch (type)
         {
           case ModuleType.TAbstract(a):
-            var cls = a.get();
+            var cls:AbstractType = a.get();
 
             if (cls.isPrivate) continue;
 
@@ -47,18 +62,15 @@ class PolymodMacro
               var negate:Bool = abstractCls.startsWith('!');
               var name:String = abstractCls.replace('!', '').replace('.*', '');
 
-              if (!negate
-                && !cls.module.startsWith(name)
-                && cls.module + cls.name != name
-                && cls.pack.join('.') + '.' + cls.name != name) continue;
+              if (!negate && !cls.module.startsWith(name) && moduleTypePath(cls) != name && packTypePath(cls) != name) continue;
               else if (negate)
               {
-                if (cls.module.startsWith(name) || cls.module + cls.name == name || cls.pack.join('.') + '.' + cls.name == name) break;
+                if (cls.module.startsWith(name) || moduleTypePath(cls) == name || packTypePath(cls) == name) break;
                 else
                   continue;
               }
 
-              aliases.set('${cls.pack.join('.')}.${cls.name}', 'polymod.abstracts.${cls.pack.join('.')}.${cls.name}');
+              abstractAliases.set('${packTypePath(cls)}', 'polymod.abstracts.${packTypePath(cls)}${classSuffix}');
 
               buildAbstract(cls);
 
@@ -68,7 +80,6 @@ class PolymodMacro
             // do nothing
         }
       }
-
       Context.defineModule('funkin.util.macro.PolymodMacro', [
         {
           pack: ['funkin', 'util', 'macro'],
@@ -84,7 +95,7 @@ class PolymodMacro
                   ret: (macro :Map<String, String>),
                   expr: macro
                   {
-                    return $v{aliases};
+                    return $v{abstractAliases};
                   }
                 }),
               pos: Context.currentPos()
@@ -94,12 +105,13 @@ class PolymodMacro
         }
       ]);
 
-      // the callback is called twice, which this leads to issues
+      // The callback is called twice, which may lead to issues
       alreadyCalled = true;
     });
   }
 
   #if macro
+  static var classSuffix:String = '_';
   static var alreadyCalled:Bool = false;
   static var skipFields:Array<String> = [];
 
@@ -116,6 +128,7 @@ class PolymodMacro
     var sortedFields:Array<ClassField> = sortFields(cls.statics.get());
 
     var fields:Array<Field> = [];
+
     for (field in sortedFields)
     {
       if (field.name == '_new')
@@ -131,7 +144,7 @@ class PolymodMacro
       {
         pos: Context.currentPos(),
         pack: ['polymod', 'abstracts'].concat(abstractCls.pack),
-        name: abstractCls.name,
+        name: abstractCls.name + classSuffix,
         kind: TypeDefKind.TDClass(null, [], false, false, false),
         fields: fields,
       }, null);
@@ -163,10 +176,9 @@ class PolymodMacro
 
   static function buildCreateField(cls:AbstractType, field:ClassField):Field
   {
-    var newExprStr = trialAndError(cls, field) ?? 'new ${cls.module}.${cls.name}';
-
-    var funcArgs = [];
+    var funcArgs:Array<FunctionArg> = [];
     var funcArgNames:Array<String> = [];
+
     switch (field.type)
     {
       case Type.TFun(args, _):
@@ -175,7 +187,7 @@ class PolymodMacro
           funcArgs.push(
             {
               name: arg.name,
-              type: (macro :Dynamic),
+              type: null,
               opt: arg.opt
             });
           funcArgNames.push(arg.name);
@@ -184,58 +196,32 @@ class PolymodMacro
         throw 'how is this not a function';
     }
 
+    var expr:String = '${newExpr(cls, field)}(${funcArgNames.join(', ')})';
+
     return {
       name: 'create',
       access: [Access.APublic, Access.AStatic],
       kind: FieldType.FFun(
         {
           args: funcArgs,
-          ret: (macro :Dynamic),
+          ret: null,
           expr: macro
           {
             @:privateAccess
-            return ${Context.parse(newExprStr + '(' + funcArgNames.join(', ') + ')', Context.currentPos())};
+            return ${Context.parse(expr, Context.currentPos())};
           },
         }),
       pos: Context.currentPos()
     };
   }
 
-  static function trialAndError(cls:AbstractType, field:ClassField):Null<String>
+  static function newExpr(cls:AbstractType, field:ClassField):Null<String>
   {
-    if ('${cls.module}.${cls.name}' == 'flixel.util.FlxSignal.FlxTypedSignal') return 'new flixel.util.FlxSignal.FlxTypedSignal<Dynamic->Void>';
+    if ('${moduleTypePath(cls)}' == 'flixel.util.FlxSignal.FlxTypedSignal') return 'new flixel.util.FlxSignal.FlxTypedSignal<Dynamic->Void>';
 
-    if (cls.params.length <= 0) return null;
+    if (cls.params.length <= 0) return 'new ${moduleTypePath(cls)}';
 
-    function getCombinations(num:Int):Array<Array<String>>
-    {
-      if (num == 0) return [[]];
-
-      var combinations:Array<Array<String>> = [];
-
-      for (combination in getCombinations(num - 1))
-        combinations.push(combination.concat(['Dynamic']));
-
-      return combinations;
-    }
-    var typeArgss:Array<Array<String>> = getCombinations(cls.params.length);
-
-    for (typeArgs in typeArgss)
-    {
-      // TODO: figure out a way to find out whether a typeparameter is valid or not
-      try
-      {
-        // var expr = Context.parse('new ${cls.module}.${cls.name}<' + typeArgs.join(', ') + '>()', Context.currentPos());
-        // return expr;
-        return 'new ${cls.module}.${cls.name} <' + typeArgs.join(', ') + '>';
-      }
-      catch (e)
-      {
-        trace(e);
-      }
-    }
-
-    return null;
+    return 'new ${moduleTypePath(cls)}< ${[for (_ in 0...cls.params.length) 'Dynamic'].join(', ')} >';
   }
 
   static function createFields(cls:AbstractType, field:ClassField):Array<Field>
@@ -260,7 +246,7 @@ class PolymodMacro
     switch (type)
     {
       case Type.TFun(args, ret):
-        var fieldArgs = [];
+        var fieldArgs:Array<FunctionArg> = [];
         var exprArgs:Array<String> = [];
 
         for (arg in args)
@@ -278,40 +264,34 @@ class PolymodMacro
           fieldArgs.push(
             {
               name: arg.name,
-              type: (macro :Dynamic),
+              type: null,
               opt: arg.opt,
             });
         }
 
-        var returnStr:String = 'return ';
-        var returnType:ComplexType = (macro :Dynamic);
-
-        switch (ret)
+        var returnStr:String = switch (ret)
         {
           case Type.TAbstract(t, _):
-            if (t.get().name == 'Void')
-            {
-              returnStr = '';
-              returnType = (macro :Void);
-            }
+            if (t.get().name == 'Void') ''; else 'return ';
           default:
-        }
+            'return ';
+        };
 
-        var strExpr = Context.parse('${returnStr}${cls.module}.${cls.name}.${field.name}(${exprArgs.join(', ')})', Context.currentPos());
+        var expr:String = '${returnStr}${moduleTypePath(cls)}.${field.name}(${exprArgs.join(', ')})';
 
         fields.push(
           {
             name: field.name,
             doc: field.doc,
-            access: [Access.AStatic].concat(getFieldAccess(field)),
+            access: [Access.APublic, Access.AStatic],
             kind: FieldType.FFun(
               {
                 args: fieldArgs,
-                ret: returnType,
+                ret: null,
                 expr: macro
                 {
                   @:privateAccess
-                  ${strExpr};
+                  ${Context.parse(expr, Context.currentPos())};
                 },
                 params: []
               }),
@@ -322,26 +302,26 @@ class PolymodMacro
           {
             name: field.name,
             doc: field.doc,
-            access: [Access.AStatic].concat(getFieldAccess(field)),
+            access: [Access.APublic, Access.AStatic],
             kind: FieldType.FProp('get', 'never', (macro :Dynamic), null),
             pos: Context.currentPos()
           });
 
-        var strExpr = Context.parse('${cls.module}.${cls.name}.${field.name}', Context.currentPos());
+        var expr:String = '${moduleTypePath(cls)}.${field.name}';
 
         fields.push(
           {
             name: 'get_${field.name}',
             doc: field.doc,
-            access: [Access.AStatic, field.isPublic ? Access.APublic : Access.APrivate],
+            access: [Access.APublic, Access.AStatic],
             kind: FieldType.FFun(
               {
                 args: [],
-                ret: (macro :Dynamic),
+                ret: null
                 expr: macro
                 {
                   @:privateAccess
-                  return ${strExpr};
+                  return ${Context.parse(expr, Context.currentPos())};
                 },
                 params: []
               }),
@@ -352,26 +332,26 @@ class PolymodMacro
           {
             name: field.name,
             doc: field.doc,
-            access: [Access.AStatic].concat(getFieldAccess(field)),
+            access: [Access.APublic, Access.AStatic],
             kind: FieldType.FProp('get', 'never', (macro :Dynamic), null),
             pos: Context.currentPos()
           });
 
-        var strExpr = Context.parse('${cls.module}.${cls.name}.${field.name}', Context.currentPos());
+        var expr:String = '${moduleTypePath(cls)}.${field.name}';
 
         fields.push(
           {
             name: 'get_${field.name}',
             doc: field.doc,
-            access: [Access.AStatic, field.isPublic ? Access.APublic : Access.APrivate],
+            access: [Access.APublic, Access.AStatic],
             kind: FieldType.FFun(
               {
                 args: [],
-                ret: (macro :Dynamic),
+                ret: null,
                 expr: macro
                 {
                   @:privateAccess
-                  return ${strExpr};
+                  return ${Context.parse(expr, Context.currentPos())};
                 },
                 params: []
               }),
@@ -380,21 +360,21 @@ class PolymodMacro
       default:
         return [];
     };
-
     return fields;
   }
 
-  static function getFieldAccess(field:ClassField):Array<Access>
+  // Here, `type` is a Dynamic so any kind of type with `module` and `name` fields works.
+  static function moduleTypePath(type:Dynamic):String
   {
-    var access = [];
+    var dot:String = type.module.length != 0 ? '.' : '';
+    return '${type.module}${dot}${type.name}';
+  }
 
-    access.push(field.isPublic ? Access.APublic : Access.APrivate);
-
-    if (field.isFinal) access.push(Access.AFinal);
-    if (field.isAbstract) access.push(Access.AAbstract);
-    if (field.isExtern) access.push(Access.AExtern);
-
-    return access;
+  // Here, `type` is a Dynamic so any kind of type with `pack` and `name` fields works.
+  static function packTypePath(type:Dynamic):String
+  {
+    var dot:String = type.pack.length != 0 ? '.' : '';
+    return '${type.pack.join('.')}${dot}${type.name}';
   }
   #end
 }
