@@ -16,7 +16,8 @@ import flixel.tweens.FlxEase;
 	* still no custom death anim for it but oh well
 	*/
 class MILFSong extends Song {
-	public function new() {
+	public function new() 
+        {
 		super('milf');
 	}
 
@@ -44,7 +45,7 @@ class MILFSong extends Song {
 
 	/**
 	 * The limo will move this many pixels per millisecond offscreen.
-   * NO magic numbers!
+         * NO magic numbers!
 	 */
 	var LIMO_BASE_X_POS = -200;
 
@@ -70,7 +71,7 @@ class MILFSong extends Song {
 	var HENCHMAN_COLLISION_X_OFFSET = 300;
 
 	/**
-   * The delay in milliseconds between the henchman impacting the lamp and the sound effect playing.
+         * The delay in milliseconds between the henchman impacting the lamp and the sound effect playing.
 	 */
 	var HENCHMAN_DEATH_SOUND_OFFSET = -300;
 
@@ -81,7 +82,7 @@ class MILFSong extends Song {
 	 * it's because this script is older than the song event system by about a year!
 	 */
 	var BOYFRIEND_LAMP_TIMES = [
-		// 800, // Beginning of the song for testing.
+		800, // Beginning of the song for testing.
 		87900 // The duet down note.
 	];
 
