@@ -994,7 +994,7 @@ class Save
       case ERROR(_):
         return handleSaveDataError(slot);
       case BOUND(_, _):
-        if (FlxG.save.data != "{}" && FlxG.save.data != null) trace('[SAVE] ' + FlxG.save.data);
+        if (FlxG.save.data != "{ }" && FlxG.save.data != "{}" && FlxG.save.data != null) trace('[SAVE] ' + FlxG.save.data);
         else
           trace('[SAVE] null'); // get troled bitch
         if (FlxG.save.isEmpty())
