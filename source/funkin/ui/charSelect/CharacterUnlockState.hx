@@ -64,10 +64,11 @@ class CharacterUnlockState extends MusicBeatState
     // Build the graphic for the text...
     var charName:String = targetCharacterData != null ? targetCharacterData.getName() : targetCharacterId.toTitleCase();
     // var dialogText:FlxText = new FlxText(0, 0, 0, 'You can now play as     $charName.\n\nCheck it out in Freeplay!');
-    if (noLonger) var messag:String = 'You can no longer play as     $charName.';
+    var messag:String = '';
+    if (noLonger) messag = 'You can no longer play as     $charName.';
     else
-      var messag:String = 'You can now play as     $charName.';
-    var dialogText:FlxText = new FlxText(0, 0, 0, 'You can now play as     $charName.');
+      messag = 'You can now play as     $charName.';
+    var dialogText:FlxText = new FlxText(0, 0, 0, messag);
     dialogText.setFormat(Paths.font("conan.ttf"), 32, DIALOG_FONT_COLOR, LEFT);
 
     // THEN we can size the dialog to match...

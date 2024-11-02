@@ -348,9 +348,9 @@ class MainMenuState extends MusicBeatState
       FlxG.state.openSubState(new DebugMenuSubState());
     }
 
-    // Ctrl+Alt+Shift+P = Character Unlock screen
     // Ctrl+Alt+Shift+W = Meet requirements for Pico Unlock
     // Ctrl+Alt+Shift+M = Revoke requirements for Pico Unlock
+    // Ctrl+Alt+Shift+P = Character Unlock screen for Pico
     // Ctrl+Alt+Shift+R = Score/Rank conflict test
     // Ctrl+Alt+Shift+N = Mark all characters as not seen
     // Ctrl+Alt+Shift+E = Dump save data
