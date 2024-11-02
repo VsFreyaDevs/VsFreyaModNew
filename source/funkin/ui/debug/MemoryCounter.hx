@@ -157,7 +157,7 @@ class MemoryCounter extends TextField
         text += '\nOBJ: ${FlxG.state.members.length} • CAM: ${FlxG.cameras.list.length}';
       }
 
-      if (showSongText) text += '\nSONG POS: ${Math.round(Conductor.instance.songPosition)} • ${Conductor.instance.bpm} BPM';
+      if (showSongText) text += '\nSONG POS: ${Conductor.instance.frameSongPosition} • ${Conductor.instance.bpm} BPM';
 
       if (currentFPS <= FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
       else

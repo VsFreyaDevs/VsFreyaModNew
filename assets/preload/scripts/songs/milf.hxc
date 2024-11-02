@@ -82,8 +82,11 @@ class MILFSong extends Song {
 	 * it's because this script is older than the song event system by about a year!
 	 */
 	var BOYFRIEND_LAMP_TIMES = [
-		800, // Beginning of the song for testing.
-		87900 // The duet down note.
+		2667, // Beginning of the song for testing.
+                45333,
+                56000,
+		87900, // The duet down note.
+                109333 // The last part.
 	];
 
 	/**
@@ -260,18 +263,18 @@ class MILFSong extends Song {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
 			var nextLampTime = BOYFRIEND_LAMP_TIMES[nextBFLampIndex];
 			var nextLampReset = nextLampTime + LAMP_RESET_DELAY;
-			if (Conductor.instance.songPosition >= nextLampReset) {
+			if (Conductor.instance.frameSongPosition >= nextLampReset) {
 				nextBFLampIndex++;
 				hasCurrentBFLampHit = false;
 			} else if (boyfriend != null) {
 
-				if (Conductor.instance.songPosition >= nextLampTime && !hasCurrentBFLampHit) {
+				if (Conductor.instance.frameSongPosition >= nextLampTime && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
 					hasCurrentBFLampHit = true;
 				}
 
-				if (Conductor.instance.songPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+				if (Conductor.instance.frameSongPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
 					// Ensure this code only runs once.
 					hasCurrentGFLampDucked = true;
 
@@ -283,7 +286,7 @@ class MILFSong extends Song {
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 
 				var boyfriendXPos = boyfriend.x;
-				var lampDelay = nextLampTime - Conductor.instance.songPosition;
+				var lampDelay = nextLampTime - Conductor.instance.frameSongPosition;
 				var lampDistance = lampDelay * LAMP_VELOCITY;
 				lamp.x = boyfriendXPos - lampDistance - 120;
 
