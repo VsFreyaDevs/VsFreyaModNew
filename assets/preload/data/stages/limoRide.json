@@ -158,6 +158,15 @@
       "animations": []
     },
     {
+      "zIndex": 400,
+      "position": [-2000, 150],
+      "scale": [1, 1],
+      "name": "boyfriendLight",
+      "isPixel": false,
+      "scroll": [1, 1],
+      "assetPath": "limo/highwayLight"
+    },
+    {
       "zIndex": 30,
       "danceEvery": 1.0,
       "position": [100, 100],
