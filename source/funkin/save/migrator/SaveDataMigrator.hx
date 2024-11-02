@@ -21,7 +21,14 @@ class SaveDataMigrator
       trace(inputData);
 
       var message:String = 'Cannot find save data! Switching back to default save...';
-      lime.app.Application.current.window.alert(message, "Save Data Failure");
+      try
+      {
+        lime.app.Application.current.window.alert(message, "Save Data Failure");
+      }
+      catch (e)
+      {
+        trace(e + " \n " + message);
+      }
 
       return new Save(Save.getDefault());
     }
