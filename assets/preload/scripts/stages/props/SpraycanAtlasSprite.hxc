@@ -55,6 +55,7 @@ class SpraycanAtlasSprite extends FlxAtlasSprite
   }
 
   public function playCanShot():Void {
+    PlayState.instance.camGame.shake(0.035, 0.25);
     this.playAnimation('Can Shot');
   }
 
