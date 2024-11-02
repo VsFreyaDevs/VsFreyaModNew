@@ -4,6 +4,7 @@ import flixel.util.FlxTimer;
 import funkin.Conductor;
 import funkin.graphics.FunkinSprite;
 import funkin.Paths;
+import funkin.audio.FunkinSound;
 import funkin.play.song.Song;
 import funkin.play.PlayState;
 import flixel.tweens.FlxTween;
