@@ -3,8 +3,10 @@
 Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
 -->
 <TextureAtlas imagePath="kanimatepixel.png" width="98" height="82">
-	<SubTexture name="kanimatepixel1" x="52" y="41" width="45" height="37" frameX="-3" frameY="-4" frameWidth="50" frameHeight="50"/>
-	<SubTexture name="kanimatepixel2" x="1" y="1" width="41" height="44" frameX="-4" frameY="-1" frameWidth="50" frameHeight="50"/>
-	<SubTexture name="kanimatepixel3" x="1" y="48" width="48" height="33" frameX="-0" frameY="-9" frameWidth="50" frameHeight="50"/>
-	<SubTexture name="kanimatepixel4" x="45" y="1" width="46" height="37" frameX="-2" frameY="-7" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="confirm-hold0001" x="52" y="41" width="45" height="37" frameX="-3" frameY="-4" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="confirm0001" x="45" y="1" width="46" height="37" frameX="-2" frameY="-7" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="confirm0002" x="45" y="1" width="46" height="37" frameX="-2" frameY="-7" frameWidth="50" frameHeight="50"/>
+  <SubTexture name="confirm0003" x="1" y="1" width="41" height="44" frameX="-4" frameY="-1" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="confirm0004" x="1" y="1" width="41" height="44" frameX="-4" frameY="-1" frameWidth="50" frameHeight="50"/>
+	<SubTexture name="idle0001" x="1" y="48" width="48" height="33" frameX="-0" frameY="-9" frameWidth="50" frameHeight="50"/>
 </TextureAtlas>
