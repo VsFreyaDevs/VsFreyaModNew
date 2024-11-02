@@ -111,6 +111,12 @@
       "offsets": [37, 0]
     },
     {
+      "name": "hey",
+      "prefix": "Pico HEY!!",
+      "assetPath": "characters/pico-hey",
+      "offsets": [0, 1]
+    },
+    {
       "name": "shit",
       "assetPath": "characters/Pico_Burps",
       "prefix": "shit",

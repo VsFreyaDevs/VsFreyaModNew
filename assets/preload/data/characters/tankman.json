@@ -1,157 +1,158 @@
 {
-	"version": "1.0.0",
-	"renderType": "multisparrow",
-	"offsets": [
-		0,
-		-50
-	],
-	"danceEvery": 1,
-	"scale": 1,
-	"loopHoldFrame": 3,
-	"name": "Tankman",
-	"flipX": true,
-	"cameraOffsets": [
-		0,
-		0
-	],
-	"loopHold": false,
-	"singTime": 8,
-	"startingAnimation": "idle",
-	"isPixel": false,
-	"assetPath": "characters/tankmanCaptain",
-	"healthIcon": {
-		"isPixel": false,
-		"offsets": [
-			0,
-			0
-		],
-		"scale": 1,
-		"id": "tankman",
-		"flipX": false
-	},
-	"animations": [
-		{
-			"offsets": [
-				0,
-				0
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "Tankman Idle Dance instance 1",
-			"looped": false,
-			"name": "idle",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				92,
-				-12
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "Tankman Right Note instance 1",
-			"looped": false,
-			"name": "singLEFT",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				71,
-				-105
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "Tankman DOWN note instance 1",
-			"looped": false,
-			"name": "singDOWN",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				54,
-				50
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "Tankman UP note instance 1",
-			"looped": false,
-			"name": "singUP",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				-25,
-				-30
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "Tankman Note Left instance 1",
-			"looped": false,
-			"name": "singRIGHT",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				-15,
-				-9
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "TANKMAN UGH instance 1",
-			"looped": false,
-			"name": "ugh",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				52,
-				2
-			],
-			"flipY": false,
-			"assetPath": "characters/tankmanPico",
-			"frameRate": 24,
-			"prefix": "tankman ARGH",
-			"looped": false,
-			"name": "augh",
-			"flipX": true
-		},
-		{
-			"offsets": [
-				-29,
-				14
-			],
-			"flipY": false,
-			"assetPath": "characters/tankmanPico",
-			"frameRate": 24,
-			"prefix": "tankman laugh",
-			"looped": false,
-			"name": "laugh",
-			"flipX": true
-		},
-		{
-			"offsets": [
-				1,
-				16
-			],
-			"flipY": false,
-			"frameRate": 24,
-			"prefix": "PRETTY GOOD tankman instance 1",
-			"looped": false,
-			"name": "hehPrettyGood",
-			"flipX": false
-		},
-		{
-			"offsets": [
-				86,
-				-14
-			],
-			"flipY": false,
-			"assetPath": "characters/tankmanPico",
-			"frameRate": 24,
-			"prefix": "tankman beat it",
-			"looped": false,
-			"name": "beat it",
-			"flipX": true
-		}
-	]
+  "version": "1.0.0",
+  "renderType": "multisparrow",
+  "offsets": [0, -50],
+  "danceEvery": 1,
+  "scale": 1,
+  "loopHoldFrame": 3,
+  "name": "Tankman",
+  "flipX": true,
+  "cameraOffsets": [0, 0],
+  "loopHold": false,
+  "singTime": 8,
+  "startingAnimation": "idle",
+  "isPixel": false,
+  "assetPath": "characters/tankmanCaptain",
+  "healthIcon": {
+    "isPixel": false,
+    "offsets": [0, 0],
+    "scale": 1,
+    "id": "tankman",
+    "flipX": false
+  },
+  "animations": [
+    {
+      "offsets": [0, 0],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman Idle Dance instance 1",
+      "looped": false,
+      "name": "idle",
+      "flipX": false
+    },
+    {
+      "offsets": [92, -12],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman Right Note instance 1",
+      "looped": false,
+      "name": "singLEFT",
+      "flipX": false
+    },
+    {
+      "offsets": [71, -105],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman DOWN note instance 1",
+      "looped": false,
+      "name": "singDOWN",
+      "flipX": false
+    },
+    {
+      "offsets": [54, 50],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman UP note instance 1",
+      "looped": false,
+      "name": "singUP",
+      "flipX": false
+    },
+    {
+      "offsets": [-25, -30],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman Note Left instance 1",
+      "looped": false,
+      "name": "singRIGHT",
+      "flipX": false
+    },
+    {
+      "offsets": [-15, -9],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "TANKMAN UGH instance 1",
+      "looped": false,
+      "name": "ugh",
+      "flipX": false
+    },
+    {
+      "offsets": [52, 2],
+      "flipY": false,
+      "assetPath": "characters/tankmanPico",
+      "frameRate": 24,
+      "prefix": "tankman ARGH",
+      "looped": false,
+      "name": "augh",
+      "flipX": true
+    },
+    {
+      "offsets": [-29, 14],
+      "flipY": false,
+      "assetPath": "characters/tankmanPico",
+      "frameRate": 24,
+      "prefix": "tankman laugh",
+      "looped": false,
+      "name": "laugh",
+      "flipX": true
+    },
+    {
+      "offsets": [1, 16],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "PRETTY GOOD tankman instance 1",
+      "looped": false,
+      "name": "hehPrettyGood",
+      "flipX": false
+    },
+    {
+      "offsets": [86, -14],
+      "flipY": false,
+      "assetPath": "characters/tankmanPico",
+      "frameRate": 24,
+      "prefix": "tankman beat it",
+      "looped": false,
+      "name": "beat it",
+      "flipX": true
+    },
+    {
+      "offsets": [92, -12],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman Right Note MISS",
+      "assetPath": "characters/tankmanMissNote",
+      "looped": false,
+      "name": "singLEFTmiss",
+      "flipX": false
+    },
+    {
+      "offsets": [71, -105],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman DOWN note MISS",
+      "assetPath": "characters/tankmanMissNote",
+      "looped": false,
+      "name": "singDOWNmiss",
+      "flipX": false
+    },
+    {
+      "offsets": [54, 50],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman UP note MISS",
+      "assetPath": "characters/tankmanMissNote",
+      "looped": false,
+      "name": "singUPmiss",
+      "flipX": false
+    },
+    {
+      "offsets": [-25, -30],
+      "flipY": false,
+      "frameRate": 24,
+      "prefix": "Tankman Note Left MISS",
+      "assetPath": "characters/tankmanMissNote",
+      "looped": false,
+      "name": "singRIGHTmiss",
+      "flipX": false
+    }
+  ]
 }

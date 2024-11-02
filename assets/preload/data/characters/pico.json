@@ -3,6 +3,11 @@
   "name": "Pico",
   "assetPath": "characters/Pico_Basic",
   "flipX": true,
+  "renderType": "multisparrow",
+  "healthIcon": {
+    "id": "pico",
+    "flipX": false
+  },
   "animations": [
     {
       "name": "idle",
@@ -28,6 +33,72 @@
       "name": "singLEFT",
       "prefix": "Pico Note Right0",
       "offsets": [55, 1]
+    },
+    {
+      "name": "hey",
+      "prefix": "Pico HEY!!",
+      "assetPath": "characters/pico-hey",
+      "offsets": [0, 1]
+    },
+    {
+      "name": "singLEFT-censor",
+      "prefix": "pico swear left",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [86, -11]
+    },
+    {
+      "name": "singDOWN-censor",
+      "prefix": "pico swear down",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [85, -76]
+    },
+    {
+      "name": "singUP-censor",
+      "prefix": "pico swear up",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [21, 28]
+    },
+    {
+      "name": "singRIGHT-censor",
+      "prefix": "pico swear right",
+      "assetPath": "characters/Pico_Censored",
+      "offsets": [-50, 1]
+    },
+    {
+      "name": "shit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "shit",
+      "offsets": [1, 1]
+    },
+    {
+      "name": "burpShit",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpshit",
+      "offsets": [37, 0]
+    },
+    {
+      "name": "burpSmile",
+      "assetPath": "characters/Pico_Burps",
+      "prefix": "burpsmile",
+      "offsets": [37, 0]
+    },
+    {
+      "name": "burpSmileLong",
+      "prefix": "burpsmile",
+      "assetPath": "characters/Pico_Burps",
+      "frameIndices": [
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19,
+        20, 21, 22, 23, 24, 25, 25, 26, 27, 28, 29, 30, 31, 31, 31, 31, 31, 31,
+        31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31,
+        31, 31, 31, 31, 31, 31
+      ],
+      "offsets": [37, 0]
+    },
+    {
+      "name": "bruh",
+      "assetPath": "characters/Pico_Intro",
+      "prefix": "Pico Gets Pissed0",
+      "offsets": [57, 0]
     }
   ]
 }
