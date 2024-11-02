@@ -46,6 +46,7 @@ class MemoryCounter extends TextField
 
   public static var showFPS:Bool = true;
   public static var showMiscText:Bool = true;
+  public static var showSongText:Bool = true;
   #if !html5 public static var showRAM:Bool = true; #end
 
   public var align(default, set):TextFormatAlign;
@@ -155,6 +156,8 @@ class MemoryCounter extends TextField
         if (FlxG.state.subState != null) text += ' • SUBSTATE: ${Type.getClassName(Type.getClass(FlxG.state.subState))}';
         text += '\nOBJ: ${FlxG.state.members.length} • CAM: ${FlxG.cameras.list.length}';
       }
+
+      if (showSongText) text += '\nSONG POS: ${Math.round(Conductor.instance.songPosition)} • ${Conductor.instance.bpm} BPM';
 
       if (currentFPS <= FlxG.drawFramerate * 0.5) textColor = 0xFFFF0000;
       else
