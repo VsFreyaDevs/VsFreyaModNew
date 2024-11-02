@@ -34,6 +34,7 @@ class RosesSong extends Song {
       // Play a SFX
       FunkinSound.playOnce(Paths.sound('ANGRY_TEXT_BOX'), 1.0);
 
+      PlayState.instance.camGame.shake(0.025, 0.275);
       PlayState.instance.currentStage.pause();
 
       startDialogue();

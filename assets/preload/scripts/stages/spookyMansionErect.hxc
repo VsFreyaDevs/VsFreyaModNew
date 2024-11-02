@@ -68,6 +68,9 @@ class SpookyMansionErectStage extends Stage
 			FunkinSound.playOnce(Paths.soundRandom('thunder_', 1, 2), 1.0);
 		}
 
+		PlayState.instance.camGame.shake(0.025, 0.35);
+
+
 		//getNamedProp('halloweenBG').animation.play('lightning');
     getNamedProp('bgLight').alpha = 1;
     getNamedProp('stairsLight').alpha = 1;
