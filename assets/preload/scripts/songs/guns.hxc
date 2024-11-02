@@ -50,8 +50,7 @@ class GunsSong extends Song {
 		super.onCountdownStart(event);
 
     // will uncomment when i add
-    // if (!PlayStatePlaylist.isStoryMode)
-    if (currentDifficulty == 'easy-pico' || currentDifficulty == 'normal-pico' || currentDifficulty == 'hard-pico') hasPlayedCutscene = true;
+    // if (!PlayStatePlaylist.isStoryMode) hasPlayedCutscene = true;
 
     if (!hasPlayedCutscene) {
       trace('Pausing countdown to play a cutscene (`guns`)');
