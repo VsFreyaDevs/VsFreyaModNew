@@ -62,7 +62,7 @@
     },
     {
       "zIndex": 150,
-      "danceEvery": 0,
+      "danceEvery": 1,
       "position": [-120, 520],
       "scale": [1, 1],
       "name": "limo",
