@@ -1,0 +1,14 @@
+# swag  little helper for haxelib, allowing you to specify, install, and update your libaries using
+# lib.haxe.org libs, git, or dev (local path ref) libraries, locally from a hlm.yml file
+# inspired by hmm and hxPKG
+# also yes this is a mockup, im planning out on working on this lol
+libs:
+  - name: examplelib # the name of the library, REQUIRED FOR ALL LIBS
+        type: haxelib # can be haxelib, dev or git, REQUIRED FOR ALL LIBS
+        version: 9.2.2 # the version of the library, optional but kinda a bad practice not to include it when referencing a library
+        link: https://github.com/charlesisfeline/examplelib # github/gitlab/git.gay link, REQUIRED FOR GIT LIBS
+        ref: master # either a branch or a hash, optional for git libs
+        directory: src # the folder of the library's source code, optional for git libs
+        path: /milky/path/examplelib # the file system path of the library's source code, REQUIRED FOR DEV LIBS
+        # also dev dependencies are allowed for convenience, however not as ideal since they do not specify any versioning,
+        # and require others to have the same local directory
