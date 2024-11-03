@@ -317,7 +317,7 @@ class PolymodMacro
             kind: FieldType.FFun(
               {
                 args: [],
-                ret: null
+                ret: null,
                 expr: macro
                 {
                   @:privateAccess
