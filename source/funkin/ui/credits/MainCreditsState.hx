@@ -80,7 +80,7 @@ class MainCreditsState extends MusicBeatState
     #if FEATURE_DISCORD_RPC
     funkin.api.discord.DiscordClient.instance.setPresence(
       {
-        state: 'Credits Roll'
+        state: 'Credits Roll',
         details: null
       });
     #end
