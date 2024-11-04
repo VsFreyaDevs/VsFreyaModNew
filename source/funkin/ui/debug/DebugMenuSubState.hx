@@ -63,6 +63,7 @@ class DebugMenuSubState extends MusicBeatSubState
     createItem("STAGE EDITOR", openStageEditor);
     #end
     createItem("CHARACTER SELECT", openCharSelect, true);
+    createItem("INTRO TEXT TEST", openIntroText);
     createItem("TEST STICKERS", testStickers);
     #if sys
     createItem("OPEN CRASH LOG FOLDER", openLogFolder);
@@ -129,6 +130,12 @@ class DebugMenuSubState extends MusicBeatSubState
   {
     trace('Stage Editor');
     FlxG.switchState(() -> new funkin.ui.debug.stageeditor.StageEditorState());
+  }
+
+  function openIntroText()
+  {
+    trace('Intro Text Test');
+    FlxG.switchState(() -> new funkin.ui.title.IntroTextState());
   }
 
   function openCharCreator()
