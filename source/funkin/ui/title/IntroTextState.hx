@@ -205,7 +205,11 @@ class IntroTextState extends MusicBeatState
 
     trace("randomized intro text 4 no fuckin reason lol");
 
-    createCoolText([curWacky[0]]);
-    addMoreText(curWacky[1]);
+    deleteCoolText();
+
+    new FlxTimer().start(0.5, (tmr) -> {
+      createCoolText([curWacky[0]]);
+      new FlxTimer().start(0.5, (tmr) -> addMoreText(curWacky[1]));
+    });
   }
 }
