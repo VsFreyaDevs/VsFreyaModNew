@@ -99,7 +99,7 @@ class OptionsState extends MusicBeatState
     #if FEATURE_DISCORD_RPC
     funkin.api.discord.DiscordClient.instance.setPresence(
       {
-        state: 'Options Menu'
+        state: 'Options Menu',
         details: null
       });
     #end

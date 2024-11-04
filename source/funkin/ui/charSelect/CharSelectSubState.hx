@@ -432,7 +432,7 @@ class CharSelectSubState extends MusicBeatSubState
     #if FEATURE_DISCORD_RPC
     funkin.api.discord.DiscordClient.instance.setPresence(
       {
-        state: 'Selecting a Character'
+        state: 'Selecting a Character',
         details: null
       });
     #end
