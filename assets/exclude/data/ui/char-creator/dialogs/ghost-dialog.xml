@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Ghost Settings" width="250" height="250">
+  <vbox width="100%" height="100%">
+    <checkbox id="ghostEnable" text="Enable Ghost"/>
+
+    <vbox id="ghostDataBox" width="100%" height="100%" disabled="true">
+      <hbox width="100%" style="justify-content:space-evenly" continuous="true">
+        <optionbox id="ghostCurChar" text="Use Current Character" selected="true" group="ghostGroup"/>
+        <optionbox id="ghostCustomChar" text="Use Custom Character" selected="true" group="ghostGroup"/>
+      </hbox>
+      <hbox width="100%" style="justify-content:space-evenly" continuous="true">
+        <dropdown id="ghostAnimDropdown" width="75%" text="Search Animation" searchable="true" searchPrompt="Search Animation">
+          <data/> <!--fill with code-->
+        </dropdown>
+        <button id="ghostTypeButton" width="70" height="70" padding="8" iconPosition="top"/>
+      </hbox>
+    </vbox>
+
+  </vbox>
+</collapsible-dialog>

@@ -1,0 +1,10 @@
+<box id="bottomBar" width="100%" height="48" styleName="bottomBar" verticalAlign="bottom">
+  <hbox id="bottomBarLeftBox" horizontalAlign="left" verticalAlign="center">
+  </hbox>
+
+  <hbox id="bottomBarMiddleBox" horizontalAlign="center" verticalAlign="center">
+  </hbox>
+
+  <hbox id="bottomBarRightBox" horizontalAlign="right" verticalAlign="center">
+  </hbox>
+</box>

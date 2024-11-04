@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<collapsible-dialog title="Object Properties" width="400" height="400">
+  <vbox width="100%" height="100%">
+    <hbox width="100%">
+      <dropdown id="charAnimDropdown" width="50%" text="Search Animation" searchable="true" searchPrompt="Search Animation">
+        <data/> <!--fill with code-->
+      </dropdown>
+      <textfield id="charAnimName" width="50%" placeholder="Anim Name"/>
+     </hbox>
+
+     <hbox width="100%">
+      <listview id="charAnimFrameList" width="50%" height="100%">
+        <item-renderer width="100%" allowHover="true">
+          <label id="name" horizontalAlign="left"/>
+        </item-renderer>
+        <data /> <!-- fill with code-->
+      </listview>
+
+      <vbox width="50%">
+        <textfield id="charAnimPrefix" placeholder="Anim Prefix" width="100%"/>
+        <textfield id="charAnimFrames" placeholder="Anim Frame Indices" width="100%"/>
+        <textfield id="charAnimPath" placeholder="Anim Asset Path" width="100%" disabled="true"/>
+        <checkbox id="charAnimLooped" text="Looped"/>
+        <checkbox id="charAnimFlipX" text="Flip X"/>
+        <checkbox id="charAnimFlipY" text="Flip Y"/>
+        <label text="Framerate"/>
+        <number-stepper id="charAnimFramerate" min="1" step="1" pos="24"/>
+        <label text="Offsets X/Y"/>
+        <hbox width="100%">
+          <number-stepper id="charAnimOffsetX" step="1" pos="0"/>
+          <number-stepper id="charAnimOffsetY" step="1" pos="0"/>
+        </hbox>
+      </vbox>
+    </hbox>
+
+    <hbox width="100%" style="justify-content:space-evenly" continuous="true">
+      <button id="charAnimSave" text="Save Animation"/>
+      <button id="charAnimDelete" text="Remove Animation"/>
+    </hbox>
+  </vbox>
+</collapsible-dialog>

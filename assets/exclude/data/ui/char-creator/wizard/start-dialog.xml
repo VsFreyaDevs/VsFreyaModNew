@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="400" height="300" title="Character Creator - Start" closable="false">
+  <vbox width="100%" height="100%">
+    <label text="Choose what aspect of the Characters would you like to create." width="100%"/>
+    <spacer height="25" />
+    <checkbox id="startupCheckChar" text="In-game Character"/>
+    <checkbox id="startupCheckData" text="Playable Character Data"/>
+    <spacer height="15" />
+    <label text="Character ID" />
+    <textfield id="startupFieldID" placeholder="Enter your Character ID here." />
+  </vbox>
+</dialog>

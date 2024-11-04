@@ -1,4 +1,7 @@
-# ADDITIONS AND WHATEVER
+# TODO
+
+## ADDITIONS AND WHATEVER
+
 some stuff i finna add eventually/soon lol!
 
 - [x] Chart generator via `.MIDI`
@@ -27,13 +30,15 @@ some stuff i finna add eventually/soon lol!
 - [ ] Full CNE/Psych/Ludum Dare/osu!mania support via [`moonchart`](https://github.com/MaybeMaru/moonchart)
 - [ ] EXPERIMENTAL Lua support (for modcharting only, since it isn't the main focus of the engine like Psych's)
 
-# ENHANCEMENTS FROM ISSUES
+## ENHANCEMENTS FROM ISSUES
+
 - [x] [Add parallax/scrolling properties to CharacterData](https://github.com/FunkinCrew/Funkin/issues/3719)
 - [ ] [Expand the Character/Animation Debug to let you add animations and misc. data](https://github.com/FunkinCrew/Funkin/issues/3726)
 - [ ] [Let animated health icons bop like legacy ones do](https://github.com/FunkinCrew/Funkin/issues/3725)
 - [ ] [Change the traffic light in Blazin's BG to be stuck on a red light](https://github.com/FunkinCrew/Funkin/issues/3743)
 
-# FIX KNOWN BUGS
+## FIX KNOWN BUGS
+
 yeah vslice has more bugs than the fucking floor so im accounting whatever issues pop up on the base funkin repo lol
 
 - [x] Characters in the Character Select menu keep cloning themselves

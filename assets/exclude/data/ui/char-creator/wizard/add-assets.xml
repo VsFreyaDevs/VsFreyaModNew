@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="400" height="425" title="Character Creator - Add Assets" closable="false">
+  <vbox width="100%" height="100%">
+    <label text="Add the required assets." width="100%"/>
+    <spacer height="25" />
+    <vbox id="addAssetsBox" width="100%" height="100%">
+    </vbox>
+  </vbox>
+
+</dialog>

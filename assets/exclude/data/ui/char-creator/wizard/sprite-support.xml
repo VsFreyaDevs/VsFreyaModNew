@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dialog width="400" height="425" title="Character Creator - Render Type" closable="false">
+  <vbox width="100%" height="100%">
+    <label text="Choose the Rendering Method for the Character." width="100%"/>
+
+    <optionbox id="renderOptionSparrow" text="Sparrow" group="renderGroup"/>
+    <label text="Sparrow Characters use one Spritesheet image and an .xml file including the Frame Data." width="100%"/>
+
+    <optionbox id="renderOptionPacker" text="Packer" group="renderGroup"/>
+    <label text="Packer Characters use one Spritesheet image and a .txt file including the Frame Data." width="100%"/>
+
+    <optionbox id="renderOptionAtlas" text="Sprite Atlas" group="renderGroup"/>
+    <label text="Atlas Characters use one image containing the Spritemap, one .json file containing the Spritemap Data and another .json file for the Animation Data." width="100%"/>
+
+    <optionbox id="renderOptionMulti" text="Multi-Sparrow" group="renderGroup"/>
+    <label text="Multi-Sparrow Characters are similar to Sparrow Characters, except their animations could be found in separate Sparrow Rendering files." width="100%"/>
+  </vbox>
+</dialog>

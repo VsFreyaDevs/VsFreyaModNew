@@ -134,8 +134,7 @@ class DebugMenuSubState extends MusicBeatSubState
   function openCharCreator()
   {
     trace('Character Creator');
-    // TODO: DO THIS SHIT
-    // FlxG.switchState(() -> new funkin.ui.debug.char.CharCreatorState());
+    FlxG.switchState(() -> new funkin.ui.debug.char.CharCreatorState());
   }
 
   #if sys

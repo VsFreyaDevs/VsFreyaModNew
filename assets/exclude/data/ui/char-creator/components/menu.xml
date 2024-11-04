@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menubar id="menubar" width="100%" height="35" paddingLeft="172">
+  <style>
+    .menu {
+    // The width of the individual menu items
+    width: 160px;
+    }
+  </style>
+
+  <menu text="File" id="menubarMenuFile">
+    <menu-item id="menubarItemNewChar" text="New Character"/>
+    <menu-separator />
+    <menu-item id="menubarItemExport" text="Export as ZIP" shortcutText="Ctrl+S" />
+    <menu-separator />
+    <menu-item id="menubarItemExit" text="Exit" shortcutText="Esc" />
+  </menu>
+
+  <menu text="Edit" id="menubarMenuEdit">
+  </menu>
+
+  <menu text="Pages" id="menubarMenuPages">
+    <menuoptionbox id="menubarOptionGameplay" text="Gameplay" group="pageGroup" disabled="true" selected="true"/>
+    <menuoptionbox id="menubarOptionCharSelect" text="Character Select" group="pageGroup" disabled="true"/>
+    <menuoptionbox id="menubarOptionFreeplay" text="Freeplay" group="pageGroup" disabled="true"/>
+    <menuoptionbox id="menubarOptionResults" text="Result Screen" group="pageGroup" disabled="true"/>
+  </menu>
+
+  <menu text="Settings" id="menubarMenuSettings">
+
+  </menu>
+
+  <spacer width="100%" />
+  <label text="PROTOTYPE Functionality is subject to change." verticalAlign="center" />
+</menubar>
