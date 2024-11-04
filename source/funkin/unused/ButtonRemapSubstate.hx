@@ -1,4 +1,4 @@
-package funkin.ui.options;
+package funkin.unused;
 
 import flixel.FlxSubState;
 

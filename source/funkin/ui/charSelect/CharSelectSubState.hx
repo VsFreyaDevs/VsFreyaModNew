@@ -429,6 +429,14 @@ class CharSelectSubState extends MusicBeatSubState
       Save.instance.oldChar = true;
     });
 
+    #if FEATURE_DISCORD_RPC
+    funkin.api.discord.DiscordClient.instance.setPresence(
+      {
+        state: 'Selecting a Character'
+        details: null
+      });
+    #end
+
     #if mobile
     touchBuddy = new FlxSprite().makeGraphic(10, 10, FlxColor.GREEN);
     touchBuddy.cameras = [charSelectCam]; // this is stupid but it works.

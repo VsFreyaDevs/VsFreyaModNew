@@ -169,6 +169,8 @@ class GameOverSubState extends MusicBeatSubState
 
     setCameraTarget();
 
+    if (PlayState.instance.isFreyaSong) FlxG.camera.flash(FlxColor.RED, 1); // lol
+
     //
     // Set up the audio
     //

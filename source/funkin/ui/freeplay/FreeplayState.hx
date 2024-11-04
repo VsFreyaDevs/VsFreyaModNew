@@ -350,7 +350,7 @@ class FreeplayState extends MusicBeatSubState
     }
 
     #if FEATURE_DISCORD_RPC
-    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
+    DiscordClient.instance.setPresence({state: "In the Freeplay Menu", details: null});
     #end
 
     var isDebug:Bool = false;

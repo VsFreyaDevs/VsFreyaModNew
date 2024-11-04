@@ -670,6 +670,10 @@ class PlayState extends MusicBeatSubState
    */
   public var isMobilePlatform:Bool = #if mobile true #else false #end;
 
+  /**
+   * Returns true if the current song is one for Vs. Freya. (BASE GAME SONG)
+   * Needed for certain stuff like the RPC, HUD, etc.
+   */
   public var isFreyaSong:Bool = false;
 
   var randImage:Int = 1;
@@ -809,7 +813,7 @@ class PlayState extends MusicBeatSubState
       cameraFollowPoint = new FlxObject(0, 0); // Camera follow point is an invisible point in space.
 
     #if mobile
-    // Force allowScreenTimeout to be disabled
+    // Force allowScreenTimeout to be disabled.
     lime.system.System.allowScreenTimeout = false;
     #end
 
@@ -847,7 +851,8 @@ class PlayState extends MusicBeatSubState
     switch (uhSongId)
     {
       case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones" |
-        "samsung" | "topp" | "doublyon" | "soft-n-yummy" | "flash" | "twiddlefinger" | "nuggit":
+        "samsung" | "topp" | "azure" | "doublyon" | "star-catcher" | "flipperz" | "autumn" | "milk" | "all-stars" | "macromedia" | "cereal-box" |
+        "soft-n-yummy" | "flash" | "twiddlefinger" | "hornstromp":
         isFreyaSong = true;
     }
 
@@ -864,7 +869,9 @@ class PlayState extends MusicBeatSubState
     initStrumlines();
     // Initialize the judgements, judgement counter, and combo meter.
     judgementCounter = new FlxText(20, 0, 0, "", 20);
-    judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    if (isFreyaSong) judgementCounter.setFormat(Paths.font("roboto/robotoBo.ttf"), 24, 0xFF808080, FlxTextAlign.LEFT);
+    else
+      judgementCounter.setFormat(Paths.font("vcr.ttf"), 20, FlxColor.WHITE, FlxTextAlign.LEFT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     judgementCounter.scrollFactor.set();
     judgementCounter.screenCenter(Y);
     judgementCounter.borderSize = 1.25;
@@ -1817,7 +1824,9 @@ class PlayState extends MusicBeatSubState
     add(healthBar);
 
     funnySexBox = new FlxSprite(healthBarBG.x + healthBarBG.width - 545, healthBarBG.y + 40).makeGraphic(500, 20, FlxColor.BLACK);
-    funnySexBox.alpha = 0.35;
+    if (isFreyaSong) funnySexBox.alpha = 0.6;
+    else
+      funnySexBox.alpha = 0.35;
     if (Preferences.extraScoreText) add(funnySexBox);
 
     // The score text below the health bar.

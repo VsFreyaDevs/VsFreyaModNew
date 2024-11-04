@@ -216,7 +216,7 @@ class StoryMenuState extends MusicBeatState
     refresh();
 
     #if FEATURE_DISCORD_RPC
-    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
+    DiscordClient.instance.setPresence({state: "In the Story Mode Menu", details: null});
     #end
 
     #if mobile

@@ -77,6 +77,14 @@ class MainCreditsState extends MusicBeatState
     add(unfinishedBG);
     add(unfinished);
 
+    #if FEATURE_DISCORD_RPC
+    funkin.api.discord.DiscordClient.instance.setPresence(
+      {
+        state: 'Credits Roll'
+        details: null
+      });
+    #end
+
     #if mobile
     addBackButton(FlxG.width * 0.77, FlxG.height * 0.85, FlxColor.WHITE, () -> {
       FunkinSound.playOnce(Paths.sound('cancelMenu'));

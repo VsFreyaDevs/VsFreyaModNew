@@ -122,6 +122,14 @@ class DebugBoundingState extends FlxState
 
     Cursor.show();
 
+    #if FEATURE_DISCORD_RPC
+    funkin.api.discord.DiscordClient.instance.setPresence(
+      {
+        state: 'Character Offset Editor'
+        details: null
+      });
+    #end
+
     super.create();
   }
 

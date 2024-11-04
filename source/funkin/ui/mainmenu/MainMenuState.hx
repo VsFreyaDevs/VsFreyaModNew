@@ -60,7 +60,7 @@ class MainMenuState extends MusicBeatState
   override function create():Void
   {
     #if FEATURE_DISCORD_RPC
-    DiscordClient.instance.setPresence({state: "In the Menus", details: null});
+    DiscordClient.instance.setPresence({state: "In the Main Menu", details: null});
     #end
 
     FlxG.cameras.reset(new FunkinCamera('mainMenu'));
