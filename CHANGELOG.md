@@ -5,8 +5,10 @@ All notable changes will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project (mostly) adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.1.0] - 2024-12-??
+## [0.1.0] ALPHA - 2024-12-??
+
 ### Added
+
 - 3 COOL WEEKS - FreyaFennec_foxes, Milky Lactose, and Killer Animate CC!!!!
 - Added `setAnonymousField()` to `ReflectUtil`. Basically just a shortcut to `Reflect.setField()`.
 - Added the `albumTitleOffsets` parameter to Album data.
@@ -19,7 +21,9 @@ and this project (mostly) adheres to [Semantic Versioning](https://semver.org/sp
 - Added the ability to flip the character in the Animation Editor (by pressing G). Helps a lot when setting offsets for playable characters!
 - Added a new event field type, Color!
 ![EXAMPLE](https://private-user-images.githubusercontent.com/69017727/342115283-fcf0e5f5-5163-46b1-baec-27ff0106b114.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Mjg1MzQ0NDAsIm5iZiI6MTcyODUzNDE0MCwicGF0aCI6Ii82OTAxNzcyNy8zNDIxMTUyODMtZmNmMGU1ZjUtNTE2My00NmIxLWJhZWMtMjdmZjAxMDZiMTE0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEwMTAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMDEwVDA0MjIyMFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWNjZTdkMzU2NjkxMTA3YWZkM2RlNjY2ZWUyNjlmMDNhYzNkNDcyZDE3ODg5MmI3YmVlYjQ4M2UwMzcyMTZmYjcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.jUjvvcEsf_-kI3cBOUqqiHe64b0n9f9fTvGfWXPNmIM)
+
 ### Changed
+
 - Merch button has been replaced with a Discord button, because yes.
 - Improved the input offset menu a bit to make it easier to use.
   - Pressing TAB applies the average offset (as well as resetting it)
@@ -29,14 +33,19 @@ and this project (mostly) adheres to [Semantic Versioning](https://semver.org/sp
 - In the Freeplay menu, favorites are now sorted by week order, as opposed to alphabetical order.
 - Reordered the UI controls list from `UP`, `LEFT`, `RIGHT`, `DOWN` to `LEFT`, `DOWN`, `UP`, `RIGHT`.
 - Note rendering is now based on frames AND song position. (A little janky, but it sorta did the job)
+
 ### Fixed
+
 - Fixed an issue where the animation of Darnell kicking a can forward wouldn't play like it did in older versions of the game.
 - Fixed an issue where enum and int preferences could be flickered/selected.
 - Fixed an issue where Pico wouldn't burp at the beginning of Guns (Pico Mix) (Easy & Normal).
+
 ### Removed
+
 - Removed the unnecessary muting on player vocals when missing. (Helps for songs that do not have split vocals!)
 
 # FOR FNF BASE GAME
+
 ## [0.5.3] - 2024-10-18
 This patch resolves a critical issue which could cause user's save data to become corrupted. It is recommended that users switch to this version immediately and avoid using version 0.5.2.
 ### Fixed

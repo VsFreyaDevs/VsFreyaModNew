@@ -178,7 +178,7 @@ class MainMenuState extends MusicBeatState
 
     // This has to come AFTER!
     this.leftWatermarkText.text = 'Kitsune Engine v${Constants.ENGINE_VERSION} | FNF ${Constants.VERSION}';
-    this.rightWatermarkText.text = "FreyaFennec_Funkers v1.0 ALPHA";
+    this.rightWatermarkText.text = "FreyaFennec_Funkers v1.0.0 ALPHA";
 
     // NG.core.calls.event.logEvent('swag').send();
 

@@ -42,7 +42,7 @@ class Constants
 
   static function get_GENERATED_BY():String
   {
-    return '${Constants.TITLE} ALPHA - FNF ${Constants.VERSION}';
+    return '${Constants.TITLE} ALPHA (KSE ${Constants.ENGINE_VERSION}) - FNF ${Constants.VERSION}';
   }
 
   /**
