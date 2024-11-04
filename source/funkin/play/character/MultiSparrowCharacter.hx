@@ -15,7 +15,9 @@ import funkin.play.character.CharacterData.CharacterRenderType;
  * Only example I can think of in mods is Tricky (which has a separate file for each animation).
  *
  * BaseCharacter has game logic, MultiSparrowCharacter has only rendering logic.
- * KEEP THEM SEPARATE!
+ * **KEEP THEM SEPARATE!**
+ *
+ * # TODO - no more assetPath per animation, rather make `assetPath` an array
  */
 class MultiSparrowCharacter extends BaseCharacter
 {

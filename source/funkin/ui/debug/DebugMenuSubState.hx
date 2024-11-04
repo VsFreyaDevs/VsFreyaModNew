@@ -57,7 +57,8 @@ class DebugMenuSubState extends MusicBeatSubState
     #if FEATURE_CHART_EDITOR
     createItem("CHART EDITOR", openChartEditor);
     #end
-    createItem("CHARACTER EDITOR", openAnimationEditor);
+    createItem("CHARACTER CREATOR", openCharCreator);
+    createItem("CHARACTER OFFSET TOOL", openAnimationEditor);
     #if FEATURE_STAGE_EDITOR
     createItem("STAGE EDITOR", openStageEditor);
     #end
@@ -121,13 +122,20 @@ class DebugMenuSubState extends MusicBeatSubState
   function testStickers()
   {
     openSubState(new funkin.ui.transition.StickerSubState());
-    trace('opened stickers');
+    trace('Sticker Test');
   }
 
   function openStageEditor()
   {
     trace('Stage Editor');
     FlxG.switchState(() -> new funkin.ui.debug.stageeditor.StageEditorState());
+  }
+
+  function openCharCreator()
+  {
+    trace('Character Creator');
+    // TODO: DO THIS SHIT
+    // FlxG.switchState(() -> new funkin.ui.debug.char.CharCreatorState());
   }
 
   #if sys
