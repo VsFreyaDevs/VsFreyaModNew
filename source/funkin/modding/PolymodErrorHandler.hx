@@ -30,18 +30,18 @@ class PolymodErrorHandler
         logInfo('LOADING MOD - ${error.message}');
 
       case MISSING_ICON:
-        logWarn('A mod is missing an icon. Please add one.');
+        logWarn('A mod is missing an icon. While it is optional, I\'d recommend adding an icon.');
 
       case SCRIPT_PARSE_ERROR:
         // A syntax error when parsing a script.
         logError(error.message);
         // Notify the user via popup.
-        showAlert('Polymod Script Parsing Error', error.message);
+        showAlert('KSE Script Parsing Error', error.message);
       case SCRIPT_RUNTIME_EXCEPTION:
         // A runtime error when running a script.
         logError(error.message);
         // Notify the user via popup.
-        showAlert('Polymod Script Exception', error.message);
+        showAlert('KSE Script Exception', error.message);
       case SCRIPT_CLASS_MODULE_NOT_FOUND:
         // A scripted class tried to reference an unknown class or module.
         logError(error.message);
@@ -49,16 +49,16 @@ class PolymodErrorHandler
         // Last word is the class name.
         var className:String = error.message.split(' ').pop();
         var msg:String = 'Import error in ${error.origin}';
-        msg += '\nCould not import unknown class ${className}';
+        msg += '\nCould not import unknown class: ${className}';
         msg += '\nCheck to ensure the class exists and is spelled correctly.';
 
         // Notify the user via popup.
-        showAlert('Polymod Script Import Error', msg);
+        showAlert('KSE Script Import Error', msg);
       case SCRIPT_CLASS_MODULE_BLACKLISTED:
         // A scripted class tried to reference a blacklisted class or module.
         logError(error.message);
         // Notify the user via popup.
-        showAlert('Polymod Script Blacklist Violation', error.message);
+        showAlert('KSE Script Blacklist Violation', error.message);
 
       default:
         // Log the message based on its severity.
@@ -76,16 +76,16 @@ class PolymodErrorHandler
 
   static function logInfo(message:String):Void
   {
-    trace('[INFO-] ${message}');
+    trace('[? - INFO] ${message}');
   }
 
   static function logError(message:String):Void
   {
-    trace('[ERROR] ${message}');
+    trace('[X - ERROR] ${message}');
   }
 
   static function logWarn(message:String):Void
   {
-    trace('[WARN-] ${message}');
+    trace('[! - WARN] ${message}');
   }
 }
