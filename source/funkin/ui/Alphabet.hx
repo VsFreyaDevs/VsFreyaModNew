@@ -11,8 +11,7 @@ import funkin.graphics.shaders.DumbShaders.InvertShader;
 /**
  * Loosley based on FlxTypeText lolol
  */
-// TODO: Re-eanble this
-// @:deprecated("Use ui.AtlasText instead")
+@:deprecated("Use ui.AtlasText instead")
 class Alphabet extends FlxSpriteGroup
 {
   public var delay:Float = 0.05;
