@@ -41,8 +41,25 @@ class Wega extends NoteKind
     wega(false);
   }
 
+  override function onNoteMiss(event:NoteScriptEvent)
+  {
+    super.onNoteMiss(event);
+    wega(false);
+  }
+
   function wega(worse:Bool)
   {
+      var weg = FunkinSprite.create('wega');
+			weg.cameras = [PlayState.instance.camGame];
+			weg.zIndex = 300;
+      weg.visible = true;
+			PlayState.instance.add(weg);
+			PlayState.instance.refresh();
+
+    new FlxTimer().start(0.35, function(tmr){
+      FlxTween.tween(weg, { alpha: 0}, 2, {startDelay: 0.2}, function(){weg.visible = false;});
+		});
+
     if (worse) FunkinSound.playOnce(Paths.sound("wegaWorse"), 1.0);
     else
       FunkinSound.playOnce(Paths.sound("wega"), 1.0);
