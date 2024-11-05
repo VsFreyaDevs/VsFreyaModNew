@@ -1,0 +1,58 @@
+import funkin.play.notes.notekind.NoteKind;
+import funkin.graphics.FunkinSprite;
+import flixel.FlxG;
+import flixel.FlxSprite;
+import funkin.Paths;
+import funkin.play.PlayState;
+import funkin.audio.FunkinSound;
+
+class Wega extends NoteKind {
+  function new() {
+    var name:String = 'wega';
+    var title:String = 'Wega Jumpscare';
+    var noteStyleId:String = 'kit';
+    var params = [
+      {
+        name: 'wega',
+        title: 'W E G A',
+        type: 'float',
+        min: 0.0,
+        max: 2.0,
+        step: 0.1,
+        precision: 1,
+        defaultValue: 2.0
+      }
+    ];
+
+    super(name, title, noteStyleId, params);
+  }
+
+  function onNoteHit(event:HitNoteScriptEvent)
+	{
+		if (event.eventCanceled) {
+			// onNoteHit event was cancelled by the gameplay module.
+			return;
+		}
+
+wega();
+
+                super.onNoteHit(event);
+  }
+
+  override function onNoteMiss(event:NoteScriptEvent) {
+super.onNoteMiss(event);
+
+wega();
+  }
+
+  function wega()
+  {
+    // TODO!!
+  }
+
+  override function onUpdate(event:UpdateScriptEvent) {
+    for (note in this.getNotes()) {
+      note.hsvShader.hue -= event.elapsed;
+    }
+  }
+}
