@@ -62,6 +62,8 @@ class TitleState extends MusicBeatState
   var netStream:NetStream;
   var overlay:Sprite;
 
+  var flispyNow:Bool = false;
+
   var gfThingy:Bool = false;
 
   override public function create():Void
@@ -304,6 +306,8 @@ class TitleState extends MusicBeatState
     ngSpr.screenCenter(X);
 
     FlxG.mouse.visible = false;
+
+    flispyNow = FlxG.random.bool(16);
 
     if (initialized) skipIntro();
     else
@@ -614,6 +618,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "peter what are you doing") addMoreText('WHAT');
               else if (curWacky[0] == "trending") addMoreText('Friday');
               else if (curWacky[0] == "yo yo yo") addMoreText('PLEASE');
+              else if (flispyNow) addMoreText('Flipsy old :heart:');
               else
                 addMoreText('Freya');
             case 14:
@@ -622,6 +627,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "peter what are you doing") addMoreText('THE');
               else if (curWacky[0] == "trending") addMoreText('Nigth');
               else if (curWacky[0] == "yo yo yo") addMoreText('DONATE TO');
+              else if (flispyNow) addMoreText('Flipsy now :surprised:');
               else
                 addMoreText('Fennec');
             case 15:
@@ -630,6 +636,7 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "peter what are you doing") addMoreText('FUCK');
               else if (curWacky[0] == "trending") addMoreText('Funkin');
               else if (curWacky[0] == "yo yo yo") addMoreText('KENWARD03');
+              else if (flispyNow) addMoreText('But im netral maybe like she video');
               else
                 addMoreText('Funkers');
             case 16:

@@ -3,7 +3,7 @@
   "name": "FREYAFENNEC_FOXES",
   "titleAsset": "storymenu/titles/freya",
   "props": [
-{
+    {
       "assetPath": "storymenu/props/freyabg",
       "scale": 1.0,
       "offsets": [150, 70],
@@ -20,7 +20,7 @@
         }
       ]
     }
-],
+  ],
   "background": "#F9CF51",
-  "songs": ["freyin", "furrowed", "uzil"]
+  "songs": ["freyin", "alightly", "uzil"]
 }
