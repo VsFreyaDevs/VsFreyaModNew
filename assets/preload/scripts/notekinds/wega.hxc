@@ -50,8 +50,8 @@ class Wega extends NoteKind
   function wega(worse:Bool)
   {
       var weg = FunkinSprite.create('wega');
-			weg.cameras = [PlayState.instance.camGame];
-			weg.zIndex = 300;
+			weg.cameras = [PlayState.instance.camHUD];
+			weg.zIndex = 999;
       weg.visible = true;
 			PlayState.instance.add(weg);
 			PlayState.instance.refresh();
