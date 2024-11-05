@@ -5,4 +5,4 @@ package funkin.modding.base;
  * Create a scripted class that extends FlxSpriteButton to use this.
  */
 @:hscriptClass
-class ScriptedFlxSpriteButton extends flixel.FlxSpriteButton implements HScriptedClass {}
+class ScriptedFlxSpriteButton extends flixel.ui.FlxSpriteButton implements HScriptedClass {}
