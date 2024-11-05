@@ -9,6 +9,9 @@ body:
       options:
         - label: Have you got the issue title right?
         - label: Have you checked the Issues/Discussions to see if this hasn't been reported yet?
+  - type: markdown
+    attributes:
+      value: "## What's your question?"
   - type: textarea
     attributes:
       label: What is your question?
