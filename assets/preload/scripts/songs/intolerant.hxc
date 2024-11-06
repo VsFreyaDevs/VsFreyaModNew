@@ -1,0 +1,13 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class IntolerantSong extends Song {
+	public function new() {
+		super('intolerant');
+	}
+
+	public override function isSongNew(currentDifficulty:String):Bool{
+		if (Save.instance.hasBeatenSong(this.id, ['easy', 'normal', 'hard']) == false) return true;
+    return false;
+	}
+}

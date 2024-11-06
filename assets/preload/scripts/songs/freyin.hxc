@@ -18,6 +18,11 @@ class FreyinSong extends Song
     super('freyin');
   }
 
+  public override function isSongNew(currentDifficulty:String):Bool{
+		if (Save.instance.hasBeatenSong(this.id, ['easy', 'normal', 'hard']) == false) return true;
+    return false;
+	}
+
   public override function onCountdownStart(event:CountdownScriptEvent):Void
   {
     super.onCountdownStart(event);
