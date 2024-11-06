@@ -8,6 +8,7 @@ import funkin.play.PlayStatePlaylist;
 import funkin.play.song.Song;
 import flixel.FlxG;
 import flixel.FlxSprite;
+import funkin.save.Save;
 
 class FreyinSong extends Song
 {
