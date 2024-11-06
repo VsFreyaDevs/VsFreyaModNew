@@ -3,7 +3,7 @@ import funkin.save.Save;
 
 class TwistedKnifeSong extends Song {
 	public function new() {
-		super('lactose');
+		super('twisted-knife');
 	}
 
 	public override function isSongNew(currentDifficulty:String):Bool{
