@@ -78,6 +78,13 @@ class Save
             {
               sessionId: null,
             }
+          #if systools
+          gamejolt:
+            {
+              username: null,
+              token: null,
+            }
+          #end
         },
       scores:
         {
@@ -230,6 +237,42 @@ class Save
     flush();
     return data.api.newgrounds.sessionId;
   }
+
+  #if systools
+  /**
+   * The current username for the logged-in GameJolt user, or null if the user is cringe.
+   */
+  public var gjUser(get, set):Null<String>;
+
+  function get_gjUser():Null<String>
+  {
+    return data.api.gamejolt.username;
+  }
+
+  function set_gjUser(value:Null<String>):Null<String>
+  {
+    return data.api.gamejolt.username = value;
+    flush();
+    return data.api.gamejolt.username;
+  }
+
+  /**
+   * The current token for the logged-in GameJolt user, or null if the user is cringe.
+   */
+  public var gjToken(get, set):Null<String>;
+
+  function get_gjToken():Null<String>
+  {
+    return data.api.gamejolt.token;
+  }
+
+  function set_gjToken(value:Null<String>):Null<String>
+  {
+    return data.api.gamejolt.token = value;
+    flush();
+    return data.api.gamejolt.token;
+  }
+  #end
 
   public var enabledModIds(get, set):Array<String>;
 
@@ -1003,7 +1046,6 @@ class Save
           trace('[SAVE] YOOOOO WE GOT SAVE DATA - SLOT ${slot}!!!!!');
         var gameSave = SaveDataMigrator.migrate(FlxG.save.data);
         FlxG.save.mergeData(gameSave.data, true);
-
         return gameSave;
     }
   }
@@ -1212,12 +1254,23 @@ typedef RawSaveData =
 typedef SaveApiData =
 {
   var newgrounds:SaveApiNewgroundsData;
+  #if systools
+  var gamejolt:SaveApiGamejoltData;
+  #end
 }
 
 typedef SaveApiNewgroundsData =
 {
   var sessionId:Null<String>;
 }
+
+#if systools
+typedef SaveApiGamejoltData =
+{
+  var username:Null<String>;
+  var token:Null<String>;
+}
+#end
 
 typedef SaveDataUnlocks =
 {

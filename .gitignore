@@ -4,6 +4,7 @@ libs/
 lib/
 .vs/
 APIStuff.hx
+GJKeys.hx
 dump/
 export/
 RECOVER_*.fla

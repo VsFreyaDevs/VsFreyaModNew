@@ -144,6 +144,14 @@ class InitState extends FlxState
     #end
 
     //
+    // GAMEJOLT API SETUP
+    //
+    #if systools
+    GameJoltAPI.connect();
+    GameJoltAPI.authDaUser(Save.instance.gjUser, Save.instance.gjToken);
+    #end
+
+    //
     // DISCORD API SETUP
     //
     #if FEATURE_DISCORD_RPC

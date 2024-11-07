@@ -259,10 +259,8 @@ class OptionsMenu extends Page
     createItem("INPUT OFFSETS", () -> FlxG.state.openSubState(new LatencyState()));
     #end
 
-    #if newgrounds
-    if (NGio.isLoggedIn) createItem("LOGOUT", selectLogout);
-    else
-      createItem("LOGIN", selectLogin);
+    #if systools
+    createItem("GAMEJOLT", gamejoltLogin);
     #end
     createItem("EXIT", exit);
   }
@@ -289,6 +287,11 @@ class OptionsMenu extends Page
   {
     return items.length > 2;
   }
+
+  #if systools
+  function gamejoltLogin()
+    FlxG.switchState(() -> new GameJoltLogin());
+  #end
 
   #if newgrounds
   function selectLogin()
