@@ -5,6 +5,8 @@
   "name": "Killer Animate",
   "cameraOffsets": [0, 0],
   "singTime": 8,
+  "loopHold": true,
+  "loopHoldFrame": 3,
   "healthIcon": {
     "offsets": [0, -20],
     "id": "kanimate"
