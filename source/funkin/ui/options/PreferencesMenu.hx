@@ -72,7 +72,7 @@ class PreferencesMenu extends Page
       boyFriend.animation.addByPrefix('onLoop', 'yayy loop', 24, true);
       boyFriend.animation.play('off', true);
       boyFriend.screenCenter();
-      boyFriend.x += 500;
+      boyFriend.x += 475;
       boyFriend.cameras = [camWhat];
       boyFriend.antialiasing = Preferences.antialiasing;
     }
@@ -148,7 +148,7 @@ class PreferencesMenu extends Page
     });
 
     #if mobile
-    backButton = new FunkinBackspace(FlxG.width * 0.77, FlxG.height * 0.85, flixel.util.FlxColor.BLACK);
+    backButton = new FunkinBackspace(FlxG.width * 0.77, FlxG.height * 0.85, FlxColor.BLACK);
     add(backButton);
     #end
   }
@@ -174,14 +174,6 @@ class PreferencesMenu extends Page
         yeahBf(value);
       }, Preferences.ghostTapping);
     #end
-    createPrefItemEnum('Input System', 'Choose an input system that would be used when scoring and judging notes', [
-      InputSystemType.Pbot => "P.B.O.T.",
-      InputSystemType.Week7 => "Week 7",
-      InputSystemType.Legacy => "Legacy" // InputSystemType.Psych => "Psych Engine"
-      // InputSystemType.Kade => "Kade Engine"
-    ], function(value:String):Void {
-      Preferences.inputSystem = value;
-    }, Preferences.inputSystem);
     createPrefItemCheckbox('Bad/Shits as Combo Breaks',
       'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
         Preferences.badsShitsCauseMiss = value;
@@ -289,8 +281,9 @@ class PreferencesMenu extends Page
       yeahBf(value);
     }, Preferences.autoPause);
     #if (desktop || web)
-    createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
-      Preferences.autoFullscreen = value;
+    createPrefItemCheckbox('Launch in Fullscreen',
+      'NoteHitSoundType.DaveBambi => "Dave & Bambi",Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
+        Preferences.autoFullscreen = value;
     }, Preferences.autoFullscreen);
     #end
     #if mobile
@@ -303,6 +296,15 @@ class PreferencesMenu extends Page
       yeahBf(value);
     }, Preferences.vibration);
     #end
+    createPrefHeader('Experimental');
+    createPrefItemEnum('Input System', 'Choose an input system that would be used when scoring and judging notes', [
+      InputSystemType.Pbot => "P.B.O.T.",
+      InputSystemType.Week7 => "Week 7",
+      InputSystemType.Legacy => "Legacy" // InputSystemType.Psych => "Psych Engine"
+      // InputSystemType.Kade => "Kade Engine"
+    ], function(value:String):Void {
+      Preferences.inputSystem = value;
+    }, Preferences.inputSystem);
   }
 
   function yeahBf(help:Bool):Void
