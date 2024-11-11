@@ -524,6 +524,7 @@ class Constants
    *
    * - "I made a new file format"
    * - "Actually new or just a renamed ZIP?"
+   * - "It's just a repackaged .ZIP file."
    */
   public static final EXT_CHART = "fnfc";
 
