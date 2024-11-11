@@ -64,6 +64,46 @@ class Constants
   #end
 
   /**
+   * Whether or not the game is a debug build.
+   */
+  public static final DEBUG_BUILD:Bool = #if FEATURE_DEBUG_FUNCTIONS true #else false #end;
+
+  /**
+   * OS SHITS
+   */
+  // ==============================
+
+  /**
+   * Whether or not the game is running on Windows systems (starting from Windows 7).
+   */
+  public static final WINDOWS_BUILD:Bool = #if windows true #else false #end;
+
+  /**
+   * Whether or not the game is running on Macintosh systems.
+   */
+  public static final MAC_BUILD:Bool = #if mac true #else false #end;
+
+  /**
+   * Whether or not the game is running on Linux systems.
+   */
+  public static final LINUX_BUILD:Bool = #if linux true #else false #end;
+
+  /**
+   * Whether or not the game is running on iOS systems. If you want to use both devices, combine this bool with `DARWIN_BUILD`!
+   */
+  public static final DARWIN_BUILD:Bool = #if (ios || iphonesim) true #else false #end;
+
+  /**
+   * Whether or not the game is running on Android devices. If you want to use both devices, combine this bool with `DARWIN_BUILD`!
+   */
+  public static final ANDROID_BUILD:Bool = #if android true #else false #end;
+
+  /**
+   * Whether or not the game is running on a webpage (HTML5).
+   */
+  public static final WEB_BUILD:Bool = #if html5 true #else false #end;
+
+  /**
    * URL DATA
    */
   // ==============================
