@@ -16,6 +16,13 @@ Kitsune Engine is a fork of [Friday Night Funkin' (v0.5.x+)](https://github.com/
 
 Kitsune Engine is an *engine* that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
 
+---
+
+> [!NOTE]
+> Kitsune Engine has not been finished just yet! Though yes, you can port your V-Slice mods over, you may have to just make some changes to make your mod compatible to KSE.
+
+---
+
 * [Download builds for Windows, Mac, Linux, iOS, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
 
 ### Supported Platforms
@@ -28,7 +35,8 @@ Kitsune Engine is an *engine* that's basically like those old engines from 2021-
 * **iOS** (arm64 and simulator only)
 * ~~**Hashlink(?)**~~
 
-NEKO AND FLASH ISNT SUPPORTED BITCHASS
+> [!NOTE]
+> NEKO AND FLASH ISNT SUPPORTED BITCHASS
 
 # Friday Night Funkin'
 
@@ -36,12 +44,17 @@ Friday Night Funkin' is a rhythm game. Built using HaxeFlixel for Ludum Dare 47.
 
 This game was made with love to Newgrounds and its community. Extra love to Tom Fulp.
 
+---
+
 * [Playable web demo on Newgrounds!](https://www.newgrounds.com/portal/view/770371)
 * [Demo download builds for Windows, Mac, and Linux from Itch.io!](https://ninja-muffin24.itch.io/funkin)
 
 ## Getting Started
 
-**PLEASE USE THE LINKS ABOVE IF YOU JUST WANT TO PLAY THE GAME!!!**
+> [!NOTE]
+> **PLEASE USE THE LINKS ABOVE IF YOU JUST WANT TO PLAY THE GAME!!!**
+
+---
 
 To learn how to install the necessary dependencies and compile the game from source, please check out our [building the game](/docs/COMPILING.md) guide.
 
