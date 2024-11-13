@@ -10,6 +10,37 @@
 
 A kitsune version of BF was walking in the kit world when he stumbles upon [FreyaFennec_foxes](https://www.youtube.com/@Freyafennec_foxes1.0) and her crew. Turns out this version of BF is actually a Freya hater and simps for [Mika_kit](https://www.youtube.com/@Mika_Kit162). He rap battles them under one condition: if he wins, he kills her.
 
+### Vs. Freya Credits
+
+#### Directors
+
+* [charlesisfeline](https://www.youtube.com/@charlescatyt) - Lead Director, Artist, Animator, Programmer, Musician, and Main Charter
+* [FreyaFennec_foxes a.k.a fries](https://www.tiktok.com/@sandythebestclown) - Co-Director, Concept Artist, uhhhh creator of the titular fox, Freya herself!!!!!!
+* [TheAnimateMan](https://www.youtube.com/channel/UCwsHVR5zkvnW4U4-Uoh118w) - Co-Director, Artist, Animator, and Musician
+
+#### Art / Animation
+
+* Rem-ix - Idea Guy or smth, Concept Art
+* KaciPuppi - Sprites for Mika (All-Stars cover)
+* [Sp1](https://x.com/Sp1_64) - Artist
+
+#### Charting
+
+* [Neo a.k.a Vencerist](https://www.youtube.com/@VencerVents) - Charter and Musician
+
+#### Programmers
+
+* [Moxie](https://github.com/moxie-coder) - Additional Programming
+* [Our contributors on GitHub](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
+
+#### Musicians
+
+* [Isaiah Mods Official](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Musician and Artist
+
+#### Special Thanks
+
+* [mushroomchoir](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Concept Art for GF_kit
+
 ## Kitsune Engine
 
 Kitsune Engine is a fork of [Friday Night Funkin' (v0.5.x+)](https://github.com/FunkinCrew/Funkin) made to fix some problems the base game had while keeping the casual aspect of said game.
@@ -72,39 +103,6 @@ Feel free to start learning to mod the game by reading our [documentation](https
 ## Credits & Special Thanks
 
 Full credits can be found in-game, or in the `credits.json` file which is located [here](https://github.com/FunkinCrew/funkin.assets/blob/main/exclude/data/credits.json).
-
-### FreyaFennec_funkers Credits
-
-#### Directors
-
-* [charlesisfeline](https://www.youtube.com/@charlescatyt) - Lead Director, Artist, Animator, Programmer, Musician, and Main Charter
-* [FreyaFennec_foxes a.k.a fries](https://www.tiktok.com/@sandythebestclown) - Co-Director, Concept Artist, uhhhh creator of the titular fox, Freya herself!!!!!!
-* [TheAnimateMan](https://www.youtube.com/channel/UCwsHVR5zkvnW4U4-Uoh118w) - Co-Director, Artist, Animator, and Musician
-
-#### Art / Animation
-
-* Rem-ix - Idea Guy or smth, Concept Art
-* KaciPuppi - Sprites for Mika (All-Stars cover)
-* [Sp1](https://x.com/Sp1_64) - Artist
-
-#### Charting
-
-* [Neo a.k.a Vencerist](https://www.youtube.com/@VencerVents) - Charter and Musician
-
-#### Programmers
-
-* [Moxie](https://github.com/moxie-coder) - Additional Programming
-* [Our contributors on GitHub](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
-
-#### Musicians
-
-* [Isaiah Mods Official](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Musician and Artist
-
-#### Special Thanks
-
-* [mushroomchoir](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Concept Art for GF_kit
-
-### FNF Credits
 
 #### Programming
 
