@@ -31,7 +31,7 @@ A kitsune version of BF was walking in the kit world when he stumbles upon [Frey
 #### Programmers
 
 * [Moxie](https://github.com/moxie-coder) - Additional Programming
-* [Our contributors on GitHub](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
+* [Our contributors on GitHub](https://github.com/VsFreyaDevs/VsFreyaModNew/graphs/contributors)
 
 #### Musicians
 
