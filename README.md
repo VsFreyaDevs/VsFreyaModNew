@@ -95,7 +95,7 @@ Full credits can be found in-game, or in the `credits.json` file which is locate
 #### Programmers
 
 * [Moxie](https://github.com/moxie-coder) - Additional Programming
-* Our contributors on GitHub
+* [Our contributors on GitHub](https://github.com/KadeDev/Kade-Engine/graphs/contributors)
 
 #### Musicians
 
