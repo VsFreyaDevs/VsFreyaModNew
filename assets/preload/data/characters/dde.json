@@ -1,0 +1,42 @@
+{
+  "version": "1.0.0",
+  "name": "dde",
+  "assetPath": "characters/InvertedEdd",
+  "healthIcon": {
+    "id": "edd"
+  },
+  "renderType": "sparrow",
+  "singTime": 8.0,
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "Idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "Left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "Down",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singUP",
+      "prefix": "Up",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "Right",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hey",
+      "prefix": "HEY",
+      "offsets": [0, 0]
+    }
+  ]
+}

@@ -5,14 +5,14 @@
 	<SubTexture name="Down0002" x="1606" y="1832" width="377" height="593" frameX="-8" frameY="-1" frameWidth="393" frameHeight="594"/>
 	<SubTexture name="Down0003" x="1599" y="1237" width="377" height="594" frameX="-8" frameY="0" frameWidth="393" frameHeight="594"/>
 	<SubTexture name="Down0004" x="1633" y="583" width="377" height="594" frameX="-8" frameY="0" frameWidth="393" frameHeight="594"/>
-	<SubTexture name="HEY!!0000" x="0" y="2654" width="388" height="659" pivotX="22" pivotY="7.75" frameX="0" frameY="0" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0001" x="0" y="3314" width="388" height="659" frameX="0" frameY="0" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0002" x="492" y="0" width="382" height="653" frameX="-9" frameY="-8" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0003" x="492" y="654" width="382" height="653" frameX="-9" frameY="-8" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0004" x="389" y="2654" width="384" height="654" frameX="-7" frameY="-7" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0005" x="389" y="3309" width="384" height="654" frameX="-7" frameY="-7" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0006" x="480" y="1328" width="383" height="654" frameX="-8" frameY="-7" frameWidth="391" frameHeight="661"/>
-	<SubTexture name="HEY!!0007" x="480" y="1983" width="383" height="654" frameX="-8" frameY="-7" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0000" x="0" y="2654" width="388" height="659" pivotX="22" pivotY="7.75" frameX="0" frameY="0" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0001" x="0" y="3314" width="388" height="659" frameX="0" frameY="0" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0002" x="492" y="0" width="382" height="653" frameX="-9" frameY="-8" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0003" x="492" y="654" width="382" height="653" frameX="-9" frameY="-8" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0004" x="389" y="2654" width="384" height="654" frameX="-7" frameY="-7" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0005" x="389" y="3309" width="384" height="654" frameX="-7" frameY="-7" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0006" x="480" y="1328" width="383" height="654" frameX="-8" frameY="-7" frameWidth="391" frameHeight="661"/>
+	<SubTexture name="HEY0007" x="480" y="1983" width="383" height="654" frameX="-8" frameY="-7" frameWidth="391" frameHeight="661"/>
 	<SubTexture name="Idle0000" x="774" y="2638" width="377" height="646" pivotX="6.5" pivotY="0" frameX="0" frameY="-7" frameWidth="377" frameHeight="654"/>
 	<SubTexture name="Idle0001" x="774" y="2638" width="377" height="646" frameX="0" frameY="-7" frameWidth="377" frameHeight="654"/>
 	<SubTexture name="Idle0002" x="1233" y="1962" width="372" height="648" frameX="-5" frameY="-6" frameWidth="377" frameHeight="654"/>
