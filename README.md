@@ -4,8 +4,7 @@
 
 ![logo](https://github.com/VsFreyaDevs/VsFreyaModNew/blob/main/docs/promoBanner.png?raw=true)
 
-![git commits since latest release (by date)](https://img.shields.io/github/commits-since/VsFreyaDevs/VsFreyaModNew/latest) ![fat](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![lLines of code](https://img.shields.io/tokei/lines/github/VsFreyaDevs/VsFreyaModNew) [![open issues](https://img.shields.io/github/issues/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/issues)
-[![open prs](https://img.shields.io/github/issues-pr/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/pulls)
+![git commits since latest release (by date)](https://img.shields.io/github/commits-since/VsFreyaDevs/VsFreyaModNew/latest) ![fat](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![lLines of code](https://img.shields.io/tokei/lines/github/VsFreyaDevs/VsFreyaModNew) [![open issues](https://img.shields.io/github/issues/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/issues) [![stars](https://img.shields.io/github/stars/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/stargazers) [![open prs](https://img.shields.io/github/issues-pr/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/pulls)
 
 ### About Vs. Freya
 
