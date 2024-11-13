@@ -2,9 +2,10 @@
 
 <sub>(aka Friday Night Funkin': Vs. Freya)</sub>
 
-![logo](https://media.discordapp.net/attachments/1263192822282981422/1263595615678627860/Untitled705_20240718163734.png?ex=6706e99f&is=6705981f&hm=72c026ab5d6d26cfd4394a90829f44f1368c89122e9e9449f6b4ca92e3eb3373&=&quality=lossless)
+![logo](https://github.com/VsFreyaDevs/VsFreyaModNew/blob/main/docs/promoBanner.png?raw=true)
 
-![fat](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![open issues](https://badgen.net/github/open-issues/VsFreyaDevs/VsFreyaModNew)
+![git commits since latest release (by date)](https://img.shields.io/github/commits-since/VsFreyaDevs/VsFreyaModNew/latest) ![fat](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![lLines of code](https://img.shields.io/tokei/lines/github/VsFreyaDevs/VsFreyaModNew) [![open issues](https://img.shields.io/github/issues/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/issues)
+[![open prs](https://img.shields.io/github/issues-pr/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/pulls)
 
 ### About Vs. Freya
 
@@ -40,12 +41,15 @@ Kitsune Engine is an *engine* that's basically like those old engines from 2021-
 
 # Friday Night Funkin'
 
-Friday Night Funkin' is a rhythm game. Built using HaxeFlixel for Ludum Dare 47.
+Friday Night Funkin' is a rhythm game. Built using HaxeFlixel, originally for Ludum Dare 47: "Stuck In a Loop".
 
 This game was made with love to Newgrounds and its community. Extra love to Tom Fulp.
 
+> Uh oh! Your tryin to kiss ur hot girlfriend, but her MEAN and EVIL dad is trying to KILL you! He's an ex-rockstar, the only way to get to his heart? The power of music...
+
 ---
 
+* [base game source code in case lol!!!](https://github.com/ninjamuffin99/Funkin)**
 * [Playable web demo on Newgrounds!](https://www.newgrounds.com/portal/view/770371)
 * [Demo download builds for Windows, Mac, and Linux from Itch.io!](https://ninja-muffin24.itch.io/funkin)
 
@@ -70,7 +74,40 @@ Feel free to start learning to mod the game by reading our [documentation](https
 
 Full credits can be found in-game, or in the `credits.json` file which is located [here](https://github.com/FunkinCrew/funkin.assets/blob/main/exclude/data/credits.json).
 
-### Programming
+### FreyaFennec_funkers Credits
+
+#### Directors
+
+* [charlesisfeline](https://www.youtube.com/@charlescatyt) - Lead Director, Artist, Animator, Programmer, Musician, and Main Charter
+* [FreyaFennec_foxes a.k.a fries](https://www.tiktok.com/@sandythebestclown) - Co-Director, Concept Artist, uhhhh creator of the titular fox, Freya herself!!!!!!
+* [TheAnimateMan](https://www.youtube.com/channel/UCwsHVR5zkvnW4U4-Uoh118w) - Co-Director, Artist, Animator, and Musician
+
+#### Art / Animation
+
+* Rem-ix - Idea Guy or smth, Concept Art
+* KaciPuppi - Sprites for Mika (All-Stars cover)
+* [Sp1](https://x.com/Sp1_64) - Artist
+
+#### Charting
+
+* [Neo a.k.a Vencerist](https://www.youtube.com/@VencerVents) - Charter and Musician
+
+#### Programmers
+
+* [Moxie](https://github.com/moxie-coder) - Additional Programming
+* Our contributors on GitHub
+
+#### Musicians
+
+* [Isaiah Mods Official](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Musician and Artist
+
+#### Special Thanks
+
+* [mushroomchoir](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Concept Art for GF_kit
+
+### FNF Credits
+
+#### Programming
 
 * [ninjamuffin99](https://twitter.com/ninja_muffin99) - Lead Programmer
 * [EliteMasterEric](https://twitter.com/EliteMasterEric) - Programmer
@@ -84,19 +121,19 @@ Full credits can be found in-game, or in the `credits.json` file which is locate
 * [Lily](https://github.com/mcagabe19) - Mobile Programming (iOS)
 * Our contributors on GitHub
 
-### Art / Animation / UI
+#### Art / Animation / UI
 
 * [PhantomArcade3K](https://twitter.com/phantomarcade3k) - Artist and Animator
 * [Evilsk8r](https://twitter.com/evilsk8r) - Art
 * [Moawling](https://twitter.com/moawko) - Week 6 Pixel Art
 * [IvanAlmighty](https://twitter.com/IvanA1mighty) - Misc UI Design
 
-### Music
+#### Music
 
 * [Kawaisprite](https://twitter.com/kawaisprite) - Musician
 * [BassetFilms](https://twitter.com/Bassetfilms) - Music for "Monster", Additional Character Design
 
-### Special Thanks
+#### Special Thanks
 
 * [Tom Fulp](https://twitter.com/tomfulp) - For being a great guy and for Newgrounds
 * [JohnnyUtah](https://twitter.com/JohnnyUtahNG/) - Voice of Tankman
