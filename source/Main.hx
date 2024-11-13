@@ -94,7 +94,6 @@ class Main extends Sprite
     #if windows
     @:functionCode("
 			#include <windows.h>
-      #include <winuser.h>
 			setProcessDPIAware() // Allows for more crispy visuals.
 		")
     #end
