@@ -491,7 +491,7 @@ class Project extends HXProject {
 		FEATURE_DEBUG_FUNCTIONS.apply(this, isDebug() || GITHUB_BUILD.isEnabled(this));
 
 		// Should default to true on workspace builds and false on release builds.
-		REDIRECT_ASSETS_FOLDER.apply(this, isDebug() && isDesktop());
+		REDIRECT_ASSETS_FOLDER.apply(this, false); // isDebug() && isDesktop());
 
 		// TODO: Look into ways to optimize logging (maybe by using a thread pool?)
 		FEATURE_LOG_TRACE.apply(this, !CONSUMER_BUILD.isEnabled(this)); // isDebug());
