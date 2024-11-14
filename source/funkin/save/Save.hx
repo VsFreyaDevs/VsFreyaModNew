@@ -961,7 +961,7 @@ class Save
 
     try
     {
-      if (FlxG.save.isEmpty()) trace(SAVE_NAME + " - SLOT: " + slot + " - idk what save file i actually saved so uhhh imma make a new one rq");
+      if (FlxG.save.isEmpty()) trace("Null Object Reference"); // will troll everyone who gets near the game's console log lol
       else
         trace(SAVE_NAME + " - SLOT: " + slot + " - PATH: " + SAVE_PATH);
     }
