@@ -4,7 +4,17 @@
 
 ![logo](https://github.com/VsFreyaDevs/VsFreyaModNew/blob/main/docs/promoBanner.png?raw=true)
 
+-------------------------------------------------------------
+
 ![git commits since latest release (by date)](https://img.shields.io/github/commits-since/VsFreyaDevs/VsFreyaModNew/latest) ![fat](https://img.shields.io/github/repo-size/VsFreyaDevs/VsFreyaModNew) ![lLines of code](https://img.shields.io/tokei/lines/github/VsFreyaDevs/VsFreyaModNew) [![open issues](https://img.shields.io/github/issues/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/issues) [![stars](https://img.shields.io/github/stars/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/stargazers) [![open prs](https://img.shields.io/github/issues-pr/VsFreyaDevs/VsFreyaModNew)](https://github.com/VsFreyaDevs/VsFreyaModNew/pulls)
+
+-------------------------------------------------------------
+
+## Table of Contents
+
+┃ [**`• About Vs. Freya`**](#about-vs-freya) ┃ [**`••• Credits`**](#vs-freya-credits) ┃ [**`• About Kitsune Engine`**](#about-kitsune-engine) ┃ [**`• Compiling`**](/docs/COMPILING.md)┃ [**`••• Trobuleshooting`**](/docs/troubleshooting.md)┃ [**`• Contributing to Vs. Freya`**](/docs/CONTRIBUTING.md)┃[**`• To-Do`**](/TODO.md)┃[**`••• Roadmap`**](#roadmap)┃[**`• Minimum Specs`**](#minimum-requirements)┃ [**`••• Supported Platforms`**](#supported-platforms)┃[**`••• Changelog`**](/CHANGELOG.md)┃[**`••• License`**](/LICENSE.md)┃
+
+-------------------------------------------------------------
 
 ### About Vs. Freya
 
@@ -39,35 +49,59 @@ A kitsune version of BF was walking in the kit world when he stumbles upon [Frey
 
 #### Special Thanks
 
-* [mushroomchoir](https://www.youtube.com/channel/UCeILJmD-UdDIqI86eadDCZQ) - Concept Art for GF_kit
+* [mushroomchoir](https://mushroomchoir.newgrounds.com/) - Concept Art for GF_kit
 
-## Kitsune Engine
+## About Kitsune Engine
 
 Kitsune Engine is a fork of [Friday Night Funkin' (v0.5.x+)](https://github.com/FunkinCrew/Funkin) made to fix some problems the base game had while keeping the casual aspect of said game.
 
 Kitsune Engine is an *engine* that's basically like those old engines from 2021-2022, only refactoring some of FNF's code and serving as an option for people who want more settings and customizability while keeping up with the latest base FNF updates.
 
----
+-------------------------------------------------------------
 
 > [!NOTE]
-> Kitsune Engine has not been finished just yet! Though yes, you can port your V-Slice mods over, you may have to just make some changes to make your mod compatible to KSE.
+> ***Kitsune Engine has not been finished just yet!*** While yes, you*can* port your V-Slice/Base Game mods over, you may however have to just make some changes to make your mod compatible to KSE.
 
----
+-------------------------------------------------------------
 
 * [Download builds for Windows, Mac, Linux, iOS, and Android here!](https://github.com/VsFreyaDevs/VsFreyaModNew/actions)
 
-### Supported Platforms
+### Roadmap
 
-* **Windows** (32-bit & 64-bit!)
-* **MacOS** (x86_64 and arm64 only)
-* **Linux**
-* ~~**HTML5**~~
-* **Android** (arm64, armv7a, x86, and x86_64 only)
-* **iOS** (arm64 and simulator only)
-* ~~**Hashlink(?)**~~
+* [ ] Move away from GitHub to git.gay
+* [ ] Complete the mod!!!
+* [ ] Fix minor annoyances/bugs
+
+### Minimum Requirements
+
+TODO: add recommended spec stuff
+
+idk what cpu or gpu would have the game run *perfectly* so pls tell me if you do
+
+> [!tip]
+> Any game's performance may decrease with higher resolutions if your PC's kinda shitty.
+> Disable fullscreen and resize the game if encountering performance issues.
+
+These should be the lowest minimum spec requirements to run the game:
+
+* **Processor** - Intel Celeron (SSE to SSE4 with MMX) or Higher
+* **Memory** -  1GB of RAM (cuz uhhh memory leaks), idk about vram/gpu tho
+* **Storage** - ~1 GB of Available Disk Space
+
+#### Supported Platforms
+
+* **Windows (7 and up)** (32-bit & 64-bit)
+* **MacOS (UNTESTED)** (x86_64 and arm64 only)
+* **Linux (UNTESTED)**
+* ~~**HTML5 (UNTESTED)**~~
+* **Android (UNTESTED)** (arm64, armv7a, x86, and x86_64 only)
+* **iOS (UNTESTED)** (arm64 and simulator only)
+* ~~**Hashlink (UNTESTED)**~~
 
 > [!NOTE]
 > NEKO AND FLASH ISNT SUPPORTED BITCHASS
+
+-------------------------------------------------------------
 
 # Friday Night Funkin'
 
@@ -77,7 +111,7 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 
 > Uh oh! Your tryin to kiss ur hot girlfriend, but her MEAN and EVIL dad is trying to KILL you! He's an ex-rockstar, the only way to get to his heart? The power of music...
 
----
+-------------------------------------------------------------
 
 * [base game source code in case lol!!!](https://github.com/ninjamuffin99/Funkin)**
 * [Playable web demo on Newgrounds!](https://www.newgrounds.com/portal/view/770371)
@@ -88,7 +122,7 @@ This game was made with love to Newgrounds and its community. Extra love to Tom 
 > [!NOTE]
 > **PLEASE USE THE LINKS ABOVE IF YOU JUST WANT TO PLAY THE GAME!!!**
 
----
+-------------------------------------------------------------
 
 To learn how to install the necessary dependencies and compile the game from source, please check out our [building the game](/docs/COMPILING.md) guide.
 
