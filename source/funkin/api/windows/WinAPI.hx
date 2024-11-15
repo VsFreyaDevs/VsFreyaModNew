@@ -1,5 +1,7 @@
 package funkin.api.windows;
 
+import funkin.util.WindowUtil;
+
 /**
  * taken from grafex lol
  *
