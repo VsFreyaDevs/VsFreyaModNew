@@ -104,7 +104,7 @@ class WinAPI
 		return GetFileAttributes(path);
 	')
   #end
-  public static function getFileAttribute(path:String):WindowUtil.FileAttribute
+  public static function getFileAttribute(path:String):funkin.util.WindowUtil.FileAttribute
   {
     return NORMAL;
   }
@@ -114,7 +114,7 @@ class WinAPI
 		return SetFileAttributes(path, attrib);
 	')
   #end
-  public static function setFileAttribute(path:String, attrib:WindowUtil.FileAttribute):Int
+  public static function setFileAttribute(path:String, attrib:funkin.util.WindowUtil.FileAttribute):Int
   {
     return 0;
   }
