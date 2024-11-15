@@ -136,7 +136,7 @@ using StringTools;
   }
 
   /**
-   * Runs ShellExecute from shell32.
+   * Runs `ShellExecute` from `shell32`.
    */
   public static function shellExecute(?operation:String, ?file:String, ?parameters:String, ?directory:String):Void
   {
@@ -159,7 +159,9 @@ using StringTools;
   }
 
   /**
-   * Shows a message box if supported and logs message to the console
+   * Shows a message box (if supported), and logs the message to the console.
+   * @param message The message to be displayed in the box.
+   * @param value The title to be displayed above the message box.
    */
   @:keep public static function showMessageBox(message:Null<String>, title:Null<String>):Void
   {
@@ -212,4 +214,51 @@ using StringTools;
     trace("wait wtf this aint windows... eh whatever");
     #end
   }
+
+  /**
+   * Gets the specified file's (or folder) attribute.
+   */
+  @:keep public static function getFileAttribute(path:String, useAbsol:Bool = true):FileAttribute
+  {
+    #if windows
+    if (useAbsol) path = sys.FileSystem.absolutePath(path);
+    return funkin.api.windows.WinAPI.getFileAttribute(path);
+    #else
+    return NORMAL;
+    #end
+  }
+
+  /**
+   * Sets the specified file's (or folder) attribute. If it fails, the return value is `0`.
+   */
+  @:keep public static function setFileAttribute(path:String, attrib:FileAttribute, useAbsol:Bool = true):Int
+  {
+    #if windows
+    if (useAbsol) path = sys.FileSystem.absolutePath(path);
+    return funkin.api.windows.WinAPI.setFileAttribute(path, attrib);
+    #else
+    return 0;
+    #end
+  }
+}
+
+enum abstract FileAttribute(Int)
+{
+  // Settables
+  var ARCHIVE = 0x20;
+  var HIDDEN = 0x2;
+  var NORMAL = 0x80;
+  var NOT_CONTENT_INDEXED = 0x2000;
+  var OFFLINE = 0x1000;
+  var READONLY = 0x1;
+  var SYSTEM = 0x4;
+  var TEMPORARY = 0x100;
+
+  // Non-settables
+  var COMPRESSED = 0x800;
+  var DEVICE = 0x40;
+  var DIRECTORY = 0x10;
+  var ENCRYPTED = 0x4000;
+  var REPARSE_POINT = 0x400;
+  var SPARSE_FILE = 0x200;
 }

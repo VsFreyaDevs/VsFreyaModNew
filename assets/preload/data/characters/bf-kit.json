@@ -8,7 +8,7 @@
   "healthIcon": {
     "id": "bf-kit"
   },
-  "scale": 0.745,
+  "scale": 0.75,
   "animations": [
     {
       "name": "idle",
@@ -18,48 +18,59 @@
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT0",
-      "offsets": [11, -7]
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
-      "offsets": [-20, -51]
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWN-hold",
       "prefix": "BF NOTE DOWN0",
-      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [-20, -51]
+      "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+      "offsets": [0, 0]
+      "looped": true
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP0",
-      "offsets": [-36, 28]
+      "offsets": [0, 0]
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
-      "offsets": [-45, -6]
+      "offsets": [0, 0]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
-      "offsets": [10, 19]
+      "offsets": [0, 0]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "BF NOTE DOWN MISS",
-      "offsets": [-20, -21]
+      "offsets": [0, 0]
     },
     {
       "name": "singUPmiss",
       "prefix": "BF NOTE UP MISS",
-      "offsets": [-32, 28]
+      "offsets": [0, 0]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [-39, 22]
+      "offsets": [0, 0]
+    },
+    {
+      "name": "hey",
+      "prefix": "BF HEY!!",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "laugh",
+      "prefix": "BF laugh",
+      "offsets": [0, 0]
     }
   ]
 }

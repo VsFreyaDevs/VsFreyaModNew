@@ -12,6 +12,9 @@ import haxe.ui.containers.dialogs.Dialog.DialogButton;
 import haxe.ui.containers.dialogs.Dialogs;
 import haxe.ui.containers.dialogs.Dialogs.SelectedFileInfo;
 import haxe.ui.containers.dialogs.Dialogs.FileDialogExtensionInfo;
+#if sys
+import sys.FileSystem;
+#end
 
 /**
  * Utilities for reading and writing files on various platforms.
@@ -61,6 +64,49 @@ class FileUtil
       extension: 'fnfs',
       label: 'Friday Night Funkin\' Stage',
     };
+
+  /**
+   * Sets an attribute to a file or a folder, adding eventual missing folders in the path.
+   *
+   * WARNING: Only works on `windows`! On other platforms, the return code is always going to be `0`, but still creates eventual missing folders if the platforms allows it to.
+   *
+   * @param path Path to the file or folder.
+   * @param attrib The attribute to set. (WARNING: There are some non-settable attributes, such as the `COMPRESSED` one.)
+   * @param useAbsol If it should use the absolute path. (By default, it is `true` but if it's `false`, you can use files outside from the game's directory, for example.)
+   * @return The return code. If it's `0`, means that it failed to set the attribute.
+   */
+  @:noUsing public static inline function safeSetAttribute(path:String, attrib:WindowUtil.FileAttribute, useAbsol:Bool = true)
+  {
+    addMissingFolders(Path.directory(path));
+
+    var result = WindowUtil.setFileAttribute(path, attrib, useAbsol);
+    if (result == 0) trace('Failed to set attribute to $path with a code of: $result.', WARNING);
+    return result;
+  }
+
+  /**
+   * Creates eventual missing folders to the specified `path`.
+   *
+   * WARNING: Eventual files in `path` will be considered as folders! Just to make possible folders be named as `songs.json` for example
+   *
+   * @param path The path to check.
+   * @return The initial path.
+   */
+  @:noUsing public static function addMissingFolders(path:String):String
+  {
+    #if sys
+    var folders:Array<String> = path.split("/");
+    var currentPath:String = "";
+
+    for (folder in folders)
+    {
+      currentPath += folder + "/";
+      if (!FileSystem.exists(currentPath)) FileSystem.createDirectory(currentPath);
+    }
+    #end
+
+    return path;
+  }
 
   /**
    * Browses for a single file, then calls `onSelect(fileInfo)` when a file is selected.
