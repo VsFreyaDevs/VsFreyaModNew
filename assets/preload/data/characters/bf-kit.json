@@ -2,7 +2,7 @@
   "version": "1.0.0",
   "name": "Boyfriend (Kit)",
   "renderType": "multisparrow",
-  "assetPath": "characters/BOYFRIEND",
+  "assetPath": "characters/bfKit",
   "flipX": true,
   "singTime": 8.0,
   "healthIcon": {
@@ -22,6 +22,12 @@
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
+      "offsets": [-20, -51]
+    },
+    {
+      "name": "singDOWN-hold",
+      "prefix": "BF NOTE DOWN0",
+      "frameIndices": [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
       "offsets": [-20, -51]
     },
     {
@@ -53,66 +59,6 @@
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
       "offsets": [-39, 22]
-    },
-    {
-      "name": "hey",
-      "prefix": "BF HEY!!",
-      "offsets": [1, 6]
-    },
-    {
-      "name": "cheer",
-      "prefix": "Cheer",
-      "assetPath": "characters/BFCheer",
-      "offsets": [-28, 20]
-    },
-    {
-      "name": "scared",
-      "prefix": "BF idle shaking",
-      "offsets": [-1, 1]
-    },
-    {
-      "name": "dodge",
-      "prefix": "boyfriend dodge",
-      "offsets": [-5, -16]
-    },
-    {
-      "name": "hit",
-      "prefix": "BF hit",
-      "offsets": [15, 19]
-    },
-    {
-      "name": "preAttack",
-      "prefix": "bf pre attack",
-      "offsets": [-39, -38]
-    },
-    {
-      "name": "attack",
-      "prefix": "boyfriend attack",
-      "offsets": [290, 269]
-    },
-    {
-      "name": "firstDeath",
-      "prefix": "BF dies",
-      "assetPath": "characters/BOYFRIEND_DEAD",
-      "offsets": [26, 7]
-    },
-    {
-      "name": "deathLoop",
-      "prefix": "BF Dead Loop",
-      "assetPath": "characters/BOYFRIEND_DEAD",
-      "looped": true,
-      "offsets": [26, 1]
-    },
-    {
-      "name": "deathConfirm",
-      "prefix": "BF Dead confirm",
-      "assetPath": "characters/BOYFRIEND_DEAD",
-      "offsets": [26, 65]
-    },
-    {
-      "name": "fakeoutDeath",
-      "prefix": "BF dies",
-      "offsets": [26, 7]
     }
   ]
 }

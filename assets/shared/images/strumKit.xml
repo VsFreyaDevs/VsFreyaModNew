@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="strumKit.png" width="1208" height="357">
+	<SubTexture name="confirmDown0001" x="529" y="16" width="154" height="152" frameX="-0" frameY="-0" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="confirmLeft0001" x="1039" y="16" width="153" height="156" frameX="-1" frameY="-0" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="confirmRight0001" x="529" y="184" width="153" height="156" frameX="-0" frameY="-1" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="confirmUp0001" x="16" y="16" width="155" height="153" frameX="-1" frameY="-1" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="pressDown0001" x="699" y="16" width="154" height="152" frameX="-0" frameY="-0" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="pressLeft0001" x="698" y="184" width="153" height="156" frameX="-1" frameY="-0" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="pressRight0001" x="867" y="184" width="153" height="156" frameX="-0" frameY="-1" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="pressUp0001" x="187" y="16" width="155" height="153" frameX="-1" frameY="-1" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="staticDown0001" x="869" y="16" width="154" height="152" frameX="-0" frameY="-0" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="staticLeft0001" x="16" y="185" width="153" height="156" frameX="-1" frameY="-0" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="staticRight0001" x="185" y="185" width="153" height="156" frameX="-0" frameY="-1" frameWidth="154" frameHeight="157"/>
+	<SubTexture name="staticUp0001" x="358" y="16" width="155" height="153" frameX="-1" frameY="-1" frameWidth="157" frameHeight="154"/>
+</TextureAtlas>
