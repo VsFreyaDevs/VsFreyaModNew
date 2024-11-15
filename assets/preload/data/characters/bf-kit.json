@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "Boyfriend (Kit)",
-  "renderType": "sparrow",
+  "renderType": "multisparrow",
   "assetPath": "characters/bfKit",
   "flipX": true,
   "singTime": 8.0,
