@@ -95,9 +95,9 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     buildNoteAnimations(target);
 
     // Set the scale.
-    // var scale = getNoteScale();
-    // target.scale.set(scale, scale);
-    target.setGraphicSize(Strumline.STRUMLINE_SIZE * getNoteScale());
+    var scale = getNoteScale();
+    target.scale.set(scale, scale);
+    // target.setGraphicSize(Strumline.STRUMLINE_SIZE * getNoteScale());
     target.updateHitbox();
   }
 
@@ -232,20 +232,17 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     return data?.scale ?? 1.0;
   }
 
-  /*
-    public function getHoldNoteOffsets():Array<Float>
-    {
-      var data = _data?.assets?.holdNote;
-      if (data == null && fallback != null) return fallback.getHoldNoteOffsets();
-      return data?.offsets ?? [0.0, 0.0];
-    }
-   */
-  //
+  public function getHoldNoteOffsets():Array<Float>
+  {
+    var data = _data?.assets?.holdNote;
+    if (data == null && fallback != null) return fallback.getHoldNoteOffsets();
+    return data?.offsets ?? [0.0, 0.0];
+  }
 
   public function applyStrumlineFrames(target:StrumlineNote):Void
   {
     // TODO: Add support for multi-Sparrow.
-    // Will be less annoying after this is merged: https://github.com/HaxeFlixel/flixel/pull/2772
+    // Will be less annoying after this is merged: https://github.com/HaxeFlixel/flixel/pull/2772 (its mergd now btw)
 
     var atlas:FlxAtlasFrames = Paths.getSparrowAtlas(getStrumlineAssetPath() ?? '', getStrumlineAssetLibrary());
 
@@ -324,20 +321,17 @@ class NoteStyle implements IRegistryEntry<NoteStyleData>
     return thx.Arrays.filterNull(result);
   }
 
-  /*
-    public function getStrumlineOffsets():Array<Float>
-    {
-      var data = _data?.assets?.noteStrumline;
-      if (data == null && fallback != null) return fallback.getStrumlineOffsets();
-      return data?.offsets ?? [0.0, 0.0];
-    }
-   */
-  //
+  public function getStrumlineOffsets():Array<Float>
+  {
+    var data = _data?.assets?.noteStrumline;
+    if (data == null && fallback != null) return fallback.getStrumlineOffsets();
+    return data?.offsets ?? [0.0, 0.0];
+  }
 
   public function applyStrumlineOffsets(target:StrumlineNote):Void
   {
     var offsets = _data?.assets?.noteStrumline?.offsets ?? [0.0, 0.0];
-    // var offsets = getStrumlineOffsets();
+    var offsets = getStrumlineOffsets();
     target.x += offsets[0];
     target.y += offsets[1];
   }

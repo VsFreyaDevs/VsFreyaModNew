@@ -105,9 +105,8 @@ class StrumlineNote extends FunkinSprite
     noteStyle.applyStrumlineAnimations(this, this.direction);
 
     // the scale is wrong in the jsons but idk i just dont feel like calcing rn
-    // var scale = noteStyle.getStrumlineScale();
-    // this.scale.set(scale, scale);
-    this.setGraphicSize(Std.int(Strumline.STRUMLINE_SIZE * noteStyle.getStrumlineScale()));
+    var scale = noteStyle.getStrumlineScale();
+    this.scale.set(scale, scale);
     this.updateHitbox();
     noteStyle.applyStrumlineOffsets(this);
 
