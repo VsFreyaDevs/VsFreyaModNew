@@ -80,7 +80,7 @@ class FileUtil
     addMissingFolders(Path.directory(path));
 
     var result = WindowUtil.setFileAttribute(path, attrib, useAbsol);
-    if (result == 0) trace('Failed to set attribute to $path with a code of: $result.', WARNING);
+    if (result == 0) trace('Failed to set attribute to $path with a code of: $result.');
     return result;
   }
 
