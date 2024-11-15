@@ -64,12 +64,12 @@
     },
     {
       "name": "hey",
-      "prefix": "BF HEY!!0",
+      "prefix": "BF HEY!!",
       "offsets": [0, 0]
     },
     {
       "name": "laugh",
-      "prefix": "BF laugh0",
+      "prefix": "BF laugh",
       "offsets": [0, 0]
     }
   ]
