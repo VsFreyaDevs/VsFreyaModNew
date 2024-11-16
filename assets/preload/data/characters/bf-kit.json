@@ -9,7 +9,7 @@
     "id": "bf-kit"
   },
   "danceEvery": 2,
-  "scale": 0.575,
+  "scale": 0.545,
   "animations": [
     {
       "name": "idle",
