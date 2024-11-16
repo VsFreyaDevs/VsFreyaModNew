@@ -281,9 +281,8 @@ class PreferencesMenu extends Page
       yeahBf(value);
     }, Preferences.autoPause);
     #if (desktop || web)
-    createPrefItemCheckbox('Launch in Fullscreen',
-      'NoteHitSoundType.DaveBambi => "Dave & Bambi",Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
-        Preferences.autoFullscreen = value;
+    createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
+      Preferences.autoFullscreen = value;
     }, Preferences.autoFullscreen);
     #end
     #if mobile
