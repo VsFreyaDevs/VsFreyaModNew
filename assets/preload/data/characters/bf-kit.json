@@ -8,6 +8,7 @@
   "healthIcon": {
     "id": "bf-kit"
   },
+  "danceEvery": 2,
   "scale": 0.575,
   "animations": [
     {
