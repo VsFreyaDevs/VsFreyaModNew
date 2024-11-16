@@ -18,49 +18,49 @@
     {
       "name": "singLEFT",
       "prefix": "BF NOTE LEFT0",
-      "offsets": [0, 0]
+      "offsets": [129, 164]
     },
     {
       "name": "singDOWN",
       "prefix": "BF NOTE DOWN0",
-      "offsets": [0, 0]
+      "offsets": [-36, -21]
     },
     {
       "name": "singDOWN-hold",
       "prefix": "BF NOTE DOWN0",
       "frameIndices": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
-      "offsets": [0, 0],
+      "offsets": [-36, -21],
       "looped": true
     },
     {
       "name": "singUP",
       "prefix": "BF NOTE UP0",
-      "offsets": [0, 0]
+      "offsets": [10, 61]
     },
     {
       "name": "singRIGHT",
       "prefix": "BF NOTE RIGHT0",
-      "offsets": [0, 0]
+      "offsets": [1, 0]
     },
     {
       "name": "singLEFTmiss",
       "prefix": "BF NOTE LEFT MISS",
-      "offsets": [0, 0]
+      "offsets": [129, 164]
     },
     {
       "name": "singDOWNmiss",
       "prefix": "BF NOTE DOWN MISS",
-      "offsets": [0, 0]
+      "offsets": [-36, -21]
     },
     {
       "name": "singUPmiss",
       "prefix": "BF NOTE UP MISS",
-      "offsets": [0, 0]
+      "offsets": [10, 61]
     },
     {
       "name": "singRIGHTmiss",
       "prefix": "BF NOTE RIGHT MISS",
-      "offsets": [0, 0]
+      "offsets": [1, 0]
     },
     {
       "name": "hey",
