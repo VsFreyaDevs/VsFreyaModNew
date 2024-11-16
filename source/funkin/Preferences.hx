@@ -490,6 +490,21 @@ class Preferences
     return value;
   }
 
+  public static var missNoteSounds(get, set):Bool;
+
+  static function get_missNoteSounds():Bool
+  {
+    return Save?.instance?.options?.missNoteSounds;
+  }
+
+  static function set_missNoteSounds(value:Bool):Bool
+  {
+    var save:Save = Save.instance;
+    save.options.missNoteSounds = value;
+    save.flush();
+    return value;
+  }
+
   #if web
   // We create a haxe version of this just for readability.
   // We use these to override `window.requestAnimationFrame` in Javascript to uncap the framerate / "animation" request rate

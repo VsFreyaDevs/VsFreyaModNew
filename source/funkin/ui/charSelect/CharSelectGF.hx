@@ -73,7 +73,7 @@ class CharSelectGF extends FlxAtlasSprite implements IBPMSyncedScriptedClass
 
   public function onStepHit(event:SongTimeScriptEvent):Void {}
 
-  var danceEvery:Int = 2;
+  // var danceEvery:Int = 2;
 
   public function onBeatHit(event:SongTimeScriptEvent):Void
   {
@@ -82,9 +82,15 @@ class CharSelectGF extends FlxAtlasSprite implements IBPMSyncedScriptedClass
     // I tried make this not interrupt an existing idle,
     // but isAnimationFinished() and isLoopComplete() both don't work! What the hell?
     // danceEvery isn't necessary if that gets fixed.
+
+    // if (currentGFPath.endsWith("freyaChill"))
+    //  danceEvery = 1;
+    // else
+    //  danceEvery = 2;
+
     if (getCurrentAnimation() == "idle" && (event.beat % danceEvery == 0))
     {
-      trace('GF beat hit');
+      // trace('GF beat hit');
       playAnimation("idle", true, false, false);
     }
   };

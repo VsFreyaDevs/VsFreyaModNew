@@ -105,7 +105,7 @@ class Save
           #end
           antialiasing: false, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
           showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 15, strumAlpha: 85, badsShitsCauseMiss: false,
-          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false, missNoteSounds: true,
           #else
           framerate: 60, noteHitSound: NoteHitSoundType.None, noteHitSoundVolume: 100, noteSplash: true, inputSystem: InputSystemType.Pbot, naughtyness: true,
           downscroll: false, middlescroll: false,
@@ -114,7 +114,7 @@ class Save
           #end
           antialiasing: true, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
           showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 0, strumAlpha: 100, badsShitsCauseMiss: false,
-          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false, missNoteSounds: true,
           #end
 
           controls:
@@ -1450,6 +1450,8 @@ typedef SaveDataOptions =
    * @default `0`
    */
   var audioVisualOffset:Int;
+
+  var missNoteSounds:Bool;
 
   /**
    * Whether we want the framerate to be unlocked on HTML5 builds.

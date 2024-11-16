@@ -2963,7 +2963,7 @@ class PlayState extends MusicBeatSubState
     if (playSound)
     {
       vocals.playerVolume = 0;
-      FunkinSound.playOnce(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.5, 0.6));
+      if (Preferences.missNoteSounds) FunkinSound.playOnce(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.5, 0.6));
     }
   }
 

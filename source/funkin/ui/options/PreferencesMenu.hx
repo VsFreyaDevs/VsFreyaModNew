@@ -188,6 +188,10 @@ class PreferencesMenu extends Page
       Preferences.flashingLights = value;
       yeahBf(value);
     }, Preferences.flashingLights);
+    createPrefItemCheckbox('Note Miss Sounds', 'Enable to play a sound when you miss a note', function(value:Bool):Void {
+      Preferences.missNoteSounds = value;
+      yeahBf(value);
+    }, Preferences.missNoteSounds);
     createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
       yeahBf(value);
@@ -283,6 +287,7 @@ class PreferencesMenu extends Page
     #if (desktop || web)
     createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
       Preferences.autoFullscreen = value;
+      yeahBf(value);
     }, Preferences.autoFullscreen);
     #end
     #if mobile
