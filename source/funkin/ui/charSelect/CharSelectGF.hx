@@ -73,7 +73,7 @@ class CharSelectGF extends FlxAtlasSprite implements IBPMSyncedScriptedClass
 
   public function onStepHit(event:SongTimeScriptEvent):Void {}
 
-  // var danceEvery:Int = 2;
+  var danceEvery:Int = 2;
 
   public function onBeatHit(event:SongTimeScriptEvent):Void
   {
