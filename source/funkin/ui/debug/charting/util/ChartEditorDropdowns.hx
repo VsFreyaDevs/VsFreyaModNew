@@ -162,6 +162,7 @@ class ChartEditorDropdowns
     "~CUSTOM~" => "Custom",
     "noAnimation" => "No Animation",
     // Weeks 1-7
+    "cheer" => "Yeah! (Week 2)",
     "mom" => "Mom Sings (Week 5)",
     "ugh" => "Ugh (Week 7)",
     "hehPrettyGood" => "Heh, Pretty Good (Week 7)",

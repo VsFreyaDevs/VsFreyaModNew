@@ -211,6 +211,8 @@ class InitState extends FlxState
     ModuleHandler.loadModuleCache();
     ModuleHandler.callOnCreate();
 
+    funkin.input.Cursor.hide();
+
     final gc:Void->Void = () ->
       {
         #if cpp
