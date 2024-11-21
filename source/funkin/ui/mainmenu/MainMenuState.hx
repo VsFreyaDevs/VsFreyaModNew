@@ -437,34 +437,31 @@ class MainMenuState extends MusicBeatState
         funkin.save.Save.instance.data.unlocks.charactersSeen = ["bf"];
         funkin.save.Save.instance.data.unlocks.oldChar = false;
       }
+
+      if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.E)
+      {
+        funkin.save.Save.instance.debug_dumpSave();
+      }
+
+      if (FlxG.sound.music != null && FlxG.sound.music.volume < 0.8)
+      {
+        FlxG.sound.music.volume += 0.5 * elapsed;
+      }
+
+      if (_exiting) menuItems.enabled = false;
+
+      if (controls.BACK)
+      {
+        goBack();
+      }
     }
 
-    #if FEATURE_DEBUG_FUNCTIONS
-    if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.E)
+    public function goBack():Void
     {
-      funkin.save.Save.instance.debug_dumpSave();
-    }
-    #end
-
-    if (FlxG.sound.music != null && FlxG.sound.music.volume < 0.8)
-    {
-      FlxG.sound.music.volume += 0.5 * elapsed;
-    }
-
-    if (_exiting) menuItems.enabled = false;
-
-    if (controls.BACK)
-    {
-      goBack();
+      if (menuItems.enabled && !menuItems.busy)
+      {
+        FlxG.switchState(() -> new TitleState());
+        FunkinSound.playOnce(Paths.sound('cancelMenu'));
+      }
     }
   }
-
-  public function goBack():Void
-  {
-    if (menuItems.enabled && !menuItems.busy)
-    {
-      FlxG.switchState(() -> new TitleState());
-      FunkinSound.playOnce(Paths.sound('cancelMenu'));
-    }
-  }
-}

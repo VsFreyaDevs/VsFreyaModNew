@@ -25,7 +25,7 @@ import openfl.Assets;
 import openfl.display.Sprite;
 import openfl.events.AsyncErrorEvent;
 import funkin.ui.mainmenu.MainMenuState;
-import funkin.ui.title.OutdatedSubState;
+import funkin.ui.title.FirstTimeState;
 import openfl.events.MouseEvent;
 import openfl.events.NetStatusEvent;
 import funkin.ui.freeplay.FreeplayState;
@@ -426,7 +426,7 @@ class TitleState extends MusicBeatState
       // FlxG.switchState(() -> new MainMenuState());
       try
       {
-        FlxG.switchState(() -> new funkin.ui.title.OutdatedSubState());
+        FlxG.switchState(() -> new funkin.ui.title.FirstTimeState());
       }
       catch (e)
       {
@@ -457,7 +457,7 @@ class TitleState extends MusicBeatState
       transitioning = true;
 
       // var targetState:NextState = () -> new MainMenuState();
-      var targetState:NextState = () -> new funkin.ui.title.OutdatedSubState();
+      var targetState:NextState = () -> new funkin.ui.title.FirstTimeState();
 
       new FlxTimer().start(2, function(tmr:FlxTimer) {
         // These assets are very unlikely to be used for the rest of gameplay, so it unloads them from cache/memory

@@ -8,7 +8,7 @@ import funkin.ui.MusicBeatState;
 import funkin.graphics.FunkinSprite;
 import lime.app.Application;
 
-class OutdatedSubState extends MusicBeatState
+class FirstTimeState extends MusicBeatState
 {
   public static var leftState:Bool = false;
 
@@ -20,9 +20,9 @@ class OutdatedSubState extends MusicBeatState
     add(bg);
 
     var txt:FlxText = new FlxText(0, 0, FlxG.width,
-      "HEY! This mod is currently work in progress! \nSome things may be unfinished for now, \nand yeah, beware of some bugs & glitches that will be \nfixed in the future.\nPress SPACE or ESCAPE to continue.",
-      32);
-    txt.setFormat("Arial", 32, FlxColor.WHITE, CENTER);
+      "HEY! This mod is currently in a WIP state! Some things may be \nunfinished for now, watch out for some bugs & glitches!\nNow with that out of the way, I hope you'll enjoy this Funkin' mod, funk all the way!\nPress ESCAPE or ENTER to proceed.",
+      26);
+    txt.setFormat(Paths.font("arial.ttf"), 32, FlxColor.WHITE, CENTER);
     txt.screenCenter();
     add(txt);
   }
@@ -31,6 +31,7 @@ class OutdatedSubState extends MusicBeatState
   {
     if (controls.ACCEPT || controls.BACK)
     {
+      Save.instance.firstTime = false;
       leftState = true;
       FlxG.switchState(() -> new funkin.ui.mainmenu.MainMenuState());
     }

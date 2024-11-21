@@ -49,7 +49,7 @@ class Constants
    * A suffix to add to the game version.
    * Add a suffix to prototype builds and remove it for releases.
    */
-  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #else ' ' #end;
+  public static final VERSION_SUFFIX:String = #if FEATURE_DEBUG_FUNCTIONS ' PROTOTYPE' #elseif !CONSUMER_BUILD ' (unfinished build)' #else ' ' #end;
 
   #if FEATURE_DEBUG_FUNCTIONS
   static function get_VERSION():String

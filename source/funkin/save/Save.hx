@@ -72,6 +72,8 @@ class Save
       volume: 1.0,
       mute: false,
 
+      firstTime: true,
+
       api:
         {
           newgrounds:
@@ -151,9 +153,9 @@ class Save
 
       unlocks:
         {
-          // Default to having seen the default character.
-          charactersSeen: ["bf"],
-          oldChar: false
+          // Default to having seen the default character. (And Pico, for now.)
+          charactersSeen: ["bf", "pico"], // "pico", "kanimate"],
+          oldChar: true
         },
 
       optionsChartEditor:
@@ -180,6 +182,26 @@ class Save
           #end
         }
     };
+  }
+
+  /**
+   * Whether if it's the first time the player has opened the game or not.
+   */
+  public var firstTime(get, set):Bool;
+
+  function get_firstTime():Bool
+  {
+    if (data.firstTime == null) data.firstTime = true;
+
+    return data.firstTime;
+  }
+
+  function set_firstTime(value:Bool):Bool
+  {
+    // Set and apply.
+    data.firstTime = value;
+    flush();
+    return data.firstTime;
   }
 
   /**
