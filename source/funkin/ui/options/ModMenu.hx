@@ -41,8 +41,8 @@ class ModMenu extends Page
     {
       refreshModList();
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
-      trace('Refreshed Mod List!');
-      trace('ModMenu: Detected ${detectedMods.length} mods');
+      trace('[MOD SELECTOR] Refreshed mod list!');
+      trace('[MOD SELECTOR] Detected ${detectedMods.length} mods.');
     }
 
     selections();
@@ -62,16 +62,19 @@ class ModMenu extends Page
     if (FlxG.keys.justPressed.SPACE || FlxG.keys.justPressed.ENTER)
     {
       grpMods.members[curSelected].modEnabled = !grpMods.members[curSelected].modEnabled;
+
       if (grpMods.members[curSelected].modEnabled)
       {
         FlxFlicker.flicker(grpMods.members[curSelected], 1.1, 0.0625, true, true);
         FunkinSound.playOnce(Paths.sound('confirmMenu'));
-        trace('Enabled a mod!');
+
+        trace('[MOD SELECTOR] Enabled a mod!');
       }
       else if (!grpMods.members[curSelected].modEnabled)
       {
         FunkinSound.playOnce(Paths.sound('cancelMenu'));
-        trace('Disabled a mod!');
+
+        trace('[MOD SELECTOR] Disabled a mod!');
       }
     }
 
@@ -84,18 +87,24 @@ class ModMenu extends Page
     if (FlxG.keys.justPressed.I && curSelected != 0)
     {
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
+
       var oldOne = grpMods.members[curSelected - 1];
+
       grpMods.members[curSelected - 1] = grpMods.members[curSelected];
       grpMods.members[curSelected] = oldOne;
+
       selections(-1);
     }
 
     if (FlxG.keys.justPressed.K && curSelected < grpMods.members.length - 1)
     {
       FunkinSound.playOnce(Paths.sound('cancelMenu'));
+
       var oldOne = grpMods.members[curSelected + 1];
+
       grpMods.members[curSelected + 1] = grpMods.members[curSelected];
       grpMods.members[curSelected] = oldOne;
+
       selections(1);
     }
     super.update(elapsed);
@@ -110,10 +119,7 @@ class ModMenu extends Page
 
     for (txt in 0...grpMods.length)
     {
-      if (txt == curSelected)
-      {
-        grpMods.members[txt].color = FlxColor.YELLOW;
-      }
+      if (txt == curSelected) grpMods.members[txt].color = FlxColor.YELLOW;
       else
         grpMods.members[txt].color = FlxColor.WHITE;
     }
@@ -124,22 +130,23 @@ class ModMenu extends Page
   function refreshModList():Void
   {
     while (grpMods.members.length > 0)
-    {
       grpMods.remove(grpMods.members[0], true);
-    }
 
-    #if desktop
+    #if (desktop || mobile)
     detectedMods = PolymodHandler.getAllMods();
 
-    trace('ModMenu: Detected ${detectedMods.length} mods');
+    trace('[MOD SELECTOR] Detected ${detectedMods.length} mods.');
 
     for (index in 0...detectedMods.length)
     {
       var modMetadata:ModMetadata = detectedMods[index];
       var modName:String = modMetadata.title;
-      var txt:ModMenuItem = new ModMenuItem(0, 10 + (40 * index), 0, modName, 48);
-      txt.setFormat(Paths.font('arial.ttf'), 48, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+
+      var txt:ModMenuItem = new ModMenuItem(0, 24 + (40 * index), 0, modName, 48);
+      txt.setFormat(Paths.font('roboto/robotoBo.ttf'), 48, FlxColor.WHITE, RIGHT, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+      txt.screenCenter(X);
       txt.text = modName;
+
       grpMods.add(txt);
     }
     #end
@@ -148,9 +155,7 @@ class ModMenu extends Page
   function organizeByY():Void
   {
     for (i in 0...grpMods.length)
-    {
-      grpMods.members[i].y = 10 + (40 * i);
-    }
+      grpMods.members[i].y = 24 + (40 * i);
   }
 }
 
@@ -166,14 +171,10 @@ class ModMenuItem extends FlxText
 
   override function update(elapsed:Float)
   {
-    if (modEnabled)
-    {
-      alpha = 1;
-    }
+    if (modEnabled) alpha = 1;
     else
-    {
-      alpha = 0.5;
-    }
+      alpha = 0.6;
+
     super.update(elapsed);
   }
 }

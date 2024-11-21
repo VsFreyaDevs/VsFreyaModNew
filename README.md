@@ -87,7 +87,7 @@ idk what cpu or gpu would have the game run *perfectly* so pls tell me if you do
 These should be the lowest minimum spec requirements to run the game:
 
 * **Processor** - Intel Celeron (SSE to SSE4 with MMX) or Higher
-* **Memory** -  1GB of RAM (cuz uhhh memory leaks), idk about vram/gpu tho
+* **Memory** -  2 GB of RAM (cuz uhhh memory leaks), idk about vram/gpu tho
 * **Storage** - ~1 GB of Available Disk Space
 
 #### Supported Platforms

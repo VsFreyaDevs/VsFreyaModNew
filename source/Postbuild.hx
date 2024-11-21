@@ -14,6 +14,10 @@ class Postbuild extends CommandLine
   {
     CommandLine.prettyPrint('Finished building Vs. Freya!');
 
+    if (!FileSystem.exists('.build')) File.saveContent('.build', '620');
+    else
+      File.saveContent('.build', '${Std.parseInt(File.getContent('.build')) + 1}');
+
     printBuildTime();
   }
 
