@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="tankmanPico.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="tankman ARGH0000" x="0" y="0" width="500" height="574" frameX="0" frameY="0" frameWidth="502" frameHeight="574"/>
 	<SubTexture name="tankman ARGH0001" x="0" y="0" width="500" height="574" frameX="0" frameY="0" frameWidth="502" frameHeight="574"/>
 	<SubTexture name="tankman ARGH0002" x="505" y="0" width="497" height="574" frameX="-4" frameY="0" frameWidth="502" frameHeight="574"/>

@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="Animate CC NEWER.png">
-	<!-- Created with Adobe Animate version 24.0.2.12 -->
-	<!-- http://www.adobe.com/products/animate.html -->
+	<!-- oh yea he does look like blocky from bfdi GUHHH?!?!?!? -->
 	<SubTexture name="Idle instance 10000" x="0" y="0" width="580" height="422" pivotX="427.1" pivotY="15.25" frameX="0" frameY="0" frameWidth="580" frameHeight="424"/>
 	<SubTexture name="Idle instance 10001" x="0" y="0" width="580" height="422" frameX="0" frameY="0" frameWidth="580" frameHeight="424"/>
 	<SubTexture name="Idle instance 10002" x="580" y="0" width="580" height="423" frameX="0" frameY="0" frameWidth="580" frameHeight="424"/>
