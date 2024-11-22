@@ -21,13 +21,11 @@
   "dialogue": [
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "laugh",
       "box": "kit",
       "boxAnimation": "enter",
 
-      "text": [
-        "haha i won the offer"
-      ]
+      "text": ["haha i won the offer"]
     },
     {
       "speaker": "bf-kit",
@@ -35,9 +33,7 @@
       "box": "kit",
       "boxAnimation": "idle",
 
-      "text": [
-        "*pulls out a fucking AK-47*", "\nnow YOU die.."
-      ]
+      "text": ["*pulls out a fucking AK-47*", "\nnow YOU die.."]
     },
     {
       "speaker": "freya",
@@ -45,9 +41,7 @@
       "box": "kit",
       "boxAnimation": "idle",
 
-      "text": [
-        "Oh shi-"
-      ]
+      "text": ["Oh shi-"]
     },
     {
       "speaker": "milky",
@@ -55,7 +49,7 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["HEY!!!", "\nWhat in the fuck do ya think ya be doing?"]
+      "text": ["HEY!!!", "\nWhat in a fuck do ya think ya be doing?"]
     },
     {
       "speaker": "kanimate",
@@ -79,7 +73,9 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Hey, I mean you guys are TECHNICALLY dating, so I can't blame myself."]
+      "text": [
+        "Hey, I mean you guys are TECHNICALLY dating, so I can't blame myself."
+      ]
     },
     {
       "speaker": "milky",
@@ -95,48 +91,68 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Anyways uhh yeah, rap me, then him.", "\nand we get to decide if you kill her or not."]
+      "text": [
+        "Any waynees uhh... yeah, rap me, then him.",
+        "\nand we get to decide if ya kill her or not."
+      ]
     },
     {
-      "speaker": "bf-kit",
-      "speakerAnimation": "scared",
+      "speaker": "milky",
+      "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["Deal?"]
-    }
-{
+    },
+    {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "ohrly",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["mf-"]
     },
-{
+    {
       "speaker": "bf-kit",
       "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["ugh fine...", "\ndeal"]
+      "text": ["ugh fine...", "\ndeal..."]
     },
-{
+    {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "ohrly",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["yall still gonna be dead meat tho-"]
     },
-{
+    {
       "speaker": "milky",
       "speakerAnimation": "realize",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": ["..."],
-"speed": 0.6
+      "speed": 2.5
     },
+    {
+      "speaker": "bf-kit",
+      "speakerAnimation": "ohrly",
+      "box": "kit",
+      "boxAnimation": "speaking",
+
+      "text": [
+        "ill be comin back, in the next day...",
+        " in the next day...",
+        " in the next day...",
+        " in the next day...",
+        " in the next day...",
+        " in the next day...",
+        " in the next day...",
+        " in the next day..."
+      ]
+    }
   ]
 }

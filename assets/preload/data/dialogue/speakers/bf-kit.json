@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "name": "BF (Kit)",
-  "assetPath": "dialogue/bfKitPortrait",
+  "assetPath": "dialogue/bfKitPortraitNew",
   "flipX": false,
   "isPixel": false,
   "scale": 0.845,
@@ -15,7 +15,7 @@
     },
     {
       "name": "dumb",
-      "prefix": "portDumb",
+      "prefix": "portUhh",
       "offsets": [0, 0],
       "frameRate": 12
     },
@@ -26,8 +26,26 @@
       "frameRate": 12
     },
     {
-      "name": "scared",
-      "prefix": "portScared",
+      "name": "ohrly",
+      "prefix": "portLol",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "miss",
+      "prefix": "portMiss",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "sad",
+      "prefix": "portSad",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "hey",
+      "prefix": "portHey",
       "offsets": [0, 0],
       "frameRate": 12
     }

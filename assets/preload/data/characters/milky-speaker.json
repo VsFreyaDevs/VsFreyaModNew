@@ -1,0 +1,28 @@
+{
+  "version": "1.0.0",
+  "name": "Milky (Speaker)",
+  "assetPath": "characters/milkySpeaker",
+  "startingAnimation": "danceRight",
+  "healthIcon": {
+    "id": "milky",
+    "flipX": false
+  },
+  "singTime": 8.0,
+  "animations": [
+    {
+      "name": "danceLeft",
+      "prefix": "GF Dancing Beat left",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "danceRight",
+      "prefix": "GF Dancing Beat right",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "drop70",
+      "prefix": "GF laugh",
+      "offsets": [0, 0]
+    }
+  ]
+}
