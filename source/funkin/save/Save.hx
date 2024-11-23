@@ -1186,6 +1186,8 @@ typedef RawSaveData =
   var volume:Float;
   var mute:Bool;
 
+  var firstTime:Bool;
+
   /**
    * A semantic versioning string for the save data format.
    */
