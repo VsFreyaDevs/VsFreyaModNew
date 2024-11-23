@@ -31,7 +31,7 @@ class FirstTimeState extends MusicBeatState
   {
     if (controls.ACCEPT || controls.BACK)
     {
-      Save.instance.firstTime = false;
+      funkin.save.Save.instance.firstTime = false;
       leftState = true;
       FlxG.switchState(() -> new funkin.ui.mainmenu.MainMenuState());
     }
