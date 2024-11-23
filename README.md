@@ -95,7 +95,7 @@ These should be the lowest minimum spec requirements to run the game:
 * **Windows (7 and up)** (32-bit & 64-bit)
 * **MacOS (UNTESTED)** (x86_64 and arm64 only)
 * **Linux (UNTESTED)**
-* ~~**HTML5 (UNTESTED)**~~
+* ~~**HTML5 (UNTESTED)**~~ (TODO: re-add html5 support)
 * **Android (UNTESTED)** (arm64, armv7a, x86, and x86_64 only)
 * **iOS (UNTESTED)** (arm64 and simulator only)
 * ~~**Hashlink (UNTESTED)**~~
