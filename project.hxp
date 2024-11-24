@@ -484,7 +484,7 @@ class Project extends HXProject {
 		FEATURE_POLYMOD_MODS.apply(this, true);
 		FEATURE_FUNKVIS.apply(this, true);
 		FEATURE_PARTIAL_SOUNDS.apply(this, true);
-		FEATURE_VIDEO_PLAYBACK.apply(this, true);
+		FEATURE_VIDEO_PLAYBACK.apply(this, !isLinux());
 		FEATURE_STAGE_EDITOR.apply(this, true);
 
 		// Should be true on debug builds or if GITHUB_BUILD is enabled.
