@@ -191,7 +191,7 @@ class Save
 
   function get_firstTime():Bool
   {
-    if (data.firstTime == null) data.firstTime = true;
+    // if (data.firstTime == null) data.firstTime = true;
 
     return data.firstTime;
   }
