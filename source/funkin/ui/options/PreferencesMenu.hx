@@ -97,7 +97,7 @@ class PreferencesMenu extends Page
     descText.scrollFactor.set();
     descText.font = Paths.font('roboto/robotoMe.ttf');
     descText.alignment = CENTER;
-    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
+    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2.5);
     descTextBG.x = descText.x - DESC_BG_OFFSET_X;
     descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
     descTextBG.updateHitbox();
@@ -184,10 +184,11 @@ class PreferencesMenu extends Page
       Preferences.noteSplash = value;
       yeahBf(value);
     }, Preferences.noteSplash);
-    createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects', function(value:Bool):Void {
-      Preferences.flashingLights = value;
-      yeahBf(value);
-    }, Preferences.flashingLights);
+    createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects,\nuseful for people with photosensitive epilepsy',
+      function(value:Bool):Void {
+        Preferences.flashingLights = value;
+        yeahBf(value);
+      }, Preferences.flashingLights);
     createPrefItemCheckbox('Note Miss Sounds', 'Enable to play a sound when you miss a note', function(value:Bool):Void {
       Preferences.missNoteSounds = value;
       yeahBf(value);
@@ -378,7 +379,7 @@ class PreferencesMenu extends Page
         // swag
       }, true);
     preferenceItems.add(blank);
-    preferenceDesc.push("CATEGORY HEADER!!!!");
+    preferenceDesc.push(" "); // display nothing tho rn the box still appears
   }
 
   /**
