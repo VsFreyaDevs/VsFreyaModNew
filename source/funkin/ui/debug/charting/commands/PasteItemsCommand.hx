@@ -5,6 +5,7 @@ import funkin.data.song.SongData.SongNoteData;
 import funkin.data.song.SongDataUtils;
 import funkin.data.song.SongDataUtils.SongClipboardItems;
 import funkin.data.song.SongNoteDataUtils;
+import funkin.ui.debug.charting.ChartEditorState;
 
 /**
  * A command which inserts the contents of the clipboard into the chart editor.
@@ -43,19 +44,22 @@ class PasteItemsCommand implements ChartEditorCommand
     addedEvents = SongDataUtils.offsetSongEventData(currentClipboard.events, Std.int(targetTimestamp));
     addedEvents = SongDataUtils.clampSongEventData(addedEvents, 0.0, msCutoff);
 
-    state.currentSongChartNoteData = SongDataUtils.addNotes(state.currentSongChartNoteData, addedNotes);
+    state.currentSongChartNoteData = SongNoteDataUtils.concatOverwrite(state.currentSongChartNoteData, addedNotes, removedNotes,
+      ChartEditorState.stackNoteThreshold);
     state.currentSongChartEventData = state.currentSongChartEventData.concat(addedEvents);
     state.currentNoteSelection = addedNotes.copy();
     state.currentEventSelection = addedEvents.copy();
+
     state.saveDataDirty = true;
     state.noteDisplayDirty = true;
     state.notePreviewDirty = true;
 
     state.sortChartData();
 
-    if (removedNotes.length > 0) state.warning('Paste Successful', 'However overlapped notes were overwritten.');
+    // FIXME: execute() is reused as a redo function so these messages show up even when not actually pasting
+    if (removedNotes.length > 0) state.warning('Paste Successful', 'However, overlapped notes were overwritten.');
     else
-      state.success('Successfully Pasted', 'Successfully pasted clipboard contents.');
+      state.success('Paste Successful', 'Successfully pasted clipboard contents.');
   }
 
   public function undo(state:ChartEditorState):Void
@@ -64,7 +68,7 @@ class PasteItemsCommand implements ChartEditorCommand
 
     state.currentSongChartNoteData = SongDataUtils.subtractNotes(state.currentSongChartNoteData, addedNotes).concat(removedNotes);
     state.currentSongChartEventData = SongDataUtils.subtractEvents(state.currentSongChartEventData, addedEvents);
-    state.currentNoteSelection = [];
+    state.currentNoteSelection = removedNotes.copy();
     state.currentEventSelection = [];
 
     state.saveDataDirty = true;

@@ -207,9 +207,8 @@ class ChartEditorState extends UIState // UIState derives from MusicBeatState
 
   /**
    * How "close" in milliseconds two notes have to be to be considered as stacked.
-   * TODO: This should probably be turned into a customizable value.
    */
-  public static final STACK_NOTE_THRESHOLD:Int = 20;
+  public static var STACK_NOTE_THRESHOLD:Int = 10;
 
   /**
    * The amount of padding between the menu bar and the chart grid when fully scrolled up.
