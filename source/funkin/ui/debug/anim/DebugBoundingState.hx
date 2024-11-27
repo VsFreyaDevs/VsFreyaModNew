@@ -547,7 +547,7 @@ class DebugBoundingState extends FlxState
       // clears the canvas
       onionSkinChar.pixels.fillRect(new Rectangle(0, 0, FlxG.width * 2, FlxG.height * 2), 0x00000000);
 
-      onionSkinChar.stamp(swagChar, swagChar.x, swagChar.y);
+      onionSkinChar.stamp(swagChar, Std.int(swagChar.x), Std.int(swagChar.y));
       onionSkinChar.alpha = 0.6;
     }
 
