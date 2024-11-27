@@ -462,66 +462,66 @@ class DebugBoundingState extends FlxState
    */
   function loadAnimShit(char:String)
   {
-    if (swagChar != null)
-    {
-      offsetView.remove(swagChar);
-      swagChar.destroy();
-    }
-
-    swagChar = CharacterDataParser.fetchCharacter(char);
-    swagChar.x = 100;
-    swagChar.y = 100;
-    swagChar.debug = true;
-    offsetView.add(swagChar);
-
-    if (swagChar == null || swagChar.frames == null) trace('ERROR: Failed to load character ${char}!');
-
     try
     {
-      generateOutlines(swagChar.frames.frames);
-    }
-    catch (e:Any)
-      trace(e + "\nidk i just cant do le outlines, get in the spritesheet view, you know what u did");
-    bf.pixels = swagChar.pixels;
+      if (swagChar != null)
+      {
+        offsetView.remove(swagChar);
+        swagChar.destroy();
+      }
 
-    clearInfo();
-    addInfo(swagChar._data.assetPath, "");
-    addInfo('Width', bf.width);
-    addInfo('Height', bf.height);
+      swagChar = CharacterDataParser.fetchCharacter(char);
+      swagChar.x = 100;
+      swagChar.y = 100;
+      swagChar.debug = true;
+      offsetView.add(swagChar);
 
-    characterAnimNames = [];
+      if (swagChar == null || swagChar.frames == null) trace('ERROR: Failed to load character ${char}!');
 
-    for (i in swagChar.animationOffsets.keys())
-    {
-      characterAnimNames.push(i);
-      trace(i + " | " + swagChar.animationOffsets[i]);
-    }
-
-    offsetAnimationDropdown.dataSource.clear();
-
-    for (charAnim in characterAnimNames)
-    {
-      trace('Adding ${charAnim} to HaxeUI dropdown');
-      offsetAnimationDropdown.dataSource.add({id: charAnim, text: charAnim});
-    }
-
-    offsetAnimationDropdown.selectedIndex = 0;
-
-    trace('Added ${offsetAnimationDropdown.dataSource.size} to HaxeUI dropdown');
-
-    offsetAnimationDropdown.onChange = (event:UIEvent) -> {
-      trace('Selected animation ${event?.data?.id}');
       try
       {
-        playCharacterAnimation(event.data.id, true);
+        generateOutlines(swagChar.frames.frames);
       }
       catch (e:Any)
-        trace('${e} \n CANT PULLL UP ANIMATION :sob:');
-    }
+        trace(e + "\nidk i just cant do le outlines, get in the spritesheet view, you know what u did");
+      bf.pixels = swagChar.pixels;
 
-    txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
-    txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
-    dropDownSetup = true;
+      clearInfo();
+      addInfo(swagChar._data.assetPath, "");
+      addInfo('Width', bf.width);
+      addInfo('Height', bf.height);
+
+      characterAnimNames = [];
+
+      for (i in swagChar.animationOffsets.keys())
+      {
+        characterAnimNames.push(i);
+        trace(i + " | " + swagChar.animationOffsets[i]);
+      }
+
+      offsetAnimationDropdown.dataSource.clear();
+
+      for (charAnim in characterAnimNames)
+      {
+        trace('Adding ${charAnim} to HaxeUI dropdown');
+        offsetAnimationDropdown.dataSource.add({id: charAnim, text: charAnim});
+      }
+
+      offsetAnimationDropdown.selectedIndex = 0;
+
+      trace('Added ${offsetAnimationDropdown.dataSource.size} to HaxeUI dropdown');
+
+      offsetAnimationDropdown.onChange = (event:UIEvent) -> {
+        trace('Selected animation ${event?.data?.id}');
+        playCharacterAnimation(event.data.id, true);
+      }
+
+      txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
+      txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
+      dropDownSetup = true;
+    }
+    catch (e:Any)
+      trace('${e} \n CANT DO SHIT WITH THIS ANIMATION :sob:');
   }
 
   private var characterAnimNames:Array<String>;
