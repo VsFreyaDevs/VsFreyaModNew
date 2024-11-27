@@ -105,7 +105,7 @@ class Save
           #if FEATURE_GHOST_TAPPING
           ghostTapping: true,
           #end
-          antialiasing: false, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
+          antialiasing: true, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
           showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 15, strumAlpha: 85, badsShitsCauseMiss: false,
           inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false, missNoteSounds: true,
           #else
