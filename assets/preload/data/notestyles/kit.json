@@ -90,17 +90,17 @@
       "isPixel": false
     },
     "judgementGood": {
-      "assetPath": "default:ui/popup/funkin/good",
+      "assetPath": "default:ui/popup/kit/ok",
       "scale": 0.65,
       "isPixel": false
     },
     "judgementBad": {
-      "assetPath": "default:ui/popup/funkin/bad",
+      "assetPath": "default:ui/popup/kit/meh",
       "scale": 0.65,
       "isPixel": false
     },
     "judgementShit": {
-      "assetPath": "default:ui/popup/funkin/shit",
+      "assetPath": "default:ui/popup/kit/trash",
       "scale": 0.65,
       "isPixel": false
     },
