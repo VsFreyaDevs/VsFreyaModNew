@@ -13,17 +13,17 @@
     {
       "name": "danceLeft",
       "prefix": "GF Dancing Beat left",
-      "offsets": [0, 0]
+      "offsets": [98, 194]
     },
     {
       "name": "danceRight",
       "prefix": "GF Dancing Beat right",
-      "offsets": [0, 0]
+      "offsets": [98, 194]
     },
     {
       "name": "drop70",
       "prefix": "GF laugh",
-      "offsets": [0, 0]
+      "offsets": [98, 194]
     }
   ]
 }
