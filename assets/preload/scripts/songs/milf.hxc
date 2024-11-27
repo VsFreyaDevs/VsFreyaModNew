@@ -287,7 +287,7 @@ class MILFSong extends Song {
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 
 				var boyfriendXPos = boyfriend.x;
-				var lampDelay = nextLampTime - Conductor.instance.songPositionDelta;
+				var lampDelay = nextLampTime - Conductor.instance.getTimeWithDelta();
 				var lampDistance = lampDelay * LAMP_VELOCITY;
 				lamp.x = boyfriendXPos - lampDistance - 120;
 
