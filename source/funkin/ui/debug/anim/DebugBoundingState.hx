@@ -513,11 +513,25 @@ class DebugBoundingState extends FlxState
 
       offsetAnimationDropdown.onChange = (event:UIEvent) -> {
         trace('Selected animation ${event?.data?.id}');
-        playCharacterAnimation(event.data.id, true);
+        try
+        {
+          playCharacterAnimation(event.data.id, true);
+        }
+        catch (e)
+        {
+          trace('1 nope \n $e');
+        }
       }
 
-      txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
-      txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
+      try
+      {
+        txtOffsetShit.text = 'Offset: ' + swagChar.animOffsets;
+        txtOffsetShit.y = FlxG.height - 20 - txtOffsetShit.height;
+      }
+      catch (e)
+      {
+        trace('2 nope \n $e');
+      }
       dropDownSetup = true;
     }
     catch (e:Any)
@@ -533,7 +547,7 @@ class DebugBoundingState extends FlxState
       // clears the canvas
       onionSkinChar.pixels.fillRect(new Rectangle(0, 0, FlxG.width * 2, FlxG.height * 2), 0x00000000);
 
-      onionSkinChar.stamp(swagChar, Std.int(swagChar.x), Std.int(swagChar.y));
+      onionSkinChar.stamp(swagChar, swagChar.x, swagChar.y);
       onionSkinChar.alpha = 0.6;
     }
 
