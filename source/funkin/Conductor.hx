@@ -445,7 +445,11 @@ class Conductor
     var oldBpm:Float = this.bpm;
 
     // If the song is playing, limit the song position to the length of the song or beginning of the song.
-    if (FlxG.sound.music != null && FlxG.sound.music.playing) this.songPosition = FlxMath.bound(Math.min(this.combinedOffset, 0), songPos, currentLength);
+    if (FlxG.sound.music != null && FlxG.sound.music.playing)
+    {
+      this.songPosition = FlxMath.bound(Math.min(this.combinedOffset, 0), songPos, currentLength);
+      this.songPositionDelta += FlxG.elapsed * 1000 * (FlxG.sound?.music?.pitch ?? 1);
+    }
     else
       this.songPosition = songPos;
 
@@ -488,8 +492,6 @@ class Conductor
     if (currentStep != oldStep) this.onStepHit.dispatch();
     if (currentBeat != oldBeat) this.onBeatHit.dispatch();
     if (currentMeasure != oldMeasure) this.onMeasureHit.dispatch();
-
-    this.songPositionDelta += FlxG.elapsed * 1000 * (FlxG.sound?.music?.pitch ?? 1);
 
     // only update the timestamp if songPosition actually changed
     // which it doesn't do every frame!
