@@ -17,7 +17,7 @@ import flixel.tweens.FlxEase;
 	* still no custom death anim for it but oh well
 	*/
 class MILFSong extends Song {
-	public function new() 
+	public function new()
         {
 		super('milf');
 	}
@@ -264,18 +264,18 @@ class MILFSong extends Song {
 			var boyfriend = PlayState.instance.currentStage.getBoyfriend();
 			var nextLampTime = BOYFRIEND_LAMP_TIMES[nextBFLampIndex];
 			var nextLampReset = nextLampTime + LAMP_RESET_DELAY;
-			if (Conductor.instance.frameSongPosition >= nextLampReset) {
+			if (Conductor.instance.getTimeWithDelta() >= nextLampReset) {
 				nextBFLampIndex++;
 				hasCurrentBFLampHit = false;
 			} else if (boyfriend != null) {
 
-				if (Conductor.instance.frameSongPosition >= nextLampTime && !hasCurrentBFLampHit) {
+				if (Conductor.instance.getTimeWithDelta() >= nextLampTime && !hasCurrentBFLampHit) {
 					// Do the actual lamp collision animation and gameplay.
 					doLampHit();
 					hasCurrentBFLampHit = true;
 				}
 
-				if (Conductor.instance.frameSongPosition >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
+				if (Conductor.instance.getTimeWithDelta() >= nextLampTime - GF_DUCK_DELAY && !hasCurrentGFLampDucked) {
 					// Ensure this code only runs once.
 					hasCurrentGFLampDucked = true;
 
@@ -287,7 +287,7 @@ class MILFSong extends Song {
 				var lamp = PlayState.instance.currentStage.getNamedProp('boyfriendLight');
 
 				var boyfriendXPos = boyfriend.x;
-				var lampDelay = nextLampTime - Conductor.instance.frameSongPosition;
+				var lampDelay = nextLampTime - Conductor.instance.songPositionDelta;
 				var lampDistance = lampDelay * LAMP_VELOCITY;
 				lamp.x = boyfriendXPos - lampDistance - 120;
 
