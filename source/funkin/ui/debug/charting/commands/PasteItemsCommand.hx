@@ -45,7 +45,7 @@ class PasteItemsCommand implements ChartEditorCommand
     addedEvents = SongDataUtils.clampSongEventData(addedEvents, 0.0, msCutoff);
 
     state.currentSongChartNoteData = SongNoteDataUtils.concatOverwrite(state.currentSongChartNoteData, addedNotes, removedNotes,
-      ChartEditorState.stackNoteThreshold);
+      ChartEditorState.STACK_NOTE_THRESHOLD);
     state.currentSongChartEventData = state.currentSongChartEventData.concat(addedEvents);
     state.currentNoteSelection = addedNotes.copy();
     state.currentEventSelection = addedEvents.copy();
