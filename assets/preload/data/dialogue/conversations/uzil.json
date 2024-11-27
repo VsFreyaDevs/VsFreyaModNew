@@ -77,7 +77,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "sad",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -85,8 +85,8 @@
       "speed": 0.01
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "cryPhone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -94,8 +94,8 @@
       "speed": 0.01
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -111,8 +111,8 @@
       "speed": 0.8
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -121,18 +121,18 @@
       ]
     },
     {
-      "speaker": "nothing",
+      "speaker": "bf-kit",
       "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": [
-        "Mika: Second of all, if it's that stupid orange fox that ended me like 500 times, I WILL beat her ass!"
+        "Mika: Second of all, if it's that stupid orange fox that ended my life like 500 times, I WILL beat her ass!"
       ]
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "sad",
+      "speakerAnimation": "yesHoney",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -140,8 +140,8 @@
       "speed": 1.4
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -150,8 +150,8 @@
       ]
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -215,7 +215,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "ohrly",
+      "speakerAnimation": "scream",
       "box": "kit",
       "boxAnimation": "speaking",
 

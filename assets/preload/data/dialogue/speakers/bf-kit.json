@@ -4,8 +4,8 @@
   "assetPath": "dialogue/bfKitPortraitNew",
   "flipX": false,
   "isPixel": false,
-  "scale": 0.845,
-  "offsets": [650, 90],
+  "scale": 0.545,
+  "offsets": [425, 40],
   "animations": [
     {
       "name": "talk",
@@ -46,6 +46,30 @@
     {
       "name": "hey",
       "prefix": "portHey",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "cryPhone",
+      "prefix": "portCryPhone",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "yesHoney",
+      "prefix": "portyesHoney",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "phone",
+      "prefix": "portPhone",
+      "offsets": [0, 0],
+      "frameRate": 12
+    },
+    {
+      "name": "scream",
+      "prefix": "portScream",
       "offsets": [0, 0],
       "frameRate": 12
     }

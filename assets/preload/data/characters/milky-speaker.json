@@ -7,6 +7,7 @@
     "id": "milky",
     "flipX": false
   },
+  "scale": 0.88,
   "singTime": 8.0,
   "animations": [
     {
