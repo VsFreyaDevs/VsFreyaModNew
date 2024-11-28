@@ -627,7 +627,12 @@ class FreeplayState extends MusicBeatSubState
       if (grpCapsules.members.length > 0)
       {
         FunkinSound.playOnce(Paths.sound('scrollMenu'), 0.4);
-        curSelected = 1;
+
+        // This makes it so it sends you to the same song in the new list (if it's there).
+        if (grpCapsules.members[curSelected].freeplayData != null) curSelected = grpCapsules.members.indexOf(grpCapsules.members[curSelected]);
+        else
+          curSelected = 1;
+
         changeSelection();
       }
     };
