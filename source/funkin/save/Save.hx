@@ -997,18 +997,18 @@ class Save
     switch (FlxG.save.status)
     {
       case EMPTY:
-        trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, GOTTA LOAD YOUR LEGACY DATA...');
+        trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, GOTTA LOAD YOUR VSLICE DATA...');
         var legacySaveData = fetchLegacySaveData();
         if (legacySaveData != null)
         {
-          trace('[SAVE] FUCK YEA WE GOT LEGACY SCORES');
+          trace('[SAVE] FUCK YEA WE GOT VSLICE SCORES');
           var gameSave = SaveDataMigrator.migrateFromLegacy(legacySaveData);
           FlxG.save.mergeData(gameSave.data, true);
           return gameSave;
         }
         else
         {
-          trace('[SAVE] NOOOO NOT EVEN YOUR LEGACY DATA IS THERE');
+          trace('[SAVE] NOOOO NOT EVEN YOUR VSLICE DATA IS THERE');
           var gameSave = new Save();
           FlxG.save.mergeData(gameSave.data, true);
           return gameSave;
