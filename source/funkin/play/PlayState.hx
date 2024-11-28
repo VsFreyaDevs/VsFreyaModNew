@@ -2437,7 +2437,7 @@ class PlayState extends MusicBeatSubState
     var accuracy:String = "?";
     if (totalPlayed != 0)
     {
-      var percent:Float = Math.floor(ratingPercent * 100 * 2);
+      var percent:Float = Math.floor(ratingPercent * 100 * 2) - 100;
       accuracy = percent + '%';
     }
 
