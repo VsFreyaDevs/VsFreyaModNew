@@ -16,7 +16,10 @@ class Postbuild extends CommandLine
 
     if (!FileSystem.exists('.build')) File.saveContent('.build', '620');
     else
-      File.saveContent('.build', '${Std.parseInt(File.getContent('.build')) + 1}');
+    {
+var farded:Int = Std.parseInt(File.getContent('.build')) + 1;
+      File.saveContent('.build', '${farded}');
+}
 
     printBuildTime();
   }
