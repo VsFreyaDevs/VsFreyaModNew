@@ -190,7 +190,6 @@ class TitleState extends MusicBeatState
   var maskShader = new LeftMaskShader();
 
   var bg:FunkinSprite;
-  var introBg:FunkinSprite;
 
   function startIntro():Void
   {
@@ -198,14 +197,9 @@ class TitleState extends MusicBeatState
 
     persistentUpdate = true;
 
-    introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
-    introBg.screenCenter();
-    introBg.visible = true;
-    add(introBg);
-
-    if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
-    else
-      bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+    // if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
+    // else
+    bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
     bg.visible = false;
     add(bg);
@@ -682,8 +676,7 @@ class TitleState extends MusicBeatState
     {
       remove(ngSpr);
 
-      if (introBg != null) introBg.visible = false;
-      if (bg != null) bg.visible = true;
+      if (bg != null) bg.color = 0xFFC55500;
 
       FlxG.camera.flash(FlxColor.WHITE, initialized ? 1 : 4);
 

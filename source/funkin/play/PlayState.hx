@@ -2446,9 +2446,18 @@ class PlayState extends MusicBeatSubState
     // TODO: Add an option for this maybe?
     var commaSeparated:Bool = true;
     if (Preferences.extraScoreText)
-      scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy • $ratingName]';
+    {
+      if (isBotPlayMode)
+        scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • BOTPLAY (Scores will NOT be saved!) ]';
+      else
+        scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy • $ratingName]';
+    }
     else
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} ';
+    {
+      if (isBotPlayMode) scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} | BOTPLAY (Scores will NOT be saved!)';
+      else
+        scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)}';
+    }
     // }
   }
 
