@@ -189,15 +189,17 @@ class TitleState extends MusicBeatState
   var titleText:FlxSprite;
   var maskShader = new LeftMaskShader();
 
+  var bg:FunkinSprite;
+
   function startIntro():Void
   {
     if (!initialized || FlxG.sound.music == null) playMenuMusic();
 
     persistentUpdate = true;
 
-    if (!gfThingy) var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
+    if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
     else
-      var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+      bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
     add(bg);
 
