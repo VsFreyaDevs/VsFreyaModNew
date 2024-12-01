@@ -198,17 +198,17 @@ class TitleState extends MusicBeatState
 
     persistentUpdate = true;
 
+    introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+    introBg.screenCenter();
+    bg.visible = true;
+    add(introBg);
+
     if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
     else
       bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
     bg.visible = false;
     add(bg);
-
-    introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
-    introBg.screenCenter();
-    bg.visible = true;
-    add(introBg);
 
     logoBl = new FlxSprite(-150, -100);
     logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
