@@ -1,0 +1,70 @@
+{
+  "version": "1.0.0",
+  "offsets": [0, 25],
+  "danceEvery": 1,
+  "renderType": "sparrow",
+  "scale": 1,
+  "loopHoldFrame": 1,
+  "name": "Milky but funni",
+  "cameraOffsets": [0, 0],
+  "flipX": false,
+  "loopHold": true,
+  "singTime": 8,
+  "isPixel": true,
+  "startingAnimation": "idle",
+  "assetPath": "characters/millMyKeys",
+  "healthIcon": {
+    "isPixel": false,
+    "offsets": [0, 0],
+    "scale": 1,
+    "id": "milky",
+    "flipX": false
+  },
+  "animations": [
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "milky idle dance",
+      "flipX": false,
+      "looped": false,
+      "name": "idle"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "milky sing left",
+      "flipX": false,
+      "looped": false,
+      "name": "singLEFT"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "milky sing down",
+      "flipX": false,
+      "looped": false,
+      "name": "singDOWN"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "milky sing up",
+      "flipX": false,
+      "looped": false,
+      "name": "singUP"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, 0],
+      "frameRate": 24,
+      "prefix": "milky sing right",
+      "flipX": false,
+      "looped": false,
+      "name": "singRIGHT"
+    }
+  ]
+}

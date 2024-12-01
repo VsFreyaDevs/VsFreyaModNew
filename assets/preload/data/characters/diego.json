@@ -17,7 +17,7 @@
 	"flipX": false,
 	"singTime": 8,
 	"startingAnimation": "idle",
-	"isPixel": false,
+	"isPixel": true,
 	"assetPath": "characters/diegooooo",
 	"healthIcon": {
 		"iconDivisor": null,
