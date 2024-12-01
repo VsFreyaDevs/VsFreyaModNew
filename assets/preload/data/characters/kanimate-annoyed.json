@@ -1,43 +1,94 @@
 {
-  "version": "1.0.0",
-  "offsets": [5, -125],
-  "renderType": "sparrow",
-  "name": "Killer Animate (Annoyed)",
-  "cameraOffsets": [0, 0],
-  "singTime": 8,
-  "danceEvery": 1,
-  "loopHold": false,
-  "loopHoldFrame": 2,
-  "healthIcon": {
-    "offsets": [0, -20],
-    "id": "kanimate-annoyed"
-  },
-  "assetPath": "characters/KillerAnimate_Annoyed",
-  "animations": [
-    {
-      "offsets": [123, -202],
-      "prefix": "ka annoyed idle",
-      "name": "idle"
-    },
-    {
-      "offsets": [319, -259],
-      "prefix": "ka sing left annoyed",
-      "name": "singLEFT"
-    },
-    {
-      "offsets": [180, -264],
-      "prefix": "ka sing down annoyed",
-      "name": "singDOWN"
-    },
-    {
-      "offsets": [97, -150],
-      "prefix": "ka sing up annoye",
-      "name": "singUP"
-    },
-    {
-      "offsets": [100, -134],
-      "prefix": "ka sing right annoyed",
-      "name": "singRIGHT"
-    }
-  ]
+	"version": "1.0.0",
+	"offsets": [
+		5,
+		-125
+	],
+	"renderType": "sparrow",
+	"danceEvery": 1,
+	"loopHoldFrame": 2,
+	"scale": 1,
+	"name": "Killer Animate (Annoyed)",
+	"cameraOffsets": [
+		0,
+		0
+	],
+	"loopHold": false,
+	"flipX": false,
+	"singTime": 8,
+	"startingAnimation": "idle",
+	"isPixel": false,
+	"healthIcon": {
+		"isPixel": false,
+		"offsets": [
+			0,
+			-20
+		],
+		"scale": 1,
+		"id": "kanimate-annoyed",
+		"flipX": false
+	},
+	"assetPath": "characters/KillerAnimate_Annoyed",
+	"animations": [
+		{
+			"flipY": false,
+			"offsets": [
+				115,
+				-172
+			],
+			"frameRate": 24,
+			"prefix": "ka annoyed idle",
+			"flipX": false,
+			"looped": false,
+			"name": "idle"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				221,
+				-174
+			],
+			"frameRate": 24,
+			"prefix": "ka sing left annoyed",
+			"flipX": false,
+			"looped": false,
+			"name": "singLEFT"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				165,
+				-262
+			],
+			"frameRate": 24,
+			"prefix": "ka sing down annoyed",
+			"flipX": false,
+			"looped": false,
+			"name": "singDOWN"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				212,
+				-109
+			],
+			"frameRate": 24,
+			"prefix": "ka sing up annoye",
+			"flipX": false,
+			"looped": false,
+			"name": "singUP"
+		},
+		{
+			"flipY": false,
+			"offsets": [
+				107,
+				-123
+			],
+			"frameRate": 24,
+			"prefix": "ka sing right annoyed",
+			"flipX": false,
+			"looped": false,
+			"name": "singRIGHT"
+		}
+	]
 }

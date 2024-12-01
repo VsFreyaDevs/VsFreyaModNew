@@ -190,6 +190,7 @@ class TitleState extends MusicBeatState
   var maskShader = new LeftMaskShader();
 
   var bg:FunkinSprite;
+  var introBg:FunkinSprite;
 
   function startIntro():Void
   {
@@ -201,7 +202,12 @@ class TitleState extends MusicBeatState
     else
       bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
+    bg.visible = false;
     add(bg);
+
+    introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+    introBg.screenCenter();
+    add(introBg);
 
     logoBl = new FlxSprite(-150, -100);
     logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
