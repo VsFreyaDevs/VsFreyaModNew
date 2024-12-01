@@ -200,7 +200,7 @@ class TitleState extends MusicBeatState
 
     introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     introBg.screenCenter();
-    bg.visible = true;
+    introBg.visible = true;
     add(introBg);
 
     if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
