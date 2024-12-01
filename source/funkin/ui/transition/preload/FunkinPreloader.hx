@@ -996,7 +996,7 @@ class FunkinPreloader extends FlxBasePreloader
         dspText.textColor = 0x000000;
 
         fnfText.defaultTextFormat = new TextFormat("Quantico", 20, 0x000000, false);
-        fnfText.text = 'FNF';
+        fnfText.text = 'FREYA';
         fnfText.textColor = 0x000000;
 
         enhancedText.defaultTextFormat = new TextFormat("Inconsolata Black", 16, Constants.COLOR_PRELOADER_BAR, false);
