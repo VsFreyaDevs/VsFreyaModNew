@@ -207,6 +207,7 @@ class TitleState extends MusicBeatState
 
     introBg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     introBg.screenCenter();
+    bg.visible = true;
     add(introBg);
 
     logoBl = new FlxSprite(-150, -100);
@@ -680,6 +681,9 @@ class TitleState extends MusicBeatState
     if (!skippedIntro)
     {
       remove(ngSpr);
+
+      if (introBg != null) introBg.visible = false;
+      if (bg != null) bg.visible = true;
 
       FlxG.camera.flash(FlxColor.WHITE, initialized ? 1 : 4);
 
