@@ -195,7 +195,9 @@ class TitleState extends MusicBeatState
 
     persistentUpdate = true;
 
-    var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+    if (!gfThingy) var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
+    else
+      var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
     add(bg);
 
