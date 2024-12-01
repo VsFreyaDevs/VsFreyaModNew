@@ -1,0 +1,43 @@
+{
+  "version": "1.0.0",
+  "offsets": [5, -125],
+  "renderType": "sparrow",
+  "name": "Killer Animate (Annoyed)",
+  "cameraOffsets": [0, 0],
+  "singTime": 8,
+  "danceEvery": 1,
+  "loopHold": false,
+  "loopHoldFrame": 2,
+  "healthIcon": {
+    "offsets": [0, -20],
+    "id": "kanimate-annoyed"
+  },
+  "assetPath": "characters/KillerAnimate_Annoyed",
+  "animations": [
+    {
+      "offsets": [123, -202],
+      "prefix": "ka annoyed idle",
+      "name": "idle"
+    },
+    {
+      "offsets": [319, -259],
+      "prefix": "ka sing left annoyed",
+      "name": "singLEFT"
+    },
+    {
+      "offsets": [180, -264],
+      "prefix": "ka sing down annoyed",
+      "name": "singDOWN"
+    },
+    {
+      "offsets": [97, -150],
+      "prefix": "ka sing up annoyed",
+      "name": "singUP"
+    },
+    {
+      "offsets": [100, -134],
+      "prefix": "ka sing right annoyed",
+      "name": "singRIGHT"
+    }
+  ]
+}

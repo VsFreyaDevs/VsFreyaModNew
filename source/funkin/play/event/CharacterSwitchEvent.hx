@@ -144,10 +144,12 @@ class CharacterSwitchEvent extends SongEvent
           // 'Milky (Angy)' => 'milky-angy',
           // 'Milky (Pissed)' => 'milky-pissed',
           // 'Milky (Playable)' => 'milky-playable',
+          'Milky (funni)' => 'milky-funni',
           'Shadow Milky' => 'shadow-milky',
           'Killer Animate' => 'kanimate',
           // 'Killer Animate (Erect)' => 'kanimate-kit',
           // 'Killer Animate (Playable)' => 'kanimate-playable',
+          'Killer Animate (Annoyed)' => 'kanimate-annoyed',
           'Killer Animate (Pissed)' => 'kanimate-pissed',
           // 'Chainz_cat' => 'chainz',
           // 'Zuna' => 'despise-dani',
@@ -160,10 +162,12 @@ class CharacterSwitchEvent extends SongEvent
           // 'Wega' => 'wega',
           'Bredstix' => 'bf-chikn',
           'Chikn Nuggit' => 'chikn',
+          'Diego' => 'diego',
+          'Wega' => 'wega',
           // 'GF_kit' => 'gf-kit',
           // 'Pico_kit' => 'pico-kit', // idk if we should go with a different species for pico uhhhh
           // 'Baby Freya' => 'freya-baby',
-          // 'Inverted Edd' => 'edd-inverted',
+          'Inverted Edd' => 'dde',
           'dave png lol dont ask about this pls' => 'dave-png',
         ]
       }

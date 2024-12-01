@@ -305,7 +305,7 @@ class CharacterDataParser
         "freyapixel";
       case "milky-angy" | "milky-speaker" | "milky-speaker-uzil" | "milky-pissed" | "milky-playable":
         "milkypixel";
-      case "kanimate-worried" | "kanimate-pissed" | "kanimate-speaker" | "animate-cc" | "kanimate-playable":
+      case "kanimate-annoyed" | "kanimate-worried" | "kanimate-pissed" | "kanimate-speaker" | "animate-cc" | "kanimate-playable":
         "kanimatepixel";
       case "shadow-milky":
         "smilkypixel";
