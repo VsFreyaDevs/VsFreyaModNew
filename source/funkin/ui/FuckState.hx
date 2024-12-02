@@ -151,45 +151,56 @@ class FuckState extends FlxState
           try
           {
             var jokes = [
-              "Hey look, mom! I'm on a crash report!",
-              "This wasn't supposed to go down like this...",
-              "Don't look at me that way.. I tried",
-              "Ow, that really hurt :(",
-              "missingno",
-              "Did I ask for your opinion?",
-              "Oh lawd he crashing",
+              "fatal error",
+              "i love haxe",
+              "i love hscript",
+              "i love flixel",
+              "i love openfl",
+              "i love polymod",
+              "i love lime",
+              "kaboom."
+              "WHY",
+              "fuck yeah im in a crash report"
               "get stickbugged lmao",
-              "Mom? Come pick me up. I'm scared...",
-              "It's just standing there... Menacingly.",
-              "Are you having fun? I'm having fun.",
-              "That crash though",
-              "I'm out of ideas.",
-              "Where do we go from here?",
-              "Coded in Haxe.",
-              "Oh what the hell?",
-              "I just wanted to have fun.. :(",
-              "Oh no, not this again",
+              "cuh",
+              "all done in haxe, can u believe it?",
+              "JELP",
+              "HELP",
+              "GELP",
+              "PLEH",
+              "GELRP",
+              "l + ratio",
+              "DEATH IS APPROACHING HIDE RIGHT FUCKING NOW", // - @cyborghenrystickmin
+              "epic fail", // - @cyborghenrystickmin
+              "what the actual fuck", // - @cyborghenrystickmin
+              "i hope you go mooseing and get fucked by a campfire", // - @cyborghenrystickmin
+              "ya gotta be kidding me bro",
+              "beautiful.", // - @breadboyoo
+              "PETAH HOW DARE YOU" // - @animateagain
+              'crash% speedrun lesss goooooo',
               "null object reference is real and haunts us",
-              'What is a error exactly?',
-              "I just got ratioed :(",
-              "L + Ratio + Skill Issue",
-              "Now with more crashes",
-              "I'm out of ideas.",
-              "me when null object reference",
-              'you looked at me funny :(',
-              'Hey VSauce, Michael here. What is an error?',
-              'AAAHHHHHHHHHHHHHH! Don\'t mind me, I\'m practicing my screaming',
-              'crash% speedrun less goooo!',
-              'hey look, the consequences of my actions are coming to haunt me',
+              "yep it is indeed a null object reference",
+              "also known as N.O.R.",
+              "ah shit here we go again",
+              "googoo gaagaa", // - @sylvinekitsune
               'time to go to stack overflow for a solution',
-              'you\'re mother',
-              'the stalemate button was boobytrapped'
-
+              'only real fnf fans get this... wait',
+              "fuck you",
+              "eat shit",
+              "i wonder why...",
+              "old was better" // - @animateagain
+              "i tried, okay, I TRIED!",
+              "bro what is this",
+              ":sadedd:",
+              ":sadtord:",
+              "did i ask for ur opinion?",
             ];
             funnyQuip = jokes[Std.int(Math.random() * jokes.length - 1)]; // I know, this isn't FlxG.random but fuck you the game just crashed
           }
           catch (e) {}
+
           err = '# Vs Freya Crash Reporter: \n# $funnyQuip\n${exception}\nThis happened in ${info}';
+
           try
           {
             currentStateName = haxe.rtti.Rtti.getRtti(cast FlxG.state).path;
@@ -198,6 +209,7 @@ class FuckState extends FlxState
           {
             // nope.
           }
+
           try
           {
             err += "\n\n # ---------- SYSTEM INFORMATION --------";
@@ -213,19 +225,19 @@ class FuckState extends FlxState
             trace('Unable to get system information! ${e.message}');
           }
         }
+
         sys.io.File.saveContent('logs/VsFreyaCRASH-${dateNow}.log', err);
 
         saved = true;
+
         trace('Wrote a crash report to ./logs/VsFreyaCRASH-${dateNow}.log!');
         trace('Crash Report:\n$err');
       }
       catch (e)
       {
         trace('Unable to write a crash report!');
-        if (err != null && err.indexOf('SYSTEM INFORMATION') != -1)
-        {
-          trace('Here is generated crash report:\n$err');
-        }
+
+        if (err != null && err.indexOf('SYSTEM INFORMATION') != -1) trace('Here is generated crash report:\n$err');
       }
     }
     if (Main.game == null || _rawError || useOpenFL)
@@ -235,40 +247,48 @@ class FuckState extends FlxState
         Main.instance.removeChild(Main.game);
       }
       catch (e) {};
+
       if (Main.game != null)
       {
         Main.game.blockUpdate = Main.game.blockDraw = true;
       }
       Main.game = null;
-      // Main.instance
+
       trace('OpenFL error screen');
+
       try
       {
         if (!showingError)
         {
           var addChild = Main.instance.addChild;
+
           showingError = true;
+
           var textField = new TextField();
           addChild(textField);
           textField.width = 1280;
           textField.text = '${exception}\nThis happened in ${info}';
           textField.y = 720 * 0.3;
+
           var textFieldTop = new TextField();
           addChild(textFieldTop);
           textFieldTop.width = 1280;
           textFieldTop.text = "A fatal error occurred!";
           textFieldTop.textColor = 0xFFFF0000;
           textFieldTop.y = 30;
+
           var textFieldBot = new TextField();
           addChild(textFieldBot);
           textFieldBot.width = 1280;
           textFieldBot.text = "Please take a screenshot and report this!!!!";
           textFieldBot.y = 720 * 0.8;
+
           if (saved)
           {
             var dateNow:String = StringTools.replace(StringTools.replace(Date.now().toString(), " ", "_"), ":", ".");
             textFieldBot.text = 'Saved crash log to "logs/VsFreyaCRASH-${dateNow}.log".\nPlease send this file to the devs when reporting this crash.';
           }
+
           // textField.x = (1280 * 0.5);
           var tf = new TextFormat("VCR OSD Mono", 24, 0xFFFFFF);
           tf.align = "center";
@@ -301,17 +321,32 @@ class FuckState extends FlxState
   override function create()
   {
     super.create();
+
+    try
+    {
+      var menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+      menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
+      menuBG.updateHitbox();
+      menuBG.screenCenter();
+      menuBG.scrollFactor.set(0, 0);
+      add(menuBG);
+    }
+    catch (e)
+    {
+      // nope.
+    }
+
     var errorText:FlxText = new FlxText(0, FlxG.height * 0.05, 0, (if (FATAL) 'F' else 'Potentially f') + 'atal error caught', 32);
-    errorText.setFormat('vcr', 32, FlxColor.RED, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    errorText.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.RED, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     errorText.scrollFactor.set();
     errorText.screenCenter(flixel.util.FlxAxes.X);
     add(errorText);
     trace("-------------------------\nERROR:\n\n" + err + "\n\n-------------------------");
 
-    var txt:FlxText = new FlxText(0, 0, FlxG.width, "\n\nError/Stack:\n\n" + err, 16);
+    var txt:FlxText = new FlxText(0, 0, FlxG.width, "\n\nError/Stack:\n\n" + err, 8);
 
     txt.borderColor = FlxColor.BLACK;
-    txt.setFormat("vcr", 16, FlxColor.fromRGB(200, 200, 200), CENTER);
+    txt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.fromRGB(200, 200, 200), CENTER);
     txt.borderSize = 3;
     txt.borderStyle = FlxTextBorderStyle.OUTLINE;
     txt.screenCenter();
@@ -327,6 +362,7 @@ class FuckState extends FlxState
     txt.screenCenter(X);
     txt.y = 680;
     add(txt);
+
     if (saved)
     {
       txt.y -= 30;
@@ -335,6 +371,7 @@ class FuckState extends FlxState
       dateNow = StringTools.replace(dateNow, ":", ".");
       txt.text = 'Crash log saved to "logs/VsFreyaCRASH-${dateNow}.log".\n ' + txt.text.substring(41);
     }
+
     useOpenFL = true;
   }
 
