@@ -40,7 +40,10 @@ class IntolerantSong extends Song {
 		super.onCountdownStart(event);
 
 		if (!PlayStatePlaylist.isStoryMode)
+		{
+			trace('nope not in story mode');
       hasPlayedCutscene = true;
+		}
 
 		if(hasPlayedCutscene && !hasPlayedCutscene){
       trace('Pausing countdown to play in game cutscene');
