@@ -156,10 +156,17 @@ class VideoCutscene
 
       // Resize videos bigger or smaller than the screen.
       vid.bitmap.onFormatSetup.add(() -> {
-        vid.setGraphicSize(FlxG.width, FlxG.height);
-        vid.updateHitbox();
-        vid.x = 0;
-        vid.y = 0;
+        try
+        {
+          vid.setGraphicSize(FlxG.width, FlxG.height);
+          vid.updateHitbox();
+          vid.x = 0;
+          vid.y = 0;
+        }
+        catch (e)
+        {
+          trace(e);
+        }
         // vid.scale.set(0.5, 0.5);
       });
 
