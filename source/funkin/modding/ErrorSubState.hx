@@ -17,8 +17,10 @@ import flixel.util.FlxTimer;
 import flixel.FlxObject;
 import flixel.ui.FlxBar;
 import flixel.FlxCamera;
+#if sys
 import sys.FileSystem;
 import sys.io.File;
+#end
 import openfl.media.Sound;
 import funkin.ui.MusicBeatSubState;
 import funkin.ui.MusicBeatState;
@@ -80,7 +82,7 @@ class ErrorSubState extends MusicBeatSubState
 
     super();
 
-    var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, FlxG.height, FlxColor.BLACK);
+    var bg:FlxSprite = new FlxSprite().makeGraphic(FlxG.width - 50, FlxG.height - 50, FlxColor.BLACK);
     bg.alpha = 0;
     bg.scrollFactor.set();
 
@@ -90,6 +92,7 @@ class ErrorSubState extends MusicBeatSubState
     finishedText.color = FlxColor.RED;
     finishedText.scrollFactor.set();
     finishedText.screenCenter(X);
+    finishedText.font = Paths.font("arial.ttf");
 
     var errText:FlxText = new FlxText(20, 150, 0, 'Error Message:\n${errorMsg}');
     errText.size = 20;
@@ -99,6 +102,7 @@ class ErrorSubState extends MusicBeatSubState
     errText.scrollFactor.set();
     errText.fieldWidth = FlxG.width - errText.x;
     errText.screenCenter(X);
+    errText.font = Paths.font("arial.ttf");
 
     var _errText_X = errText.x;
 
@@ -110,10 +114,12 @@ class ErrorSubState extends MusicBeatSubState
     contText.screenCenter(X);
     contText.alpha = 0.3;
     contText.setBorderStyle(FlxTextBorderStyle.OUTLINE, FlxColor.BLACK, 4, 1);
+    contText.font = Paths.font("arial.ttf");
 
     var reportText = new FlxText(0, FlxG.height - 180, 0, 'Please report this to the developer of the script listed above.');
     reportText.size = 24;
     reportText.screenCenter(X);
+    reportText.font = Paths.font("arial.ttf");
 
     var rep_x = reportText.x;
 
@@ -130,7 +136,7 @@ class ErrorSubState extends MusicBeatSubState
     contText.y = FlxG.height - 90;
     reportText.x = rep_x;
 
-    add(bg);
+    // add(bg);
     add(finishedText);
     add(errText);
     add(contText);

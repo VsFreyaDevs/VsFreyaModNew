@@ -19,7 +19,9 @@ import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
 import funkin.audio.AudioSwitchFix;
+#if sys
 import funkin.ui.FuckState;
+#end
 
 // Adds support for FeralGamemode on Linux
 #if (linux && !DISABLE_GAMEMODE)
@@ -77,8 +79,11 @@ class Main extends Sprite
     #end
 
     // We need to make the crash handler LITERALLY FIRST so nothing EVER gets past it.
-    // CrashHandler.initialize();
+    #if sys
     FuckState.hook();
+    #else
+    CrashHandler.initialize();
+    #end
     CrashHandler.queryStatus();
 
     funkin.util.WindowUtil.enableVisualStyles();

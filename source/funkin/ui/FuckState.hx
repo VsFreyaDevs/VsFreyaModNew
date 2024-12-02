@@ -17,7 +17,9 @@ import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.Lib;
 import openfl.events.UncaughtErrorEvent;
+#if sys
 import sys.FileSystem;
+#end
 import StringTools;
 
 using StringTools;
