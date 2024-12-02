@@ -3,6 +3,7 @@
   "name": "Mika",
   "assetPath": "characters/mika",
   "singTime": 8.0,
+  "scale": 0.915,
   "healthIcon": {
     "id": "mika"
   },
