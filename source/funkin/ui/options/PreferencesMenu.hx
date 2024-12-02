@@ -72,7 +72,7 @@ class PreferencesMenu extends Page
       boyFriend.animation.addByPrefix('onLoop', 'yayy loop', 24, true);
       boyFriend.animation.play('off', true);
       boyFriend.screenCenter();
-      boyFriend.x += 500;
+      boyFriend.x += 475;
       boyFriend.cameras = [camWhat];
       boyFriend.antialiasing = Preferences.antialiasing;
     }
@@ -97,7 +97,7 @@ class PreferencesMenu extends Page
     descText.scrollFactor.set();
     descText.font = Paths.font('roboto/robotoMe.ttf');
     descText.alignment = CENTER;
-    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2);
+    descText.setBorderStyle(OUTLINE, FlxColor.BLACK, 2.5);
     descTextBG.x = descText.x - DESC_BG_OFFSET_X;
     descTextBG.scale.x = descText.width + DESC_BG_OFFSET_X * 2;
     descTextBG.updateHitbox();
@@ -148,7 +148,7 @@ class PreferencesMenu extends Page
     });
 
     #if mobile
-    backButton = new FunkinBackspace(FlxG.width * 0.77, FlxG.height * 0.85, flixel.util.FlxColor.BLACK);
+    backButton = new FunkinBackspace(FlxG.width * 0.77, FlxG.height * 0.85, FlxColor.BLACK);
     add(backButton);
     #end
   }
@@ -174,14 +174,6 @@ class PreferencesMenu extends Page
         yeahBf(value);
       }, Preferences.ghostTapping);
     #end
-    createPrefItemEnum('Input System', 'Choose an input system that would be used when scoring and judging notes', [
-      InputSystemType.Pbot => "P.B.O.T.",
-      InputSystemType.Week7 => "Week 7",
-      InputSystemType.Legacy => "Legacy" // InputSystemType.Psych => "Psych Engine"
-      // InputSystemType.Kade => "Kade Engine"
-    ], function(value:String):Void {
-      Preferences.inputSystem = value;
-    }, Preferences.inputSystem);
     createPrefItemCheckbox('Bad/Shits as Combo Breaks',
       'Enable to break combo whenever you get a Bad or Shit rating\n(The result screen may still count it though)', function(value:Bool):Void {
         Preferences.badsShitsCauseMiss = value;
@@ -192,10 +184,15 @@ class PreferencesMenu extends Page
       Preferences.noteSplash = value;
       yeahBf(value);
     }, Preferences.noteSplash);
-    createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects', function(value:Bool):Void {
-      Preferences.flashingLights = value;
+    createPrefItemCheckbox('Flashing Lights', 'Disable to dampen some flashing effects,\nuseful for people with photosensitive epilepsy',
+      function(value:Bool):Void {
+        Preferences.flashingLights = value;
+        yeahBf(value);
+      }, Preferences.flashingLights);
+    createPrefItemCheckbox('Note Miss Sounds', 'Enable to play a sound when you miss a note', function(value:Bool):Void {
+      Preferences.missNoteSounds = value;
       yeahBf(value);
-    }, Preferences.flashingLights);
+    }, Preferences.missNoteSounds);
     createPrefItemCheckbox('Colored Health Bar', 'Enable to make the health bar use icon-based colors', function(value:Bool):Void {
       Preferences.coloredHealthBar = value;
       yeahBf(value);
@@ -277,7 +274,7 @@ class PreferencesMenu extends Page
       else
         FlxG.game.focusLostFramerate = Preferences.framerate;
       yeahBf(false);
-    }, null, Preferences.framerate, #if mobile 60 #else 24 #end, 360, 1, 0);
+    }, null, Preferences.framerate, #if mobile 60 #else 12 #end, 360, 1, 0);
     #end
     createPrefHeader('Miscellaneous');
     createPrefItemCheckbox('Naughtiness', 'Enable so your mom won\'t scream at ya, right now it doesn\'t do much', function(value:Bool):Void {
@@ -291,6 +288,7 @@ class PreferencesMenu extends Page
     #if (desktop || web)
     createPrefItemCheckbox('Launch in Fullscreen', 'Enable to automatically launch the game in fullscreen on startup', function(value:Bool):Void {
       Preferences.autoFullscreen = value;
+      yeahBf(value);
     }, Preferences.autoFullscreen);
     #end
     #if mobile
@@ -303,6 +301,15 @@ class PreferencesMenu extends Page
       yeahBf(value);
     }, Preferences.vibration);
     #end
+    createPrefHeader('Experimental');
+    createPrefItemEnum('Input System', 'Choose an input system that would be used when scoring and judging notes', [
+      InputSystemType.Pbot => "P.B.O.T.",
+      InputSystemType.Week7 => "Week 7",
+      InputSystemType.Legacy => "Legacy" // InputSystemType.Psych => "Psych Engine"
+      // InputSystemType.Kade => "Kade Engine"
+    ], function(value:String):Void {
+      Preferences.inputSystem = value;
+    }, Preferences.inputSystem);
   }
 
   function yeahBf(help:Bool):Void
@@ -372,7 +379,7 @@ class PreferencesMenu extends Page
         // swag
       }, true);
     preferenceItems.add(blank);
-    preferenceDesc.push("CATEGORY HEADER!!!!");
+    preferenceDesc.push(" "); // display nothing tho rn the box still appears
   }
 
   /**

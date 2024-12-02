@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TextureAtlas imagePath="smilkypixel.png" width="213" height="190">
+	<SubTexture name="idle0001" x="157" y="16" width="38" height="38" frameX="-19" frameY="-21" frameWidth="78" frameHeight="78"/>
+	<SubTexture name="confirm0001" x="151" y="100" width="46" height="36" frameX="-15" frameY="-25" frameWidth="78" frameHeight="78"/>
+	<SubTexture name="confirm0002" x="87" y="100" width="48" height="74" frameX="-14" frameY="-0" frameWidth="78" frameHeight="78"/>
+	<SubTexture name="confirm0003" x="87" y="16" width="54" height="68" frameX="-11" frameY="-5" frameWidth="78" frameHeight="78"/>
+	<SubTexture name="confirm0004" x="16" y="16" width="55" height="72" frameX="-10" frameY="-3" frameWidth="78" frameHeight="78"/>
+	<SubTexture name="confirm-hold0001" x="16" y="104" width="38" height="45" frameX="-19" frameY="-17" frameWidth="78" frameHeight="78"/>
+</TextureAtlas>

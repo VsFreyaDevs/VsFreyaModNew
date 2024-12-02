@@ -28,10 +28,13 @@ import openfl.net.FileReference;
  *
  * All functionality is kept within this file to ruin my own sanity.
  *
+ * Deprecated!
+ *
  * @author ninjamuffin99
  */
 // Give other classes access to private instance fields
 @:allow(funkin.ui.debug.stage.StageEditorCommand)
+@:deprecated("Now replaced by the new stage editor by KoloInDaCrib!")
 class StageOffsetSubState extends HaxeUISubState
 {
   var uiStuff:Component;

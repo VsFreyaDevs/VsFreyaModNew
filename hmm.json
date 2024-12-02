@@ -32,7 +32,7 @@
       "name": "flxanimate",
       "type": "git",
       "dir": null,
-      "ref": "0654797e5eb7cd7de0c1b2dbaa1efe5a1e1d9412",
+      "ref": "dev",
       "url": "https://github.com/Dot-Stuff/flxanimate"
     },
     {
@@ -44,8 +44,8 @@
       "name": "funkin.vis",
       "type": "git",
       "dir": null,
-      "ref": "1966f8fbbbc509ed90d4b520f3c49c084fc92fd6",
-      "url": "https://github.com/FunkinCrew/funkVis"
+      "ref": "5496ee803381951ef7c1f1bc1e6d65b83cd3daf9",
+      "url": "https://github.com/VsFreyaDevs/funkVis"
     },
     {
       "name": "grig.audio",
@@ -162,7 +162,7 @@
       "name": "lime",
       "type": "git",
       "dir": null,
-      "ref": "dev-funkin-arm64",
+      "ref": "1ff2a207a8dadb4d1853b906e37a499f3ef946d1",
       "url": "https://github.com/FunkinDroidTeam/lime"
     },
     {

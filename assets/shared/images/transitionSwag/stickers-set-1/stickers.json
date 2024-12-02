@@ -1,19 +1,25 @@
 {
   "name": "stickers-set-1",
-  "artist": "PhantomArcade3K + charlesisfeline",
+  "artist": "PhantomArcade3K + Elikapika + River Music + charlesisfeline",
   "stickers": {
     "bf": ["bfSticker1", "bfSticker2", "bfSticker3"],
     "dad": ["dadSticker1", "dadSticker2", "dadSticker3"],
     "pico": ["picoSticker1", "picoSticker2", "picoSticker3"],
+"tankman": ["tankmanSticker1"],
+"spooky": ["spookySticker1", "spookySticker2"],
     "mom": ["momSticker1", "momSticker2", "momSticker3"],
     "monster": ["monsterSticker1", "monsterSticker2", "monsterSticker3"],
     "gf": ["gfSticker1", "gfSticker2", "gfSticker3"],
+"senpai": ["senpaiSticker1", "senpaiSticker2"],
+"darnell": ["darnellSticker1"],
+"nene": ["neneSticker1"],
     "milky": ["milkySticker1", "milkySticker2", "milkySticker3"]
   },
   "stickerPacks": {
     "bf-gf": ["bf", "gf"],
     "parents": ["dad", "mom"],
     "freya": ["milky", "bf", "gf", "pico"],
-    "all": ["bf", "gf", "milky", "dad", "mom", "monster", "pico"]
+    "pico": ["pico", "darnell", "nene"],
+    "all": ["bf", "gf", "milky", "dad", "mom", "senpai", "monster", "spooky", "tankman", "darnell", "nene", "pico"]
   }
 }

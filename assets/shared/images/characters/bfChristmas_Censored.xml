@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="bfChristmas_Censored.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="bf swear down0000" x="0" y="0" width="379" height="364" frameX="-1" frameY="-5" frameWidth="380" frameHeight="369"/>
 	<SubTexture name="bf swear down0001" x="384" y="0" width="379" height="364" frameX="-1" frameY="-5" frameWidth="380" frameHeight="369"/>
 	<SubTexture name="bf swear down0002" x="768" y="0" width="376" height="369" frameX="0" frameY="0" frameWidth="380" frameHeight="369"/>

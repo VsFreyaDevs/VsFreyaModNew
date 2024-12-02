@@ -289,31 +289,31 @@ class CharacterDataParser
   {
     var charPath = switch (char)
     {
-      case "bf-christmas" | "bf-car" | "bf-pixel" | "bf-holding-gf" | "bf-dark" | "bf-kit" | "bf-chikn":
+      case "bf-christmas" | "bf-playable" | "bf-opponent" | "bf-car" | "bf-pixel" | "bf-holding-gf" | "bf-dark" | "bf-kit" | "bf-chikn":
         "bfpixel";
-      case "monster-christmas":
+      case "monster-christmas" | "monster-playable":
         "monsterpixel";
-      case "mom" | "mom-car":
+      case "mom" | "mom-playable" | "mom-car":
         "mommypixel";
       case "pico-blazin" | "pico-playable" | "pico-speaker" | "pico-christmas" | "pico-dark" | "pico-kit":
         "picopixel";
-      case "gf-christmas" | "gf-car" | "gf-pixel" | "gf-tankmen" | "gf-dark" | "gf-kit":
+      case "gf-christmas" | "gf-playable" | "gf-car" | "gf-pixel" | "gf-tankmen" | "gf-dark" | "gf-kit":
         "gfpixel";
-      case "dad":
+      case "dad" | "dad-playable":
         "dadpixel";
-      case "freya-angy":
+      case "freya-angy" | "freya-playable":
         "freyapixel";
-      case "milky-angy" | "milky-pissed" | "milky-playable":
+      case "milky-angy" | "milky-speaker" | "milky-speaker-uzil" | "milky-pissed" | "milky-playable":
         "milkypixel";
-      case "kanimate-worried" | "kanimate-pissed" | "animate-cc" | "kanimate-playable":
+      case "kanimate-annoyed" | "kanimate-worried" | "kanimate-pissed" | "kanimate-speaker" | "animate-cc" | "kanimate-playable":
         "kanimatepixel";
       case "shadow-milky":
         "smilkypixel";
-      case "darnell-blazin":
+      case "darnell-playable" | "darnell-blazin":
         "darnellpixel";
-      case "senpai-angry":
+      case "senpai-playable" | "senpai-angry":
         "senpaipixel";
-      case "spooky-dark":
+      case "spooky-dark" | "spooky-playable":
         "spookypixel";
       case "tankman-atlas" | "tankman-playable":
         "tankmanpixel";

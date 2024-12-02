@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="GF_assets.png" width="5894" height="8510">
 	<SubTexture name="GF Cheer0000" x="2904" y="1980" width="699" height="657" frameX="-2" frameY="-0" frameWidth="703" frameHeight="657"/>
 	<SubTexture name="GF Cheer0001" x="3006" y="655" width="703" height="657" frameX="-0" frameY="-0" frameWidth="703" frameHeight="657"/>

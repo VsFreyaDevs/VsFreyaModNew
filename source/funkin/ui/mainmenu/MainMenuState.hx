@@ -439,12 +439,10 @@ class MainMenuState extends MusicBeatState
       }
     }
 
-    #if FEATURE_DEBUG_FUNCTIONS
     if (FlxG.keys.pressed.CONTROL && FlxG.keys.pressed.ALT && FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.E)
     {
       funkin.save.Save.instance.debug_dumpSave();
     }
-    #end
 
     if (FlxG.sound.music != null && FlxG.sound.music.volume < 0.8)
     {

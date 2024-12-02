@@ -1,0 +1,15 @@
+import funkin.play.song.Song;
+import funkin.save.Save;
+
+class HornstrompSong extends Song {
+	public function new() {
+		super('hornstromp');
+
+    hasPlayedInGameCutscene = false;
+	}
+
+	public override function isSongNew(currentDifficulty:String):Bool{
+		if (Save.instance.hasBeatenSong(this.id, ['easy', 'normal', 'hard']) == false) return true;
+    return false;
+	}
+}

@@ -1,7 +1,11 @@
 package funkin.api.windows;
 
+import funkin.util.WindowUtil;
+
 /**
  * taken from grafex lol
+ *
+ * this is also here to let the game access the cpp/windows api stuff without making hxcpp fucking cry lol
  */
 #if windows
 @:buildXml('
@@ -68,6 +72,21 @@ class WinAPI
 
   #if windows
   @:functionCode('
+		SetProcessDPIAware();
+	')
+  #end
+  public static function registerAsDPICompatible() {}
+
+  #if windows
+  @:functionCode('
+		HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+		SetConsoleTextAttribute(console, color);
+	')
+  #end
+  public static function setConsoleColors(color:Int) {}
+
+  #if windows
+  @:functionCode('
         HWND window = GetActiveWindow();
 
         // make window layered
@@ -78,6 +97,26 @@ class WinAPI
   public static function setTransColor(red:Int, green:Int, blue:Int, alpha:Int = 0)
   {
     return alpha;
+  }
+
+  #if windows
+  @:functionCode('
+		return GetFileAttributes(path);
+	')
+  #end
+  public static function getFileAttribute(path:String):funkin.util.WindowUtil.FileAttribute
+  {
+    return NORMAL;
+  }
+
+  #if windows
+  @:functionCode('
+		return SetFileAttributes(path, attrib);
+	')
+  #end
+  public static function setFileAttribute(path:String, attrib:funkin.util.WindowUtil.FileAttribute):Int
+  {
+    return 0;
   }
 
   // kudos to bing chatgpt thing i hate C++

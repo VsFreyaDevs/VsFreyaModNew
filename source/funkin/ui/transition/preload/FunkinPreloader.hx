@@ -263,7 +263,7 @@ class FunkinPreloader extends FlxBasePreloader
     fnfText.height = 30;
     fnfText.x = 78;
     fnfText.y = -7;
-    fnfText.text = 'FNF';
+    fnfText.text = 'FREYA';
     box.addChild(fnfText);
 
     enhancedText.selectable = false;
@@ -996,7 +996,7 @@ class FunkinPreloader extends FlxBasePreloader
         dspText.textColor = 0x000000;
 
         fnfText.defaultTextFormat = new TextFormat("Quantico", 20, 0x000000, false);
-        fnfText.text = 'FNF';
+        fnfText.text = 'FREYA';
         fnfText.textColor = 0x000000;
 
         enhancedText.defaultTextFormat = new TextFormat("Inconsolata Black", 16, Constants.COLOR_PRELOADER_BAR, false);

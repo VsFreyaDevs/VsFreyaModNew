@@ -21,11 +21,11 @@ class Save
   public static final SAVE_DATA_VERSION_RULE:thx.semver.VersionRule = ">=2.1.0 <2.2.0";
 
   // We load this version's saves from a new save path, to maintain SOME level of backwards compatibility.
-  static final SAVE_PATH:String = 'VsFreyaDevs';
-  static final SAVE_NAME:String = 'VsFreyaFennec';
+  static final SAVE_PATH:String = 'CharlesIsFeline';
+  static final SAVE_NAME:String = 'VsFreyaFoxes';
 
-  static final SAVE_PATH_LEGACY:String = 'ninjamuffin99';
-  static final SAVE_NAME_LEGACY:String = 'funkin';
+  static final SAVE_PATH_LEGACY:String = 'FunkinCrew'; // ninjamuffin99
+  static final SAVE_NAME_LEGACY:String = 'Funkin'; // funkin
 
   public static var instance(get, never):Save;
   static var _instance:Null<Save> = null;
@@ -72,6 +72,8 @@ class Save
       volume: 1.0,
       mute: false,
 
+      firstTime: true,
+
       api:
         {
           newgrounds:
@@ -110,9 +112,9 @@ class Save
           #if FEATURE_GHOST_TAPPING
           ghostTapping: true,
           #end
-          antialiasing: false, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
+          antialiasing: true, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
           showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 15, strumAlpha: 85, badsShitsCauseMiss: false,
-          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false, missNoteSounds: true,
           #else
           framerate: 60, noteHitSound: NoteHitSoundType.None, noteHitSoundVolume: 100, noteSplash: true, inputSystem: InputSystemType.Pbot, naughtyness: true,
           downscroll: false, middlescroll: false,
@@ -121,7 +123,7 @@ class Save
           #end
           antialiasing: true, flashingLights: true, zoomCamera: true, judgeCounter: true, comboHUD: true, extraScoreText: true, coloredHealthBar: true,
           showTimings: true, debugDisplay: true, autoPause: true, autoFullscreen: false, laneAlpha: 0, strumAlpha: 100, badsShitsCauseMiss: false,
-          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false,
+          inputOffset: 0, audioVisualOffset: 0, unlockedFramerate: false, missNoteSounds: true,
           #end
 
           controls:
@@ -158,9 +160,9 @@ class Save
 
       unlocks:
         {
-          // Default to having seen the default character.
-          charactersSeen: ["bf"],
-          oldChar: false
+          // Default to having seen the default character. (And Pico, for now.)
+          charactersSeen: ["bf", "pico"], // "pico", "kanimate"],
+          oldChar: true
         },
 
       optionsChartEditor:
@@ -187,6 +189,26 @@ class Save
           #end
         }
     };
+  }
+
+  /**
+   * Whether if it's the first time the player has opened the game or not.
+   */
+  public var firstTime(get, set):Bool;
+
+  function get_firstTime():Bool
+  {
+    // if (data.firstTime == null) data.firstTime = true;
+
+    return data.firstTime;
+  }
+
+  function set_firstTime(value:Bool):Bool
+  {
+    // Set and apply.
+    data.firstTime = value;
+    flush();
+    return data.firstTime;
   }
 
   /**
@@ -1004,7 +1026,7 @@ class Save
 
     try
     {
-      if (FlxG.save.isEmpty()) trace(SAVE_NAME + " - SLOT: " + slot + " - idk what save file i actually saved so uhhh imma make a new one rq");
+      if (FlxG.save.isEmpty()) trace("Null Object Reference"); // will troll everyone who gets near the game's console log lol
       else
         trace(SAVE_NAME + " - SLOT: " + slot + " - PATH: " + SAVE_PATH);
     }
@@ -1018,18 +1040,18 @@ class Save
     switch (FlxG.save.status)
     {
       case EMPTY:
-        trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, GOTTA LOAD YOUR LEGACY DATA...');
+        trace('[SAVE] I TRIED TO GET THE SAVE DATA (slot ${slot}), BUT I DONT SEE DATA THERE, GOTTA LOAD YOUR VSLICE DATA...');
         var legacySaveData = fetchLegacySaveData();
         if (legacySaveData != null)
         {
-          trace('[SAVE] FUCK YEA WE GOT LEGACY SCORES');
+          trace('[SAVE] FUCK YEA WE GOT VSLICE SCORES');
           var gameSave = SaveDataMigrator.migrateFromLegacy(legacySaveData);
           FlxG.save.mergeData(gameSave.data, true);
           return gameSave;
         }
         else
         {
-          trace('[SAVE] NOOOO NOT EVEN YOUR LEGACY DATA IS THERE');
+          trace('[SAVE] NOOOO NOT EVEN YOUR VSLICE DATA IS THERE');
           var gameSave = new Save();
           FlxG.save.mergeData(gameSave.data, true);
           return gameSave;
@@ -1205,6 +1227,8 @@ typedef RawSaveData =
   // Flixel save data.
   var volume:Float;
   var mute:Bool;
+
+  var firstTime:Bool;
 
   /**
    * A semantic versioning string for the save data format.
@@ -1503,6 +1527,8 @@ typedef SaveDataOptions =
    * @default `0`
    */
   var audioVisualOffset:Int;
+
+  var missNoteSounds:Bool;
 
   /**
    * Whether we want the framerate to be unlocked on HTML5 builds.

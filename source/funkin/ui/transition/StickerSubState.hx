@@ -90,8 +90,8 @@ class StickerSubState extends MusicBeatSubState
     add(grpStickers);
 
     // makes the stickers on the most recent camera, which is more often than not... a UI camera!!
-    // grpStickers.cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
-    grpStickers.cameras = FlxG.cameras.list;
+    grpStickers.cameras = [FlxG.cameras.list[FlxG.cameras.list.length - 1]];
+    // grpStickers.cameras = FlxG.cameras.list;
 
     if (oldStickers != null)
     {

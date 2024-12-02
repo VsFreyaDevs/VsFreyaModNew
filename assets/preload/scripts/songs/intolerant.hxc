@@ -1,13 +1,162 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxTimer;
+import funkin.Conductor;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.Paths;
+import funkin.data.song.SongRegistry;
+import funkin.play.GameOverSubState;
+import funkin.play.PlayState;
 import funkin.play.song.Song;
+import funkin.play.stage.StageProp;
 import funkin.save.Save;
+import funkin.audio.FunkinSound;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.cutscene.CutsceneType;
 
+import funkin.play.PlayStatePlaylist;
+
+/**
+ * the majority of the cutscene code is taken from darnell lol
+*/
 class IntolerantSong extends Song {
+	var hasPlayedCutscene:Bool;
+	var cutsceneMusic:FunkinSound;
+	var cutsceneConductor:Conductor;
+  var bgSprite:FunkinSprite;
+
 	public function new() {
 		super('intolerant');
+
+		hasPlayedCutscene = false;
+	}
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+		if (!PlayStatePlaylist.isStoryMode)
+      hasPlayedCutscene = true;
+
+		if(hasPlayedCutscene && !hasPlayedCutscene){
+      trace('Pausing countdown to play in game cutscene');
+
+      hasPlayedCutscene = true;
+
+      event.cancel(); // CANCEL THE COUNTDOWN!
+
+			PlayState.instance.isInCutscene = true;
+      PlayState.instance.camHUD.visible = false;
+      startCutscene();
+    }
+	}
+
+	function startCutscene(){
+		var milkyPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+
+		var cutsceneDelay:Float = 2;
+
+		cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
+		cutsceneMusic.volume = 0.0;
+
+		cutsceneConductor = new Conductor();
+
+		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('darnellCanCutscene');
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
+
+		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
+
+		PlayState.instance.currentStage.getDad().danceEvery = 0;
+
+		PlayState.instance.currentStage.getDad().playAnimation('idle', true);
+
+		// camera sets up
+		new FlxTimer().start(0.1, (tmr) ->
+		{
+			PlayState.instance.tweenCameraToPosition(milkyPos[0] + 250, milkyPos[1], 0);
+		});
+
+		// milky locks in angrily and drops his mic lol
+		new FlxTimer().start(0.8, (tmr) ->
+		{
+			cutsceneMusic.play(false);
+			PlayState.instance.currentStage.getDad().playAnimation('angyCut2', true);
+		});
+
+		// janky mic flicker i think
+		new FlxTimer().start(cutsceneDelay - 0.3, (tmr)->{
+			PlayState.instance.currentStage.getDad().playAnimation('angyCut3', true);
+		});
+
+		// get the arm outta here bro
+		new FlxTimer().start(cutsceneDelay + 0.5, (tmr) ->
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('angyCut4', true);
+		});
+
+		// camera returns to normal, cutscene flags set and countdown starts.
+		new FlxTimer().start(cutsceneDelay + 6, (tmr) ->
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('idle', true); // revert back to idle
+			PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
+			PlayState.instance.tweenCameraToPosition(milkyPos[0]+180, milkyPos[1], 2, FlxEase.sineInOut);
+			PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+			cutsceneMusic.stop(); // stop the music!!!!!!
+		});
 	}
 
 	public override function isSongNew(currentDifficulty:String):Bool{
 		if (Save.instance.hasBeatenSong(this.id, ['easy', 'normal', 'hard']) == false) return true;
     return false;
+	}
+
+	function onCutsceneBeatHit() {
+		// Play idle for both the speakers & player.
+		if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}
+
+		if (PlayState.instance.currentStage.getBoyfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getBoyfriend().dance(true);
+		}
+	}
+
+	/* function startVideo() {
+		VideoCutscene.play(Paths.videos('intolerantCutscene'), CutsceneType.ENDING);
+  } */
+
+	/**
+   * Don't replay the cutscene between restarts.
+   */
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+
+    hasPlayedCutscene = true;
+  }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
 	}
 }

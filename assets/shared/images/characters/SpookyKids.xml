@@ -1,7 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-Created with Funkin Packer v0.1.3 https://neeeoo.github.io/funkin-packer/
--->
 <TextureAtlas imagePath="SpookyKids.png" width="2295" height="2252">
 	<SubTexture name="Cheer0001" x="1" y="1" width="644" height="578" frameX="-0" frameY="-0" frameWidth="644" frameHeight="578"/>
 	<SubTexture name="Cheer0002" x="1" y="1" width="644" height="578" frameX="-0" frameY="-0" frameWidth="644" frameHeight="578"/>

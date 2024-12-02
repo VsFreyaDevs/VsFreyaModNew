@@ -25,7 +25,6 @@ import openfl.Assets;
 import openfl.display.Sprite;
 import openfl.events.AsyncErrorEvent;
 import funkin.ui.mainmenu.MainMenuState;
-import funkin.ui.title.OutdatedSubState;
 import openfl.events.MouseEvent;
 import openfl.events.NetStatusEvent;
 import funkin.ui.freeplay.FreeplayState;

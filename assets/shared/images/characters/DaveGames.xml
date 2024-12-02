@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="DaveGames.png">
-	<!-- Created with Adobe Animate version 22.0.2.168 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="dave games idle dance0000" x="0" y="0" width="546" height="470" frameX="0" frameY="-28" frameWidth="546" frameHeight="498"/>
 	<SubTexture name="dave games idle dance0001" x="0" y="0" width="546" height="470" frameX="0" frameY="-28" frameWidth="546" frameHeight="498"/>
 	<SubTexture name="dave games idle dance0002" x="546" y="0" width="510" height="482" frameX="-18" frameY="-16" frameWidth="546" frameHeight="498"/>

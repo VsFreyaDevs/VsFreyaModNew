@@ -1835,7 +1835,7 @@ class PlayState extends MusicBeatSubState
     add(healthBar);
 
     funnySexBox = new FlxSprite(healthBarBG.x + healthBarBG.width - 545, healthBarBG.y + 40).makeGraphic(500, 20, FlxColor.BLACK);
-    if (isFreyaSong) funnySexBox.alpha = 0.6;
+    if (isFreyaSong) funnySexBox.alpha = 0.375;
     else
       funnySexBox.alpha = 0.35;
     if (Preferences.extraScoreText) add(funnySexBox);
@@ -1843,8 +1843,8 @@ class PlayState extends MusicBeatSubState
     // The score text below the health bar.
     if (Preferences.extraScoreText)
     {
-      scoreText = new FlxText(0, healthBarBG.y + 40, FlxG.width, '', 16);
-      if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.RED, CENTER);
+      scoreText = new FlxText(0, healthBarBG.y + 39, FlxG.width, '', 16);
+      if (isFreyaSong) scoreText.setFormat(Paths.font('roboto/roboto.ttf'), 20, FlxColor.WHITE, CENTER);
       else
         scoreText.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER, FlxTextBorderStyle.OUTLINE_FAST, FlxColor.BLACK);
     }
@@ -2437,7 +2437,7 @@ class PlayState extends MusicBeatSubState
     var accuracy:String = "?";
     if (totalPlayed != 0)
     {
-      var percent:Float = Math.floor(ratingPercent * 100 * 2);
+      var percent:Float = Math.floor(ratingPercent * 100 * 2) - 100;
       accuracy = percent + '%';
     }
 
@@ -2446,9 +2446,18 @@ class PlayState extends MusicBeatSubState
     // TODO: Add an option for this maybe?
     var commaSeparated:Bool = true;
     if (Preferences.extraScoreText)
-      scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy • $ratingName]';
+    {
+      if (isBotPlayMode)
+        scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • BOTPLAY (Scores will NOT be saved!) ]';
+      else
+        scoreText.text = '[ Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} • Misses: $songMisses/$totalPlayed • Accuracy: $accuracy • $ratingName]';
+    }
     else
-      scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} ';
+    {
+      if (isBotPlayMode) scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)} | BOTPLAY (Scores will NOT be saved!)';
+      else
+        scoreText.text = 'Score: ${FlxStringUtil.formatMoney(songScoreInt, false, commaSeparated)}';
+    }
     // }
   }
 
@@ -2963,7 +2972,7 @@ class PlayState extends MusicBeatSubState
     if (playSound)
     {
       vocals.playerVolume = 0;
-      FunkinSound.playOnce(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.5, 0.6));
+      if (Preferences.missNoteSounds) FunkinSound.playOnce(Paths.soundRandom('missnote', 1, 3), FlxG.random.float(0.5, 0.6));
     }
   }
 
@@ -3027,17 +3036,6 @@ class PlayState extends MusicBeatSubState
    */
   function debugKeyShit():Void
   {
-    #if FEATURE_STAGE_EDITOR
-    // Open the stage editor overlaying the current state.
-    if (controls.DEBUG_STAGE)
-    {
-      // hack for HaxeUI generation, doesn't work unless persistentUpdate is false at state creation!!
-      disableKeys = true;
-      persistentUpdate = false;
-      openSubState(new StageOffsetSubState());
-    }
-    #end
-
     #if FEATURE_CHART_EDITOR
     // Redirect to the chart editor playing the current song.
     if (controls.DEBUG_CHART)

@@ -17,7 +17,7 @@
     "characters": {
       "player": "bf-kit",
       "girlfriend": "gf",
-      "opponent": "kanimate",
+      "opponent": "kanimate-annoyed",
       "instrumental": "",
       "altInstrumentals": [],
       "opponentVocals": ["kanimate"],
@@ -33,7 +33,7 @@
     "previewStart": 0,
     "previewEnd": 0
   },
-  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.2 FREYA",
+  "generatedBy": "FreyaFennec_Funkers ALPHA - FNF v0.5.3 FREYA",
   "timeFormat": "ms",
   "timeChanges": [
     {

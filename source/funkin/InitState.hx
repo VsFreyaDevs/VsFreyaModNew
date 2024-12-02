@@ -219,6 +219,8 @@ class InitState extends FlxState
     ModuleHandler.loadModuleCache();
     ModuleHandler.callOnCreate();
 
+    funkin.input.Cursor.hide();
+
     final gc:Void->Void = () ->
       {
         #if cpp
@@ -228,6 +230,7 @@ class InitState extends FlxState
         openfl.system.System.gc();
         #end
       }
+
     final clearCache:Void->Void = () -> {
       FlxG.bitmap.dumpCache();
       final cache = cast(openfl.Assets.cache, openfl.utils.AssetCache);
@@ -237,14 +240,18 @@ class InitState extends FlxState
         cache.removeSound(key);
       openfl.Assets.cache.clear();
     }
+
     FlxG.signals.preStateSwitch.add(() -> {
       clearCache();
       gc();
     });
+
     FlxG.signals.postStateSwitch.add(() -> {
       clearCache();
       gc();
     });
+
+    #if sys funkin.util.FileUtil.safeSetAttribute('./.temp/', HIDDEN); #end
 
     trace('Parsing game data took: ${TimerUtil.ms(perfStart)}');
   }

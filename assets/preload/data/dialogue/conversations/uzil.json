@@ -29,7 +29,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "scared",
+      "speakerAnimation": "sad",
       "box": "kit",
       "boxAnimation": "talk",
 
@@ -40,7 +40,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "scared",
+      "speakerAnimation": "sad",
       "box": "kit",
       "boxAnimation": "talk",
 
@@ -77,7 +77,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "sad",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -85,8 +85,8 @@
       "speed": 0.01
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "cryPhone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -94,8 +94,8 @@
       "speed": 0.01
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -103,7 +103,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "scared",
+      "speakerAnimation": "sad",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -111,8 +111,8 @@
       "speed": 0.8
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -121,18 +121,18 @@
       ]
     },
     {
-      "speaker": "nothing",
+      "speaker": "bf-kit",
       "speakerAnimation": "talk",
       "box": "kit",
       "boxAnimation": "speaking",
 
       "text": [
-        "Mika: Second of all, if it's that stupid orange fox that ended me like 500 times, I WILL beat her ass!"
+        "Mika: Second of all, if it's that stupid orange fox that ended my life like 500 times, I WILL beat her ass!"
       ]
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "yesHoney",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -140,8 +140,8 @@
       "speed": 1.4
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -150,8 +150,8 @@
       ]
     },
     {
-      "speaker": "nothing",
-      "speakerAnimation": "talk",
+      "speaker": "bf-kit",
+      "speakerAnimation": "phone",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -165,7 +165,7 @@
       "boxAnimation": "speaking",
 
       "text": ["..."],
-      "speed": 3
+      "speed": 2.9
     },
     {
       "speaker": "kanimate",
@@ -173,7 +173,10 @@
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["Alright, you're just an actual simp for Mika, SOOOO down bad."]
+      "text": [
+        "Alright, you're just an actual simp for Mika",
+        ", SOOOO down bad."
+      ]
     },
     {
       "speaker": "milky",
@@ -195,7 +198,7 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "ohrly",
       "box": "kit",
       "boxAnimation": "speaking",
 
@@ -212,11 +215,11 @@
     },
     {
       "speaker": "bf-kit",
-      "speakerAnimation": "talk",
+      "speakerAnimation": "scream",
       "box": "kit",
       "boxAnimation": "speaking",
 
-      "text": ["SHUT FUCK UP"],
+      "text": ["SHUT THE FUCK UP"],
       "speed": 0.8
     }
   ]

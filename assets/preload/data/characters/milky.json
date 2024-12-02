@@ -1,47 +1,142 @@
 {
   "version": "1.0.0",
-  "name": "Milky",
-  "assetPath": "characters/Milky_Assets",
-  "singTime": 8.0,
   "offsets": [0, 0],
   "danceEvery": 1,
-  "cameraOffsets": [0, 0],
+  "renderType": "sparrow",
   "scale": 0.88,
+  "loopHoldFrame": 3,
+  "name": "Milky",
+  "cameraOffsets": [0, 0],
+  "flipX": false,
+  "loopHold": false,
+  "singTime": 8,
   "isPixel": false,
   "startingAnimation": "idle",
-  "renderType": "sparrow",
+  "assetPath": "characters/Milky_Assets",
   "healthIcon": {
-    "offsets": [0, 0],
-    "id": "milky",
-    "flipX": false,
     "isPixel": false,
-    "scale": 1
+    "offsets": [0, 0],
+    "scale": 1,
+    "id": "milky",
+    "flipX": false
   },
   "animations": [
     {
-      "name": "idle",
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
       "prefix": "milky idle dance",
-      "offsets": [0, 0]
+      "flipX": false,
+      "looped": false,
+      "name": "idle"
     },
     {
-      "name": "singLEFT",
+      "flipY": false,
+      "offsets": [12, -18],
+      "frameRate": 24,
       "prefix": "milky sing left",
-      "offsets": [12, 9]
+      "flipX": false,
+      "looped": false,
+      "name": "singLEFT"
     },
     {
-      "name": "singDOWN",
+      "flipY": false,
+      "offsets": [7, -8],
+      "frameRate": 24,
       "prefix": "milky sing down",
-      "offsets": [7, 17]
+      "flipX": false,
+      "looped": false,
+      "name": "singDOWN"
     },
     {
-      "name": "singUP",
+      "flipY": false,
+      "offsets": [4, -27],
+      "frameRate": 24,
       "prefix": "milky sing up",
-      "offsets": [4, -4]
+      "flipX": false,
+      "looped": false,
+      "name": "singUP"
     },
     {
-      "name": "singRIGHT",
+      "flipY": false,
+      "offsets": [-112, -22],
+      "frameRate": 24,
       "prefix": "milky sing right",
-      "offsets": [-111, 6]
+      "flipX": false,
+      "looped": false,
+      "name": "singRIGHT"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky idle dance",
+      "flipX": false,
+      "looped": false,
+      "name": "idle"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 1",
+      "flipX": false,
+      "looped": true,
+      "name": "lactoseCut1"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 2",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut2"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 3",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut3"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 4",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut4"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 2",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut1"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 3",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut2"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 4",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut3"
     }
   ]
 }

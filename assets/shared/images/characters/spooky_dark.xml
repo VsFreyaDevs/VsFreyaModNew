@@ -1,7 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TextureAtlas imagePath="spooky_dark.png">
-	<!-- Created with Adobe Animate version 22.0.5.191 -->
-	<!-- http://www.adobe.com/products/animate.html -->
 	<SubTexture name="Cheer0000" x="0" y="0" width="644" height="578"/>
 	<SubTexture name="Cheer0001" x="0" y="0" width="644" height="578"/>
 	<SubTexture name="Cheer0002" x="649" y="0" width="618" height="557" frameX="-14" frameY="-20" frameWidth="644" frameHeight="578"/>

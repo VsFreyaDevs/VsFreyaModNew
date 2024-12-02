@@ -13,7 +13,6 @@ import funkin.audio.ALSoftConfig; // Just to make sure DCE doesn't remove this, 
 #end
 import funkin.util.logging.CrashHandler;
 import funkin.ui.debug.MemoryCounter;
-import funkin.FunkinGame;
 import funkin.save.Save;
 import haxe.ui.Toolkit;
 import openfl.display.FPS;
@@ -23,6 +22,7 @@ import openfl.Lib;
 import openfl.media.Video;
 import openfl.net.NetStream;
 import funkin.audio.AudioSwitchFix;
+import funkin.ui.FuckState;
 
 // Adds support for FeralGamemode on Linux
 #if (linux && !DISABLE_GAMEMODE)
@@ -39,7 +39,7 @@ class Main extends Sprite
 {
   public static var instance:Main;
 
-  var game:FunkinGame;
+  public static var game:FunkinGame;
 
   var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
   var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
@@ -84,7 +84,8 @@ class Main extends Sprite
     #end
 
     // We need to make the crash handler LITERALLY FIRST so nothing EVER gets past it.
-    CrashHandler.initialize();
+    // CrashHandler.initialize();
+    FuckState.hook();
     CrashHandler.queryStatus();
 
     funkin.util.WindowUtil.enableVisualStyles();
@@ -101,7 +102,6 @@ class Main extends Sprite
     #if windows
     @:functionCode("
 			#include <windows.h>
-      #include <winuser.h>
 			setProcessDPIAware() // Allows for more crispy visuals.
 		")
     #end
@@ -208,6 +208,24 @@ class Main extends Sprite
       FlxTween.tween(fpsCounter, {alpha: 0}, duration);
   }
 
+  override function __enterFrame(_)
+  {
+    try
+    {
+      if (game != null)
+      {
+        if (FlxG.keys.justPressed.F1) throw('Manual error');
+        super.__enterFrame(_);
+      }
+      else
+        super.__enterFrame(_);
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "Main.onEnterFrame");
+    }
+  }
+
   function initHaxeUI():Void
   {
     // Calling this before any HaxeUI components get used is important:
@@ -239,4 +257,281 @@ class Main extends Sprite
     if (Main.audioDisconnected) AudioSwitchFix.reloadAudioDevice();
   }
   #end
+}
+
+/**
+  From Super Engine. Adds some extensions to FlxGame to allow it to handle errors.
+  by superpowers04!!!!
+
+  @see https://github.com/superpowers04/Super-Funkin/blob/main/source/Main.hx#L165
+ */
+@:keep class FunkinGame extends FlxGame
+{
+  static var blankState:FlxState = new FlxState();
+
+  public function forceStateSwitch(state:FlxState) // Might be a bad idea but allows an error to force a state change to Mainmenu instead of softlocking
+  {
+    _requestedState = state;
+    switchState();
+  }
+
+  public function setState(state:FlxState) // Might be a bad idea but allows an error to force a state change to Mainmenu instead of softlocking
+  {
+    this._state = state;
+  }
+
+  public var blockUpdate:Bool = false;
+  public var blockDraw:Bool = false;
+  public var blockEnterFrame:Bool = false;
+
+  var requestAdd = false;
+
+  override function create(_)
+  {
+    try
+    {
+      super.create(_);
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.Create");
+    }
+  }
+
+  override function onEnterFrame(_)
+  {
+    try
+    {
+      if (requestAdd)
+      {
+        requestAdd = false;
+        blockUpdate = blockEnterFrame = blockDraw = false;
+
+        FlxG.autoPause = _oldAutoPause;
+        _oldAutoPause = false;
+
+        if (_lostFocusWhileLoading != null)
+        {
+          onFocusLost(_lostFocusWhileLoading);
+          _lostFocusWhileLoading = null;
+        }
+      }
+
+      if (FlxG.keys.pressed.SHIFT && FlxG.keys.justPressed.F4) throw('lol manually triggered crash');
+
+      if (blockEnterFrame) _elapsedMS = (_total = ticks = getTicks()) - _total;
+      else
+        super.onEnterFrame(_);
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.onEnterFrame");
+    }
+  }
+
+  public var funniLoad:Bool = false;
+
+  function _update()
+  {
+    if (!_state.active || !_state.exists) return;
+
+    #if FLX_DEBUG
+    if (FlxG.debugger.visible) ticks = getTicks();
+    #end
+
+    updateElapsed();
+
+    FlxG.signals.preUpdate.dispatch();
+
+    #if FLX_POST_PROCESS
+    if (postProcesses[0] != null) postProcesses[0].update(FlxG.elapsed);
+    #end
+
+    #if FLX_SOUND_SYSTEM
+    FlxG.sound.update(FlxG.elapsed);
+    #end
+
+    FlxG.plugins.update(FlxG.elapsed);
+    FlxG.signals.postUpdate.dispatch();
+
+    #if FLX_DEBUG
+    debugger.stats.flixelUpdate(getTicks() - ticks);
+    #end
+
+    filters = filtersEnabled ? _filters : null;
+  }
+
+  var _oldAutoPause:Bool = false;
+  var hasUpdated = false;
+
+  #if (flixel > "5.3.2")
+  public var _requestedState(get, set):flixel.util.typeLimit.NextState;
+
+  public function set__requestedState(e:flixel.util.typeLimit.NextState)
+    return _nextState = e;
+
+  public function get__requestedState()
+    return _nextState;
+  #end
+
+  override function update()
+  {
+    try
+    {
+      if (blockUpdate) _update();
+      else
+      {
+        hasUpdated = true;
+
+        super.update();
+
+        if (FlxG.keys.justPressed.F11) FlxG.save.data.fullscreen = (FlxG.fullscreen = !FlxG.fullscreen);
+      }
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.Update");
+    }
+  }
+
+  override function draw()
+  {
+    try
+    {
+      if (blockDraw || _state == null || !_state.visible || !_state.exists || !hasUpdated) return;
+
+      #if FLX_DEBUG
+      if (FlxG.debugger.visible) ticks = getTicks();
+      #end
+
+      try
+      {
+        FlxG.signals.preDraw.dispatch();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:preDraw");
+        return;
+      }
+
+      if (FlxG.renderTile) flixel.graphics.tile.FlxDrawBaseItem.drawCalls = 0;
+
+      #if FLX_POST_PROCESS
+      try
+      {
+        if (postProcesses[0] != null) postProcesses[0].capture();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:postProcess");
+        return;
+      }
+      #end
+
+      try
+      {
+        FlxG.cameras.lock();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:camerasLock");
+        return;
+      }
+
+      try
+      {
+        FlxG.plugins.draw();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:pluginDraw");
+        return;
+      }
+
+      try
+      {
+        _state.draw();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:stateDraw");
+        return;
+      }
+
+      if (FlxG.renderTile)
+      {
+        try
+        {
+          FlxG.cameras.render();
+        }
+        catch (e)
+        {
+          FuckState.FUCK(e, "FlxGame.Draw:cameraRender");
+          return;
+        }
+
+        #if FLX_DEBUG
+        debugger.stats.drawCalls(FlxDrawBaseItem.drawCalls);
+        #end
+      }
+
+      try
+      {
+        FlxG.cameras.unlock();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:cameraUnlock");
+        return;
+      }
+
+      try
+      {
+        FlxG.signals.postDraw.dispatch();
+      }
+      catch (e)
+      {
+        FuckState.FUCK(e, "FlxGame.Draw:postDraw");
+        return;
+      }
+
+      #if FLX_DEBUG
+      debugger.stats.flixelDraw(getTicks() - ticks);
+      #end
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.Draw:function");
+      return;
+    }
+  }
+
+  var _lostFocusWhileLoading:flash.events.Event = null;
+
+  override function onFocus(_)
+  {
+    try
+    {
+      if (blockEnterFrame) _lostFocusWhileLoading = null;
+      else
+        super.onFocus(_);
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.onFocus");
+    }
+  }
+
+  override function onFocusLost(_)
+  {
+    try
+    {
+      if (blockEnterFrame && _oldAutoPause) _lostFocusWhileLoading = _;
+      else if (!blockEnterFrame) super.onFocusLost(_);
+    }
+    catch (e)
+    {
+      FuckState.FUCK(e, "FlxGame.onFocusLost");
+    }
+  }
 }

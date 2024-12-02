@@ -11,10 +11,39 @@ class Prebuild extends CommandLine
 {
   static inline final BUILD_TIME_FILE:String = '.build_time';
 
+  /**
+   * Just a few messages to keep your motivation up!
+   * Don't ever give up on programming, it may be hard, but with dedication, you'll get where you want.
+   * Some of these are silly, LOL.
+   */
+  public static var motivationMsgs:Array<String> = [
+    "Don't worry, the game will probably compile fine.",
+    "You are handsome.",
+    "Time to get funky!",
+    "It looks fine.",
+    "Imagine a FNF Vs. You... I bet it'd be awesome.",
+    "Imagine how happy Boyfriend/Girlfriend must be, knowing that soon they'll see you.",
+    "Don't forget to drink some water!",
+    "Don't forget to drink some milk! ...Milky asked me to put this here by the way, really?",
+    "You're almost there!",
+    "Hopefully, nothing will go wrong, right?",
+    "How's your code going? We'll see...",
+    "Why do we brainstorm with ideas only when we're not working?",
+    "Ah, would ya look at that! If it isn't my favorite coder...",
+    "Your smile is just as bright as the sun, I love seeing it.",
+    "It'll be neat to see your great ideas come to life.",
+    "Don't disturb the fox, please don't... :("
+  ];
+
   static function main():Void
   {
     saveBuildTime();
+
+    final message = motivationMsgs[Std.random(motivationMsgs.length)];
+
     CommandLine.prettyPrint('Building Vs. Freya (on ${Sys.systemName})'); // Check if your Haxe version is outdated.
+
+    CommandLine.prettyPrint(message);
 
     #if !macro
     haxe.Log.trace('You are not in macro mode, ok.', null);

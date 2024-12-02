@@ -16,9 +16,6 @@ import funkin.ui.options.PreferencesMenu;
  * The whole `FlxGraphic` is used as a texture map. See the `NOTE_hold_assets.fla` file for specifics
  * on how it should be constructed.
  *
- * ! TODO: Rework the whole code to not use `drawTriangles()` cuz apparently it doesn't like that function no matter what I do. :/
- * ! Or maybe just go in `FlxCamera` and rewrite that function, IDK.
- *
  * @author MtH
  */
 class SustainTrail extends FlxSprite
@@ -101,7 +98,8 @@ class SustainTrail extends FlxSprite
 
   public var isPixel:Bool;
 
-  // public var noteStyleOffsets:Array<Float>;
+  public var noteStyleOffsets:Array<Float>;
+
   var graphicWidth:Float = 0;
   var graphicHeight:Float = 0;
 
@@ -121,7 +119,7 @@ class SustainTrail extends FlxSprite
     this.noteDirection = noteDirection;
 
     setupHoldNoteGraphic(noteStyle);
-    // noteStyleOffsets = noteStyle.getHoldNoteOffsets();
+    noteStyleOffsets = noteStyle.getHoldNoteOffsets();
 
     indices = new DrawData<Int>(12, true, TRIANGLE_VERTEX_INDICES);
 
@@ -152,7 +150,7 @@ class SustainTrail extends FlxSprite
 
     zoom = 1.0;
     zoom *= noteStyle.fetchHoldNoteScale();
-    zoom *= 0.7;
+    // zoom *= 0.7;
 
     // CALCULATE SIZE
     graphicWidth = graphic.width / 8 * zoom; // amount of notes * 2
@@ -217,7 +215,7 @@ class SustainTrail extends FlxSprite
   {
     width = graphicWidth;
     height = graphicHeight;
-    offset.set(0, 0);
+    offset.set(noteStyleOffsets[0], noteStyleOffsets[1]);
     origin.set(width * 0.5, height * 0.5);
   }
 

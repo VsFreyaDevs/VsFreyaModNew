@@ -484,21 +484,20 @@ class Project extends HXProject {
 		FEATURE_POLYMOD_MODS.apply(this, true);
 		FEATURE_FUNKVIS.apply(this, true);
 		FEATURE_PARTIAL_SOUNDS.apply(this, true);
-		FEATURE_VIDEO_PLAYBACK.apply(this, true);
+		FEATURE_VIDEO_PLAYBACK.apply(this, !isLinux());
 		FEATURE_STAGE_EDITOR.apply(this, true);
 
 		// Should be true on debug builds or if GITHUB_BUILD is enabled.
 		FEATURE_DEBUG_FUNCTIONS.apply(this, isDebug() || GITHUB_BUILD.isEnabled(this));
 
 		// Should default to true on workspace builds and false on release builds.
-		REDIRECT_ASSETS_FOLDER.apply(this, isDebug() && isDesktop());
+		REDIRECT_ASSETS_FOLDER.apply(this, false); // isDebug() && isDesktop());
 
 		// TODO: Look into ways to optimize logging (maybe by using a thread pool?)
 		FEATURE_LOG_TRACE.apply(this, !CONSUMER_BUILD.isEnabled(this)); // isDebug());
 
 		// Should be true on desktop, release, non-tester builds.
 		// We don't want testers to accidentally leak songs to their Discord friends!
-    // TODO: Re-enable this.
 		FEATURE_DISCORD_RPC.apply(this, isDesktop() && !FEATURE_DEBUG_FUNCTIONS.isEnabled(this));
 
 		// Should be true only on web & mobile builds.

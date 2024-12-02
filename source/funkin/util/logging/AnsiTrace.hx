@@ -6,6 +6,8 @@ import sys.thread.Mutex;
 
 class AnsiTrace
 {
+  public static var allTraces:Array<String> = [];
+
   #if (sys && target.threaded && !TREMOVE)
   static final _mutex:Mutex = new Mutex();
   #end
@@ -18,6 +20,7 @@ class AnsiTrace
     return;
     #end
     var str = formatOutput(v, info);
+    allTraces.push(str);
     #if js
     if (js.Syntax.typeof(untyped console) != "undefined" && (untyped console).log != null) (untyped console).log(str);
     #elseif lua

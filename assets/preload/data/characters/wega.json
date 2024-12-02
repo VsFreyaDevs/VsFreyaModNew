@@ -1,0 +1,72 @@
+{
+  "version": "1.0.0",
+  "offsets": [
+		0,
+		0
+	],
+  "name": "WEGA",
+  "danceEvery": 1,
+  "scale": 1,
+  "renderType": "sparrow",
+  "assetPath": "characters/daddyDearest",
+  "singTime": 8.0,
+  "healthIcon": {
+                "scale": 1,
+		"id": "wega"
+	},
+  "animations": [
+    {
+      "name": "idle",
+      "prefix": "idle",
+      "offsets": [0, 0]
+    },
+    {
+      "name": "idle-hold",
+      "prefix": "idle",
+      "looped": true,
+      "frameIndices": [11, 12, 13, 1, 2],
+      "offsets": [0, 0]
+    },
+    {
+      "name": "singLEFT",
+      "prefix": "singLEFT",
+      "offsets": [-5, 10]
+    },
+    {
+      "name": "singLEFT-hold",
+      "prefix": "singLEFT",
+      "looped": true,
+      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "offsets": [-5, 10]
+    },
+    {
+      "name": "singDOWN",
+      "prefix": "singDOWN",
+      "offsets": [1, -31]
+    },
+    {
+      "name": "singUP",
+      "prefix": "singUP",
+      "offsets": [-9, 50]
+    },
+    {
+      "name": "singUP-hold",
+      "prefix": "singUP",
+      "looped": true,
+      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "offsets": [-9, 50]
+    },
+    {
+      "name": "singRIGHT",
+      "prefix": "singRIGHT",
+      "offsets": [-5, 26]
+    },
+    {
+      "name": "singRIGHT-hold",
+      "prefix": "singRIGHT",
+      "looped": true,
+      "frameIndices": [3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
+      "offsets": [-5, 26]
+    }
+  ]
+}

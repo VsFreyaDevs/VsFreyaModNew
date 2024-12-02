@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <TextureAtlas imagePath="BFCheer.png" width="432" height="1346">
   <SubTexture name="Cheer0001" x="0" y="0" width="432" height="460" frameX="-1" frameY="-0" frameWidth="433" frameHeight="461" />
   <SubTexture name="Cheer0005" x="0" y="460" width="431" height="447" frameX="-0" frameY="-14" frameWidth="433" frameHeight="461" />

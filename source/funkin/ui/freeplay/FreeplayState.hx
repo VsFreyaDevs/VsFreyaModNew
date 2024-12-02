@@ -209,6 +209,7 @@ class FreeplayState extends MusicBeatSubState
   var djHitbox:FlxSprite;
   #end
 
+  var ostType:String;
   var ostName:FlxText;
   var albumRoll:AlbumRoll;
 
@@ -265,6 +266,7 @@ class FreeplayState extends MusicBeatSubState
   {
     currentCharacterId = params?.character ?? rememberedCharacterId;
     styleData = FreeplayStyleRegistry.instance.fetchEntry(currentCharacterId);
+    ostType = 'OFFICIAL OST';
     var fetchPlayableCharacter = function():PlayableCharacter {
       var targetCharId = params?.character ?? rememberedCharacterId;
       var result = PlayerRegistry.instance.fetchEntry(targetCharId);
@@ -296,8 +298,13 @@ class FreeplayState extends MusicBeatSubState
       // backingCard = new NewCharacterCard(currentCharacterId);
       case 'bf':
         backingCard = new BoyfriendCard(currentCharacterId);
+        ostType = 'OFFICIAL OST';
       case 'pico':
         backingCard = new PicoCard(currentCharacterId);
+        ostType = 'OFFICIAL OST';
+      // case 'kanimate':
+      // backingCard = new KAnimateCard(currentCharacterId);
+      // ostType = 'KANIMATE MIXES OST';
       default:
         backingCard = PlayerRegistry.instance.getBackingCard(currentCharacterId);
         // backingCard = new BackingCard(currentCharacter);
@@ -318,7 +325,9 @@ class FreeplayState extends MusicBeatSubState
     sparksADD = new FlxSprite(0, 0);
     txtCompletion = new AtlasText(1185, 87, '69', AtlasFont.FREEPLAY_CLEAR);
 
-    ostName = new FlxText(8, 8, FlxG.width - 8 - 8, 'OFFICIAL OST', 48);
+    if (ostType == '') ostType = 'OFFICIAL OST';
+
+    ostName = new FlxText(8, 8, FlxG.width - 8 - 8, ostType, 48);
     charSelectHint = new FlxText(-40, 18, FlxG.width - 8 - 8, 'Press [ LOL ] to change characters', 32);
 
     bgDad = new FlxSprite(backingCard == null ? 0 : backingCard.pinkBack.width * 0.74,
@@ -618,7 +627,12 @@ class FreeplayState extends MusicBeatSubState
       if (grpCapsules.members.length > 0)
       {
         FunkinSound.playOnce(Paths.sound('scrollMenu'), 0.4);
-        curSelected = 1;
+
+        // This makes it so it sends you to the same song in the new list (if it's there).
+        if (grpCapsules.members[curSelected].songData != null) curSelected = grpCapsules.members.indexOf(grpCapsules.members[curSelected]);
+        else
+          curSelected = 1;
+
         changeSelection();
       }
     };

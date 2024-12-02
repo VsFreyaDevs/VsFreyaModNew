@@ -253,6 +253,9 @@ class PolymodHandler
     Polymod.addImportAlias('lime.utils.Assets', funkin.Assets);
     Polymod.addImportAlias('openfl.utils.Assets', funkin.Assets);
 
+    // TODO: IDK, probably implement the automatic character offset flipping...
+    // Polymod.addImportAlias('funkin.play.character.CharacterDataParser', funkin.data.character.CharacterRegistry);
+
     for (key => value in funkin.util.macro.PolymodMacro.aliases)
       Polymod.addImportAlias(key, Type.resolveClass(value));
 

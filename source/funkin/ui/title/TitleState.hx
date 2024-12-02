@@ -25,7 +25,7 @@ import openfl.Assets;
 import openfl.display.Sprite;
 import openfl.events.AsyncErrorEvent;
 import funkin.ui.mainmenu.MainMenuState;
-import funkin.ui.title.OutdatedSubState;
+import funkin.ui.title.FirstTimeState;
 import openfl.events.MouseEvent;
 import openfl.events.NetStatusEvent;
 import funkin.ui.freeplay.FreeplayState;
@@ -189,14 +189,19 @@ class TitleState extends MusicBeatState
   var titleText:FlxSprite;
   var maskShader = new LeftMaskShader();
 
+  var bg:FunkinSprite;
+
   function startIntro():Void
   {
     if (!initialized || FlxG.sound.music == null) playMenuMusic();
 
     persistentUpdate = true;
 
-    var bg:FunkinSprite = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
+    // if (!gfThingy) bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, 0xFFC55500);
+    // else
+    bg = new FunkinSprite(-1).makeSolidColor(FlxG.width + 2, FlxG.height, FlxColor.BLACK);
     bg.screenCenter();
+    bg.visible = false;
     add(bg);
 
     logoBl = new FlxSprite(-150, -100);
@@ -278,18 +283,18 @@ class TitleState extends MusicBeatState
 
     ngSpr = new FlxSprite(0, FlxG.height * 0.52);
 
-    if (FlxG.random.bool(5)) ngSpr.loadGraphic(Paths.image('newgrounds_logo_classic'));
-    else if (FlxG.random.bool(14))
+    if (FlxG.random.bool(8)) ngSpr.loadGraphic(Paths.image('newgrounds_logo_classic'));
+    else if (FlxG.random.bool(45))
+    {
+      ngSpr.loadGraphic(Paths.image('newgrounds_logo_milky'));
+      ngSpr.setGraphicSize(ngSpr.width * 0.55);
+      ngSpr.y += 25;
+    }
+    else if (FlxG.random.bool(18))
     {
       ngSpr.loadGraphic(Paths.image('newgrounds_logo_animated'), true, 600);
       ngSpr.animation.add('idle', [0, 1], 4);
       ngSpr.animation.play('idle');
-      ngSpr.setGraphicSize(ngSpr.width * 0.55);
-      ngSpr.y += 25;
-    }
-    else if (FlxG.random.bool(32))
-    {
-      ngSpr.loadGraphic(Paths.image('newgrounds_logo_milky'));
       ngSpr.setGraphicSize(ngSpr.width * 0.55);
       ngSpr.y += 25;
     }
@@ -426,7 +431,7 @@ class TitleState extends MusicBeatState
       // FlxG.switchState(() -> new MainMenuState());
       try
       {
-        FlxG.switchState(() -> new funkin.ui.title.OutdatedSubState());
+        FlxG.switchState(() -> new funkin.ui.title.FirstTimeState());
       }
       catch (e)
       {
@@ -457,7 +462,7 @@ class TitleState extends MusicBeatState
       transitioning = true;
 
       // var targetState:NextState = () -> new MainMenuState();
-      var targetState:NextState = () -> new funkin.ui.title.OutdatedSubState();
+      var targetState:NextState = () -> new funkin.ui.title.FirstTimeState();
 
       new FlxTimer().start(2, function(tmr:FlxTimer) {
         // These assets are very unlikely to be used for the rest of gameplay, so it unloads them from cache/memory
@@ -617,7 +622,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('WHAT');
               else if (curWacky[0] == "trending") addMoreText('Friday');
-              else if (curWacky[0] == "yo yo yo") addMoreText('PLEASE');
               else if (flispyNow) addMoreText('Flipsy old :heart:');
               else
                 addMoreText('Freya');
@@ -626,7 +630,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('THE');
               else if (curWacky[0] == "trending") addMoreText('Nigth');
-              else if (curWacky[0] == "yo yo yo") addMoreText('DONATE TO');
               else if (flispyNow) addMoreText('Flipsy now :surprised:');
               else
                 addMoreText('Fennec');
@@ -635,7 +638,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('FUCK');
               else if (curWacky[0] == "trending") addMoreText('Funkin');
-              else if (curWacky[0] == "yo yo yo") addMoreText('KENWARD03');
               else if (flispyNow) addMoreText('But im netral maybe like she video');
               else
                 addMoreText('Funkers');
@@ -670,6 +672,8 @@ class TitleState extends MusicBeatState
     if (!skippedIntro)
     {
       remove(ngSpr);
+
+      if (bg != null) bg.color = 0xFFC55500;
 
       FlxG.camera.flash(FlxColor.WHITE, initialized ? 1 : 4);
 
