@@ -160,7 +160,7 @@ class FuckState extends FlxState
               "i love lime",
               "kaboom.",
               "WHY",
-              "fuck yeah im in a crash report"
+              "fuck yeah im in a crash report",
               "get stickbugged lmao",
               "cuh",
               "all done in haxe, can u believe it?",
@@ -176,7 +176,7 @@ class FuckState extends FlxState
               "i hope you go mooseing and get fucked by a campfire", // - @cyborghenrystickmin
               "ya gotta be kidding me bro",
               "beautiful.", // - @breadboyoo
-              "PETAH HOW DARE YOU" // - @animateagain
+              "PETAH HOW DARE YOU", // - @animateagain
               'crash% speedrun lesss goooooo',
               "null object reference is real and haunts us",
               "yep it is indeed a null object reference",
@@ -188,12 +188,12 @@ class FuckState extends FlxState
               "fuck you",
               "eat shit",
               "i wonder why...",
-              "old was better" // - @animateagain
+              "old was better", // - @animateagain
               "i tried, okay, I TRIED!",
               "bro what is this",
               ":sadedd:",
               ":sadtord:",
-              "did i ask for ur opinion?",
+              "did i ask for ur opinion?"
             ];
             funnyQuip = jokes[Std.int(Math.random() * jokes.length - 1)]; // I know, this isn't FlxG.random but fuck you the game just crashed
           }
@@ -390,7 +390,7 @@ class FuckState extends FlxState
       if (FlxG.keys.justPressed.ESCAPE)
       {
         trace('Exit requested!');
-        Sys.exit(1);
+        lime.system.System.exit(1);
         useOpenFL = false;
       }
     }
