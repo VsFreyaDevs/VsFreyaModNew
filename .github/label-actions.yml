@@ -95,7 +95,7 @@
     # Set a close reason
     close-reason: 'not planned'
 
-    'status: resolved':
+'status: resolved':
   issues:
     # Close the issue
     close: true
