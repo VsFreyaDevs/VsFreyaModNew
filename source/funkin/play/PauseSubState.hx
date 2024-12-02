@@ -298,7 +298,15 @@ class PauseSubState extends MusicBeatSubState
 
     var metadataSong:FlxText = new FlxText(20, 15, FlxG.width - 40, 'Song Name');
     metadataSong.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.WHITE, FlxTextAlign.RIGHT);
-    if (PlayState.instance?.currentChart != null) metadataSong.text = '${PlayState.instance.currentChart.songName}';
+    if (PlayState.instance?.currentChart != null)
+    {
+      if (PlayState.instance.currentSong.id == "freyin"
+        || PlayState.instance.currentSong.id == "alightly"
+        || PlayState.instance.currentSong.id == "uzil")
+        metadataSong.text = '${PlayState.instance.currentChart.songName} | ignore the mom sprites they are placeholder!!!!';
+      else
+        metadataSong.text = '${PlayState.instance.currentChart.songName}';
+    }
     metadataSong.scrollFactor.set(0, 0);
     metadata.add(metadataSong);
 

@@ -861,9 +861,8 @@ class PlayState extends MusicBeatSubState
     var uhSongId:String = (currentSong?.id ?? '').toLowerCase();
     switch (uhSongId)
     {
-      case "freyin" | "furrowed" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones" |
-        "samsung" | "topp" | "azure" | "doublyon" | "star-catcher" | "flipperz" | "autumn" | "milk" | "all-stars" | "macromedia" | "cereal-box" |
-        "soft-n-yummy" | "flash" | "twiddlefinger" | "hornstromp":
+      case "freyin" | "alightly" | "uzil" | "lactose" | "crystal" | "intolerant" | "shadows" | "cubical" | "be-square" | "twisted-knife" | "colorful-clones" |
+        "topp" | "chainazure" | "doublyon" | "star-catcher" | "flipperz" | "milk" | "all-stars" | "soft-n-yummy" | "twiddlefinger" | "hornstromp":
         isFreyaSong = true;
     }
 
