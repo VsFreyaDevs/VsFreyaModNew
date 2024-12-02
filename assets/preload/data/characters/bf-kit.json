@@ -10,7 +10,7 @@
   },
   "danceEvery": 2,
   "scale": 0.545,
-  "offsets": [0, -8],
+  "offsets": [0, 0],
   "animations": [
     {
       "name": "idle",
