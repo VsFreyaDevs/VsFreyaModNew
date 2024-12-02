@@ -622,7 +622,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('WHAT');
               else if (curWacky[0] == "trending") addMoreText('Friday');
-              else if (curWacky[0] == "yo yo yo") addMoreText('PLEASE');
               else if (flispyNow) addMoreText('Flipsy old :heart:');
               else
                 addMoreText('Freya');
@@ -631,7 +630,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('THE');
               else if (curWacky[0] == "trending") addMoreText('Nigth');
-              else if (curWacky[0] == "yo yo yo") addMoreText('DONATE TO');
               else if (flispyNow) addMoreText('Flipsy now :surprised:');
               else
                 addMoreText('Fennec');
@@ -640,7 +638,6 @@ class TitleState extends MusicBeatState
               else if (curWacky[0] == "chud") addMoreText('chud');
               else if (curWacky[0] == "peter what are you doing") addMoreText('FUCK');
               else if (curWacky[0] == "trending") addMoreText('Funkin');
-              else if (curWacky[0] == "yo yo yo") addMoreText('KENWARD03');
               else if (flispyNow) addMoreText('But im netral maybe like she video');
               else
                 addMoreText('Funkers');
