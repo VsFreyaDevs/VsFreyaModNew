@@ -2,36 +2,29 @@
   "version": "2.2.4",
   "songName": "Hornstromp",
   "artist": "sibottle",
+  "charter": "charlesisfeline",
   "divisions": 96,
   "looped": false,
   "offsets": {
     "instrumental": 0,
-    "altInstrumentals": {    },
-    "vocals": {    },
-    "altVocals": {    }
+    "altInstrumentals": {},
+    "vocals": {},
+    "altVocals": {}
   },
   "playData": {
-    "songVariations": [    ],
-    "difficulties": [
-      "normal",
-      "easy",
-      "hard"
-    ],
+    "songVariations": [],
+    "difficulties": ["easy", "normal", "hard"],
     "characters": {
       "player": "bf-kit",
       "girlfriend": "gf",
       "opponent": "mika-allstars",
       "instrumental": "",
-      "altInstrumentals": [      ],
-      "opponentVocals": [
-        "player-gametoons"
-      ],
-      "playerVocals": [
-        "bf"
-      ]
+      "altInstrumentals": [],
+      "opponentVocals": ["mika"],
+      "playerVocals": ["bf"]
     },
-    "stage": "mainStage",
-    "noteStyle": "funkin",
+    "stage": "void",
+    "noteStyle": "kit",
     "ratings": {
       "easy": 6,
       "hard": 0,
@@ -49,12 +42,7 @@
       "bpm": 130,
       "n": 4,
       "d": 4,
-      "bt": [
-        4,
-        4,
-        4,
-        4
-      ]
+      "bt": [4, 4, 4, 4]
     }
   ]
 }
