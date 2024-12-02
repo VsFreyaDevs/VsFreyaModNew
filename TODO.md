@@ -25,8 +25,8 @@
     - [x] `intolerant`
     - [ ] `shadows` (still needs a better name)
   - [ ] Cutscenes
-    - [ ] `lactose`
-    - [ ] `intolerant`
+    - [x] `lactose`
+    - [x] `intolerant`
     - [ ] `shadows`
     - [ ] Post-`shadows`
   - [x] Freeplay Icon
