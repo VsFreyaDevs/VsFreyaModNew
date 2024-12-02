@@ -158,7 +158,7 @@ class FuckState extends FlxState
               "i love openfl",
               "i love polymod",
               "i love lime",
-              "kaboom."
+              "kaboom.",
               "WHY",
               "fuck yeah im in a crash report"
               "get stickbugged lmao",
