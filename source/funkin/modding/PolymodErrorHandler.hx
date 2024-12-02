@@ -1,6 +1,7 @@
 package funkin.modding;
 
 import polymod.Polymod;
+import funkin.modding.ErrorSubState;
 
 class PolymodErrorHandler
 {
@@ -14,7 +15,9 @@ class PolymodErrorHandler
    */
   public static function showAlert(name:String, desc:String):Void
   {
-    lime.app.Application.current.window.alert(desc, name);
+    // lime.app.Application.current.window.alert(desc, name);
+    // FlxG.state.openSubState(new ErrorSubState(0,0,name,desc));
+    ErrorSubState.showError(desc, name);
   }
 
   public static function onPolymodError(error:PolymodError):Void
