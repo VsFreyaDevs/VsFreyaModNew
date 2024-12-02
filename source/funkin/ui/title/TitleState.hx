@@ -487,6 +487,11 @@ class TitleState extends MusicBeatState
     super.update(elapsed);
   }
 
+  override function draw()
+  {
+    super.draw();
+  }
+
   var cheatArray:Array<Int> = [0x0001, 0x0010, 0x0001, 0x0010, 0x0100, 0x1000, 0x0100, 0x1000];
   var curCheatPos:Int = 0;
   var cheatActive:Bool = false;

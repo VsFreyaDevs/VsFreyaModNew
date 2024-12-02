@@ -158,6 +158,11 @@ class IntroTextState extends MusicBeatState
     super.update(elapsed);
   }
 
+  override function draw()
+  {
+    super.draw();
+  }
+
   public function createCoolText(textArray:Array<String>)
   {
     if (credGroup == null || textGroup == null) return;
