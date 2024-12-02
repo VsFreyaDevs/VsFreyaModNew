@@ -1,6 +1,50 @@
 # TODO
 
-## ADDITIONS AND WHATEVER
+## VS FREYA
+
+- [ ] Freya
+  - [ ] Sprites
+  - [ ] Songs
+    - [x] `freyin`
+    - [ ] `alightly`
+    - [ ] `uzil`
+  - [x] Dialogue
+    - [x] `freyin`
+    - [x] `uzil`
+    - [ ] Post-`uzil`
+  - [x] Freeplay Icon
+- [ ] Milky
+  - [ ] Sprites
+    - [x] Normal
+    - [x] Annoyed
+    - [x] Pissed
+    - [ ] SHADOWW MILKY!!!!!!!!
+  - [ ] Songs
+    - [x] `lactose`
+    - [x] `crystal`
+    - [x] `intolerant`
+    - [ ] `shadows` (still needs a better name)
+  - [ ] Cutscenes
+    - [ ] `lactose`
+    - [ ] `intolerant`
+    - [ ] `shadows`
+    - [ ] Post-`shadows`
+  - [x] Freeplay Icon
+- [ ] Killer Animate
+  - [ ] Sprites
+    - [x] Normal
+    - [x] Annoyed
+    - [ ] Pissed
+  - [ ] Songs
+    - [x] `cubical`
+    - [ ] `be-square`
+    - [ ] `twisted-knife`
+      - [ ] Finish chart
+  - [x] Freeplay Icon
+
+## KITSUNE ENGINE
+
+### ADDITIONS AND WHATEVER
 
 some stuff i finna add eventually/soon lol!
 
@@ -37,7 +81,7 @@ some stuff i finna add eventually/soon lol!
 - [ ] [Let animated health icons bop like legacy ones do](https://github.com/FunkinCrew/Funkin/issues/3725)
 - [ ] [Change the traffic light in Blazin's BG to be stuck on a red light](https://github.com/FunkinCrew/Funkin/issues/3743)
 
-## FIX KNOWN BUGS
+### FIX KNOWN BUGS
 
 yeah vslice has more bugs than the fucking floor so im accounting whatever issues pop up on the base funkin repo lol
 
