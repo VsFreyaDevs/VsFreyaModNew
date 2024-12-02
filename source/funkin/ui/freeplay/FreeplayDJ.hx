@@ -214,14 +214,14 @@ class FreeplayDJ extends FlxAtlasSprite
 
     if (name == playableCharData.getAnimationPrefix('intro'))
     {
-      // if (PlayerRegistry.instance.hasNewCharacter())
-      // {
-      // currentState = NewUnlock;
-      // }
-      // else
-      // {
-      currentState = Idle;
-      // }
+      if (PlayerRegistry.instance.hasNewCharacter())
+      {
+        currentState = NewUnlock;
+      }
+      else
+      {
+        currentState = Idle;
+      }
       onIntroDone.dispatch();
     }
     else if (name == playableCharData.getAnimationPrefix('idle'))
@@ -368,11 +368,11 @@ class FreeplayDJ extends FlxAtlasSprite
   public function confirm():Void
   {
     // We really don't want to play anything but the new character animation here.
-    // if (PlayerRegistry.instance.hasNewCharacter())
-    // {
-    // currentState = NewUnlock;
-    // return;
-    // }
+    if (PlayerRegistry.instance.hasNewCharacter())
+    {
+      currentState = NewUnlock;
+      return;
+    }
 
     currentState = Confirm;
   }
@@ -397,11 +397,11 @@ class FreeplayDJ extends FlxAtlasSprite
   public function fistPumpIntro():Void
   {
     // We really don't want to play anything but the new character animation here.
-    // if (PlayerRegistry.instance.hasNewCharacter())
-    // {
-    // currentState = NewUnlock;
-    // return;
-    // }
+    if (PlayerRegistry.instance.hasNewCharacter())
+    {
+      currentState = NewUnlock;
+      return;
+    }
 
     currentState = FistPumpIntro;
     var animPrefix = playableCharData.getAnimationPrefix('fistPump');
@@ -411,11 +411,11 @@ class FreeplayDJ extends FlxAtlasSprite
   public function fistPump():Void
   {
     // We really don't want to play anything but the new character animation here.
-    // if (PlayerRegistry.instance.hasNewCharacter())
-    // {
-    // currentState = NewUnlock;
-    // return;
-    // }
+    if (PlayerRegistry.instance.hasNewCharacter())
+    {
+      currentState = NewUnlock;
+      return;
+    }
 
     currentState = FistPump;
     var animPrefix = playableCharData.getAnimationPrefix('fistPump');
@@ -425,11 +425,11 @@ class FreeplayDJ extends FlxAtlasSprite
   public function fistPumpLossIntro():Void
   {
     // We really don't want to play anything but the new character animation here.
-    // if (PlayerRegistry.instance.hasNewCharacter())
-    // {
-    // currentState = NewUnlock;
-    // return;
-    // }
+    if (PlayerRegistry.instance.hasNewCharacter())
+    {
+      currentState = NewUnlock;
+      return;
+    }
 
     currentState = FistPumpIntro;
     var animPrefix = playableCharData.getAnimationPrefix('loss');
@@ -439,11 +439,11 @@ class FreeplayDJ extends FlxAtlasSprite
   public function fistPumpLoss():Void
   {
     // We really don't want to play anything but the new character animation here.
-    // if (PlayerRegistry.instance.hasNewCharacter())
-    // {
-    // currentState = NewUnlock;
-    // return;
-    // }
+    if (PlayerRegistry.instance.hasNewCharacter())
+    {
+      currentState = NewUnlock;
+      return;
+    }
 
     currentState = FistPump;
     var animPrefix = playableCharData.getAnimationPrefix('loss');
