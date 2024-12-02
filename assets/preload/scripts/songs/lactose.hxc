@@ -1,13 +1,173 @@
+import flixel.FlxG;
+import flixel.FlxSprite;
+import flixel.math.FlxBasePoint;
+import flixel.tweens.FlxTween;
+import flixel.tweens.FlxEase;
+import flixel.util.FlxTimer;
+import funkin.Conductor;
+import funkin.graphics.adobeanimate.FlxAtlasSprite;
+import funkin.graphics.FunkinSprite;
+import funkin.modding.base.ScriptedFlxAtlasSprite;
+import funkin.Paths;
+import funkin.data.song.SongRegistry;
+import funkin.play.GameOverSubState;
+import funkin.play.PlayState;
 import funkin.play.song.Song;
+import funkin.play.stage.StageProp;
 import funkin.save.Save;
+import funkin.audio.FunkinSound;
+import funkin.play.cutscene.VideoCutscene;
+import funkin.play.cutscene.CutsceneType;
 
+import funkin.play.PlayStatePlaylist;
+
+/**
+ * the majority of the cutscene code is taken from darnell lol
+ *
+ * also the cutscene music is from darnell (placeholder stuff ig) for now
+*/
 class LactoseSong extends Song {
+	var hasPlayedCutscene:Bool;
+	var cutsceneMusic:FunkinSound;
+	var cutsceneConductor:Conductor;
+  var bgSprite:FunkinSprite;
+
 	public function new() {
 		super('lactose');
+
+		hasPlayedCutscene = false;
+	}
+
+	public override function onCountdownStart(event:CountdownScriptEvent):Void {
+		super.onCountdownStart(event);
+
+		if (!PlayStatePlaylist.isStoryMode)
+      hasPlayedCutscene = true;
+
+		if(hasPlayedCutscene && !hasPlayedCutscene){
+      trace('Pausing countdown to play in game cutscene');
+
+      hasPlayedCutscene = true;
+
+      event.cancel(); // CANCEL THE COUNTDOWN!
+
+			PlayState.instance.tweenCameraZoom(1.3, 0, true);
+
+			// trace('Adding black background behind cutscene over UI');
+			bgSprite = new FunkinSprite(0, 0);
+			bgSprite.makeSolidColor(2000, 2500, 0xFF000000);
+			bgSprite.cameras = [PlayState.instance.camCutscene]; // Show over the HUD but below the video.
+			bgSprite.zIndex = -10000;
+			PlayState.instance.add(bgSprite);
+			PlayState.instance.refresh();
+
+      PlayState.instance.camHUD.visible = false;
+      introCutscene();
+    }
+	}
+
+	function introCutscene(){
+		var milkyPos:Array<Float> = [PlayState.instance.currentStage.getDad().cameraFocusPoint.x, PlayState.instance.currentStage.getDad().cameraFocusPoint.y];
+
+		var cutsceneDelay:Float = 2;
+
+		cutsceneMusic = FunkinSound.load(Paths.music("darnellCanCutscene/darnellCanCutscene", "weekend1"), true);
+		cutsceneMusic.volume = 0.5;
+
+		cutsceneConductor = new Conductor();
+
+		var songMusicData:Null<SongMusicData> = SongRegistry.instance.parseMusicData('darnellCanCutscene');
+		if (songMusicData != null) {
+			cutsceneConductor.mapTimeChanges(songMusicData.timeChanges);
+		}
+
+		cutsceneConductor.onBeatHit.add(onCutsceneBeatHit);
+
+		PlayState.instance.currentStage.getDad().playAnimation('lactoseCut1', true);
+
+		// camera sets up, milky does his animation sleeping ig uhhhh
+		new FlxTimer().start(0.1, (tmr) ->
+		{
+			PlayState.instance.tweenCameraToPosition(milkyPos[0] + 250, milkyPos[1], 0);
+
+			PlayState.instance.tweenCameraZoom(1.3, 0, true, FlxEase.quadInOut);
+		});
+
+		new FlxTimer().start(0.7, (tmr) -> {
+			cutsceneMusic.play(false);
+      FlxTween.tween(bgSprite, { alpha: 0}, 2, {startDelay: 0.3}, ()->{bgSprite.visible = false;});
+		});
+
+		// zoom the camera out to show everything else
+		new FlxTimer().start(cutsceneDelay, (tmr)->{
+			PlayState.instance.tweenCameraZoom(0.66, 2.5, true, FlxEase.quadInOut);
+			PlayState.instance.currentStage.getDad().playAnimation('lactoseCut2', true);
+		});
+
+		// milky's startled, holy fuck
+		new FlxTimer().start(cutsceneDelay + 0.8, (tmr) ->
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('lactoseCut3', true);
+		});
+
+		new FlxTimer().start(cutsceneDelay + 0.5, (tmr) ->
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('lactoseCut4', true);
+		});
+
+		// camera returns to normal, cutscene flags set and countdown starts.
+		new FlxTimer().start(cutsceneDelay + 8, (tmr) ->
+		{
+			PlayState.instance.currentStage.getDad().playAnimation('idle', true); // revert back to idle
+			PlayState.instance.tweenCameraZoom(0.77, 2, true, FlxEase.sineInOut);
+			PlayState.instance.tweenCameraToPosition(milkyPos[0]+180, milkyPos[1], 2, FlxEase.sineInOut);
+			PlayState.instance.isInCutscene = false;
+			PlayState.instance.startCountdown();
+			cutsceneMusic.stop(); // stop the music!!!!!!
+		});
 	}
 
 	public override function isSongNew(currentDifficulty:String):Bool{
 		if (Save.instance.hasBeatenSong(this.id, ['easy', 'normal', 'hard']) == false) return true;
     return false;
+	}
+
+	function onCutsceneBeatHit() {
+		// Play idle for both the speakers & player.
+		if (PlayState.instance.currentStage.getGirlfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getGirlfriend().dance(true);
+		}
+
+		if (PlayState.instance.currentStage.getBoyfriend().isAnimationFinished()) {
+			PlayState.instance.currentStage.getBoyfriend().dance(true);
+		}
+	}
+
+	/**
+   * Don't replay the cutscene between restarts.
+   */
+  function onSongRetry(event:ScriptEvent)
+  {
+    super.onSongRetry(event);
+
+    hasPlayedCutscene = true;
+  }
+
+  /**
+   * Replay the cutscene after leaving the song.
+   */
+  function onCreate(event:ScriptEvent):Void
+  {
+    super.onCreate(event);
+
+    hasPlayedCutscene = false;
+  }
+
+	function onUpdate(event:UpdateScriptEvent) {
+		super.onUpdate(event);
+
+		if (cutsceneConductor != null && cutsceneMusic != null) {
+			cutsceneConductor.update(cutsceneMusic.time);
+		}
 	}
 }

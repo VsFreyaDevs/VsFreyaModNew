@@ -65,6 +65,78 @@
       "flipX": false,
       "looped": false,
       "name": "singRIGHT"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky idle dance",
+      "flipX": false,
+      "looped": false,
+      "name": "idle"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 1",
+      "flipX": false,
+      "looped": true,
+      "name": "lactoseCut1"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 2",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut2"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 3",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut3"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky start cut 4",
+      "flipX": false,
+      "looped": false,
+      "name": "lactoseCut4"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 2",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut1"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 3",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut2"
+    },
+    {
+      "flipY": false,
+      "offsets": [0, -26],
+      "frameRate": 24,
+      "prefix": "milky angy cut 4",
+      "flipX": false,
+      "looped": false,
+      "name": "angyCut3"
     }
   ]
 }
