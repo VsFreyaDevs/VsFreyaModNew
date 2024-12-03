@@ -24,6 +24,12 @@ import StringTools;
 
 using StringTools;
 
+/**
+ * this is the state the game switches to whenever a crash would normally happpen
+ * replaces the old crash handler, we don't need a message box, just show a screen thats all folks
+ *
+ * from super engine / superpowers04's V-Slice/Funkin' fork
+ */
 class FuckState extends FlxState
 {
   public var err:String = "";
@@ -35,6 +41,52 @@ class FuckState extends FlxState
   public static var showingError:Bool = false;
   public static var useOpenFL:Bool = false;
   public static var lastERROR = "";
+
+  var jokes:Array<String> = [
+    "fatal error",
+    "i love haxe",
+    "i love hscript",
+    "i love flixel",
+    "i love openfl",
+    "i love polymod",
+    "i love lime",
+    "kaboom.",
+    "WHY",
+    "fuck yeah im in a crash report",
+    "get stickbugged lmao",
+    "cuh",
+    "all done in haxe, can u believe it?",
+    "JELP",
+    "HELP",
+    "GELP",
+    "PLEH",
+    "GELRP",
+    "l + ratio",
+    "DEATH IS APPROACHING HIDE RIGHT FUCKING NOW", // - @cyborghenrystickmin
+    "epic fail", // - @cyborghenrystickmin
+    "what the actual fuck", // - @cyborghenrystickmin
+    "i hope you go mooseing and get fucked by a campfire", // - @cyborghenrystickmin
+    "ya gotta be kidding me bro",
+    "beautiful.", // - @breadboyoo
+    "PETAH HOW DARE YOU", // - @animateagain
+    'crash% speedrun lesss goooooo',
+    "null object reference is real and haunts us",
+    "yep it is indeed a null object reference",
+    "also known as N.O.R.",
+    "ah shit here we go again",
+    "googoo gaagaa", // - @sylvinekitsune
+    'time to go to stack overflow for a solution',
+    'only real fnf fans get this... wait',
+    "fuck you",
+    "eat shit",
+    "i wonder why...",
+    "old was better", // - @animateagain
+    "i tried, okay, I TRIED!",
+    "bro what is this",
+    ":sadedd:",
+    ":sadtord:",
+    "did i ask for ur opinion?"
+  ];
 
   public static function hook()
   {
@@ -150,51 +202,6 @@ class FuckState extends FlxState
           var _date = Date.now();
           try
           {
-            var jokes = [
-              "fatal error",
-              "i love haxe",
-              "i love hscript",
-              "i love flixel",
-              "i love openfl",
-              "i love polymod",
-              "i love lime",
-              "kaboom.",
-              "WHY",
-              "fuck yeah im in a crash report",
-              "get stickbugged lmao",
-              "cuh",
-              "all done in haxe, can u believe it?",
-              "JELP",
-              "HELP",
-              "GELP",
-              "PLEH",
-              "GELRP",
-              "l + ratio",
-              "DEATH IS APPROACHING HIDE RIGHT FUCKING NOW", // - @cyborghenrystickmin
-              "epic fail", // - @cyborghenrystickmin
-              "what the actual fuck", // - @cyborghenrystickmin
-              "i hope you go mooseing and get fucked by a campfire", // - @cyborghenrystickmin
-              "ya gotta be kidding me bro",
-              "beautiful.", // - @breadboyoo
-              "PETAH HOW DARE YOU", // - @animateagain
-              'crash% speedrun lesss goooooo',
-              "null object reference is real and haunts us",
-              "yep it is indeed a null object reference",
-              "also known as N.O.R.",
-              "ah shit here we go again",
-              "googoo gaagaa", // - @sylvinekitsune
-              'time to go to stack overflow for a solution',
-              'only real fnf fans get this... wait',
-              "fuck you",
-              "eat shit",
-              "i wonder why...",
-              "old was better", // - @animateagain
-              "i tried, okay, I TRIED!",
-              "bro what is this",
-              ":sadedd:",
-              ":sadtord:",
-              "did i ask for ur opinion?"
-            ];
             funnyQuip = jokes[Std.int(Math.random() * jokes.length - 1)]; // I know, this isn't FlxG.random but fuck you the game just crashed
           }
           catch (e) {}
@@ -322,9 +329,12 @@ class FuckState extends FlxState
   {
     super.create();
 
+    FunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), 1.0);
+
     try
     {
       var menuBG = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
+      menuBG.color = 0xFF852E2E;
       menuBG.setGraphicSize(Std.int(menuBG.width * 1.1));
       menuBG.updateHitbox();
       menuBG.screenCenter();
@@ -336,8 +346,11 @@ class FuckState extends FlxState
       // nope.
     }
 
-    var errorText:FlxText = new FlxText(0, FlxG.height * 0.05, 0, (if (FATAL) 'F' else 'Potentially f') + 'atal error caught', 32);
-    errorText.setFormat(Paths.font('vcr.ttf'), 32, FlxColor.RED, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
+    var poopoo:String = "why";
+    poopoo = jokes[Std.int(Math.random() * jokes.length - 1)];
+
+    var errorText:FlxText = new FlxText(0, FlxG.height * 0.05, 0, poopoo, 32);
+    errorText.setFormat(Paths.font('impact.otf'), 32, FlxColor.RED, CENTER, FlxTextBorderStyle.OUTLINE, FlxColor.BLACK);
     errorText.scrollFactor.set();
     errorText.screenCenter(flixel.util.FlxAxes.X);
     add(errorText);
@@ -347,7 +360,7 @@ class FuckState extends FlxState
     if (FlxG.random.bool(14)) trace("fun fact: just press R to restart the game from this screen no close needed lol");
 
     var txt:FlxText = new FlxText(0, 0, FlxG.width, "\n\nError/Stack:\n\n" + err, 8);
-    txt.setFormat(Paths.font('vcr.ttf'), 12, FlxColor.BLACK, CENTER);
+    txt.setFormat(Paths.font('vcr.ttf'), 12, FlxColor.WHITE, CENTER);
     txt.borderColor = FlxColor.BLACK;
     txt.borderSize = 3;
     txt.borderStyle = FlxTextBorderStyle.OUTLINE;
@@ -355,7 +368,9 @@ class FuckState extends FlxState
     add(txt);
 
     var txt2:FlxText = new FlxText(0, 0, FlxG.width,
-      (if (FATAL) "Press ENTER to attempt to return to the main menu or ESCAPE to close the game" else "Press ESCAPE to close the game"), 32);
+      (if (FATAL) "Press ENTER to attempt to return to the main menu or ESCAPE to close the game" else
+        "Press ESCAPE to close the game, nope u are not goin back to main menu nuh uh"),
+      32);
     txt2.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER);
     txt2.borderColor = FlxColor.BLACK;
     txt2.borderSize = 3;
@@ -366,7 +381,7 @@ class FuckState extends FlxState
 
     if (saved)
     {
-      txt.y -= 30;
+      txt2.y -= 30;
       var dateNow:String = Date.now().toString();
       dateNow = StringTools.replace(dateNow, " ", "_");
       dateNow = StringTools.replace(dateNow, ":", ".");
