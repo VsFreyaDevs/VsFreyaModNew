@@ -101,3 +101,5 @@ yeah vslice has more bugs than the fucking floor so im accounting whatever issue
 - [ ] `Save` doesn't detect any data in the save file; leaving with a default save every session (idk how to fix this so i probly need some help for dis...)
 - [ ] [Characters in the Character Select menu don't play their confirm animations if you select mid-transition too fast](https://github.com/FunkinCrew/Funkin/issues/3730)
 - [ ] The character offsets in `blazin` get messed up when dying or restarting, including the death screen
+- [ ] In the Character Select menu, the LOCKED guy stays idle despite that it should be playing the unlock animation along with Pico following suit
+- [ ] The Freeplay menu softlocks whenever getting a rank
