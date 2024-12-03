@@ -588,6 +588,9 @@ class Project extends HXProject {
 			setHaxedef("FLX_RECORD");
 
 		setHaxedef("HXCPP_GC_BIG_BLOCKS");
+		setHaxedef("HXCPP_GC_GENERATIONAL");
+		setHaxedef("HXCPP_PROFILER");
+		setHaxedef("HXCPP_GC_MOVING");
 
 		setHaxedef("queue_experimental_optimization");
   }
