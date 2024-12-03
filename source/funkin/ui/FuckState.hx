@@ -341,27 +341,28 @@ class FuckState extends FlxState
     errorText.scrollFactor.set();
     errorText.screenCenter(flixel.util.FlxAxes.X);
     add(errorText);
+
     trace("-------------------------\nERROR:\n\n" + err + "\n\n-------------------------");
 
-    var txt:FlxText = new FlxText(0, 0, FlxG.width, "\n\nError/Stack:\n\n" + err, 8);
+    if (FlxG.random.bool(14)) trace("fun fact: just press R to restart the game from this screen no close needed lol");
 
+    var txt:FlxText = new FlxText(0, 0, FlxG.width, "\n\nError/Stack:\n\n" + err, 8);
+    txt.setFormat(Paths.font('vcr.ttf'), 12, FlxColor.BLACK, CENTER);
     txt.borderColor = FlxColor.BLACK;
-    txt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.fromRGB(200, 200, 200), CENTER);
     txt.borderSize = 3;
     txt.borderStyle = FlxTextBorderStyle.OUTLINE;
     txt.screenCenter();
     add(txt);
 
-    var txt:FlxText = new FlxText(0, 0, FlxG.width,
-      (if (FATAL) "P" else "Press ENTER to attempt to return to the main menu or") + "ress ESCAPE to close the game", 32);
-
-    txt.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.fromRGB(200, 200, 200), CENTER);
-    txt.borderColor = FlxColor.BLACK;
-    txt.borderSize = 3;
-    txt.borderStyle = FlxTextBorderStyle.OUTLINE;
-    txt.screenCenter(X);
-    txt.y = 680;
-    add(txt);
+    var txt2:FlxText = new FlxText(0, 0, FlxG.width,
+      (if (FATAL) "Press ENTER to attempt to return to the main menu or ESCAPE to close the game" else "Press ESCAPE to close the game"), 32);
+    txt2.setFormat(Paths.font('vcr.ttf'), 16, FlxColor.WHITE, CENTER);
+    txt2.borderColor = FlxColor.BLACK;
+    txt2.borderSize = 3;
+    txt2.borderStyle = FlxTextBorderStyle.OUTLINE;
+    txt2.screenCenter(X);
+    txt2.y = 680;
+    add(txt2);
 
     if (saved)
     {
@@ -369,7 +370,7 @@ class FuckState extends FlxState
       var dateNow:String = Date.now().toString();
       dateNow = StringTools.replace(dateNow, " ", "_");
       dateNow = StringTools.replace(dateNow, ":", ".");
-      txt.text = 'Crash log saved to "logs/VsFreyaCRASH-${dateNow}.log".\n ' + txt.text.substring(41);
+      txt2.text = 'Crash log saved to "logs/VsFreyaCRASH-${dateNow}.log".\n ' + txt2.text.substring(41);
     }
 
     useOpenFL = true;
@@ -392,6 +393,13 @@ class FuckState extends FlxState
         trace('Exit requested!');
         lime.system.System.exit(1);
         useOpenFL = false;
+      }
+      if (FlxG.keys.justPressed.R)
+      {
+        trace('finna reset like a god');
+        forced = false;
+        FlxG.resetGame();
+        return;
       }
     }
     catch (e) {}
