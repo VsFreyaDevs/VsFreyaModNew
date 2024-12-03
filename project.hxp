@@ -699,6 +699,10 @@ class Project extends HXProject {
 
 		addHaxelib('moonchart'); // Funny chart support
 
+		addHaxelib('tentools'); // idk
+		addHaxelib('systools'); // idk
+		addNdll('systools', 'systools'); // i had to add this function just for systools lol
+
 		if (isDebug()) {
 			addHaxelib('hxcpp-debug-server'); // VSCode debug support
 		}
@@ -869,6 +873,17 @@ class Project extends HXProject {
 	public function addHaxelib(name:String, version:String = ""):Void {
 		this.haxelibs.push(new Haxelib(name, version));
 	}
+
+	/**
+	 * Add a NDLL to the project.
+	 * NEEDED FOR SYSTOOLS!!!!
+	 * @param name The name of the NDLL to add.
+	 * @param version The name for the library that the NDLL uses.
+	 */
+	public function addNdll(name:String, haxelib:Null<hxp.Haxelib> = null):Void {
+		this.ndlls.push(new NDLL(name, haxelib));
+	}
+
 
 	/**
 	 * Add a `haxeflag` to the project.

@@ -450,9 +450,9 @@ class TitleState extends MusicBeatState
     {
       if (FlxG.sound.music != null) FlxG.sound.music.onComplete = null;
       // netStream.play(Paths.file('music/kickstarterTrailer.mp4'));
-      NGio.unlockMedal(60960);
+      GameJoltAPI.getTrophy(249319);
       // If it's Friday according to da clock
-      if (Date.now().getDay() == 5) NGio.unlockMedal(61034);
+      if (Date.now().getDay() == 5) GameJoltAPI.getTrophy(249307);
       if (Preferences.flashingLights)
       {
         titleText.animation.play('press');

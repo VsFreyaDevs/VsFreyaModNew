@@ -201,6 +201,20 @@
       "url": "https://github.com/MaybeMaru/moonchart"
     },
     {
+      "name": "tentools",
+      "type": "git",
+      "dir": null,
+      "ref": "6a8077182dfb949ed64e11075cda641687231379",
+      "url": "https://github.com/TentaRJ/tentools"
+    },
+    {
+      "name": "systools",
+      "type": "git",
+      "dir": null,
+      "ref": "2055163b700afeaf8f566c32442148cdbc429e44",
+      "url": "https://github.com/haya3218/retools"
+    },
+    {
       "name": "openfl",
       "type": "git",
       "dir": null,

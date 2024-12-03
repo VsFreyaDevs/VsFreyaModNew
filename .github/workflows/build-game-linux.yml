@@ -27,6 +27,7 @@ jobs:
           haxelib install hmm --quiet
           haxelib run hmm install --quiet
           haxelib run lime rebuild hxcpp
+          haxelib run lime rebuild systools linux
 
       - name: Compile
         run: haxelib run lime build linux

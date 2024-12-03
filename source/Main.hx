@@ -4,6 +4,9 @@ import flixel.FlxG;
 import flixel.FlxGame;
 import flixel.FlxState;
 import flixel.tweens.FlxTween;
+#if systools
+import funkin.api.gamejolt.GameJolt;
+#end
 import funkin.Preferences;
 #if desktop
 import funkin.audio.ALSoftConfig; // Just to make sure DCE doesn't remove this, since it's not directly referenced anywhere else.
@@ -59,6 +62,10 @@ class Main extends Sprite
   public static var lightMode:Bool = Sys.args().contains("-lightui");
   #else
   public static var lightMode:Bool = false;
+  #end
+
+  #if systools
+  public static var gjToastManager:GJToastManager;
   #end
 
   // You can pretty much ignore everything from here on - your code should go in your states.
@@ -175,6 +182,10 @@ class Main extends Sprite
     game._customSoundTray = funkin.ui.options.FunkinSoundTray;
 
     addChild(game);
+    #if systools
+    gjToastManager = new GJToastManager();
+    addChild(gjToastManager);
+    #end
 
     #if FEATURE_DEBUG_FUNCTIONS
     game.debugger.interaction.addTool(new funkin.util.TrackerToolButtonUtil());
@@ -187,7 +198,6 @@ class Main extends Sprite
       addChild(fpsCounter);
       #end
      */
-
     #if hxcpp_debug_server
     trace('hxcpp_debug_server is enabled! You can now connect to the game with a debugger.');
     #else

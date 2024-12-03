@@ -3422,7 +3422,9 @@ class PlayState extends MusicBeatSubState
       {
         if (currentSong.validScore)
         {
-          NGio.unlockMedal(60961);
+          if (PlayStatePlaylist.campaignId == "xweek1") GameJoltAPI.getTrophy(249308);
+          else if (PlayStatePlaylist.campaignId == "xweek2") GameJoltAPI.getTrophy(249304);
+          else if (PlayStatePlaylist.campaignId == "xweek3") GameJoltAPI.getTrophy(249305);
 
           var data =
             {
