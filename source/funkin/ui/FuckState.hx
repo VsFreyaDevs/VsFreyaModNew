@@ -42,7 +42,7 @@ class FuckState extends FlxState
   public static var useOpenFL:Bool = false;
   public static var lastERROR = "";
 
-  var jokes:Array<String> = [
+  public static var jokes:Array<String> = [
     "fatal error",
     "i love haxe",
     "i love hscript",
@@ -329,7 +329,7 @@ class FuckState extends FlxState
   {
     super.create();
 
-    FunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), 1.0);
+    funkin.audio.FunkinSoundFunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), 1.0);
 
     try
     {
