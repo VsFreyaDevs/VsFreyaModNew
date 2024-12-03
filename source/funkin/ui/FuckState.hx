@@ -13,6 +13,7 @@ import lime.app.Application;
 import lime.app.Application as LimeApp;
 import haxe.CallStack;
 import funkin.util.logging.CrashHandler;
+import funkin.audio.FunkinSound;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
 import openfl.Lib;
@@ -329,7 +330,7 @@ class FuckState extends FlxState
   {
     super.create();
 
-    funkin.audio.FunkinSoundFunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), 1.0);
+    FunkinSound.playOnce(Paths.soundRandom('badnoise', 1, 3), 1.0);
 
     try
     {
